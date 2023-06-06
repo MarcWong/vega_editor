@@ -139,7 +139,11 @@ class ExportModal extends React.PureComponent<Props, State> {
   <div id="vis"/>
   <script>
     const spec = ${stringify(content)};
-    vegaEmbed("#vis", spec, {mode: "${mode}"}).then(console.log).catch(console.warn);
+    vegaEmbed('#vis', spec, {}).then(result => {
+      result.view.addEventListener('click', function(event, item) {
+         console.log('CLICK', event, item);
+      });
+  }).catch(console.warn);
   </script>
 </body>
 </html>`;

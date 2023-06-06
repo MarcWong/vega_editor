@@ -27,6 +27,29 @@ class Editor extends React.PureComponent<Props> {
     this.onSelectNewVegaLite = this.onSelectNewVegaLite.bind(this);
   }
 
+  public saveProject() {
+    const spec = this.props.editorString;
+    const blob = new Blob([spec], {type: "application/json;charset=utf-8"});
+    const filename = "project.json";
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = filename;
+    a.click();
+  }
+  
+  // todo, define the project folder so that other open project information also needs to be saved
+  public async openProject() {
+    const fileInput = document.createElement("input");
+    fileInput.type = "file";
+    fileInput.accept = "application/json";
+    fileInput.addEventListener("change", async () => {
+      const file = fileInput.files[0];
+      const content = await file.text();
+      this.updateSpec(content);
+    });
+    fileInput.click();
+  }
+
   public handleKeydown(e) {
     if (this.props.manualParse) {
       if ((e.keyCode === KEYCODES.B || e.keyCode === KEYCODES.S) && (e.ctrlKey || e.metaKey)) {
@@ -145,6 +168,24 @@ class Editor extends React.PureComponent<Props> {
       label: 'Extract Config From Spec',
       run: this.handleExtractConfig.bind(this),
     });
+
+    editor.addAction({
+      contextMenuGroupId: 'vega',
+      contextMenuOrder: 5,
+      id: 'SAVE_PROJECT',
+      label: 'Save Project',
+      run: this.saveProject.bind(this),
+    });
+    
+    editor.addAction({
+      contextMenuGroupId: 'vega',
+      contextMenuOrder: 6,
+      id: 'OPEN_PROJECT',
+      label: 'Open Project',
+      run: this.openProject.bind(this),
+    });
+
+    
 
     editor.getModel().getOptions();
 
