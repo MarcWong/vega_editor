@@ -14,31 +14,31 @@
             "data": {
                 "values": [
                     {
-                        "2005": 52.4,
-                        "2013": 55.5,
-                        "2015": 56.9,
-                        "2017": 56.8,
-                        "2019": 55.2,
-                        "Entity": "Poland"
+                        "2015": 33,
+                        "2016": 42,
+                        "2017": 47,
+                        "Entity": "Smartphone"
                     },
                     {
-                        "2005": 62.0,
-                        "2013": 63.8,
-                        "2015": 65.0,
-                        "2017": 66.2,
-                        "2019": 67.4,
-                        "Entity": "EU-28"
+                        "2015": 54,
+                        "2016": 45,
+                        "2017": 41,
+                        "Entity": "Desktop"
+                    },
+                    {
+                        "2015": 13,
+                        "2016": 13,
+                        "2017": 12,
+                        "Entity": "Tablet"
                     }
                 ]
             },
             "transform": [
                 {
                     "fold": [
-                        "2005",
-                        "2013",
                         "2015",
-                        "2017",
-                        "2019"
+                        "2016",
+                        "2017"
                     ],
                     "as": [
                         "Year",
@@ -57,10 +57,7 @@
                 "encoding": {
                     "y": {
                         "field": "value",
-                        "type": "quantitative",
-                        "axis": {
-                            "title": "Index score (1 = full unequality, 100 = full equality)"
-                        }
+                        "type": "quantitative"
                     },
                     "x": {
                         "field": "Entity",

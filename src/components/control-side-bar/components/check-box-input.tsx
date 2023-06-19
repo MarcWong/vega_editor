@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Checkbox, FormControlLabel } from '@mui/material';
 
 interface CheckboxInputProps {
     label: string;
@@ -15,16 +16,16 @@ const CheckboxInput: React.FC<CheckboxInputProps> = ({ label, initialChecked, on
     };
 
     return (
-        <div>
-            <label htmlFor={label}>{label}:</label>
-            <input
-                type="checkbox"
-                id={label}
-                name={label}
-                checked={checked}
-                onChange={handleCheckChange}
-            />
-        </div>
+        <FormControlLabel
+            control={
+                <Checkbox
+                    checked={checked}
+                    onChange={handleCheckChange}
+                    color="primary"
+                />
+            }
+            label={label}
+        />
     );
 };
 

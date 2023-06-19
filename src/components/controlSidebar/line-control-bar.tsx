@@ -24,14 +24,12 @@ const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,edit
   const [clickedLine, setClickedLine] = useState(null);
 
   const handleLineColorChange = (color: string, lineId: string) => {
-    console.log("handleLineColorChange", color, lineId)
     if (lineId === "A") setLineAColor(color);
     if (lineId === "B") setLineBColor(color);
 
   
     if (isEditorReady) {
       const spec = JSON.parse(editorRef.getValue());
-        console.log("spec", spec)
       if (Array.isArray(spec.vconcat)) {
         spec.vconcat.forEach((chart: any) => {
           if (Array.isArray(chart.layer)) {
@@ -58,7 +56,6 @@ const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,edit
 
   
       if (isEditorReady) {
-        console.log('---->>----------')
         editorRef.setValue(JSON.stringify(spec, null, 2));
       }
     }
@@ -122,27 +119,6 @@ const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,edit
   };
 
   const handleLineClick = (line) => { setClickedLine(line); };
-
-  // const addClickListenerToChart = () => {
-  //   if (!editorRef) return;
-  //   console.log('editorRef',editorRef)
-  //   const vegaView = editorRef.getView(); // get Vega view
-
-  //   console.log('vegaView',vegaView)
-  //   if (!vegaView) return;
-  
-  //   vegaView.addEventListener('click', (event, item) => {
-  //     console.log('event','click-------------------------')
-  //     if (item && item.datum && item.datum.Line) {
-  //       // If a line was clicked, `item.datum.Line` will contain the line id
-  //       setClickedLine(item.datum.Line);
-  //     } else {
-  //       // If the click was not on a line, reset clickedLine
-  //       setClickedLine(null);
-  //     }
-  //   });
-  // };
-  
   
   useEffect(() => {
     // Check if the editorRef is ready.

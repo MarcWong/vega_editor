@@ -2,11 +2,14 @@ import React, { useState, useEffect } from 'react';
 
 interface OrderSelectProps {
     entities: string[];
-    onOrderChange: (newOrder: string[]) => void;
+    updateEditorValue: (path: string, value: any) => void;
+    getEditorValue: (path: string) => any;
+    keyValues:any;
 }
 
-const OrderSelect: React.FC<OrderSelectProps> = ({ entities, onOrderChange }) => {
-    console.log('entities', entities)
+const OrderSelect: React.FC<OrderSelectProps> = ({ entities,updateEditorValue,getEditorValue,keyValues}) => {
+    if(!keyValues) return(<div></div>);
+    const {sort,field}=keyValues;
     const [order, setOrder] = useState(entities);
     const [selectedPositions, setSelectedPositions] = useState(entities.map((_, i) => i));
 
@@ -21,7 +24,12 @@ const OrderSelect: React.FC<OrderSelectProps> = ({ entities, onOrderChange }) =>
         newOrder.splice(oldPosition, 1); // Remove entity from its old position
         newOrder.splice(newPosition, 0, entity); // Insert entity at its new position
         setOrder(newOrder);
-        onOrderChange(newOrder);
+        if(getEditorValue(sort+".x.field")===field){
+            updateEditorValue(sort+".x.sort",newOrder);
+        }
+        else if(getEditorValue(sort+".y.field")===field){
+            updateEditorValue(sort+".y.sort",newOrder);
+        }
     };
 
     const handleSelectChange = (entity: string, newPosition: number) => {

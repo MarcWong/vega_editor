@@ -11,38 +11,38 @@
       "height": 200,
       "title": {
         "text": "Consensus that China plays a bigger role in the world today",
-        "subtitle": "% who say plays a more important role in the world than it did 1o years ago",
+        "subtitle": "% who say plays a more important role in the world than it did 10 years ago",
         "anchor": "start"
       },
       "data": {
         "values": [
           {
             "Entity": "UK",
-            "Importance": 21.0
+            "Importance": 21
           },
           {
             "Entity": "France",
-            "Importance": 22.0
+            "Importance": 22
           },
           {
             "Entity": "India",
-            "Importance": 27.0
+            "Importance": 27
           },
           {
             "Entity": "U.S.",
-            "Importance": 31.0
+            "Importance": 31
           },
           {
             "Entity": "Germany",
-            "Importance": 35.0
+            "Importance": 35
           },
           {
             "Entity": "Russia",
-            "Importance": 42.0
+            "Importance": 42
           },
           {
             "Entity": "China",
-            "Importance": 70.0
+            "Importance": 70
           }
         ]
       },
@@ -51,58 +51,31 @@
           "field": "Entity",
           "type": "ordinal",
           "axis": {
-            "orient": "left",
-            "offset": -9,
-            "position": 0,
-            "domain": true,
-            "labels": true,
-            "labelAlign": "center",
-            "labelAngle": 20,
-            "labelBaseline": "alphabetic",
-            "labelBound": false,
-            "labelColor": "aliceblue",
-            "labelFlush": true,
-            "labelFlushOffset": 12,
-            "title": "good",
-            "titleAlign": "center",
-            "titleAnchor": "start",
-            "titleAngle": -90,
-            "titleBaseline": "middle",
-            "titleColor": "aliceblue",
-            "grid": true,
-            "gridCap": "butt",
-            "gridColor": "#6d2c2c",
-            "gridOpacity": 0,
-            "gridWidth": 0
-          }
+            "grid": false,
+            "tickCount": 2
+          },
+          "sort": [
+            "France",
+            "India",
+            "U.S.",
+            "UK",
+            "Germany",
+            "Russia",
+            "China"
+          ]
         },
         "x": {
           "field": "Importance",
           "type": "quantitative",
           "axis": {
-            "orient": "bottom",
-            "offset": 14,
-            "position": 0,
-            "domain": true,
-            "labels": true,
-            "labelAlign": "center",
-            "labelAngle": 20,
-            "labelBaseline": "alphabetic",
-            "labelBound": false,
-            "labelColor": "#610a0a",
-            "labelFlush": true,
-            "labelFlushOffset": 12,
-            "title": "good",
-            "titleAlign": "center",
-            "titleAnchor": "start",
-            "titleAngle": 20,
-            "titleBaseline": "middle",
-            "titleColor": "aliceblue",
-            "grid": true,
-            "gridCap": "butt",
-            "gridColor": "aqua",
-            "gridOpacity": 0,
-            "gridWidth": 0
+            "grid": false,
+            "tickCount": 6
+          },
+          "scale": {
+            "domain": [
+              0,
+              100
+            ]
           }
         },
         "opacity": {
@@ -112,18 +85,30 @@
       "layer": [
         {
           "mark": {
-            "type": "bar",
-            "cornerRadius": 10,
-            "width": {
-              "band": 1
+            "type": "bar"
+          },
+          "encoding": {
+            "color": {
+              "condition": {
+                "test": "datum.Entity === 'U.S.'",
+                "value": "#3d7474"
+              },
+              "value": "#67a27a"
             },
-            "height": {
-              "band": 0.9
+            "opacity": {
+              "condition": {
+                "test": "datum.Entity === 'U.S.'",
+                "value": 1
+              },
+              "value": 1
             },
-            "orient": "horizontal",
-            "align": "left",
-            "baseline": "top",
-            "binSpacing": "0"
+            "size": {
+              "condition": {
+                "test": "datum.Entity === 'U.S.'",
+                "value": 20
+              },
+              "value": 10
+            }
           }
         },
         {
@@ -147,34 +132,12 @@
               "field": "Importance",
               "type": "quantitative"
             },
+            "color": {
+              "value": "#af9292"
+            },
             "x": {
               "field": "Importance",
               "type": "quantitative"
-            },
-            "color": {
-              "value": "white"
-            }
-          }
-        },
-        {
-          "data": {
-            "values": [
-              {
-                "dummy": 0
-              }
-            ]
-          },
-          "mark": {
-            "type": "rule",
-            "strokeDash": [
-              2,
-              2
-            ],
-            "size": 2
-          },
-          "encoding": {
-            "x": {
-              "datum": 10
             }
           }
         }
@@ -202,5 +165,6 @@
         }
       }
     }
-  ]
+  ],
+  "name": "4488"
 }
