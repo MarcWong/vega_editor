@@ -431,6 +431,11 @@ const json0882 = {
   "aspectRatio": {
     "height": "height",
     "width": "width",
+    "initial": 1,
+    "min": 0.5,
+    "max": 2,
+    "step": 0.1,
+    "initialWidth": 400,
   },
   "Text": {
     "textColor": "layer.1.encoding.color.value",
@@ -458,6 +463,29 @@ const json0882 = {
       "layer.0.encoding.x.axis.grid",
       "layer.0.encoding.y.axis.grid",
     ],
+    initial: {
+      "AxisTickCount": {
+        x: {
+          "init": 5,
+          "min": 1,
+          "max": 20,
+          "step": 1,
+        },
+      },
+      "AxisScaleDomain": {
+        "x": {
+          "minimal": 0,
+          "maximal": 20,
+          "min": 0,
+          "max": 10,
+          "step": 0.1,
+        },
+      },
+      "AxisGrid": {
+        "x": false,
+        "y": false,
+      },
+    },
   },
   "Condition": {
     "chooseColorChange": [
@@ -477,6 +505,19 @@ const json0882 = {
       "layer.0.encoding.size.condition.test",
       "layer.0.encoding.opacity.condition.test",
     ],
+    "initial": {
+      "chooseColorChange": {
+        "conditionColor": "#000000",
+        "color": "#000000",
+      },
+      "chooseSizeChange": {
+        "conditionSize": 30,
+        "size": 40,
+        "maxSize": 100,
+        "minSize": 0,
+        "stepSize": 1,
+      },
+    },
   },
   "Order": {
     "field": "Country",
@@ -509,6 +550,11 @@ const json3972 = {
   "aspectRatio": {
     "height": "height",
     "width": "width",
+    "initial": 1,
+    "min": 0.5,
+    "max": 2,
+    "step": 0.1,
+    "initialWidth": 400,
   },
   "Text": {
     "textColor": "layer.1.encoding.color.value",
@@ -536,6 +582,29 @@ const json3972 = {
       "layer.0.encoding.x.axis.grid",
       "layer.0.encoding.y.axis.grid",
     ],
+    initial: {
+      "AxisTickCount": {
+        x: {
+          "init": 5,
+          "min": 1,
+          "max": 20,
+          "step": 1,
+        },
+      },
+      "AxisScaleDomain": {
+        "x": {
+          "minimal": 0,
+          "maximal": 150,
+          "min": 0,
+          "max": 100,
+          "step": 5,
+        },
+      },
+      "AxisGrid": {
+        "x": false,
+        "y": false,
+      },
+    },
   },
   "Condition": {
     "chooseColorChange": [
@@ -555,6 +624,19 @@ const json3972 = {
       "layer.0.encoding.size.condition.test",
       "layer.0.encoding.opacity.condition.test",
     ],
+    "initial": {
+      "chooseColorChange": {
+        "conditionColor": "#000000",
+        "color": "#000000",
+      },
+      "chooseSizeChange": {
+        "conditionSize": 30,
+        "size": 40,
+        "maxSize": 100,
+        "minSize": 0,
+        "stepSize": 1,
+      },
+    },
   },
   "Order": {
     "field": "Country",
@@ -588,12 +670,262 @@ const json3972 = {
   ],
 };
 
+const json5007 = {
+  "typeName": "Entity",
+  "aspectRatio": {
+    "height": "height",
+    "width": "width",
+    "initial": 1,
+    "min": 0.5,
+    "max": 2,
+    "step": 0.1,
+    "initialWidth": 400,
+  },
+  "Text": {
+    "textColor": "layer.1.encoding.color.value",
+    "textAngle": "layer.1.mark.angle",
+    "textDx": "layer.1.mark.dx",
+    "textDy": "layer.1.mark.dy",
+    "textFontSize": "layer.1.mark.fontSize",
+    "textFontStyle": "layer.1.mark.fontStyle",
+    "textFontWeight": "layer.1.mark.fontWeight",
+  },
+  "Axis": {
+    "AxisColor": [
+      "layer.0.encoding.x.axis.color",
+      "layer.0.encoding.y.axis.color",
+    ],
+    "AxisTickCount": [
+      "layer.0.encoding.x.axis.tickCount",
+      "layer.0.encoding.y.axis.tickCount",
+    ],
+    "AxisScaleDomain": [
+      "layer.0.encoding.x.scale.domain",
+      "layer.0.encoding.y.scale.domain",
+    ],
+    "AxisGrid": [
+      "layer.0.encoding.x.axis.grid",
+      "layer.0.encoding.y.axis.grid",
+    ],
+    initial: {
+      "AxisTickCount": {
+        x: {
+          "init": 5,
+          "min": 1,
+          "max": 20,
+          "step": 1,
+        },
+      },
+      "AxisScaleDomain": {
+        "x": {
+          "minimal": 0,
+          "maximal": 70,
+          "min": 0,
+          "max": 70,
+          "step": 5,
+        },
+      },
+      "AxisGrid": {
+        "x": false,
+        "y": false,
+      },
+    },
+  },
+  "Condition": {
+    "chooseColorChange": [
+      "layer.0.encoding.color.condition.value",
+      "layer.0.encoding.color.value",
+    ],
+    "chooseSizeChange": [
+      "layer.0.encoding.size.condition.value",
+      "layer.0.encoding.size.value",
+    ],
+    "chooseOpacityChange": [
+      "layer.0.encoding.opacity.condition.value",
+      "layer.0.encoding.opacity.value",
+    ],
+    "conditions": [
+      "layer.0.encoding.color.condition.test",
+      "layer.0.encoding.size.condition.test",
+      "layer.0.encoding.opacity.condition.test",
+    ],
+    "initial": {
+      "chooseColorChange": {
+        "conditionColor": "#589898",
+        "color": "#4682b4",
+      },
+      "chooseSizeChange": {
+        "conditionSize": 30,
+        "size": 40,
+        "maxSize": 100,
+        "minSize": 0,
+        "stepSize": 1,
+      },
+    },
+  },
+  "Order": {
+    "field": "Age",
+    "sort": "layer.0.encoding.y.sort",
+  },
+  "Default": {
+    "width": 200,
+  },
+  "orderTypes": [
+    "15-49 years old",
+    "Age-standardized",
+    "All ages",
+    "5-14 years old",
+    "70+ years old",
+    "50-69 years old",
+  ],
+  "selectTypes": [
+    {
+      "name": "Age",
+      "value": [
+        "15-49 years old",
+        "Age-standardized",
+        "All ages",
+        "5-14 years old",
+        "70+ years old",
+        "50-69 years old",
+      ],
+    },
+  ],
+};
+
+const json9613 = {
+  "typeName": "Entity",
+  "aspectRatio": {
+    "height": "height",
+    "width": "width",
+    "initial": 1,
+    "min": 0.5,
+    "max": 2,
+    "step": 0.1,
+    "initialWidth": 400,
+  },
+  "Text": {
+    "textColor": "layer.1.encoding.color.value",
+    "textAngle": "layer.1.mark.angle",
+    "textDx": "layer.1.mark.dx",
+    "textDy": "layer.1.mark.dy",
+    "textFontSize": "layer.1.mark.fontSize",
+    "textFontStyle": "layer.1.mark.fontStyle",
+    "textFontWeight": "layer.1.mark.fontWeight",
+  },
+  "Axis": {
+    "AxisColor": [
+      "layer.0.encoding.x.axis.color",
+      "layer.0.encoding.y.axis.color",
+    ],
+    "AxisTickCount": [
+      "layer.0.encoding.x.axis.tickCount",
+      "layer.0.encoding.y.axis.tickCount",
+    ],
+    "AxisScaleDomain": [
+      "layer.0.encoding.x.scale.domain",
+      "layer.0.encoding.y.scale.domain",
+    ],
+    "AxisGrid": [
+      "layer.0.encoding.x.axis.grid",
+      "layer.0.encoding.y.axis.grid",
+    ],
+    initial: {
+      "AxisTickCount": {
+        x: {
+          "init": 5,
+          "min": 1,
+          "max": 20,
+          "step": 1,
+        },
+      },
+      "AxisScaleDomain": {
+        "x": {
+          "minimal": 0,
+          "maximal": 300,
+          "min": 0,
+          "max": 200,
+          "step": 5,
+        },
+      },
+      "AxisGrid": {
+        "x": false,
+        "y": false,
+      },
+    },
+  },
+  "Condition": {
+    "chooseColorChange": [
+      "layer.0.encoding.color.condition.value",
+      "layer.0.encoding.color.value",
+    ],
+    "chooseSizeChange": [
+      "layer.0.encoding.size.condition.value",
+      "layer.0.encoding.size.value",
+    ],
+    "chooseOpacityChange": [
+      "layer.0.encoding.opacity.condition.value",
+      "layer.0.encoding.opacity.value",
+    ],
+    "conditions": [
+      "layer.0.encoding.color.condition.test",
+      "layer.0.encoding.size.condition.test",
+      "layer.0.encoding.opacity.condition.test",
+    ],
+    "initial": {
+      "chooseColorChange": {
+        "conditionColor": "#000000",
+        "color": "#000000",
+      },
+      "chooseSizeChange": {
+        "conditionSize": 30,
+        "size": 40,
+        "maxSize": 100,
+        "minSize": 0,
+        "stepSize": 1,
+      },
+    },
+  },
+  "Order": {
+    "field": "Market",
+    "sort": "layer.0.encoding.y.sort.field",
+  },
+  "Default": {
+    "width": 400,
+  },
+  "orderTypes": [
+    "Japan coking coal import cif price",
+    "Japan steam coal import cif price",
+    "China Qinhuangdao spot price",
+    "Japan steam spot cif price",
+    "Asian marker price",
+    "Northwest Europe marker price",
+    "US Central Appalachian coal spot price index",
+  ],
+  "selectTypes": [
+    {
+      "name": "Market",
+      "value": [
+        "Japan coking coal import cif price",
+        "Japan steam coal import cif price",
+        "China Qinhuangdao spot price",
+        "Japan steam spot cif price",
+        "Asian marker price",
+        "Northwest Europe marker price",
+        "US Central Appalachian coal spot price index",
+      ],
+    },
+  ],
+};
+
 const json_values = {
   "json1261": json1261,
   "json4488": json4488,
   "json9715": json9715,
   "json0882": json0882,
   "json3972": json3972,
+  "json5007": json5007,
+  "json9613": json9613,
 };
 
 export const getAccordingValues = (value: string) => {

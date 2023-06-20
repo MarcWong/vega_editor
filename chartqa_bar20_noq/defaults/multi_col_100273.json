@@ -1,5 +1,9 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Hours Preference in Different Restaurant Jobs",
+    "description": "Do you have a preference for your working hours in your current job?",
+    "width": 400,
+    "height": 400,
     "data": {
         "values": [
             {
@@ -64,34 +68,101 @@
                 "Happy with current hours",
                 "Would like more hours",
                 "Would like fewer hours"
-            ],
-            "as": [
-                "Preference",
-                "Value"
             ]
         }
     ],
-    "width": 400,
-    "height": 300,
-    "mark": "bar",
-    "encoding": {
-        "x": {
-            "field": "Value",
-            "type": "quantitative"
+    "layer": [
+        {
+            "mark": "bar",
+            "encoding": {
+                "y": {
+                    "field": "Characteristic",
+                    "type": "ordinal",
+                    "title": "Job",
+                    "axis": {
+                        "grid": true,
+                        "tickCount": 9
+                    },
+                    "sort": [
+                        "Business operations",
+                        "Shift or crew supervisor",
+                        "Bartender",
+                        "Waiter/waitress",
+                        "Chef or cook",
+                        "Restaurant manager",
+                        "Crew person (fast food)",
+                        "Host/hostess",
+                        "Dishwasher/bus person"
+                    ]
+                },
+                "x": {
+                    "field": "value",
+                    "type": "quantitative",
+                    "stack": "normalize",
+                    "axis": {
+                        "grid": true,
+                        "tickCount": 10
+                    },
+                    "scale": {
+                        "domain": [
+                            0,
+                            1
+                        ]
+                    }
+                },
+                "color": {
+                    "field": "key",
+                    "type": "nominal",
+                    "scale": {
+                        "domain": [
+                            "Happy with current hours",
+                            "Would like more hours",
+                            "Would like fewer hours"
+                        ],
+                        "range": [
+                            "lightgreen",
+                            "lightblue",
+                            "darkred"
+                        ]
+                    }
+                }
+            }
         },
-        "y": {
-            "field": "Characteristic",
-            "type": "ordinal"
-        },
-        "color": {
-            "field": "Preference",
-            "type": "nominal",
-            "scale": {
-                "scheme": "category10"
+        {
+            "mark": {
+                "type": "text",
+                "align": "left",
+                "baseline": "middle",
+                "dx": 0,
+                "dy": 0,
+                "angle": 0,
+                "fontSize": 30,
+                "fontStyle": "normal",
+                "fontWeight": 400,
+                "font": "serif"
             },
-            "legend": {
-                "title": "Hours preference"
+            "encoding": {
+                "y": {
+                    "field": "Characteristic",
+                    "type": "nominal"
+                },
+                "x": {
+                    "field": "value",
+                    "type": "quantitative",
+                    "stack": "normalize"
+                },
+                "text": {
+                    "condition": {
+                        "test": "datum.value > 0",
+                        "field": "value"
+                    },
+                    "value": ""
+                },
+                "color": {
+                    "value": "#c72c2c"
+                }
             }
         }
-    }
+    ],
+    "name": "1002"
 }

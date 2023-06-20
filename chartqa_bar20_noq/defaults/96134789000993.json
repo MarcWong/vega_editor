@@ -2,6 +2,8 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Coal prices, 2011",
     "description": "Comparing coal prices in different markets in 2011.",
+    "width": 400,
+    "height": 400,
     "data": {
         "values": [
             {
@@ -34,19 +36,117 @@
             }
         ]
     },
-    "encoding": {
-        "y": {
-            "field": "Market",
-            "type": "nominal",
-            "sort": "-x"
+    "layer": [
+        {
+            "mark": {
+                "type": "bar"
+            },
+            "encoding": {
+                "y": {
+                    "field": "Market",
+                    "type": "nominal",
+                    "sort": {
+                        "field": "Price",
+                        "order": "descending"
+                    },
+                    "axis": {
+                        "grid": false,
+                        "tickCount": 7,
+                        "domain": false
+                    }
+                },
+                "x": {
+                    "field": "Price",
+                    "type": "quantitative",
+                    "axis": {
+                        "grid": false,
+                        "tickCount": 10,
+                        "domain": false,
+                        "title": "Price in $"
+                    },
+                    "scale": {
+                        "domain": [
+                            0,
+                            100
+                        ]
+                    }
+                },
+                "color": {
+                    "field": "Market",
+                    "type": "nominal",
+                    "legend": null,
+                    "condition": {
+                        "test": "datum.Market === 'none'",
+                        "value": "#3c5151"
+                    },
+                    "scale": {
+                        "domain": [
+                            "Japan coking coal import cif price",
+                            "Japan steam coal import cif price",
+                            "China Qinhuangdao spot price",
+                            "Japan steam spot cif price",
+                            "Asian marker price",
+                            "Northwest Europe marker price",
+                            "US Central Appalachian coal spot price index"
+                        ],
+                        "range": [
+                            "#4daf4a",
+                            "#377eb8",
+                            "#ff7f00",
+                            "#984ea3",
+                            "#e41a1c",
+                            "#999999",
+                            "#a65628"
+                        ]
+                    }
+                },
+                "opacity": {
+                    "condition": {
+                        "test": "datum.Market === 'none'",
+                        "value": 1
+                    },
+                    "value": 1
+                },
+                "size": {
+                    "condition": {
+                        "test": "datum.Market === 'none'",
+                        "value": 30
+                    },
+                    "value": 40
+                }
+            }
         },
-        "x": {
-            "field": "Price",
-            "type": "quantitative",
-            "axis": {
-                "title": "Price in $"
+        {
+            "mark": {
+                "type": "text",
+                "align": "left",
+                "baseline": "middle",
+                "dx": -6,
+                "dy": 12,
+                "angle": 0,
+                "fontSize": 20,
+                "fontStyle": "italic",
+                "fontWeight": 200,
+                "color": "black"
+            },
+            "encoding": {
+                "y": {
+                    "field": "Market",
+                    "type": "nominal"
+                },
+                "x": {
+                    "field": "Price",
+                    "type": "quantitative"
+                },
+                "text": {
+                    "field": "Price",
+                    "type": "quantitative"
+                },
+                "color": {
+                    "value": "#dd7272"
+                }
             }
         }
-    },
-    "mark": "bar"
+    ],
+    "name": "9613"
 }

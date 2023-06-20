@@ -2,6 +2,8 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "DALYs from eating disorders by age, Albania, 2011",
     "description": "Comparing the DALYs from eating disorders across different age groups in Albania in 2011.",
+    "width": 200,
+    "height": 400,
     "data": {
         "values": [
             {
@@ -22,27 +24,128 @@
             },
             {
                 "Age": "70+ years old",
-                "DALYs": 0.0
+                "DALYs": 0
             },
             {
                 "Age": "50-69 years old",
-                "DALYs": 0.0
+                "DALYs": 0
             }
         ]
     },
-    "encoding": {
-        "y": {
-            "field": "Age",
-            "type": "nominal",
-            "sort": "-x"
+    "layer": [
+        {
+            "mark": {
+                "type": "bar",
+                "color": "#4682b4"
+            },
+            "encoding": {
+                "y": {
+                    "field": "Age",
+                    "type": "nominal",
+                    "sort": [
+                        "15-49 years old",
+                        "Age-standardized",
+                        "All ages",
+                        "5-14 years old",
+                        "70+ years old",
+                        "50-69 years old"
+                    ],
+                    "axis": {
+                        "grid": false,
+                        "tickCount": 6,
+                        "domain": false
+                    }
+                },
+                "x": {
+                    "field": "DALYs",
+                    "type": "quantitative",
+                    "axis": {
+                        "grid": false,
+                        "tickCount": 5,
+                        "domain": false,
+                        "title": "DALYs"
+                    },
+                    "scale": {
+                        "domain": [
+                            0,
+                            70
+                        ]
+                    }
+                },
+                "color": {
+                    "field": "Age",
+                    "type": "nominal",
+                    "legend": null,
+                    "condition": {
+                        "test": "datum.Age === 'none'",
+                        "value": "#589898"
+                    },
+                    "scale": {
+                        "domain": [
+                            "15-49 years old",
+                            "Age-standardized",
+                            "All ages",
+                            "5-14 years old",
+                            "70+ years old",
+                            "50-69 years old"
+                        ],
+                        "range": [
+                            "#4daf4a",
+                            "#377eb8",
+                            "#ff7f00",
+                            "#984ea3",
+                            "#e41a1c",
+                            "#999999"
+                        ]
+                    }
+                },
+                "opacity": {
+                    "condition": {
+                        "test": "datum.Age === 'none'",
+                        "value": 1
+                    },
+                    "value": 1
+                },
+                "size": {
+                    "condition": {
+                        "test": "datum.Age === 'none'",
+                        "value": 30
+                    },
+                    "value": 40
+                }
+            }
         },
-        "x": {
-            "field": "DALYs",
-            "type": "quantitative",
-            "axis": {
-                "title": "DALYs"
+        {
+            "mark": {
+                "type": "text",
+                "align": "left",
+                "baseline": "middle",
+                "dx": 0,
+                "dy": 0,
+                "angle": 0,
+                "fontSize": 20,
+                "fontStyle": "normal",
+                "fontWeight": 300,
+                "color": "#7c8964"
+            },
+            "encoding": {
+                "y": {
+                    "field": "Age",
+                    "type": "nominal"
+                },
+                "x": {
+                    "field": "DALYs",
+                    "type": "quantitative"
+                },
+                "text": {
+                    "field": "DALYs",
+                    "type": "quantitative"
+                },
+                "color": {
+                    "value": "green"
+                }
             }
         }
-    },
-    "mark": "bar"
+    ],
+    "name": "5007"
 }

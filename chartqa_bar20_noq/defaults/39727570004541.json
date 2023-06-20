@@ -3,7 +3,7 @@
     "title": "Protein supply by region, 1988",
     "description": "Comparing the protein supply in grams across different regions in 1988.",
     "width": 200,
-    "height": 363.6363636363636,
+    "height": 400,
     "data": {
         "values": [
             {
@@ -56,7 +56,7 @@
                         "Africa"
                     ],
                     "axis": {
-                        "grid": true,
+                        "grid": false,
                         "tickCount": 7,
                         "domain": false
                     }
@@ -65,7 +65,7 @@
                     "field": "Protein supply, 1988",
                     "type": "quantitative",
                     "axis": {
-                        "grid": true,
+                        "grid": false,
                         "tickCount": 5,
                         "domain": false
                     },
@@ -81,8 +81,8 @@
                     "type": "nominal",
                     "legend": null,
                     "condition": {
-                        "test": "datum.Country === 'Netherlands'",
-                        "value": "#67b4b4"
+                        "test": "datum.Region === 'Caribbean'",
+                        "value": "#589898"
                     },
                     "scale": {
                         "domain": [
@@ -107,17 +107,17 @@
                 },
                 "opacity": {
                     "condition": {
-                        "test": "datum.Country === 'Netherlands'",
-                        "value": 0.8
+                        "test": "datum.Region === 'Caribbean'",
+                        "value": 1
                     },
                     "value": 1
                 },
                 "size": {
                     "condition": {
-                        "test": "datum.Country === 'Netherlands'",
-                        "value": 70
+                        "test": "datum.Region === 'Caribbean'",
+                        "value": 30
                     },
-                    "value": 30
+                    "value": 40
                 }
             }
         },
@@ -126,11 +126,11 @@
                 "type": "text",
                 "align": "left",
                 "baseline": "middle",
-                "dx": 20,
-                "dy": 20,
-                "angle": 39,
-                "fontSize": 26,
-                "fontStyle": "normal",
+                "dx": 0,
+                "dy": 0,
+                "angle": 0,
+                "fontSize": 15,
+                "fontStyle": "italic",
                 "fontWeight": 300,
                 "color": "black"
             },
@@ -148,7 +148,7 @@
                     "type": "quantitative"
                 },
                 "color": {
-                    "value": "#c77d7d"
+                    "value": "#d66d6d"
                 }
             }
         }
