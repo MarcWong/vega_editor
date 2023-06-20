@@ -12,6 +12,7 @@ import { createLogger } from 'browser-bunyan';
 import { ConsoleFormattedStream } from 'browser-bunyan';
 import { ConsoleRawStream } from 'browser-bunyan';
 import Button from '@mui/material/Button';
+import { set } from 'vega-lite/src/log';
 
 // import 
 
@@ -127,10 +128,30 @@ const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,edit
     return spec;
   }
 
+  function swapXandYKeys(obj) {
+    if (Array.isArray(obj)) {
+        return obj.map(swapXandYKeys);
+    } else if (typeof obj === 'object' && obj !== null) {
+        return Object.entries(obj).reduce((newObj, [key, value]) => {
+            let newKey = key;
+            if (key === 'x') newKey = 'y';
+            else if (key === 'y') newKey = 'x';
+
+            newObj[newKey] = swapXandYKeys(value);
+            return newObj;
+        }, {});
+    } else {
+        return obj;
+    }
+  }
+
   const exchangeAxes = () => {
     let spec = JSON.parse(editorRef.getValue());
     spec = swapAxes(spec);
     editorRef.setValue(JSON.stringify(spec, null, 2));
+
+    const newAccordingValues=swapXandYKeys(accordingValues);
+    setAccordingValues(newAccordingValues);
   } 
 
   useEffect(() => {

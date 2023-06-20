@@ -8,7 +8,7 @@
   "vconcat": [
     {
       "width": 400,
-      "height": 200,
+      "height": 400,
       "title": {
         "text": "Consensus that China plays a bigger role in the world today",
         "subtitle": "% who say plays a more important role in the world than it did 10 years ago",
@@ -69,11 +69,11 @@
           "type": "quantitative",
           "axis": {
             "grid": false,
-            "tickCount": 6
+            "tickCount": 10
           },
           "scale": {
             "domain": [
-              0,
+              -9,
               100
             ]
           }
@@ -90,22 +90,22 @@
           "encoding": {
             "color": {
               "condition": {
-                "test": "datum.Entity === 'U.S.'",
+                "test": "datum.Entity === 'none'",
                 "value": "#3d7474"
               },
               "value": "#67a27a"
             },
             "opacity": {
               "condition": {
-                "test": "datum.Entity === 'U.S.'",
+                "test": "datum.Entity === 'none'",
                 "value": 1
               },
               "value": 1
             },
             "size": {
               "condition": {
-                "test": "datum.Entity === 'U.S.'",
-                "value": 20
+                "test": "datum.Entity === 'none'",
+                "value": 30
               },
               "value": 10
             }
@@ -114,15 +114,15 @@
         {
           "mark": {
             "type": "text",
-            "dx": 15,
-            "dy": 2,
+            "dx": 0,
+            "dy": -6,
             "xOffset": 0,
             "yOffset": 0,
-            "angle": 117,
+            "angle": 0,
             "align": "right",
             "baseline": "top",
             "font": "serif",
-            "fontSize": 10,
+            "fontSize": 2,
             "fontStyle": "normal",
             "fontWeight": "normal",
             "limit": 0
@@ -133,7 +133,7 @@
               "type": "quantitative"
             },
             "color": {
-              "value": "#af9292"
+              "value": "#b52525"
             },
             "x": {
               "field": "Importance",

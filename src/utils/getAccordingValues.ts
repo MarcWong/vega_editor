@@ -154,6 +154,11 @@ const json4488 = {
   "aspectRatio": {
     "height": "vconcat.0.height",
     "width": "vconcat.0.width",
+    "initial": 1,
+    "min": 0.5,
+    "max": 2,
+    "step": 0.1,
+    "initialWidth": 400,
   },
   "Text": {
     "textColor": "vconcat.0.layer.1.encoding.color.value",
@@ -163,6 +168,41 @@ const json4488 = {
     "textFontSize": "vconcat.0.layer.1.mark.fontSize",
     "textFontStyle": "vconcat.0.layer.1.mark.fontStyle",
     "textFontWeight": "vconcat.0.layer.1.mark.fontWeight",
+    initial: {
+      "textColor": "#000000",
+      "textAngle": {
+        "init": 0,
+        "min": 0,
+        "max": 180,
+        "step": 1,
+      },
+      "textDx": {
+        "init": 0,
+        "min": -10,
+        "max": 10,
+        "step": 1,
+      },
+      "textDy": {
+        "init": 0,
+        "min": -10,
+        "max": 10,
+        "step": 1,
+      },
+      "textFontSize": {
+        "init": 11,
+        "min": 1,
+        "max": 20,
+        "step": 1,
+      },
+      "textFontStyle": {
+        "init": "normal",
+        "options": ["normal", "italic", "oblique"],
+      },
+      "textFontWeight": {
+        "init": "normal",
+        "options": ["normal", "bold", "bolder", "lighter"],
+      },
+    },
   },
   "Axis": {
     "AxisTickCount": [
@@ -177,6 +217,29 @@ const json4488 = {
       "vconcat.0.encoding.x.axis.grid",
       "vconcat.0.encoding.y.axis.grid",
     ],
+    initial: {
+      "AxisTickCount": {
+        x: {
+          "init": 5,
+          "min": 1,
+          "max": 20,
+          "step": 1,
+        },
+      },
+      "AxisScaleDomain": {
+        "x": {
+          "minimal": 0,
+          "maximal": 200,
+          "min": 0,
+          "max": 100,
+          "step": 1,
+        },
+      },
+      "AxisGrid": {
+        "x": false,
+        "y": false,
+      },
+    },
   },
   "Condition": {
     "chooseColorChange": [
@@ -196,6 +259,19 @@ const json4488 = {
       "vconcat.0.layer.0.encoding.size.condition.test",
       "vconcat.0.layer.0.encoding.opacity.condition.test",
     ],
+    "initial": {
+      "chooseColorChange": {
+        "conditionColor": "#000000",
+        "color": "#000000",
+      },
+      "chooseSizeChange": {
+        "conditionSize": 30,
+        "size": 40,
+        "maxSize": 100,
+        "minSize": 0,
+        "stepSize": 1,
+      },
+    },
   },
   "Order": {
     "field": "Entity",
@@ -218,6 +294,11 @@ const json9715 = {
   "aspectRatio": {
     "height": "height",
     "width": "width",
+    "initial": 1,
+    "min": 0.5,
+    "max": 2,
+    "step": 0.1,
+    "initialWidth": 400,
   },
   "Text": {
     "textColor": "layer.1.encoding.color.value",
@@ -245,6 +326,29 @@ const json9715 = {
       "layer.0.encoding.x.axis.grid",
       "layer.0.encoding.y.axis.grid",
     ],
+    initial: {
+      "AxisTickCount": {
+        x: {
+          "init": 5,
+          "min": 1,
+          "max": 20,
+          "step": 1,
+        },
+      },
+      "AxisScaleDomain": {
+        "x": {
+          "minimal": 0,
+          "maximal": 2,
+          "min": 0,
+          "max": 1,
+          "step": 0.1,
+        },
+      },
+      "AxisGrid": {
+        "x": false,
+        "y": false,
+      },
+    },
   },
   "Condition": {
     "chooseColorChange": [
@@ -264,6 +368,19 @@ const json9715 = {
       "layer.0.encoding.size.condition.test",
       "layer.0.encoding.opacity.condition.test",
     ],
+    "initial": {
+      "chooseColorChange": {
+        "conditionColor": "#000000",
+        "color": "#000000",
+      },
+      "chooseSizeChange": {
+        "conditionSize": 30,
+        "size": 40,
+        "maxSize": 100,
+        "minSize": 0,
+        "stepSize": 1,
+      },
+    },
   },
   "Order": {
     "field": "Entity",

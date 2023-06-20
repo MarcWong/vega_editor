@@ -22,7 +22,6 @@ const AxisChangeComponent: React.FC<AxisChangeComponentProps> = ({keyValues, upd
     }
 
     const { AxisTickCount, AxisScaleDomain, AxisGrid,initial } = keyValues;
-    console.log('initial',initial)
 
     const handleAxisTickCountChange = (newAxisTickCount: number, axis: AxisType) => {
         updateEditorValue(AxisTickCount[axis === 'x' ? 0 : 1], newAxisTickCount);
@@ -32,21 +31,22 @@ const AxisChangeComponent: React.FC<AxisChangeComponentProps> = ({keyValues, upd
         updateEditorValue(AxisGrid[axis === 'x' ? 0 : 1], newAxisGrid);
     }
 
-    const [Xmin, setXMin] = useState(-50);
-    const [Xmax, setXMax] = useState(100);
+    const [Xmin, setXMin] = useState(initial?.AxisScaleDomain?.x?.min);
+    const [Xmax, setXMax] = useState(initial?.AxisScaleDomain?.x?.max);
 
-    const [Ymin, setYMin] = useState(-50);
-    const [Ymax, setYMax] = useState(100);
-
+    const [Ymin, setYMin] = useState(initial?.AxisScaleDomain?.y?.min);
+    const [Ymax, setYMax] = useState(initial?.AxisScaleDomain?.y?.max);
 
     useEffect(() => {
-        if (Xmin && Xmax) {
+        // Xmin can be 0
+        if (Xmin !== undefined && Xmax !== undefined && Xmin <= Xmax) {
             updateEditorValue(AxisScaleDomain[0], [Xmin, Xmax]);
         }
     }, [Xmin, Xmax]);
 
     useEffect(() => {
-        if (Ymin && Ymax) {
+        // same for Y
+        if (Ymin !== undefined && Ymax !== undefined && Ymin <= Ymax) {
             updateEditorValue(AxisScaleDomain[1], [Ymin, Ymax]);
         }
     }, [Ymin, Ymax]);
@@ -61,12 +61,12 @@ const AxisChangeComponent: React.FC<AxisChangeComponentProps> = ({keyValues, upd
                 <SizeInput size={initial?.AxisTickCount?.y?.init} label="Y Axis Tick Count" onSizeChange={(e) => handleAxisTickCountChange(e, "y")} 
                 min={initial?.AxisTickCount?.y?.min} max={initial?.AxisTickCount?.y?.max} step={initial?.AxisTickCount?.x?.step} />
             <Box mb={2}>
-                <SizeInput size={initial?.AxisScaleDomain?.x?.min} label="X Scale Domain Min" onSizeChange={(e) => setXMin(e)} min={initial?.AxisScaleDomain?.x?.minimal} max={initial?.AxisScaleDomain?.x?.maximum}/>
-                <SizeInput size={initial?.AxisScaleDomain?.x?.max} label="X Scale Domain Max" onSizeChange={(e) => setXMax(e)} min={initial?.AxisScaleDomain?.x?.minimal} max={initial?.AxisScaleDomain?.x?.maximum}/>
+                <SizeInput size={initial?.AxisScaleDomain?.x?.min} label="X Scale Domain Min" onSizeChange={(e) => setXMin(e)} min={initial?.AxisScaleDomain?.x?.minimal} max={initial?.AxisScaleDomain?.x?.maximum} step={initial?.AxisScaleDomain.x?.step}/>
+                <SizeInput size={initial?.AxisScaleDomain?.x?.max} label="X Scale Domain Max" onSizeChange={(e) => setXMax(e)} min={initial?.AxisScaleDomain?.x?.minimal} max={initial?.AxisScaleDomain?.x?.maximum} step={initial?.AxisScaleDomain.x?.step}/>
             </Box>
             <Box mb={2}>
-                <SizeInput size={initial?.AxisScaleDomain?.y?.min} label="Y Scale Domain Min" onSizeChange={(e) => setYMin(e)} min={initial?.AxisScaleDomain?.y?.minimal} max={initial?.AxisScaleDomain?.y?.maximum}/>
-                <SizeInput size={initial?.AxisScaleDomain?.y?.max} label="Y Scale Domain Max" onSizeChange={(e) => setYMax(e)}  min={initial?.AxisScaleDomain?.y?.minimal} max={initial?.AxisScaleDomain?.y?.maximum}/>
+                <SizeInput size={initial?.AxisScaleDomain?.y?.min} label="Y Scale Domain Min" onSizeChange={(e) => setYMin(e)} min={initial?.AxisScaleDomain?.y?.minimal} max={initial?.AxisScaleDomain?.y?.maximum} step={initial?.AxisScaleDomain.y?.step}/>
+                <SizeInput size={initial?.AxisScaleDomain?.y?.max} label="Y Scale Domain Max" onSizeChange={(e) => setYMax(e)}  min={initial?.AxisScaleDomain?.y?.minimal} max={initial?.AxisScaleDomain?.y?.maximum} step={initial?.AxisScaleDomain.y?.step}/>
             </Box>
             <Box mb={2}>
                 <CheckboxInput label="X Axis Grid" initialChecked={initial?.AxisGrid?.x} onCheckChange={(e) => handleAxisGridChange(e, "x")} />

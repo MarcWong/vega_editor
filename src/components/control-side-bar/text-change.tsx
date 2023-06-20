@@ -42,7 +42,6 @@ const defaultInitial= {
 
 const TextChangeComponent=({keyValues,updateEditorValue})=>{
 
-  console.log("keyValues",keyValues)
    if(!keyValues?.textColor){
     return null;
    }

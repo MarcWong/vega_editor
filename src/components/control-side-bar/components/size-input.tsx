@@ -2,40 +2,40 @@ import React from 'react';
 import { TextField } from '@mui/material';
 
 interface SizeInputProps {
-    size: number;
+    size: number | '';
     label: string;
-    onSizeChange: (size: number) => void;
+    onSizeChange: (size: number | '') => void;
     step?: number;
-    min?: number;   // Added min prop
-    max?: number;   // Added max prop
+    min?: number; 
+    max?: number;
 }
 
-const SizeInput: React.FC<SizeInputProps> = ({ size, label, onSizeChange, step, min, max}) => {
-  if(size===undefined || null){
-    return null;
-  }
+const SizeInput: React.FC<SizeInputProps> = ({ size, label, onSizeChange, step, min, max }) => {
 
-  const [innerSize, setInnerSize] = React.useState(size);
-  const handleSizeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    onSizeChange(Number(event.target.value));
-    setInnerSize(Number(event.target.value));
-  };
+    if(size === undefined) return null;
+    const [innerSize, setInnerSize] = React.useState(size);
 
-  React.useEffect(() => {
-    setInnerSize(size);
-  }, [size]);
+    const handleSizeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const value = event.target.value === '' ? '' : Number(event.target.value);
+        onSizeChange(value);
+        setInnerSize(value);
+    };
 
-  return (
-    <TextField
-      type="number"
-      label={label}
-      value={innerSize}
-      onChange={handleSizeChange}
-      InputProps={{ inputProps: { step: step ? step : 1, min: min, max: max } }}  // Include min and max here
-      variant="outlined"
-      fullWidth
-    />
-  );
+    React.useEffect(() => {
+        setInnerSize(size);
+    }, [size]);
+
+    return (
+        <TextField
+            type="number"
+            label={label}
+            value={innerSize}
+            onChange={handleSizeChange}
+            InputProps={{ inputProps: { step: step ? step : 1, min: min, max: max } }}
+            variant="outlined"
+            fullWidth
+        />
+    );
 };
 
 export default SizeInput;

@@ -8,7 +8,7 @@
   "vconcat": [
     {
       "width": 400,
-      "height": 363.6363636363636,
+      "height": 400,
       "title": {
         "text": "Americans and Germans differ over importance of U.S. military bases in Germany to national security.",
         "subtitle": "% who think U.S. military bases in Germany are for their country's national security.",
@@ -55,31 +55,31 @@
         }
       ],
       "encoding": {
-        "y": {
-          "field": "Entity",
-          "type": "ordinal",
-          "axis": {
-            "grid": true,
-            "tickCount": 9
-          },
-          "sort": [
-            "Germany",
-            "U.S."
-          ]
-        },
         "x": {
           "field": "value",
           "type": "quantitative",
           "scale": {
             "domain": [
-              -70,
+              -100,
               100
             ]
           },
           "axis": {
             "grid": true,
-            "tickCount": 10
+            "tickCount": 20
           }
+        },
+        "y": {
+          "field": "Entity",
+          "type": "ordinal",
+          "axis": {
+            "grid": true,
+            "tickCount": 0
+          },
+          "sort": [
+            "U.S.",
+            "Germany"
+          ]
         },
         "order": {
           "field": "order",
@@ -101,15 +101,15 @@
           "encoding": {
             "size": {
               "condition": {
-                "test": "(datum.category === 'Not important at all,Not too important,Somewhat important,Very important') && (datum.Entity === 'Germany,U.S.')",
-                "value": 45
+                "test": "datum.Entity === 'none' && datum.category === 'none'",
+                "value": 30
               },
               "value": 100
             },
             "color": {
               "condition": {
-                "test": "(datum.category === 'Not important at all,Not too important,Somewhat important,Very important') && (datum.Entity === 'Germany,U.S.')",
-                "value": "#4d1919"
+                "test": "datum.Entity === 'none' && datum.category === 'none'",
+                "value": "#46c3c3"
               },
               "field": "category",
               "type": "nominal",
@@ -130,8 +130,8 @@
             },
             "opacity": {
               "condition": {
-                "test": "(datum.category === 'Not important at all,Not too important,Somewhat important,Very important') && (datum.Entity === 'Germany,U.S.')",
-                "value": 0.5
+                "test": "datum.Entity === 'none' && datum.category === 'none'",
+                "value": 1
               },
               "value": 1
             }
@@ -140,13 +140,13 @@
         {
           "mark": {
             "type": "text",
-            "dx": 0,
-            "dy": 0,
+            "dx": 1,
+            "dy": 1,
             "xOffset": 0,
             "yOffset": 0,
-            "angle": 75,
+            "angle": 0,
             "font": "serif",
-            "fontSize": 28,
+            "fontSize": 12,
             "fontStyle": "normal",
             "fontWeight": 700,
             "limit": 100
@@ -156,40 +156,17 @@
               "field": "abs_value",
               "type": "quantitative"
             },
-            "x": {
-              "field": "value",
-              "type": "quantitative"
-            },
             "y": {
               "field": "Entity",
               "type": "ordinal"
             },
-            "color": {
-              "value": "#67a27a"
-            }
-          }
-        },
-        {
-          "data": {
-            "values": [
-              {
-                "dummy": 0
-              }
-            ]
-          },
-          "mark": {
-            "type": "rule",
-            "strokeDash": [
-              2,
-              2
-            ],
-            "size": 2
-          },
-          "encoding": {
             "x": {
-              "datum": 10
+              "field": "value",
+              "type": "quantitative"
             },
-            "y": {}
+            "color": {
+              "value": "#c95454"
+            }
           }
         }
       ]
