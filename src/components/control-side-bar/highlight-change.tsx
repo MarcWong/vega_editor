@@ -18,13 +18,13 @@ interface ChoicesState{
     state:string
 }
 
-const TextChangeComponent=({keyValues,updateEditorValue,choices,defaultValues={}})=>{
+const TextChangeComponent=({keyValues,updateEditorValue,choices})=>{
 
-    if(!keyValues || !keyValues.chooseColorChange || !keyValues.chooseSizeChange || !keyValues.chooseOpacityChange){
+    if(!keyValues){
         return null;
     }
 
-    const {chooseColorChange,chooseSizeChange,chooseOpacityChange,conditions}=keyValues;
+    const {chooseColorChange,chooseSizeChange,chooseOpacityChange,conditions,initial}=keyValues;
 
     const [choicesState, setChoicesState] = useState<Array<ChoicesState>>(choices.map(choice=>({name:choice.name,state:"none"})));
 
@@ -37,7 +37,6 @@ const TextChangeComponent=({keyValues,updateEditorValue,choices,defaultValues={}
             const {name,state} = choice;
             return `datum.${name} === '${state}'`;
         }).join(' && ');
-        console.log(conditionString,'conditionString')
         handleConditionChange(conditionString);
 
     }, [choicesState]);
@@ -89,7 +88,6 @@ const TextChangeComponent=({keyValues,updateEditorValue,choices,defaultValues={}
         <Box mb={2}>
             {choices.map((choice, index) => {
                 const {value,name} = choice;
-                console.log(value,'value',name,'name','-------------------')
                 return (
                     <Box key={name} mb={2}>
                         <SelectInput options={[...value,"none"]} label={name} selectedOption={"none"} onOptionSelect={(e)=>updateConditionChange(e,name)} />
@@ -106,10 +104,10 @@ const TextChangeComponent=({keyValues,updateEditorValue,choices,defaultValues={}
         </Box>
 
         <Box mb={2}>
-            <RangeInput min={20} max={100} step={5} label="Chosen Size" initialValue={50} onValueChange={handleChosenSizeChange} />
+             <SizeInput size={initial?.chooseSizeChange?.conditionSize} label="choosen size" onSizeChange={(e) => handleChosenSizeChange(e)} min={initial?.chooseSizeChange?.min} max={initial?.chooseSizeChange?.max}/>
         </Box>
         <Box mb={2}>
-            <RangeInput min={20} max={100} step={5} label="Default Size" initialValue={50} onValueChange={handleDefaultSizeChange} />
+            <SizeInput size={initial?.chooseSizeChange?.size} label="choosen size" onSizeChange={(e) => handleDefaultSizeChange(e)} min={initial?.chooseSizeChange?.min} max={initial?.chooseSizeChange?.max}/>
         </Box>
 
         <Box mb={2}>

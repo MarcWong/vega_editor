@@ -2,17 +2,56 @@ import React, {useState} from 'react';
 import { Box } from '@mui/material';
 import SizeInput from './components/size-input';
 import ColorInput from './components/color-input';
-import RangeInput from './components/range-input';
 import SelectInput from './components/select-input';
 
-const TextChangeComponent=({keyValues,updateEditorValue,defaultValues={}})=>{
+const defaultInitial= {
+  "textColor": "#000000",
+  "textAngle": {
+    "init": 0,
+    "min": 0,
+    "max": 180,
+    "step": 1,
+  },
+  "textDx": {
+    "init": 0,
+    "min": -10,
+    "max": 10,
+    "step": 1,
+  },
+  "textDy": {
+    "init": 0,
+    "min": -10,
+    "max": 10,
+    "step": 1,
+  },
+  "textFontSize": {
+    "init": 11,
+    "min": 1,
+    "max": 20,
+    "step": 1,
+  },
+  "textFontStyle": {
+    "init": "normal",
+    "options": ["normal", "italic", "oblique"],
+  },
+  "textFontWeight": {
+    "init": "normal",
+    "options": ["normal", "bold", "bolder", "lighter"],
+  },
+}
 
+const TextChangeComponent=({keyValues,updateEditorValue})=>{
 
+  console.log("keyValues",keyValues)
    if(!keyValues?.textColor){
     return null;
    }
 
-  const {textColor,textAngle,textDx,textDy,textFontSize,textFontStyle,textFontWeight}=keyValues;
+  let {textColor,textAngle,textDx,textDy,textFontSize,textFontStyle,textFontWeight,initial}=keyValues;
+
+  if(!initial){
+    initial=defaultInitial;
+  }
  
   const handleTextColor= (newTextColor: string) => {
     updateEditorValue(textColor, newTextColor);
@@ -42,37 +81,37 @@ const TextChangeComponent=({keyValues,updateEditorValue,defaultValues={}})=>{
         updateEditorValue(textFontStyle, newFontStyle);
     }
 
-  if(!keyValues){
-    return null;
-  }
-
   return (
   <Box m={2}> {/* Added margin */}
     <Box mb={2}> {/* Added bottom margin */}
-      <ColorInput label="Text Color" initialColor={"black"} onColorChange={handleTextColor} />
+      <ColorInput label="Text Color" initialColor={initial?.textColor} onColorChange={handleTextColor} />
     </Box>
     <Box mb={2}>
-      <RangeInput min={-180} max={180} step={1} label="Angle" initialValue={0} onValueChange={handleAngleChange} />
+      <SizeInput size={initial?.textAngle?.init} label="Angle" onSizeChange={handleAngleChange} min={initial?.textAngle?.min} 
+      max={initial?.textAngle?.max} step={initial?.textAngle?.step} />
     </Box>
     <Box mb={2}>
-      <RangeInput min={-20} max={20} step={1} label="Dx" initialValue={5} onValueChange={handleDxChange} />
+      <SizeInput size={initial?.textDx?.init} label="Dx" onSizeChange={handleDxChange} min={initial?.textDx?.min} 
+      max={initial?.textDx?.max} step={initial?.textDx?.step} />
     </Box>
     <Box mb={2}>
-      <RangeInput min={-20} max={20} step={1} label="Dy" initialValue={5} onValueChange={handleDyChange} />
+      <SizeInput size={initial?.textDy?.init} label="Dy" onSizeChange={handleDyChange} min={initial?.textDy?.min}
+       max={initial?.textDy?.max} step={initial?.textDy?.step} />
     </Box>
     <Box mb={2}>
-      <RangeInput min={10} max={36} step={1} label="Font Size" initialValue={14} onValueChange={handleFontSize} />
+      <SizeInput size={11} label="Font Size" onSizeChange={handleFontSize} min={2} 
+      max={40} step={1} />
     </Box>
     <Box mb={2}>
       <SelectInput
-          options={["normal", "italic"]}
+          options={["normal", "italic", "oblique"]}
           label="Font Style"
           selectedOption={"normal"}
           onOptionSelect={handleFontStyle}
       />
     </Box>
     <Box mb={2}>
-      <RangeInput min={100} max={900} step={100} label="Font Weight" initialValue={500} onValueChange={handleFontWeight} />
+      <SizeInput size={500} label="Font Weight" onSizeChange={handleFontWeight} min={100} max={900} step={100} />
     </Box>
   </Box>
   )

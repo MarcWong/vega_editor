@@ -84,16 +84,6 @@
     "vega-tooltip": "^0.32.0",
     "vega-typings": "^0.24.1"
   },
-  "lint-staged": {
-    "*.{ts,tsx}": [
-      "eslint --fix",
-      "git add"
-    ],
-    "*.{js,jsx,ts,tsx,css,scss}": [
-      "prettier --write",
-      "git add"
-    ]
-  },
   "scripts": {
     "start": "webpack serve --mode development",
     "build": "yarn clean && yarn vendor && yarn build:only",
@@ -109,7 +99,6 @@
     "lint": "yarn eslintbase && yarn prettierbase --check",
     "predeploy": "yarn build",
     "deploy": "gh-pages -d dist",
-    "analyze": "webpack --mode production --profile --json > stats.json && webpack-bundle-analyzer stats.json",
-    "postinstall": "husky install && npx patch-package"
+    "analyze": "webpack --mode production --profile --json > stats.json && webpack-bundle-analyzer stats.json"
   }
 }

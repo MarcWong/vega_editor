@@ -38,6 +38,9 @@ const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,edit
   const [spec,setSpec]=useState<any>({});
   const [accordingValues,setAccordingValues]=useState<any>({})
   const updateEditorValue = (path: string, value: any) => {
+    if (typeof path !== 'string') {
+      return;
+  }
         if (editorRef && editorRef.getValue) {
             const spec = JSON.parse(editorRef.getValue());
             const pathParts = path.split('.');
@@ -77,6 +80,9 @@ const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,edit
     }
     
     const getEditorValue = (path: string) => {
+      if (typeof path !== 'string') {
+        return;
+    }
       let value;
       if (editorRef && editorRef.getValue) {
           const spec = JSON.parse(editorRef.getValue());
@@ -149,7 +155,6 @@ const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,edit
   }, [spec]);
 
   useEffect(() => {
-    // console.log("accordingValues",accordingValues)
     if(accordingValues?.entityTypes){
       setEntityTypes(accordingValues?.entityTypes);
     }
@@ -178,8 +183,7 @@ const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,edit
           <Typography>Aspect Ratio</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <AspectRatioComponent keyValue={accordingValues?.aspectRatio?.height} updateEditorValue={updateEditorValue}
-            fixedWidth={accordingValues?.Default?.width} defaulAspectRatio={accordingValues?.aspectRatio?.width/accordingValues?.aspectRatio?.height}/>
+          <AspectRatioComponent keyValue={accordingValues?.aspectRatio} updateEditorValue={updateEditorValue}/>
         </AccordionDetails>
       </Accordion>
 
@@ -188,7 +192,7 @@ const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,edit
           <Typography>Text Change</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <TextChangeComponent keyValues={accordingValues?.Text} updateEditorValue={updateEditorValue} defaultValues={accordingValues?.textChange}/>
+          <TextChangeComponent keyValues={accordingValues?.Text} updateEditorValue={updateEditorValue} />
         </AccordionDetails>
       </Accordion>
 
