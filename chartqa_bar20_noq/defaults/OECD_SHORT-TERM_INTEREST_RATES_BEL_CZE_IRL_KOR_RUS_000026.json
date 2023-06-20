@@ -1,10 +1,9 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "config": {
-        "view": {
-            "stroke": "transparent"
-        }
-    },
+    "title": "Short-term interest rates",
+    "description": "A comparison of the Short-term interest rates across different countries.",
+    "width": 200,
+    "height": 400,
     "data": {
         "values": [
             {
@@ -25,41 +24,113 @@
             }
         ]
     },
-    "mark": "bar",
-    "title": "Short-term interest rates",
-    "encoding": {
-        "y": {
-            "field": "Country",
-            "type": "ordinal",
-            "axis": {
-                "title": ""
+    "layer": [
+        {
+            "mark": {
+                "type": "bar",
+                "color": "#4682b4"
+            },
+            "encoding": {
+                "y": {
+                    "field": "Country",
+                    "type": "nominal",
+                    "sort": [
+                        "Belgium",
+                        "Ireland",
+                        "Czech Republic",
+                        "Korea"
+                    ],
+                    "axis": {
+                        "grid": false,
+                        "tickCount": 4,
+                        "domain": false
+                    }
+                },
+                "x": {
+                    "field": "Short-term interest rates",
+                    "type": "quantitative",
+                    "axis": {
+                        "grid": false,
+                        "tickCount": 5,
+                        "domain": false
+                    },
+                    "scale": {
+                        "domain": [
+                            0,
+                            15
+                        ]
+                    }
+                },
+                "color": {
+                    "field": "Country",
+                    "type": "nominal",
+                    "legend": null,
+                    "condition": {
+                        "test": "datum.Country === 'Czech Republic'",
+                        "value": "#3db2b2"
+                    },
+                    "scale": {
+                        "domain": [
+                            "Belgium",
+                            "Ireland",
+                            "Czech Republic",
+                            "Korea"
+                        ],
+                        "range": [
+                            "#4daf4a",
+                            "#377eb8",
+                            "#ff7f00",
+                            "#984ea3"
+                        ]
+                    }
+                },
+                "opacity": {
+                    "condition": {
+                        "test": "datum.Country === 'Czech Republic'",
+                        "value": 1
+                    },
+                    "value": 1
+                },
+                "size": {
+                    "condition": {
+                        "test": "datum.Country === 'Czech Republic'",
+                        "value": 30
+                    },
+                    "value": 40
+                }
             }
         },
-        "x": {
-            "field": "Short-term interest rates",
-            "type": "quantitative",
-            "axis": {
-                "title": ""
-            }
-        },
-        "color": {
-            "field": "Country",
-            "type": "nominal",
-            "legend": null,
-            "scale": {
-                "domain": [
-                    "Belgium",
-                    "Ireland",
-                    "Czech Republic",
-                    "Korea"
-                ],
-                "range": [
-                    "#e5292f",
-                    "#1190da",
-                    "#9a3585",
-                    "#e0531f"
-                ]
+        {
+            "mark": {
+                "type": "text",
+                "align": "left",
+                "baseline": "middle",
+                "dx": 0,
+                "dy": 0,
+                "angle": 0,
+                "fontSize": 12,
+                "fontStyle": "italic",
+                "fontWeight": 500,
+                "color": "black"
+            },
+            "encoding": {
+                "y": {
+                    "field": "Country",
+                    "type": "nominal"
+                },
+                "x": {
+                    "field": "Short-term interest rates",
+                    "type": "quantitative"
+                },
+                "text": {
+                    "field": "Short-term interest rates",
+                    "type": "quantitative"
+                },
+                "color": {
+                    "value": "#bd4949"
+                }
             }
         }
-    }
+    ],
+    "name": "Short"
 }

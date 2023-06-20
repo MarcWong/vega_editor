@@ -918,6 +918,1123 @@ const json9613 = {
   ],
 };
 
+const json1002 = {
+  "typeName": "Entity",
+  "aspectRatio": {
+    "height": "height",
+    "width": "width",
+    "initial": 1,
+    "min": 0.5,
+    "max": 2,
+    "step": 0.1,
+    "initialWidth": 400,
+  },
+  "Text": {
+    "textColor": "layer.1.encoding.color.value",
+    "textAngle": "layer.1.mark.angle",
+    "textDx": "layer.1.mark.dx",
+    "textDy": "layer.1.mark.dy",
+    "textFontSize": "layer.1.mark.fontSize",
+    "textFontStyle": "layer.1.mark.fontStyle",
+    "textFontWeight": "layer.1.mark.fontWeight",
+  },
+  "Axis": {
+    "AxisColor": [
+      "layer.0.encoding.x.axis.color",
+      "layer.0.encoding.y.axis.color",
+    ],
+    "AxisTickCount": [
+      "layer.0.encoding.x.axis.tickCount",
+      "layer.0.encoding.y.axis.tickCount",
+    ],
+    "AxisScaleDomain": [
+      "layer.0.encoding.x.scale.domain",
+      "layer.0.encoding.y.scale.domain",
+    ],
+    "AxisGrid": [
+      "layer.0.encoding.x.axis.grid",
+      "layer.0.encoding.y.axis.grid",
+    ],
+    initial: {
+      "AxisTickCount": {
+        x: {
+          "init": 5,
+          "min": 1,
+          "max": 20,
+          "step": 1,
+        },
+      },
+      "AxisScaleDomain": {
+        "x": {
+          "minimal": 0,
+          "maximal": 2,
+          "min": 0,
+          "max": 1,
+          "step": 0.1,
+        },
+      },
+      "AxisGrid": {
+        "x": false,
+        "y": false,
+      },
+    },
+  },
+  "Condition": {
+    "chooseColorChange": [
+      "layer.0.encoding.color.condition.value",
+      "layer.0.encoding.color.value",
+    ],
+    "chooseSizeChange": [
+      "layer.0.encoding.size.condition.value",
+      "layer.0.encoding.size.value",
+    ],
+    "chooseOpacityChange": [
+      "layer.0.encoding.opacity.condition.value",
+      "layer.0.encoding.opacity.value",
+    ],
+    "conditions": [
+      "layer.0.encoding.color.condition.test",
+      "layer.0.encoding.size.condition.test",
+      "layer.0.encoding.opacity.condition.test",
+    ],
+    "initial": {
+      "chooseColorChange": {
+        "conditionColor": "#000000",
+        "color": "#000000",
+      },
+      "chooseSizeChange": {
+        "conditionSize": 30,
+        "size": 40,
+        "maxSize": 100,
+        "minSize": 0,
+        "stepSize": 1,
+      },
+    },
+  },
+  "Order": {
+    "field": "Entity",
+    "sort": "layer.0.encoding",
+  },
+  "Default": {
+    "width": 400,
+  },
+  "orderTypes": [
+    "Business operations",
+    "Shift or crew supervisor",
+    "Bartender",
+    "Waiter/waitress",
+    "Chef or cook",
+    "Restaurant manager",
+    "Crew person (fast food)",
+    "Host/hostess",
+    "Dishwasher/bus person",
+  ],
+  "selectTypes": [
+    {
+      "name": "Characteristic",
+      "value": [
+        "Business operations",
+        "Shift or crew supervisor",
+        "Bartender",
+        "Waiter/waitress",
+        "Chef or cook",
+        "Restaurant manager",
+        "Crew person (fast food)",
+        "Host/hostess",
+        "Dishwasher/bus person",
+      ],
+    },
+    {
+      "name": "key",
+      "value": [
+        "Happy with current hours",
+        "Would like more hours",
+        "Would like fewer hours",
+      ],
+    },
+  ],
+};
+
+const jsonMRI = {
+  "typeName": "Entity",
+  "aspectRatio": {
+    "height": "height",
+    "width": "width",
+    "initial": 1,
+    "min": 0.5,
+    "max": 2,
+    "step": 0.1,
+    "initialWidth": 400,
+  },
+  "Text": {
+    "textColor": "layer.1.encoding.color.value",
+    "textAngle": "layer.1.mark.angle",
+    "textDx": "layer.1.mark.dx",
+    "textDy": "layer.1.mark.dy",
+    "textFontSize": "layer.1.mark.fontSize",
+    "textFontStyle": "layer.1.mark.fontStyle",
+    "textFontWeight": "layer.1.mark.fontWeight",
+  },
+  "Axis": {
+    "AxisColor": [
+      "layer.0.encoding.x.axis.color",
+      "layer.0.encoding.y.axis.color",
+    ],
+    "AxisTickCount": [
+      "layer.0.encoding.x.axis.tickCount",
+      "layer.0.encoding.y.axis.tickCount",
+    ],
+    "AxisScaleDomain": [
+      "layer.0.encoding.x.scale.domain",
+      "layer.0.encoding.y.scale.domain",
+    ],
+    "AxisGrid": [
+      "layer.0.encoding.x.axis.grid",
+      "layer.0.encoding.y.axis.grid",
+    ],
+    initial: {
+      "AxisTickCount": {
+        x: {
+          "init": 5,
+          "min": 1,
+          "max": 20,
+          "step": 1,
+        },
+      },
+      "AxisScaleDomain": {
+        "x": {
+          "minimal": 0,
+          "maximal": 300,
+          "min": 0,
+          "max": 200,
+          "step": 5,
+        },
+      },
+      "AxisGrid": {
+        "x": false,
+        "y": false,
+      },
+    },
+  },
+  "Condition": {
+    "chooseColorChange": [
+      "layer.0.encoding.color.condition.value",
+      "layer.0.encoding.color.value",
+    ],
+    "chooseSizeChange": [
+      "layer.0.encoding.size.condition.value",
+      "layer.0.encoding.size.value",
+    ],
+    "chooseOpacityChange": [
+      "layer.0.encoding.opacity.condition.value",
+      "layer.0.encoding.opacity.value",
+    ],
+    "conditions": [
+      "layer.0.encoding.color.condition.test",
+      "layer.0.encoding.size.condition.test",
+      "layer.0.encoding.opacity.condition.test",
+    ],
+    "initial": {
+      "chooseColorChange": {
+        "conditionColor": "#000000",
+        "color": "#000000",
+      },
+      "chooseSizeChange": {
+        "conditionSize": 30,
+        "size": 40,
+        "maxSize": 100,
+        "minSize": 0,
+        "stepSize": 1,
+      },
+    },
+  },
+  "Order": {
+    "field": "Entity",
+    "sort": "layer.0.encoding",
+  },
+  "Default": {
+    "width": 400,
+  },
+  "orderTypes": [
+    "Greece",
+    "Italy",
+    "Austria",
+  ],
+  "selectTypes": [
+    {
+      "name": "Country",
+      "value": [
+        "Greece",
+        "Italy",
+        "Austria",
+      ],
+    },
+  ],
+};
+
+const jsonRP = {
+  "typeName": "Entity",
+  "aspectRatio": {
+    "height": "height",
+    "width": "width",
+    "initial": 1,
+    "min": 0.5,
+    "max": 2,
+    "step": 0.1,
+    "initialWidth": 400,
+  },
+  "Text": {
+    "textColor": "layer.1.encoding.color.value",
+    "textAngle": "layer.1.mark.angle",
+    "textDx": "layer.1.mark.dx",
+    "textDy": "layer.1.mark.dy",
+    "textFontSize": "layer.1.mark.fontSize",
+    "textFontStyle": "layer.1.mark.fontStyle",
+    "textFontWeight": "layer.1.mark.fontWeight",
+  },
+  "Axis": {
+    "AxisColor": [
+      "layer.0.encoding.x.axis.color",
+      "layer.0.encoding.y.axis.color",
+    ],
+    "AxisTickCount": [
+      "layer.0.encoding.x.axis.tickCount",
+      "layer.0.encoding.y.axis.tickCount",
+    ],
+    "AxisScaleDomain": [
+      "layer.0.encoding.x.scale.domain",
+      "layer.0.encoding.y.scale.domain",
+    ],
+    "AxisGrid": [
+      "layer.0.encoding.x.axis.grid",
+      "layer.0.encoding.y.axis.grid",
+    ],
+    initial: {
+      "AxisTickCount": {
+        x: {
+          "init": 5,
+          "min": 1,
+          "max": 20,
+          "step": 1,
+        },
+      },
+      "AxisScaleDomain": {
+        "x": {
+          "minimal": 0,
+          "maximal": 1000,
+          "min": 0,
+          "max": 600,
+          "step": 5,
+        },
+      },
+      "AxisGrid": {
+        "x": false,
+        "y": false,
+      },
+    },
+  },
+  "Condition": {
+    "chooseColorChange": [
+      "layer.0.encoding.color.condition.value",
+      "layer.0.encoding.color.value",
+    ],
+    "chooseSizeChange": [
+      "layer.0.encoding.size.condition.value",
+      "layer.0.encoding.size.value",
+    ],
+    "chooseOpacityChange": [
+      "layer.0.encoding.opacity.condition.value",
+      "layer.0.encoding.opacity.value",
+    ],
+    "conditions": [
+      "layer.0.encoding.color.condition.test",
+      "layer.0.encoding.size.condition.test",
+      "layer.0.encoding.opacity.condition.test",
+    ],
+    "initial": {
+      "chooseColorChange": {
+        "conditionColor": "#000000",
+        "color": "#000000",
+      },
+      "chooseSizeChange": {
+        "conditionSize": 30,
+        "size": 40,
+        "maxSize": 100,
+        "minSize": 0,
+        "stepSize": 1,
+      },
+    },
+  },
+  "Order": {
+    "field": "Entity",
+    "sort": "layer.0.encoding",
+  },
+  "Default": {
+    "width": 400,
+  },
+  "orderTypes": [
+    "Indonesia",
+    "Lithuania",
+    "Germany",
+    "Denmark",
+    "Finland",
+  ],
+  "selectTypes": [
+    {
+      "name": "Country",
+      "value": [
+        "Indonesia",
+        "Lithuania",
+        "Germany",
+        "Denmark",
+        "Finland",
+      ],
+    },
+  ],
+};
+
+const jsonRAB = {
+  "typeName": "Entity",
+  "aspectRatio": {
+    "height": "height",
+    "width": "width",
+    "initial": 1,
+    "min": 0.5,
+    "max": 2,
+    "step": 0.1,
+    "initialWidth": 400,
+  },
+  "Text": {
+    "textColor": "layer.1.encoding.color.value",
+    "textAngle": "layer.1.mark.angle",
+    "textDx": "layer.1.mark.dx",
+    "textDy": "layer.1.mark.dy",
+    "textFontSize": "layer.1.mark.fontSize",
+    "textFontStyle": "layer.1.mark.fontStyle",
+    "textFontWeight": "layer.1.mark.fontWeight",
+  },
+  "Axis": {
+    "AxisColor": [
+      "layer.0.encoding.x.axis.color",
+      "layer.0.encoding.y.axis.color",
+    ],
+    "AxisTickCount": [
+      "layer.0.encoding.x.axis.tickCount",
+      "layer.0.encoding.y.axis.tickCount",
+    ],
+    "AxisScaleDomain": [
+      "layer.0.encoding.x.scale.domain",
+      "layer.0.encoding.y.scale.domain",
+    ],
+    "AxisGrid": [
+      "layer.0.encoding.x.axis.grid",
+      "layer.0.encoding.y.axis.grid",
+    ],
+    initial: {
+      "AxisTickCount": {
+        x: {
+          "init": 5,
+          "min": 1,
+          "max": 20,
+          "step": 1,
+        },
+      },
+      "AxisScaleDomain": {
+        "x": {
+          "minimal": 0,
+          "maximal": 200,
+          "min": 0,
+          "max": 100,
+          "step": 1,
+        },
+      },
+      "AxisGrid": {
+        "x": false,
+        "y": false,
+      },
+    },
+  },
+  "Condition": {
+    "chooseColorChange": [
+      "layer.0.encoding.color.condition.value",
+      "layer.0.encoding.color.value",
+    ],
+    "chooseSizeChange": [
+      "layer.0.encoding.size.condition.value",
+      "layer.0.encoding.size.value",
+    ],
+    "chooseOpacityChange": [
+      "layer.0.encoding.opacity.condition.value",
+      "layer.0.encoding.opacity.value",
+    ],
+    "conditions": [
+      "layer.0.encoding.color.condition.test",
+      "layer.0.encoding.size.condition.test",
+      "layer.0.encoding.opacity.condition.test",
+    ],
+    "initial": {
+      "chooseColorChange": {
+        "conditionColor": "#000000",
+        "color": "#000000",
+      },
+      "chooseSizeChange": {
+        "conditionSize": 30,
+        "size": 40,
+        "maxSize": 100,
+        "minSize": 0,
+        "stepSize": 1,
+      },
+    },
+  },
+  "Order": {
+    "field": "Entity",
+    "sort": "layer.0.encoding",
+  },
+  "Default": {
+    "width": 400,
+  },
+  "orderTypes": [
+    "Zambia",
+    "Singapore",
+    "South Africa",
+    "Bangladesh",
+    "Turkey",
+  ],
+  "selectTypes": [
+    {
+      "name": "Country",
+      "value": [
+        "Zambia",
+        "Singapore",
+        "South Africa",
+        "Bangladesh",
+        "Turkey",
+      ],
+    },
+  ],
+};
+
+const jsonShort = {
+  "typeName": "Entity",
+  "aspectRatio": {
+    "height": "height",
+    "width": "width",
+    "initial": 1,
+    "min": 0.5,
+    "max": 2,
+    "step": 0.1,
+    "initialWidth": 400,
+  },
+  "Text": {
+    "textColor": "layer.1.encoding.color.value",
+    "textAngle": "layer.1.mark.angle",
+    "textDx": "layer.1.mark.dx",
+    "textDy": "layer.1.mark.dy",
+    "textFontSize": "layer.1.mark.fontSize",
+    "textFontStyle": "layer.1.mark.fontStyle",
+    "textFontWeight": "layer.1.mark.fontWeight",
+  },
+  "Axis": {
+    "AxisColor": [
+      "layer.0.encoding.x.axis.color",
+      "layer.0.encoding.y.axis.color",
+    ],
+    "AxisTickCount": [
+      "layer.0.encoding.x.axis.tickCount",
+      "layer.0.encoding.y.axis.tickCount",
+    ],
+    "AxisScaleDomain": [
+      "layer.0.encoding.x.scale.domain",
+      "layer.0.encoding.y.scale.domain",
+    ],
+    "AxisGrid": [
+      "layer.0.encoding.x.axis.grid",
+      "layer.0.encoding.y.axis.grid",
+    ],
+    initial: {
+      "AxisTickCount": {
+        x: {
+          "init": 5,
+          "min": 1,
+          "max": 20,
+          "step": 1,
+        },
+      },
+      "AxisScaleDomain": {
+        "x": {
+          "minimal": 0,
+          "maximal": 20,
+          "min": 0,
+          "max": 15,
+          "step": 1,
+        },
+      },
+      "AxisGrid": {
+        "x": false,
+        "y": false,
+      },
+    },
+  },
+  "Condition": {
+    "chooseColorChange": [
+      "layer.0.encoding.color.condition.value",
+      "layer.0.encoding.color.value",
+    ],
+    "chooseSizeChange": [
+      "layer.0.encoding.size.condition.value",
+      "layer.0.encoding.size.value",
+    ],
+    "chooseOpacityChange": [
+      "layer.0.encoding.opacity.condition.value",
+      "layer.0.encoding.opacity.value",
+    ],
+    "conditions": [
+      "layer.0.encoding.color.condition.test",
+      "layer.0.encoding.size.condition.test",
+      "layer.0.encoding.opacity.condition.test",
+    ],
+    "initial": {
+      "chooseColorChange": {
+        "conditionColor": "#000000",
+        "color": "#000000",
+      },
+      "chooseSizeChange": {
+        "conditionSize": 30,
+        "size": 40,
+        "maxSize": 100,
+        "minSize": 0,
+        "stepSize": 1,
+      },
+    },
+  },
+  "Order": {
+    "field": "Entity",
+    "sort": "layer.0.encoding",
+  },
+  "Default": {
+    "width": 400,
+  },
+  "orderTypes": [
+    "Belgium",
+    "Ireland",
+    "Czech Republic",
+    "Korea",
+  ],
+  "selectTypes": [
+    {
+      "name": "Country",
+      "value": [
+        "Belgium",
+        "Ireland",
+        "Czech Republic",
+        "Korea",
+      ],
+    },
+  ],
+};
+
+const json4306 = {
+  "typeName": "Entity",
+  "aspectRatio": {
+    "height": "height",
+    "width": "width",
+    "initial": 1,
+    "min": 0.5,
+    "max": 2,
+    "step": 0.1,
+    "initialWidth": 400,
+  },
+  "Text": {
+    "textColor": "layer.1.encoding.color.value",
+    "textAngle": "layer.1.mark.angle",
+    "textDx": "layer.1.mark.dx",
+    "textDy": "layer.1.mark.dy",
+    "textFontSize": "layer.1.mark.fontSize",
+    "textFontStyle": "layer.1.mark.fontStyle",
+    "textFontWeight": "layer.1.mark.fontWeight",
+  },
+  "Axis": {
+    "AxisColor": [
+      "layer.0.encoding.x.axis.color",
+      "layer.0.encoding.y.axis.color",
+    ],
+    "AxisTickCount": [
+      "layer.0.encoding.x.axis.tickCount",
+      "layer.0.encoding.y.axis.tickCount",
+    ],
+    "AxisScaleDomain": [
+      "layer.0.encoding.x.scale.domain",
+      "layer.0.encoding.y.scale.domain",
+    ],
+    "AxisGrid": [
+      "layer.0.encoding.x.axis.grid",
+      "layer.0.encoding.y.axis.grid",
+    ],
+    initial: {
+      "AxisTickCount": {
+        x: {
+          "init": 5,
+          "min": 1,
+          "max": 20,
+          "step": 1,
+        },
+      },
+      "AxisScaleDomain": {
+        "x": {
+          "minimal": 0,
+          "maximal": 200,
+          "min": 0,
+          "max": 100,
+          "step": 1,
+        },
+      },
+      "AxisGrid": {
+        "x": false,
+        "y": false,
+      },
+    },
+  },
+  "Condition": {
+    "chooseColorChange": [
+      "layer.0.encoding.color.condition.value",
+      "layer.0.encoding.color.value",
+    ],
+    "chooseSizeChange": [
+      "layer.0.encoding.size.condition.value",
+      "layer.0.encoding.size.value",
+    ],
+    "chooseOpacityChange": [
+      "layer.0.encoding.opacity.condition.value",
+      "layer.0.encoding.opacity.value",
+    ],
+    "conditions": [
+      "layer.0.encoding.color.condition.test",
+      "layer.0.encoding.size.condition.test",
+      "layer.0.encoding.opacity.condition.test",
+    ],
+    "initial": {
+      "chooseColorChange": {
+        "conditionColor": "#000000",
+        "color": "#000000",
+      },
+      "chooseSizeChange": {
+        "conditionSize": 30,
+        "size": 40,
+        "maxSize": 100,
+        "minSize": 0,
+        "stepSize": 1,
+      },
+    },
+  },
+  "Order": {
+    "field": "Entity",
+    "sort": "layer.0.encoding",
+  },
+  "Default": {
+    "width": 400,
+  },
+  "orderTypes": [
+    "Google",
+    "TOTAL Internet search engines and information",
+    "Yahoo (Verizon Media)",
+    "Ask.com",
+    "MSN (Microsoft)",
+    "AOL (Verizon Media)",
+    "Bing (Microsoft)",
+    "Answers.com",
+  ],
+  "selectTypes": [
+    {
+      "name": "Characteristic",
+      "value": [
+        "Google",
+        "TOTAL Internet search engines and information",
+        "Yahoo (Verizon Media)",
+        "Ask.com",
+        "MSN (Microsoft)",
+        "AOL (Verizon Media)",
+        "Bing (Microsoft)",
+        "Answers.com",
+      ],
+    },
+  ],
+};
+
+const json1014 = {
+  "typeName": "Entity",
+  "aspectRatio": {
+    "height": "height",
+    "width": "width",
+    "initial": 1,
+    "min": 0.5,
+    "max": 2,
+    "step": 0.1,
+    "initialWidth": 400,
+  },
+  "Text": {
+    "textColor": "layer.1.encoding.color.value",
+    "textAngle": "layer.1.mark.angle",
+    "textDx": "layer.1.mark.dx",
+    "textDy": "layer.1.mark.dy",
+    "textFontSize": "layer.1.mark.fontSize",
+    "textFontStyle": "layer.1.mark.fontStyle",
+    "textFontWeight": "layer.1.mark.fontWeight",
+  },
+  "Axis": {
+    "AxisColor": [
+      "layer.0.encoding.x.axis.color",
+      "layer.0.encoding.y.axis.color",
+    ],
+    "AxisTickCount": [
+      "layer.0.encoding.x.axis.tickCount",
+      "layer.0.encoding.y.axis.tickCount",
+    ],
+    "AxisScaleDomain": [
+      "layer.0.encoding.x.scale.domain",
+      "layer.0.encoding.y.scale.domain",
+    ],
+    "AxisGrid": [
+      "layer.0.encoding.x.axis.grid",
+      "layer.0.encoding.y.axis.grid",
+    ],
+    initial: {
+      "AxisTickCount": {
+        x: {
+          "init": 5,
+          "min": 1,
+          "max": 20,
+          "step": 1,
+        },
+      },
+      "AxisScaleDomain": {
+        "x": {
+          "minimal": -100,
+          "maximal": 100,
+          "min": -10,
+          "max": 100,
+          "step": 1,
+        },
+      },
+      "AxisGrid": {
+        "x": false,
+        "y": false,
+      },
+    },
+  },
+  "Condition": {
+    "chooseColorChange": [
+      "layer.0.encoding.color.condition.value",
+      "layer.0.encoding.color.value",
+    ],
+    "chooseSizeChange": [
+      "layer.0.encoding.size.condition.value",
+      "layer.0.encoding.size.value",
+    ],
+    "chooseOpacityChange": [
+      "layer.0.encoding.opacity.condition.value",
+      "layer.0.encoding.opacity.value",
+    ],
+    "conditions": [
+      "layer.0.encoding.color.condition.test",
+      "layer.0.encoding.size.condition.test",
+      "layer.0.encoding.opacity.condition.test",
+    ],
+    "initial": {
+      "chooseColorChange": {
+        "conditionColor": "#000000",
+        "color": "#000000",
+      },
+      "chooseSizeChange": {
+        "conditionSize": 30,
+        "size": 40,
+        "maxSize": 100,
+        "minSize": 0,
+        "stepSize": 1,
+      },
+    },
+  },
+  "Order": {
+    "field": "Province",
+    "sort": "layer.0.encoding",
+  },
+  "Default": {
+    "width": 400,
+  },
+  "orderTypes": [
+    "Territories",
+    "British Columbia",
+    "Ontario",
+    "Alberta",
+    "Prince Edward Island",
+    "Quebec",
+    "Manitoba",
+    "Nova Scotia",
+    "Saskatchewan",
+    "New Brunswick",
+    "Newfoundland and Labrador",
+  ],
+  "selectTypes": [
+    {
+      "name": "Province",
+      "value": [
+        "Territories",
+        "British Columbia",
+        "Ontario",
+        "Alberta",
+        "Prince Edward Island",
+        "Quebec",
+        "Manitoba",
+        "Nova Scotia",
+        "Saskatchewan",
+        "New Brunswick",
+        "Newfoundland and Labrador",
+      ],
+    },
+  ],
+};
+
+const json1044 = {
+  "typeName": "Entity",
+  "aspectRatio": {
+    "height": "height",
+    "width": "width",
+    "initial": 1,
+    "min": 0.5,
+    "max": 2,
+    "step": 0.1,
+    "initialWidth": 400,
+  },
+  "Text": {
+    "textColor": "layer.1.encoding.color.value",
+    "textAngle": "layer.1.mark.angle",
+    "textDx": "layer.1.mark.dx",
+    "textDy": "layer.1.mark.dy",
+    "textFontSize": "layer.1.mark.fontSize",
+    "textFontStyle": "layer.1.mark.fontStyle",
+    "textFontWeight": "layer.1.mark.fontWeight",
+  },
+  "Axis": {
+    "AxisColor": [
+      "layer.0.encoding.x.axis.color",
+      "layer.0.encoding.y.axis.color",
+    ],
+    "AxisTickCount": [
+      "layer.0.encoding.x.axis.tickCount",
+      "layer.0.encoding.y.axis.tickCount",
+    ],
+    "AxisScaleDomain": [
+      "layer.0.encoding.x.scale.domain",
+      "layer.0.encoding.y.scale.domain",
+    ],
+    "AxisGrid": [
+      "layer.0.encoding.x.axis.grid",
+      "layer.0.encoding.y.axis.grid",
+    ],
+    initial: {
+      "AxisTickCount": {
+        "x": {
+          "init": 5,
+          "min": 1,
+          "max": 20,
+          "step": 1,
+        },
+      },
+      "AxisScaleDomain": {
+        "x": {
+          "minimal": 0,
+          "maximal": 200,
+          "min": 0,
+          "max": 100,
+          "step": 1,
+        },
+      },
+      "AxisGrid": {
+        "x": false,
+        "y": false,
+      },
+    },
+  },
+  "Condition": {
+    "chooseColorChange": [
+      "layer.0.encoding.color.condition.value",
+      "layer.0.encoding.color.value",
+    ],
+    "chooseSizeChange": [
+      "layer.0.encoding.size.condition.value",
+      "layer.0.encoding.size.value",
+    ],
+    "chooseOpacityChange": [
+      "layer.0.encoding.opacity.condition.value",
+      "layer.0.encoding.opacity.value",
+    ],
+    "conditions": [
+      "layer.0.encoding.color.condition.test",
+      "layer.0.encoding.size.condition.test",
+      "layer.0.encoding.opacity.condition.test",
+    ],
+    "initial": {
+      "chooseColorChange": {
+        "conditionColor": "#000000",
+        "color": "#000000",
+      },
+      "chooseSizeChange": {
+        "conditionSize": 30,
+        "size": 40,
+        "maxSize": 100,
+        "minSize": 0,
+        "stepSize": 1,
+      },
+    },
+  },
+  "Order": {
+    "field": "Province",
+    "sort": "layer.0.encoding",
+  },
+  "Default": {
+    "width": 400,
+  },
+  "selectTypes": [
+    {
+      "name": "Year",
+      "value": [
+        "2009",
+        "2010",
+        "2011",
+        "2012",
+        "2013",
+        "2014",
+        "2015",
+        "2016",
+        "2017",
+        "2018",
+        "2019",
+      ],
+    },
+  ],
+};
+const json1045 = {
+  "typeName": "Entity",
+  "aspectRatio": {
+    "height": "height",
+    "width": "width",
+    "initial": 1,
+    "min": 0.5,
+    "max": 2,
+    "step": 0.1,
+    "initialWidth": 400,
+  },
+  "Text": {
+    "textColor": "layer.1.encoding.color.value",
+    "textAngle": "layer.1.mark.angle",
+    "textDx": "layer.1.mark.dx",
+    "textDy": "layer.1.mark.dy",
+    "textFontSize": "layer.1.mark.fontSize",
+    "textFontStyle": "layer.1.mark.fontStyle",
+    "textFontWeight": "layer.1.mark.fontWeight",
+  },
+  "Axis": {
+    "AxisColor": [
+      "layer.0.encoding.x.axis.color",
+      "layer.0.encoding.y.axis.color",
+    ],
+    "AxisTickCount": [
+      "layer.0.encoding.x.axis.tickCount",
+      "layer.0.encoding.y.axis.tickCount",
+    ],
+    "AxisScaleDomain": [
+      "layer.0.encoding.x.scale.domain",
+      "layer.0.encoding.y.scale.domain",
+    ],
+    "AxisGrid": [
+      "layer.0.encoding.x.axis.grid",
+      "layer.0.encoding.y.axis.grid",
+    ],
+    initial: {
+      "AxisTickCount": {
+        "x": {
+          "init": 5,
+          "min": 1,
+          "max": 20,
+          "step": 1,
+        },
+      },
+      "AxisScaleDomain": {
+        "x": {
+          "minimal": 0,
+          "maximal": 100,
+          "min": 0,
+          "max": 50,
+          "step": 1,
+        },
+      },
+      "AxisGrid": {
+        "x": false,
+        "y": false,
+      },
+    },
+  },
+  "Condition": {
+    "chooseColorChange": [
+      "layer.0.encoding.color.condition.value",
+      "layer.0.encoding.color.value",
+    ],
+    "chooseSizeChange": [
+      "layer.0.encoding.size.condition.value",
+      "layer.0.encoding.size.value",
+    ],
+    "chooseOpacityChange": [
+      "layer.0.encoding.opacity.condition.value",
+      "layer.0.encoding.opacity.value",
+    ],
+    "conditions": [
+      "layer.0.encoding.color.condition.test",
+      "layer.0.encoding.size.condition.test",
+      "layer.0.encoding.opacity.condition.test",
+    ],
+    "initial": {
+      "chooseColorChange": {
+        "conditionColor": "#000000",
+        "color": "#000000",
+      },
+      "chooseSizeChange": {
+        "conditionSize": 30,
+        "size": 40,
+        "maxSize": 100,
+        "minSize": 0,
+        "stepSize": 1,
+      },
+    },
+  },
+  "Order": {
+    "field": "Province",
+    "sort": "layer.0.encoding",
+  },
+  "Default": {
+    "width": 400,
+  },
+  "orderTypes": [
+    "United States",
+    "China",
+    "Germany",
+    "Japan",
+    "France",
+    "Rest of the world",
+  ],
+  "selectTypes": [
+    {
+      "name": "Country",
+      "value": [
+        "United States",
+        "China",
+        "Germany",
+        "Japan",
+        "France",
+        "Rest of the world",
+      ],
+    },
+  ],
+};
+
 const json_values = {
   "json1261": json1261,
   "json4488": json4488,
@@ -926,6 +2043,15 @@ const json_values = {
   "json3972": json3972,
   "json5007": json5007,
   "json9613": json9613,
+  "json1002": json1002,
+  "jsonMRI": jsonMRI,
+  "jsonRP": jsonRP,
+  "jsonRAB": jsonRAB,
+  "jsonShort": jsonShort,
+  "json4306": json4306,
+  "json1014": json1014,
+  "json1044": json1044,
+  "json1045": json1045,
 };
 
 export const getAccordingValues = (value: string) => {

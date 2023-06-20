@@ -5,6 +5,10 @@
             "stroke": "transparent"
         }
     },
+    "title": "Global Plasma Market Share in 2017",
+    "description": "A comparison of the share of the global plasma market in different countries in 2017.",
+    "width": 200,
+    "height": 400,
     "data": {
         "values": [
             {
@@ -33,44 +37,85 @@
             }
         ]
     },
-    "mark": "bar",
-    "encoding": {
-        "y": {
-            "field": "Country",
-            "type": "ordinal",
-            "axis": {
-                "title": ""
+    "layer": [
+        {
+            "mark": {
+                "type": "bar"
+            },
+            "encoding": {
+                "y": {
+                    "field": "Country",
+                    "type": "nominal",
+                    "axis": {
+                        "title": "",
+                        "grid": false,
+                        "tickCount": 6,
+                        "domain": false
+                    }
+                },
+                "x": {
+                    "field": "Share",
+                    "type": "quantitative",
+                    "axis": {
+                        "title": "Share of the global plasma market in 2017 (%)",
+                        "grid": false,
+                        "tickCount": 7,
+                        "domain": false
+                    }
+                },
+                "color": {
+                    "condition": {
+                        "test": "datum.Country === 'Germany'",
+                        "value": "#7dbcbc"
+                    },
+                    "value": "#4682b4"
+                },
+                "opacity": {
+                    "condition": {
+                        "test": "datum.Country === 'Germany'",
+                        "value": 1
+                    },
+                    "value": 1
+                },
+                "size": {
+                    "condition": {
+                        "test": "datum.Country === 'Germany'",
+                        "value": 30
+                    },
+                    "value": 55
+                }
             }
         },
-        "x": {
-            "field": "Share",
-            "type": "quantitative",
-            "axis": {
-                "title": "Share of the global plasma market in 2017 (%)"
-            }
-        },
-        "color": {
-            "field": "Country",
-            "type": "nominal",
-            "legend": null,
-            "scale": {
-                "domain": [
-                    "United States",
-                    "China",
-                    "Germany",
-                    "Japan",
-                    "France",
-                    "Rest of the world"
-                ],
-                "range": [
-                    "#2876dd",
-                    "#2876dd",
-                    "#2876dd",
-                    "#2876dd",
-                    "#2876dd",
-                    "#2876dd"
-                ]
+        {
+            "mark": {
+                "type": "text",
+                "align": "left",
+                "baseline": "middle",
+                "dx": 20,
+                "dy": -10,
+                "angle": 0,
+                "fontSize": 14,
+                "fontWeight": 400,
+                "color": "black"
+            },
+            "encoding": {
+                "y": {
+                    "field": "Country",
+                    "type": "nominal"
+                },
+                "x": {
+                    "field": "Share",
+                    "type": "quantitative"
+                },
+                "text": {
+                    "field": "Share",
+                    "type": "quantitative"
+                },
+                "color": {
+                    "value": "#aa6565"
+                }
             }
         }
-    }
+    ],
+    "name": "1045"
 }
