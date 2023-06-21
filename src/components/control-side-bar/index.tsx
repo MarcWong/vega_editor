@@ -34,9 +34,18 @@ const log = createLogger({
 
 
 
-const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,editorRef }) => {
+const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,editorRef}) => {
+
 
   const [spec,setSpec]=useState<any>({});
+
+
+  const [entityTypes, setEntityTypes] = useState<string[]>([]);
+  const [choices, setChoices] = useState<string[]>([]);
+
+  const [orderTypes, setOrderTypes] = useState<string[]>([]);
+
+
   const [accordingValues,setAccordingValues]=useState<any>({})
   const updateEditorValue = (path: string, value: any) => {
     if (typeof path !== 'string') {
@@ -167,7 +176,7 @@ const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,edit
     } else {
       console.error('Editor ref is not defined or getValue is not a function');
     }
-  }, [editorRef]);
+  }, [editorRef?.getValue()]);
 
   useEffect(() => {
     if(spec?.name){
@@ -187,13 +196,16 @@ const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,edit
     }
   }, [accordingValues]);
 
+  useEffect(() => {
+    console.log("spec",spec)
+  }, [spec]);
+
+  useEffect(() => {
+    console.log(editorRef,'---------------------')
+  }, []);
 
 
 
-  const [entityTypes, setEntityTypes] = useState<string[]>([]);
-  const [choices, setChoices] = useState<string[]>([]);
-
-  const [orderTypes, setOrderTypes] = useState<string[]>([]);
 
  
 
