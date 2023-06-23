@@ -93,6 +93,7 @@
     "generate-example-images": "scripts/generate-example-images.sh",
     "vendor": "scripts/vendor.sh",
     "prepare": "yarn vendor && beemo create-config",
+    "precommit": "lint-staged",
     "prettierbase": "beemo prettier '{src,public}/**/*.{css,html}'",
     "eslintbase": "beemo eslint .",
     "format": "yarn eslintbase --fix && yarn prettierbase --write",
@@ -100,5 +101,11 @@
     "predeploy": "yarn build",
     "deploy": "gh-pages -d dist",
     "analyze": "webpack --mode production --profile --json > stats.json && webpack-bundle-analyzer stats.json"
+  },
+  "lint-staged": {
+    "*.{js,json,css,scss,html,md}": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }
