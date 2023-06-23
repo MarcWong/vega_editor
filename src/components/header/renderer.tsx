@@ -65,32 +65,6 @@ class Header extends React.PureComponent<PropsType, State> {
         });
       }
     });
-
-    try {
-      const response = await fetch(`${BACKEND_URL}auth/github/check`, {
-        credentials: 'include',
-      });
-      const data = await response.json();
-      const {isAuthenticated, handle, name, profilePicUrl} = data;
-      this.props.receiveCurrentUser(isAuthenticated, handle, name, profilePicUrl);
-    } catch (error) {
-      console.error(error);
-    }
-
-    window.addEventListener('message', async (e) => {
-      if (e.data.type === 'auth') {
-        try {
-          const response = await fetch(`${BACKEND_URL}auth/github/check`, {
-            credentials: 'include',
-          });
-          const data = await response.json();
-          const {isAuthenticated, handle, name, profilePicUrl} = data;
-          this.props.receiveCurrentUser(isAuthenticated, handle, name, profilePicUrl);
-        } catch (error) {
-          console.error(error);
-        }
-      }
-    });
   }
 
   public onSelectVega(name) {
@@ -158,12 +132,6 @@ class Header extends React.PureComponent<PropsType, State> {
     });
     this.listenerAttached = false;
   }
-  public signIn() {
-    window.open(`${BACKEND_URL}auth/github`, '_blank');
-  }
-  public signOut() {
-    window.open(`${BACKEND_URL}auth/github/logout`, '_blank');
-  }
 
   public render() {
     const modeOptions =
@@ -192,12 +160,12 @@ class Header extends React.PureComponent<PropsType, State> {
       </div>
     );
 
-    const gistButton = (
-      <div className="header-button">
-        <GitHub className="header-icon" />
-        {'Gist'}
-      </div>
-    );
+    // const gistButton = (
+    //   <div className="header-button">
+    //     <GitHub className="header-icon" />
+    //     {'Gist'}
+    //   </div>
+    // );
 
     const settingsButton = (
       <div
@@ -212,19 +180,19 @@ class Header extends React.PureComponent<PropsType, State> {
       </div>
     );
 
-    const exportButton = (
-      <div className="header-button">
-        <ExternalLink className="header-icon" />
-        {'Export'}
-      </div>
-    );
+    // const exportButton = (
+    //   <div className="header-button">
+    //     <ExternalLink className="header-icon" />
+    //     {'Export'}
+    //   </div>
+    // );
 
-    const shareButton = (
-      <div className="header-button">
-        <Share2 className="header-icon" />
-        {'Share'}
-      </div>
-    );
+    // const shareButton = (
+    //   <div className="header-button">
+    //     <Share2 className="header-icon" />
+    //     {'Share'}
+    //   </div>
+    // );
 
     const HelpButton = (
       <div className="header-button help" onClick={() => this.setState((current) => ({...current}))}>
@@ -237,37 +205,6 @@ class Header extends React.PureComponent<PropsType, State> {
       <div className="header-button" onClick={this.openCommandPalette.bind(this)}>
         <Terminal className="header-icon" />
         {'Commands'}
-      </div>
-    );
-
-    const authButton = (
-      <div className="auth-button-container">
-        {this.props.isAuthenticated ? (
-          <form>
-            <div className="profile-container">
-              <img className="profile-img" src={this.props.profilePicUrl} />
-              <span className="arrow-down"></span>
-              {this.state.open && (
-                <div className="profile-menu">
-                  <div className="welcome">Logged in as</div>
-                  <div className="whoami">{this.props.name}</div>
-                  <div>
-                    <input className="sign-out" type="submit" value="Sign out" onClick={this.signOut.bind(this)} />
-                  </div>
-                </div>
-              )}
-            </div>
-          </form>
-        ) : (
-          <form>
-            <button className="sign-in" type="submit" onClick={this.signIn.bind(this)}>
-              <span className="sign-in-text" aria-label="Sign in with GitHub">
-                Sign in with
-              </span>
-              <GitHub />
-            </button>
-          </form>
-        )}
       </div>
     );
 
@@ -302,7 +239,10 @@ class Header extends React.PureComponent<PropsType, State> {
     );
     const splitClass = 'split-button' + (this.props.manualParse ? '' : ' auto-run');
 
-    const vega = (closePortal) => (
+    const vega = (closePortal) => {
+
+      return(
+
       <div className="vega">
         {Object.keys(VEGA_SPECS).map((specType, i) => {
           const specs = VEGA_SPECS[specType];
@@ -333,9 +273,11 @@ class Header extends React.PureComponent<PropsType, State> {
           );
         })}
       </div>
-    );
+    )};
 
-    const vegalite = (closePortal) => (
+    const vegalite = (closePortal) => {
+      console.log(VEGA_LITE_SPECS,'---------------')
+      return(
       <div className="vega-Lite">
         {Object.keys(VEGA_LITE_SPECS).map((specGroup, i) => (
           <div key={i}>
@@ -357,7 +299,7 @@ class Header extends React.PureComponent<PropsType, State> {
                       >
                         <div
                           style={{
-                            backgroundImage: `url(images/examples/vl/${spec.name}.vl.png)`,
+                            backgroundImage: `url(png/${spec.name}.png)`,
                           }}
                           className="img"
                         />
@@ -371,7 +313,8 @@ class Header extends React.PureComponent<PropsType, State> {
           </div>
         ))}
       </div>
-    );
+      );
+    };
 
     const gist = (closePortal) => <GistModal closePortal={() => closePortal()} />;
     const exportContent = <ExportModal />;
@@ -387,7 +330,7 @@ class Header extends React.PureComponent<PropsType, State> {
           </span>
           {optionsButton}
 
-          <PortalWithState closeOnEsc>
+          {/* <PortalWithState closeOnEsc>
             {({openPortal, closePortal, portal}) => [
               <span key="0" onClick={openPortal}>
                 {exportButton}
@@ -405,9 +348,9 @@ class Header extends React.PureComponent<PropsType, State> {
                 </div>
               ),
             ]}
-          </PortalWithState>
+          </PortalWithState> */}
 
-          <PortalWithState closeOnEsc>
+          {/* <PortalWithState closeOnEsc>
             {({openPortal, closePortal, portal}) => [
               <span key="0" onClick={openPortal}>
                 {shareButton}
@@ -425,9 +368,9 @@ class Header extends React.PureComponent<PropsType, State> {
                 </div>
               ),
             ]}
-          </PortalWithState>
+          </PortalWithState> */}
 
-          <PortalWithState closeOnEsc>
+          {/* <PortalWithState closeOnEsc>
             {({openPortal, closePortal, portal}) => [
               <span key="0" onClick={openPortal}>
                 {gistButton}
@@ -445,7 +388,7 @@ class Header extends React.PureComponent<PropsType, State> {
                 </div>
               ),
             ]}
-          </PortalWithState>
+          </PortalWithState> */}
 
           <PortalWithState
             closeOnEsc
@@ -453,6 +396,7 @@ class Header extends React.PureComponent<PropsType, State> {
             onOpen={() => {
               const node = ReactDOM.findDOMNode(this.examplePortal.current) as Element;
               node.scrollTop = this.props.lastPosition;
+              this.setState({showVega: false});
               node.addEventListener('scroll', () => {
                 this.setState({
                   scrollPosition: node.scrollTop,
@@ -472,33 +416,22 @@ class Header extends React.PureComponent<PropsType, State> {
                   <div className="modal" onClick={(e) => e.stopPropagation()}>
                     <div>
                       <div className="button-groups">
-                        <button
-                          className={this.state.showVega ? 'selected' : ''}
-                          onClick={() => {
-                            this.setState({showVega: true});
-                            const node = ReactDOM.findDOMNode(this.examplePortal.current) as Element;
-                            node.scrollTop = 0;
-                          }}
+                        <div
+                          // onClick={() => {
+                          //   this.setState({showVega: false});
+                          //   const node = ReactDOM.findDOMNode(this.examplePortal.current) as Element;
+                          //   node.scrollTop = 0;
+                          // }}
                         >
-                          Vega
-                        </button>
-                        <button
-                          className={this.state.showVega ? '' : 'selected'}
-                          onClick={() => {
-                            this.setState({showVega: false});
-                            const node = ReactDOM.findDOMNode(this.examplePortal.current) as Element;
-                            node.scrollTop = 0;
-                          }}
-                        >
-                          Vega-Lite
-                        </button>
+                          tests
+                        </div>
                       </div>
                       <button className="close-button" onClick={closePortal}>
                         <X />
                       </button>
                     </div>
                     <div className="modal-body" ref={this.examplePortal}>
-                      {this.state.showVega ? vega(closePortal) : vegalite(closePortal)}
+                      {vegalite(closePortal)}
                     </div>
                   </div>
                 </div>
@@ -535,7 +468,6 @@ class Header extends React.PureComponent<PropsType, State> {
             }}
           </PortalWithState>
           {settingsButton}
-          {authButton}
         </section>
       </div>
     );

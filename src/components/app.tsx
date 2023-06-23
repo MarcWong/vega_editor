@@ -150,23 +150,23 @@ class App extends React.PureComponent<PropsType> {
   }
 
     handleParametersChange = (params: { [key: string]: string }) => {
-    const { mode, editorRef } = this.props;
-    let spec = JSON.parse(editorRef.getValue());
+        const { mode, editorRef } = this.props;
+        let spec = JSON.parse(editorRef.getValue());
 
-    // Update the data values with the new colors
-    if (spec.data && spec.data.values) {
-    spec.data.values = spec.data.values.map((value) => {
-      return { ...value, color: params[value.a] || value.color };
-    });
-    }
+        // Update the data values with the new colors
+        if (spec.data && spec.data.values) {
+        spec.data.values = spec.data.values.map((value) => {
+          return { ...value, color: params[value.a] || value.color };
+        });
+        }
 
-    // Now we convert the spec back to JSON and update it.
-    spec = JSON.stringify(spec, null, 2);
-    if (mode === Mode.Vega) {
-    this.props.updateVegaSpec(spec);
-    } else {
-    this.props.updateVegaLiteSpec(spec);
-    }
+        // Now we convert the spec back to JSON and update it.
+        spec = JSON.stringify(spec, null, 2);
+        if (mode === Mode.Vega) {
+        this.props.updateVegaSpec(spec);
+        } else {
+        this.props.updateVegaLiteSpec(spec);
+        }
     };
 
   
