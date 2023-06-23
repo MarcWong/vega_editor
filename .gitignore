@@ -13,9 +13,14 @@ npm-debug.log*
 package-lock.json
 prettier.config.js
 public/data/
+public/examples/
 stats.json
 yarn-debug.log*
 yarn-error.log*
+yarn.lock
+.yarn/
+.yarnrc.yml
+.editorconfig
 
 # anything with png
 *.png
