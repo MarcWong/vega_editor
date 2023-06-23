@@ -8,7 +8,7 @@
   "vconcat": [
     {
       "width": 400,
-      "height": 400,
+      "height": 250,
       "title": {
         "text": "Consensus that China plays a bigger role in the world today",
         "subtitle": "% who say plays a more important role in the world than it did 10 years ago",
@@ -55,13 +55,13 @@
             "tickCount": 2
           },
           "sort": [
-            "France",
-            "India",
-            "U.S.",
-            "UK",
-            "Germany",
+            "China",
             "Russia",
-            "China"
+            "Germany",
+            "U.S.",
+            "India",
+            "France",
+            "UK"
           ]
         },
         "x": {
@@ -73,7 +73,7 @@
           },
           "scale": {
             "domain": [
-              -9,
+              0,
               100
             ]
           }
@@ -93,7 +93,7 @@
                 "test": "datum.Entity === 'none'",
                 "value": "#3d7474"
               },
-              "value": "#67a27a"
+              "value": "#949d48"
             },
             "opacity": {
               "condition": {
@@ -107,7 +107,7 @@
                 "test": "datum.Entity === 'none'",
                 "value": 30
               },
-              "value": 10
+              "value": 29
             }
           }
         },
@@ -145,23 +145,43 @@
     },
     {
       "width": 400,
-      "height": 100,
+      "height": 10,
       "data": {
         "values": [
           {
-            "text": "Footer text goes here"
+            "text": "Note: Percentages are medians based on 25 countries."
           }
         ]
       },
       "mark": {
         "type": "text",
-        "align": "center",
+        "align": "left",
         "baseline": "middle"
       },
       "encoding": {
         "text": {
-          "field": "text",
-          "type": "nominal"
+          "field": "text"
+        }
+      }
+    },
+    {
+      "width": 400,
+      "height": 10,
+      "data": {
+        "values": [
+          {
+            "text": "Source: Spring 2018 Global Attitudes Survey. Q31 & Q32a-f."
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle"
+      },
+      "encoding": {
+        "text": {
+          "field": "text"
         }
       }
     }

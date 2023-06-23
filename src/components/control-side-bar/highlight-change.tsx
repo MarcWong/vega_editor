@@ -86,6 +86,17 @@ const TextChangeComponent=({keyValues,updateEditorValue,choices})=>{
   return (
     <Box m={2}>
         <Box mb={2}>
+            <ColorInput label="Global Color" initialColor={"aqua"} onColorChange={handleDefaultColorChange} />
+        </Box>
+        <Box mb={2}>
+            <SizeInput size={initial?.chooseSizeChange?.size} label="Global Bar Width" onSizeChange={(e) => handleDefaultSizeChange(e)} min={initial?.chooseSizeChange?.min} max={initial?.chooseSizeChange?.max}/>
+        </Box>
+        <Box mb={2}>
+            <RangeInput min={0} max={1} step={0.1} label="Global Bar Opacity" initialValue={1} onValueChange={handleDefaultOpacityChange} />
+        </Box>
+
+
+        <Box mb={2}>
             {choices.map((choice, index) => {
                 const {value,name} = choice;
                 return (
@@ -97,24 +108,14 @@ const TextChangeComponent=({keyValues,updateEditorValue,choices})=>{
         </Box>
 
         <Box mb={2}>
-            <ColorInput label="Chosen Color" initialColor={"aqua"} onColorChange={handleChosenColorChange} />
+            <ColorInput label="Highlight Color" initialColor={"aqua"} onColorChange={handleChosenColorChange} />
         </Box>
         <Box mb={2}>
-            <ColorInput label="Default Color" initialColor={"aqua"} onColorChange={handleDefaultColorChange} />
-        </Box>
-
-        <Box mb={2}>
-             <SizeInput size={initial?.chooseSizeChange?.conditionSize} label="choosen size" onSizeChange={(e) => handleChosenSizeChange(e)} min={initial?.chooseSizeChange?.min} max={initial?.chooseSizeChange?.max}/>
-        </Box>
-        <Box mb={2}>
-            <SizeInput size={initial?.chooseSizeChange?.size} label="choosen size" onSizeChange={(e) => handleDefaultSizeChange(e)} min={initial?.chooseSizeChange?.min} max={initial?.chooseSizeChange?.max}/>
+             <SizeInput size={initial?.chooseSizeChange?.conditionSize} label="Highlight Bar Size" onSizeChange={(e) => handleChosenSizeChange(e)} min={initial?.chooseSizeChange?.min} max={initial?.chooseSizeChange?.max}/>
         </Box>
 
         <Box mb={2}>
-            <RangeInput min={0} max={1} step={0.1} label="Chosen Opacity" initialValue={1} onValueChange={handleChosenOpacityChange} />
-        </Box>
-        <Box mb={2}>
-            <RangeInput min={0} max={1} step={0.1} label="Default Opacity" initialValue={1} onValueChange={handleDefaultOpacityChange} />
+            <RangeInput min={0} max={1} step={0.1} label="Highlight Bar Opacity" initialValue={1} onValueChange={handleChosenOpacityChange} />
         </Box>
     </Box>
   )

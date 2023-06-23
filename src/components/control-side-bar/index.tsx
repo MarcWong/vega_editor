@@ -222,7 +222,7 @@ const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,edit
 
       <Accordion>
         <AccordionSummary expandIcon={<ExpandIcon />} aria-controls="textChange-content" id="textChange-header">
-          <Typography>Text Change</Typography>
+          <Typography>Text Panel</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <TextChangeComponent keyValues={accordingValues?.Text} updateEditorValue={updateEditorValue} />
@@ -231,7 +231,7 @@ const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,edit
 
       <Accordion>
         <AccordionSummary expandIcon={<ExpandIcon />} aria-controls="axisChange-content" id="axisChange-header">
-          <Typography>Axis Change</Typography>
+          <Typography>Axis Panel</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <AxisChangeComponent keyValues={accordingValues?.Axis} updateEditorValue={updateEditorValue} defaultValues={accordingValues?.axisChange}/>
@@ -240,7 +240,7 @@ const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,edit
 
       <Accordion>
         <AccordionSummary expandIcon={<ExpandIcon />} aria-controls="highlightChange-content" id="highlightChange-header">
-          <Typography>Highlight Change</Typography>
+          <Typography>Color Encoding Panel</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <HighlightChangeComponent keyValues={accordingValues?.Condition} updateEditorValue={updateEditorValue} defaultValues={accordingValues?.highlightChange} 
