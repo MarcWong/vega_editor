@@ -126,7 +126,8 @@
                 "fontSize": 20,
                 "fontStyle": "normal",
                 "fontWeight": 300,
-                "color": "#7c8964"
+                "color": "#7c8964",
+                "opacity": 1
             },
             "encoding": {
                 "y": {

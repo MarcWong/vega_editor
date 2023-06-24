@@ -8,7 +8,7 @@
   "vconcat": [
     {
       "width": 400,
-      "height": 400,
+      "height": 384.6153846153846,
       "title": {
         "text": "Americans and Germans differ over importance of U.S. military bases in Germany to national security.",
         "subtitle": "% who think U.S. military bases in Germany are for their country's national security.",
@@ -55,31 +55,31 @@
         }
       ],
       "encoding": {
-        "x": {
-          "field": "value",
-          "type": "quantitative",
-          "scale": {
-            "domain": [
-              -100,
-              100
-            ]
-          },
-          "axis": {
-            "grid": true,
-            "tickCount": 20
-          }
-        },
         "y": {
           "field": "Entity",
           "type": "ordinal",
           "axis": {
             "grid": true,
-            "tickCount": 0
+            "tickCount": 10
           },
           "sort": [
             "U.S.",
             "Germany"
           ]
+        },
+        "x": {
+          "field": "value",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -70,
+              100
+            ]
+          },
+          "axis": {
+            "grid": true,
+            "tickCount": 10
+          }
         },
         "order": {
           "field": "order",
@@ -101,15 +101,15 @@
           "encoding": {
             "size": {
               "condition": {
-                "test": "datum.Entity === 'none' && datum.category === 'none'",
-                "value": 30
+                "test": "(datum.category === 'none') && (datum.Entity === 'none')",
+                "value": 80
               },
               "value": 100
             },
             "color": {
               "condition": {
-                "test": "datum.Entity === 'none' && datum.category === 'none'",
-                "value": "#46c3c3"
+                "test": "(datum.category === 'none') && (datum.Entity === 'none')",
+                "value": "#4d1919"
               },
               "field": "category",
               "type": "nominal",
@@ -130,8 +130,8 @@
             },
             "opacity": {
               "condition": {
-                "test": "datum.Entity === 'none' && datum.category === 'none'",
-                "value": 1
+                "test": "(datum.category === 'none') && (datum.Entity === 'none')",
+                "value": 0.5
               },
               "value": 1
             }
@@ -140,34 +140,53 @@
         {
           "mark": {
             "type": "text",
-            "dx": 1,
-            "dy": 1,
-            "xOffset": 0,
-            "yOffset": 0,
-            "angle": 0,
+            "dx": 11,
+            "dy": 3,
+            "xOffset": -9,
+            "yOffset": 5,
+            "angle": -2,
             "font": "serif",
-            "fontSize": 12,
+            "fontSize": 20,
             "fontStyle": "normal",
-            "fontWeight": 700,
-            "limit": 100,
-            "opacity": 1
+            "fontWeight": 800,
+            "limit": 100
           },
           "encoding": {
             "text": {
               "field": "abs_value",
               "type": "quantitative"
             },
-            "y": {
-              "field": "Entity",
-              "type": "ordinal"
-            },
             "x": {
               "field": "value",
               "type": "quantitative"
             },
+            "y": {},
             "color": {
-              "value": "#c95454"
+              "value": "#d28383"
             }
+          }
+        },
+        {
+          "data": {
+            "values": [
+              {
+                "dummy": 0
+              }
+            ]
+          },
+          "mark": {
+            "type": "rule",
+            "strokeDash": [
+              2,
+              2
+            ],
+            "size": 2
+          },
+          "encoding": {
+            "x": {
+              "datum": 10
+            },
+            "y": {}
           }
         }
       ]

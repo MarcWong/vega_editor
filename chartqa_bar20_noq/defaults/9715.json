@@ -157,7 +157,8 @@
                 "fontSize": 30,
                 "fontStyle": "normal",
                 "fontWeight": 400,
-                "font": "serif"
+                "font": "serif",
+                "opacity": 1
             },
             "encoding": {
                 "y": {
@@ -167,7 +168,8 @@
                 "x": {
                     "field": "value",
                     "type": "quantitative",
-                    "stack": "normalize"
+                    "stack": "normalize",
+                    "bandPosition": 0.5
                 },
                 "text": {
                     "condition": {
@@ -178,6 +180,9 @@
                 },
                 "color": {
                     "value": "#c72c2c"
+                },
+                "opacity": {
+                    "value": 0
                 }
             }
         }

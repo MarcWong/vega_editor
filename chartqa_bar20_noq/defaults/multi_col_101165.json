@@ -90,7 +90,8 @@
             "mark": {
                 "type": "text",
                 "align": "center",
-                "baseline": "middle"
+                "baseline": "middle",
+                "opacity": 1
             },
             "encoding": {
                 "text": {

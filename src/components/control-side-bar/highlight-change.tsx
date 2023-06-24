@@ -10,7 +10,7 @@ import { select } from 'd3';
 interface ChoiceType{
     name:string,
     value:{},
-    state:string
+    state?:string
 }
 
 interface ChoicesState{

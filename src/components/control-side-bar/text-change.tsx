@@ -3,6 +3,8 @@ import { Box } from '@mui/material';
 import SizeInput from './components/size-input';
 import ColorInput from './components/color-input';
 import SelectInput from './components/select-input';
+import CheckboxInput from './components/check-box-input';
+import RangeInput from './components/range-input';
 
 const defaultInitial= {
   "textColor": "#000000",
@@ -46,7 +48,7 @@ const TextChangeComponent=({keyValues,updateEditorValue})=>{
     return null;
    }
 
-  let {textColor,textAngle,textDx,textDy,textFontSize,textFontStyle,textFontWeight,initial}=keyValues;
+  let {textColor,textAngle,textDx,textDy,textFontSize,textFontStyle,textFontWeight,initial,textOpacity}=keyValues;
 
   if(!initial){
     initial=defaultInitial;
@@ -112,6 +114,11 @@ const TextChangeComponent=({keyValues,updateEditorValue})=>{
     <Box mb={2}>
       <SizeInput size={500} label="Font Weight" onSizeChange={handleFontWeight} min={100} max={900} step={100} />
     </Box>
+
+    <Box mb={2}>
+      {textOpacity && <RangeInput min={0} max={1} step={0.1} label="Text Opacity" initialValue={1} onValueChange={(e)=>updateEditorValue(textOpacity,e)} />}
+    </Box>
+  
   </Box>
   )
 }

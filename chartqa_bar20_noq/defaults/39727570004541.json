@@ -132,7 +132,8 @@
                 "fontSize": 15,
                 "fontStyle": "italic",
                 "fontWeight": 300,
-                "color": "black"
+                "color": "black",
+                "opacity": 1
             },
             "encoding": {
                 "y": {

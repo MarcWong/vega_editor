@@ -2,7 +2,7 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Children per woman, 1988",
     "description": "A comparison of the average number of children per woman in 1988 across different countries or regions.",
-    "width": 200,
+    "width": 400,
     "height": 400,
     "data": {
         "values": [
@@ -111,7 +111,8 @@
                 "fontSize": 25,
                 "fontStyle": "italic",
                 "fontWeight": 300,
-                "color": "black"
+                "color": "black",
+                "opacity": 1
             },
             "encoding": {
                 "y": {

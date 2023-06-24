@@ -18,6 +18,7 @@ const json1261 = {
     "textFontSize": "vconcat.0.layer.1.mark.fontSize",
     "textFontStyle": "vconcat.0.layer.1.mark.fontStyle",
     "textFontWeight": "vconcat.0.layer.1.mark.fontWeight",
+    "textOpacity": "vconcat.0.layer.1.mark.opacity",
     initial: {
       "textColor": "#000000",
       "textAngle": {
@@ -168,6 +169,7 @@ const json4488 = {
     "textFontSize": "vconcat.0.layer.1.mark.fontSize",
     "textFontStyle": "vconcat.0.layer.1.mark.fontStyle",
     "textFontWeight": "vconcat.0.layer.1.mark.fontWeight",
+    "textOpacity": "vconcat.0.layer.1.mark.opacity",
     initial: {
       "textColor": "#000000",
       "textAngle": {
@@ -308,6 +310,7 @@ const json9715 = {
     "textFontSize": "layer.1.mark.fontSize",
     "textFontStyle": "layer.1.mark.fontStyle",
     "textFontWeight": "layer.1.mark.fontWeight",
+    "textOpacity": "layer.1.mark.opacity",
   },
   "Axis": {
     "AxisColor": [
@@ -445,6 +448,7 @@ const json0882 = {
     "textFontSize": "layer.1.mark.fontSize",
     "textFontStyle": "layer.1.mark.fontStyle",
     "textFontWeight": "layer.1.mark.fontWeight",
+    "textOpacity": "layer.1.mark.opacity",
   },
   "Axis": {
     "AxisColor": [
@@ -524,7 +528,7 @@ const json0882 = {
     "sort": "layer.0.encoding",
   },
   "Default": {
-    "width": 200,
+    "width": 400,
   },
   "orderTypes": [
     "Malawi",
@@ -564,6 +568,7 @@ const json3972 = {
     "textFontSize": "layer.1.mark.fontSize",
     "textFontStyle": "layer.1.mark.fontStyle",
     "textFontWeight": "layer.1.mark.fontWeight",
+    "textOpacity": "layer.1.mark.opacity",
   },
   "Axis": {
     "AxisColor": [
@@ -689,6 +694,7 @@ const json5007 = {
     "textFontSize": "layer.1.mark.fontSize",
     "textFontStyle": "layer.1.mark.fontStyle",
     "textFontWeight": "layer.1.mark.fontWeight",
+    "textOpacity": "layer.1.mark.opacity",
   },
   "Axis": {
     "AxisColor": [
@@ -812,6 +818,7 @@ const json9613 = {
     "textFontSize": "layer.1.mark.fontSize",
     "textFontStyle": "layer.1.mark.fontStyle",
     "textFontWeight": "layer.1.mark.fontWeight",
+    "textOpacity": "layer.1.mark.opacity",
   },
   "Axis": {
     "AxisColor": [
@@ -937,6 +944,7 @@ const json1002 = {
     "textFontSize": "layer.1.mark.fontSize",
     "textFontStyle": "layer.1.mark.fontStyle",
     "textFontWeight": "layer.1.mark.fontWeight",
+    "textOpacity": "layer.1.mark.opacity",
   },
   "Axis": {
     "AxisColor": [
@@ -1074,6 +1082,7 @@ const jsonMRI = {
     "textFontSize": "layer.1.mark.fontSize",
     "textFontStyle": "layer.1.mark.fontStyle",
     "textFontWeight": "layer.1.mark.fontWeight",
+    "textOpacity": "layer.1.mark.opacity",
   },
   "Axis": {
     "AxisColor": [
@@ -1191,6 +1200,7 @@ const jsonRP = {
     "textFontSize": "layer.1.mark.fontSize",
     "textFontStyle": "layer.1.mark.fontStyle",
     "textFontWeight": "layer.1.mark.fontWeight",
+    "textOpacity": "layer.1.mark.opacity",
   },
   "Axis": {
     "AxisColor": [
@@ -1312,6 +1322,7 @@ const jsonRAB = {
     "textFontSize": "layer.1.mark.fontSize",
     "textFontStyle": "layer.1.mark.fontStyle",
     "textFontWeight": "layer.1.mark.fontWeight",
+    "textOpacity": "layer.1.mark.opacity",
   },
   "Axis": {
     "AxisColor": [
@@ -1433,6 +1444,7 @@ const jsonShort = {
     "textFontSize": "layer.1.mark.fontSize",
     "textFontStyle": "layer.1.mark.fontStyle",
     "textFontWeight": "layer.1.mark.fontWeight",
+    "textOpacity": "layer.1.mark.opacity",
   },
   "Axis": {
     "AxisColor": [
@@ -1552,6 +1564,7 @@ const json4306 = {
     "textFontSize": "layer.1.mark.fontSize",
     "textFontStyle": "layer.1.mark.fontStyle",
     "textFontWeight": "layer.1.mark.fontWeight",
+    "textOpacity": "layer.1.mark.opacity",
   },
   "Axis": {
     "AxisColor": [
@@ -1679,6 +1692,7 @@ const json1014 = {
     "textFontSize": "layer.1.mark.fontSize",
     "textFontStyle": "layer.1.mark.fontStyle",
     "textFontWeight": "layer.1.mark.fontWeight",
+    "textOpacity": "layer.1.mark.opacity",
   },
   "Axis": {
     "AxisColor": [
@@ -1812,6 +1826,7 @@ const json1044 = {
     "textFontSize": "layer.1.mark.fontSize",
     "textFontStyle": "layer.1.mark.fontStyle",
     "textFontWeight": "layer.1.mark.fontWeight",
+    "textOpacity": "layer.1.mark.opacity",
   },
   "Axis": {
     "AxisColor": [
@@ -1932,6 +1947,7 @@ const json1045 = {
     "textFontSize": "layer.1.mark.fontSize",
     "textFontStyle": "layer.1.mark.fontStyle",
     "textFontWeight": "layer.1.mark.fontWeight",
+    "textOpacity": "layer.1.mark.opacity",
   },
   "Axis": {
     "AxisColor": [

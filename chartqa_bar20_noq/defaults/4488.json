@@ -69,7 +69,7 @@
           "type": "quantitative",
           "axis": {
             "grid": false,
-            "tickCount": 10
+            "tickCount": 5
           },
           "scale": {
             "domain": [
@@ -90,21 +90,21 @@
           "encoding": {
             "color": {
               "condition": {
-                "test": "datum.Entity === 'none'",
-                "value": "#3d7474"
+                "test": "datum.Entity === 'Russia'",
+                "value": "#566d40"
               },
               "value": "#949d48"
             },
             "opacity": {
               "condition": {
-                "test": "datum.Entity === 'none'",
+                "test": "datum.Entity === 'Russia'",
                 "value": 1
               },
               "value": 1
             },
             "size": {
               "condition": {
-                "test": "datum.Entity === 'none'",
+                "test": "datum.Entity === 'Russia'",
                 "value": 30
               },
               "value": 29
@@ -114,18 +114,18 @@
         {
           "mark": {
             "type": "text",
-            "dx": 0,
-            "dy": -6,
+            "dx": 5,
+            "dy": 0,
             "xOffset": 0,
             "yOffset": 0,
             "angle": 0,
             "align": "right",
-            "baseline": "top",
+            "baseline": "middle",
             "font": "serif",
-            "fontSize": 2,
+            "fontSize": 12,
             "fontStyle": "normal",
             "fontWeight": "normal",
-            "limit": 0
+            "opacity": 1
           },
           "encoding": {
             "text": {
@@ -133,7 +133,7 @@
               "type": "quantitative"
             },
             "color": {
-              "value": "#b52525"
+              "value": "#9e2222"
             },
             "x": {
               "field": "Importance",

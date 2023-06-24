@@ -276,7 +276,6 @@ class Header extends React.PureComponent<PropsType, State> {
     )};
 
     const vegalite = (closePortal) => {
-      console.log(VEGA_LITE_SPECS,'---------------')
       return(
       <div className="vega-Lite">
         {Object.keys(VEGA_LITE_SPECS).map((specGroup, i) => (

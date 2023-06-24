@@ -185,6 +185,7 @@ const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,edit
   }, [spec]);
 
   useEffect(() => {
+    console.log("accordingValues",accordingValues,'---------------')
     if(accordingValues?.entityTypes){
       setEntityTypes(accordingValues?.entityTypes);
     }
@@ -196,18 +197,6 @@ const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,edit
     }
   }, [accordingValues]);
 
-  useEffect(() => {
-    console.log("spec",spec)
-  }, [spec]);
-
-  useEffect(() => {
-    console.log(editorRef,'---------------------')
-  }, []);
-
-
-
-
- 
 
   return (
     <div className="control-sidebar" style={{overflow: 'auto', height: '100%'}}>

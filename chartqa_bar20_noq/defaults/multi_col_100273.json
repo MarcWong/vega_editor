@@ -157,7 +157,8 @@
                 "fontSize": 30,
                 "fontStyle": "normal",
                 "fontWeight": 400,
-                "font": "serif"
+                "font": "serif",
+                "opacity": 1
             },
             "encoding": {
                 "y": {
