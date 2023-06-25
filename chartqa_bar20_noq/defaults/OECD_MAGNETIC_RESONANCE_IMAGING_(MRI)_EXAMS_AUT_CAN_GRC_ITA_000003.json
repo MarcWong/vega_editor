@@ -20,6 +20,40 @@
             }
         ]
     },
+    "encoding": {
+        "y": {
+            "field": "Country",
+            "type": "nominal",
+            "sort": [
+                "Italy",
+                "Greece",
+                "Austria"
+            ],
+            "axis": {
+                "grid": false,
+                "scale": {
+                    "domain": [
+                        null,
+                        null
+                    ]
+                }
+            }
+        },
+        "x": {
+            "field": "MRI Exams",
+            "type": "quantitative",
+            "axis": {
+                "grid": false,
+                "tickCount": 5
+            },
+            "scale": {
+                "domain": [
+                    0,
+                    200
+                ]
+            }
+        }
+    },
     "layer": [
         {
             "mark": {
@@ -27,42 +61,13 @@
                 "color": "#4682b4"
             },
             "encoding": {
-                "y": {
-                    "field": "Country",
-                    "type": "nominal",
-                    "sort": [
-                        "Greece",
-                        "Italy",
-                        "Austria"
-                    ],
-                    "axis": {
-                        "grid": true,
-                        "tickCount": 3,
-                        "domain": false
-                    }
-                },
-                "x": {
-                    "field": "MRI Exams",
-                    "type": "quantitative",
-                    "axis": {
-                        "grid": true,
-                        "tickCount": 5,
-                        "domain": false
-                    },
-                    "scale": {
-                        "domain": [
-                            0,
-                            200
-                        ]
-                    }
-                },
                 "color": {
                     "field": "Country",
                     "type": "nominal",
                     "legend": null,
                     "condition": {
-                        "test": "datum.Country === 'Greece'",
-                        "value": "#64e1e1"
+                        "test": "datum.Country === 'none'",
+                        "value": "#000000"
                     },
                     "scale": {
                         "domain": [
@@ -71,25 +76,25 @@
                             "Austria"
                         ],
                         "range": [
-                            "#4daf4a",
-                            "#377eb8",
-                            "#ff7f00"
+                            "#d73027",
+                            "#fc8d59",
+                            "#fee090"
                         ]
                     }
                 },
                 "opacity": {
                     "condition": {
-                        "test": "datum.Country === 'Greece'",
+                        "test": "datum.Country === 'none'",
                         "value": 1
                     },
                     "value": 1
                 },
                 "size": {
                     "condition": {
-                        "test": "datum.Country === 'Greece'",
+                        "test": "datum.Country === 'none'",
                         "value": 30
                     },
-                    "value": 55
+                    "value": 40
                 }
             }
         },
@@ -98,12 +103,12 @@
                 "type": "text",
                 "align": "left",
                 "baseline": "middle",
-                "dx": 1,
-                "dy": 1,
-                "angle": 1,
-                "fontSize": 25,
-                "fontStyle": "italic",
-                "fontWeight": 300,
+                "dx": 0,
+                "dy": 0,
+                "angle": 0,
+                "fontSize": 11,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
                 "color": "black",
                 "opacity": 1
             },
@@ -121,7 +126,7 @@
                     "type": "quantitative"
                 },
                 "color": {
-                    "value": "#8e6d6d"
+                    "value": "#000000"
                 }
             }
         }

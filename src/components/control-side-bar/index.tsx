@@ -12,7 +12,7 @@ import { createLogger } from 'browser-bunyan';
 import { ConsoleFormattedStream } from 'browser-bunyan';
 import { ConsoleRawStream } from 'browser-bunyan';
 import Button from '@mui/material/Button';
-import { set } from 'vega-lite/src/log';
+import ColorArrayInput from './color-array-input';
 
 // import 
 
@@ -50,34 +50,42 @@ const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,edit
   const updateEditorValue = (path: string, value: any) => {
     if (typeof path !== 'string') {
       return;
-  }
-        if (editorRef && editorRef.getValue) {
-            const spec = JSON.parse(editorRef.getValue());
-            const pathParts = path.split('.');
-            let target = spec;
-            for (let i = 0; i < pathParts.length; i++) {
-                const part = pathParts[i];
-                if (!target.hasOwnProperty(part)) {
-                    return; // path does not exist, do nothing
+    }
+    if (editorRef && editorRef.getValue) {
+        const spec = JSON.parse(editorRef.getValue());
+        const pathParts = path.split('.');
+        let target = spec;
+        for (let i = 0; i < pathParts.length; i++) {
+            const part = pathParts[i];
+
+            // If we are at the end of the path
+            if (i === pathParts.length - 1) {
+                // If the property doesn't exist or it is null
+                if (!target[part] || target[part] === null) {
+                    target[part] = {}; // create an empty object
                 }
-                if (i === pathParts.length - 1) {
-                    target[part] = value; // update the value if we are at the end of the path
-                } else {
-                    target = target[part]; // move to the next part of the path
+                target[part] = value; // update the value
+            } else {
+                // If the property doesn't exist or it is null
+                if (!target[part] || target[part] === null) {
+                    target[part] = {}; // create an empty object
                 }
+                target = target[part]; // move to the next part of the path
             }
-            editorRef.setValue(JSON.stringify(spec, null, 2));
-            const currentTime = new Date().toISOString();
-            const logInfo = {
-              path,
-              value,
-              time: currentTime,
-            };
-        
-            // Store log info to array
-            logMessages.push(logInfo);
         }
-    };
+        editorRef.setValue(JSON.stringify(spec, null, 2));
+        const currentTime = new Date().toISOString();
+        const logInfo = {
+          path,
+          value,
+          time: currentTime,
+        };
+    
+        // Store log info to array
+        logMessages.push(logInfo);
+    }
+  };
+
 
     const downloadLogs = () => {
       const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(logMessages));
@@ -185,7 +193,6 @@ const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,edit
   }, [spec]);
 
   useEffect(() => {
-    console.log("accordingValues",accordingValues,'---------------')
     if(accordingValues?.entityTypes){
       setEntityTypes(accordingValues?.entityTypes);
     }
@@ -237,8 +244,19 @@ const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,edit
         </AccordionDetails>
       </Accordion>
 
+      <Accordion>
+
+        <AccordionSummary expandIcon={<ExpandIcon />} aria-controls="colorArray-content" id="colorArray-header">
+          <Typography>Color Array</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <ColorArrayInput keyValues={accordingValues?.ColorArray} updateEditorValue={updateEditorValue} defaultValues={accordingValues?.colorArray}
+              choices={choices}/>
+        </AccordionDetails>
+      </Accordion>
+
       <SwapButton onSwap={exchangeAxes} />
-      <OrderInput entities={orderTypes}  updateEditorValue={updateEditorValue} getEditorValue={getEditorValue} keyValues={accordingValues?.Order}/>
+      <OrderInput entities={accordingValues?.orderTypes}  updateEditorValue={updateEditorValue} getEditorValue={getEditorValue} keyValues={accordingValues?.Order}/>
 
       <Button variant="contained" color="primary" onClick={downloadLogs}>
         Download Logs

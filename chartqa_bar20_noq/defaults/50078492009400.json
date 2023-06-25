@@ -32,6 +32,24 @@
             }
         ]
     },
+    "encoding": {
+        "y": {
+            "field": "Age",
+            "type": "nominal"
+        },
+        "x": {
+            "field": "DALYs",
+            "type": "quantitative",
+            "sort": [
+                "15-49 years old",
+                "Age-standardized",
+                "All ages",
+                "5-14 years old",
+                "70+ years old",
+                "50-69 years old"
+            ]
+        }
+    },
     "layer": [
         {
             "mark": {
@@ -130,14 +148,6 @@
                 "opacity": 1
             },
             "encoding": {
-                "y": {
-                    "field": "Age",
-                    "type": "nominal"
-                },
-                "x": {
-                    "field": "DALYs",
-                    "type": "quantitative"
-                },
                 "text": {
                     "field": "DALYs",
                     "type": "quantitative"

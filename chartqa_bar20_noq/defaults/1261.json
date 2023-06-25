@@ -65,20 +65,25 @@
             ]
           },
           "axis": {
-            "grid": true,
-            "tickCount": 20
+            "grid": false,
+            "tickCount": 5
           }
         },
         "y": {
           "field": "Entity",
           "type": "ordinal",
           "axis": {
-            "grid": true,
-            "tickCount": 0
+            "grid": false,
+            "scale": {
+              "domain": [
+                null,
+                null
+              ]
+            }
           },
           "sort": [
-            "U.S.",
-            "Germany"
+            "Germany",
+            "U.S."
           ]
         },
         "order": {
@@ -104,12 +109,12 @@
                 "test": "datum.Entity === 'none' && datum.category === 'none'",
                 "value": 30
               },
-              "value": 100
+              "value": 40
             },
             "color": {
               "condition": {
                 "test": "datum.Entity === 'none' && datum.category === 'none'",
-                "value": "#46c3c3"
+                "value": "#000000"
               },
               "field": "category",
               "type": "nominal",
@@ -121,10 +126,10 @@
                   "Very important"
                 ],
                 "range": [
-                  "darkblue",
-                  "lightblue",
-                  "lightgreen",
-                  "darkgreen"
+                  "#d73027",
+                  "#fc8d59",
+                  "#fee090",
+                  "#91bfdb"
                 ]
               }
             },
@@ -140,15 +145,15 @@
         {
           "mark": {
             "type": "text",
-            "dx": 1,
-            "dy": 1,
+            "dx": 0,
+            "dy": 0,
             "xOffset": 0,
             "yOffset": 0,
             "angle": 0,
             "font": "serif",
-            "fontSize": 12,
+            "fontSize": 11,
             "fontStyle": "normal",
-            "fontWeight": 700,
+            "fontWeight": "normal",
             "limit": 100,
             "opacity": 1
           },
@@ -166,7 +171,7 @@
               "type": "quantitative"
             },
             "color": {
-              "value": "#c95454"
+              "value": "#000001"
             }
           }
         }

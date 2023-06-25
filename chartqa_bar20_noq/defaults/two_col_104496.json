@@ -8,7 +8,7 @@
             },
             {
                 "Year": "2010",
-                "Turnover": 33.0
+                "Turnover": 33
             },
             {
                 "Year": "2011",
@@ -48,17 +48,59 @@
             }
         ]
     },
-    "mark": "bar",
     "encoding": {
         "x": {
-            "field": "Year",
-            "type": "ordinal",
-            "title": "Year"
-        },
-        "y": {
             "field": "Turnover",
             "type": "quantitative",
-            "title": "Turnover in million GBP"
+            "axis": {
+                "grid": false,
+                "tickCount": 5,
+                "title": "Turnover in million GBP"
+            },
+            "scale": {
+                "domain": [
+                    0,
+                    100
+                ]
+            }
+        },
+        "y": {
+            "field": "Year",
+            "type": "nominal",
+            "axis": {
+                "grid": false,
+                "title": ""
+            }
         }
-    }
+    },
+    "layer": [
+        {
+            "mark": {
+                "type": "bar"
+            },
+            "encoding": {
+                "color": {
+                    "condition": {
+                        "test": "datum.Year === '2017'",
+                        "value": "#7dbcbc"
+                    },
+                    "value": "#4682b4"
+                },
+                "opacity": {
+                    "condition": {
+                        "test": "datum.Year === '2017'",
+                        "value": 1
+                    },
+                    "value": 1
+                },
+                "size": {
+                    "condition": {
+                        "test": "datum.Year === '2017'",
+                        "value": 17
+                    },
+                    "value": 15
+                }
+            }
+        }
+    ]
 }

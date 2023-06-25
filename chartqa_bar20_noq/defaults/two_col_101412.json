@@ -5,6 +5,8 @@
             "stroke": "transparent"
         }
     },
+    "width": 200,
+    "height": 400,
     "data": {
         "values": [
             {
@@ -57,37 +59,106 @@
     "encoding": {
         "y": {
             "field": "Province",
-            "type": "ordinal",
+            "type": "nominal",
+            "sort": [
+                "British Columbia",
+                "Ontario",
+                "Alberta",
+                "Territories",
+                "Prince Edward Island",
+                "Quebec",
+                "Manitoba",
+                "Nova Scotia",
+                "Saskatchewan",
+                "New Brunswick",
+                "Newfoundland and Labrador"
+            ],
             "axis": {
-                "title": ""
+                "grid": false,
+                "scale": {
+                    "domain": [
+                        null,
+                        null
+                    ]
+                }
             }
         },
         "x": {
             "field": "Net employment growth",
             "type": "quantitative",
             "axis": {
-                "title": "Net employment growth"
-            }
-        },
-        "color": {
-            "field": "Province",
-            "type": "nominal",
-            "legend": null,
+                "grid": false,
+                "tickCount": 5
+            },
             "scale": {
-                "range": [
-                    "#2876dd",
-                    "#2876dd",
-                    "#2876dd",
-                    "#2876dd",
-                    "#2876dd",
-                    "#2876dd",
-                    "#2876dd",
-                    "#2876dd",
-                    "#2876dd",
-                    "#2876dd",
-                    "#2876dd"
+                "domain": [
+                    -10,
+                    100
                 ]
             }
         }
-    }
+    },
+    "layer": [
+        {
+            "mark": {
+                "type": "bar"
+            },
+            "encoding": {
+                "color": {
+                    "condition": {
+                        "test": "datum.Province === 'Territories'",
+                        "value": "#9c5e5e"
+                    },
+                    "value": "#000000"
+                },
+                "opacity": {
+                    "condition": {
+                        "test": "datum.Province === 'Territories'",
+                        "value": 1
+                    },
+                    "value": 1
+                },
+                "size": {
+                    "condition": {
+                        "test": "datum.Province === 'Territories'",
+                        "value": 30
+                    },
+                    "value": 40
+                }
+            }
+        },
+        {
+            "mark": {
+                "type": "text",
+                "align": "left",
+                "baseline": "middle",
+                "dx": 0,
+                "dy": 0,
+                "angle": 0,
+                "fontSize": 11,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "color": "black",
+                "opacity": 1
+            },
+            "encoding": {
+                "y": {
+                    "field": "Province",
+                    "type": "nominal"
+                },
+                "x": {
+                    "field": "Net employment growth",
+                    "type": "quantitative"
+                },
+                "text": {
+                    "field": "Net employment growth",
+                    "type": "quantitative"
+                },
+                "color": {
+                    "value": "#000000"
+                }
+            }
+        }
+    ],
+    "name": "1014"
 }

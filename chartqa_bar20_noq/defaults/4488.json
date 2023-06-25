@@ -90,21 +90,21 @@
           "encoding": {
             "color": {
               "condition": {
-                "test": "datum.Entity === 'Russia'",
-                "value": "#566d40"
+                "test": "datum.Entity === 'none'",
+                "value": "#000000"
               },
               "value": "#949d48"
             },
             "opacity": {
               "condition": {
-                "test": "datum.Entity === 'Russia'",
+                "test": "datum.Entity === 'none'",
                 "value": 1
               },
               "value": 1
             },
             "size": {
               "condition": {
-                "test": "datum.Entity === 'Russia'",
+                "test": "datum.Entity === 'none'",
                 "value": 30
               },
               "value": 29
@@ -114,7 +114,7 @@
         {
           "mark": {
             "type": "text",
-            "dx": 5,
+            "dx": 0,
             "dy": 0,
             "xOffset": 0,
             "yOffset": 0,
@@ -122,7 +122,7 @@
             "align": "right",
             "baseline": "middle",
             "font": "serif",
-            "fontSize": 12,
+            "fontSize": 11,
             "fontStyle": "normal",
             "fontWeight": "normal",
             "opacity": 1
@@ -133,7 +133,7 @@
               "type": "quantitative"
             },
             "color": {
-              "value": "#9e2222"
+              "value": "#000000"
             },
             "x": {
               "field": "Importance",

@@ -71,45 +71,52 @@
             ]
         }
     ],
+    "encoding": {
+        "y": {
+            "field": "Entity",
+            "type": "ordinal",
+            "title": "Country",
+            "axis": {
+                "grid": false,
+                "scale": {
+                    "domain": [
+                        null,
+                        null
+                    ]
+                }
+            },
+            "sort": [
+                "Senegal",
+                "Malaysia",
+                "Nigeria",
+                "Turkey",
+                "Israel",
+                "Indonesia",
+                "Burkina Faso",
+                "Jordan",
+                "Pakistan"
+            ]
+        },
+        "x": {
+            "field": "value",
+            "type": "quantitative",
+            "stack": "normalize",
+            "axis": {
+                "grid": false,
+                "tickCount": 5
+            },
+            "scale": {
+                "domain": [
+                    0,
+                    1
+                ]
+            }
+        }
+    },
     "layer": [
         {
             "mark": "bar",
             "encoding": {
-                "y": {
-                    "field": "Entity",
-                    "type": "ordinal",
-                    "title": "Country",
-                    "axis": {
-                        "grid": true,
-                        "tickCount": 9
-                    },
-                    "sort": [
-                        "Pakistan",
-                        "Senegal",
-                        "Malaysia",
-                        "Nigeria",
-                        "Turkey",
-                        "Indonesia",
-                        "Burkina Faso",
-                        "Jordan",
-                        "Israel"
-                    ]
-                },
-                "x": {
-                    "field": "value",
-                    "type": "quantitative",
-                    "stack": "normalize",
-                    "axis": {
-                        "grid": true,
-                        "tickCount": 10
-                    },
-                    "scale": {
-                        "domain": [
-                            0,
-                            1
-                        ]
-                    }
-                },
                 "color": {
                     "condition": {
                         "test": "datum.Entity === 'none' && datum.key === 'none'",
@@ -124,9 +131,9 @@
                             "Unfavorable"
                         ],
                         "range": [
-                            "lightgreen",
-                            "lightblue",
-                            "darkred"
+                            "#fc8d59",
+                            "#fee090",
+                            "#91bfdb"
                         ]
                     }
                 },
@@ -180,9 +187,6 @@
                 },
                 "color": {
                     "value": "#c72c2c"
-                },
-                "opacity": {
-                    "value": 0
                 }
             }
         }

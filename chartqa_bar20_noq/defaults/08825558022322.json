@@ -1,28 +1,81 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Children per woman, 1988",
-    "description": "A comparison of the average number of children per woman in 1988 across different countries or regions.",
-    "width": 400,
+    "title": "DALYs from eating disorders by age, Albania, 2011",
+    "description": "Comparing the DALYs from eating disorders across different age groups in Albania in 2011.",
+    "width": 200,
     "height": 400,
     "data": {
         "values": [
             {
-                "Country": "Malawi",
-                "Children per woman, 1988": 7.16
+                "Age": "15-49 years old",
+                "DALYs": 61.23
             },
             {
-                "Country": "Africa",
-                "Children per woman, 1988": 6.14
+                "Age": "Age-standardized",
+                "DALYs": 33.25
             },
             {
-                "Country": "Western Sahara",
-                "Children per woman, 1988": 4.54
+                "Age": "All ages",
+                "DALYs": 32.57
             },
             {
-                "Country": "Netherlands",
-                "Children per woman, 1988": 1.56
+                "Age": "5-14 years old",
+                "DALYs": 10.06
+            },
+            {
+                "Age": "70+ years old",
+                "DALYs": 0
+            },
+            {
+                "Age": "50-69 years old",
+                "DALYs": 0
             }
         ]
+    },
+    "encoding": {
+        "y": {
+            "field": "Age",
+            "type": "nominal",
+            "axis": {
+                "grid": false,
+                "scale": {
+                    "domain": [
+                        null,
+                        null
+                    ]
+                }
+            },
+            "sort": [
+                "Age-standardized",
+                "15-49 years old",
+                "All ages",
+                "5-14 years old",
+                "70+ years old",
+                "50-69 years old"
+            ]
+        },
+        "x": {
+            "field": "DALYs",
+            "type": "quantitative",
+            "sort": [
+                "15-49 years old",
+                "Age-standardized",
+                "All ages",
+                "5-14 years old",
+                "70+ years old",
+                "50-69 years old"
+            ],
+            "axis": {
+                "grid": false,
+                "tickCount": 5
+            },
+            "scale": {
+                "domain": [
+                    0,
+                    70
+                ]
+            }
+        }
     },
     "layer": [
         {
@@ -31,72 +84,46 @@
                 "color": "#4682b4"
             },
             "encoding": {
-                "y": {
-                    "field": "Country",
-                    "type": "nominal",
-                    "sort": [
-                        "Netherlands",
-                        "Malawi",
-                        "Africa",
-                        "Western Sahara"
-                    ],
-                    "axis": {
-                        "grid": true,
-                        "tickCount": 4,
-                        "domain": false
-                    }
-                },
-                "x": {
-                    "field": "Children per woman, 1988",
-                    "type": "quantitative",
-                    "axis": {
-                        "grid": true,
-                        "tickCount": 5,
-                        "domain": false
-                    },
-                    "scale": {
-                        "domain": [
-                            0,
-                            10
-                        ]
-                    }
-                },
                 "color": {
-                    "field": "Country",
+                    "field": "Age",
                     "type": "nominal",
                     "legend": null,
                     "condition": {
-                        "test": "datum.Country === 'none'",
-                        "value": "#326969"
+                        "test": "datum.Age === 'none'",
+                        "value": "#589898"
                     },
                     "scale": {
                         "domain": [
-                            "Malawi",
-                            "Africa",
-                            "Western Sahara",
-                            "Netherlands"
+                            "15-49 years old",
+                            "Age-standardized",
+                            "All ages",
+                            "5-14 years old",
+                            "70+ years old",
+                            "50-69 years old"
                         ],
                         "range": [
-                            "#4daf4a",
-                            "#377eb8",
-                            "#ff7f00",
-                            "#984ea3"
+                            "#d73027",
+                            "#fc8d59",
+                            "#fee090",
+                            "#91bfdb",
+                            "#4575b4",
+                            "#2375b4"
                         ]
                     }
                 },
                 "opacity": {
                     "condition": {
-                        "test": "datum.Country === 'none'",
+                        "test": "datum.Age === 'none'",
                         "value": 1
                     },
                     "value": 1
                 },
                 "size": {
                     "condition": {
-                        "test": "datum.Country === 'none'",
-                        "value": 35
+                        "test": "datum.Age === 'none'",
+                        "value": 30
                     },
-                    "value": 55
+                    "value": 40
                 }
             }
         },
@@ -105,33 +132,25 @@
                 "type": "text",
                 "align": "left",
                 "baseline": "middle",
-                "dx": 1,
-                "dy": 1,
-                "angle": 1,
-                "fontSize": 25,
-                "fontStyle": "italic",
-                "fontWeight": 300,
-                "color": "black",
+                "dx": 0,
+                "dy": 0,
+                "angle": 0,
+                "fontSize": 11,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "color": "#7c8964",
                 "opacity": 1
             },
             "encoding": {
-                "y": {
-                    "field": "Country",
-                    "type": "nominal"
-                },
-                "x": {
-                    "field": "Children per woman, 1988",
-                    "type": "quantitative"
-                },
                 "text": {
-                    "field": "Children per woman, 1988",
+                    "field": "DALYs",
                     "type": "quantitative"
                 },
                 "color": {
-                    "value": "#a42020"
+                    "value": "#000000"
                 }
             }
         }
     ],
-    "name": "0882"
+    "name": "5007"
 }

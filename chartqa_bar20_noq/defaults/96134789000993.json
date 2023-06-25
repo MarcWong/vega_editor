@@ -36,48 +36,52 @@
             }
         ]
     },
+    "encoding": {
+        "y": {
+            "field": "Market",
+            "type": "nominal",
+            "sort": {
+                "field": "Price",
+                "order": "descending"
+            },
+            "axis": {
+                "grid": false,
+                "scale": {
+                    "domain": [
+                        null,
+                        null
+                    ]
+                }
+            }
+        },
+        "x": {
+            "field": "Price",
+            "type": "quantitative",
+            "axis": {
+                "grid": false,
+                "tickCount": 5
+            },
+            "scale": {
+                "domain": [
+                    0,
+                    200
+                ]
+            }
+        }
+    },
     "layer": [
         {
             "mark": {
                 "type": "bar"
             },
             "encoding": {
-                "y": {
-                    "field": "Market",
-                    "type": "nominal",
-                    "sort": {
-                        "field": "Price",
-                        "order": "descending"
-                    },
-                    "axis": {
-                        "grid": false,
-                        "tickCount": 7,
-                        "domain": false
-                    }
-                },
-                "x": {
-                    "field": "Price",
-                    "type": "quantitative",
-                    "axis": {
-                        "grid": false,
-                        "tickCount": 10,
-                        "domain": false,
-                        "title": "Price in $"
-                    },
-                    "scale": {
-                        "domain": [
-                            0,
-                            100
-                        ]
-                    }
-                },
                 "color": {
                     "field": "Market",
                     "type": "nominal",
                     "legend": null,
                     "condition": {
                         "test": "datum.Market === 'none'",
-                        "value": "#3c5151"
+                        "value": "#000000"
                     },
                     "scale": {
                         "domain": [
@@ -98,7 +102,8 @@
                             "#999999",
                             "#a65628"
                         ]
-                    }
+                    },
+                    "value": "#000000"
                 },
                 "opacity": {
                     "condition": {
@@ -121,12 +126,12 @@
                 "type": "text",
                 "align": "left",
                 "baseline": "middle",
-                "dx": -6,
-                "dy": 12,
+                "dx": 0,
+                "dy": 0,
                 "angle": 0,
-                "fontSize": 20,
-                "fontStyle": "italic",
-                "fontWeight": 200,
+                "fontSize": 11,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
                 "color": "black",
                 "opacity": 1
             },
@@ -144,7 +149,7 @@
                     "type": "quantitative"
                 },
                 "color": {
-                    "value": "#dd7272"
+                    "value": "#000000"
                 }
             }
         }

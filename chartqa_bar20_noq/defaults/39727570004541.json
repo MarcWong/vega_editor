@@ -36,6 +36,41 @@
             }
         ]
     },
+    "encoding": {
+        "y": {
+            "field": "Region",
+            "type": "nominal",
+            "sort": [
+                "Northern America",
+                "Europe",
+                "World",
+                "South America",
+                "Asia",
+                "Caribbean",
+                "Africa"
+            ],
+            "axis": {
+                "grid": false,
+                "tickCount": 7,
+                "domain": false
+            }
+        },
+        "x": {
+            "field": "Protein supply, 1988",
+            "type": "quantitative",
+            "axis": {
+                "grid": false,
+                "tickCount": 5,
+                "domain": false
+            },
+            "scale": {
+                "domain": [
+                    0,
+                    120
+                ]
+            }
+        }
+    },
     "layer": [
         {
             "mark": {
@@ -43,46 +78,13 @@
                 "color": "#4682b4"
             },
             "encoding": {
-                "y": {
-                    "field": "Region",
-                    "type": "nominal",
-                    "sort": [
-                        "Northern America",
-                        "Europe",
-                        "World",
-                        "South America",
-                        "Asia",
-                        "Caribbean",
-                        "Africa"
-                    ],
-                    "axis": {
-                        "grid": false,
-                        "tickCount": 7,
-                        "domain": false
-                    }
-                },
-                "x": {
-                    "field": "Protein supply, 1988",
-                    "type": "quantitative",
-                    "axis": {
-                        "grid": false,
-                        "tickCount": 5,
-                        "domain": false
-                    },
-                    "scale": {
-                        "domain": [
-                            0,
-                            120
-                        ]
-                    }
-                },
                 "color": {
                     "field": "Region",
                     "type": "nominal",
                     "legend": null,
                     "condition": {
-                        "test": "datum.Region === 'Caribbean'",
-                        "value": "#589898"
+                        "test": "datum.Region === 'none'",
+                        "value": "#000000"
                     },
                     "scale": {
                         "domain": [
@@ -107,14 +109,14 @@
                 },
                 "opacity": {
                     "condition": {
-                        "test": "datum.Region === 'Caribbean'",
+                        "test": "datum.Region === 'none'",
                         "value": 1
                     },
                     "value": 1
                 },
                 "size": {
                     "condition": {
-                        "test": "datum.Region === 'Caribbean'",
+                        "test": "datum.Region === 'none'",
                         "value": 30
                     },
                     "value": 40
@@ -129,9 +131,9 @@
                 "dx": 0,
                 "dy": 0,
                 "angle": 0,
-                "fontSize": 15,
-                "fontStyle": "italic",
-                "fontWeight": 300,
+                "fontSize": 11,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
                 "color": "black",
                 "opacity": 1
             },
@@ -149,7 +151,7 @@
                     "type": "quantitative"
                 },
                 "color": {
-                    "value": "#d66d6d"
+                    "value": "#000000"
                 }
             }
         }

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import { Box } from '@mui/material';
 import SizeInput from './components/size-input';
 import ColorInput from './components/color-input';
@@ -53,6 +53,20 @@ const TextChangeComponent=({keyValues,updateEditorValue})=>{
   if(!initial){
     initial=defaultInitial;
   }
+
+  useEffect(()=>{
+    if(!keyValues?.textColor){
+      return;
+    }
+    updateEditorValue(textColor,initial?.textColor);
+    updateEditorValue(textAngle,initial?.textAngle?.init);
+    updateEditorValue(textDx,initial?.textDx?.init);
+    updateEditorValue(textDy,initial?.textDy?.init);
+    updateEditorValue(textFontSize,initial?.textFontSize?.init);
+    updateEditorValue(textFontStyle,initial?.textFontStyle?.init);
+    updateEditorValue(textFontWeight,initial?.textFontWeight?.init);
+    updateEditorValue(textOpacity,1);
+  },[keyValues])
  
   const handleTextColor= (newTextColor: string) => {
     updateEditorValue(textColor, newTextColor);

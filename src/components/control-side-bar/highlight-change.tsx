@@ -4,8 +4,8 @@ import SizeInput from './components/size-input';
 import ColorInput from './components/color-input';
 import RangeInput from './components/range-input';
 import SelectInput from './components/select-input';
-import { select } from 'd3';
-
+import { Accordion, AccordionSummary, AccordionDetails, Typography } from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 interface ChoiceType{
     name:string,
@@ -31,6 +31,13 @@ const TextChangeComponent=({keyValues,updateEditorValue,choices})=>{
     useEffect(() => {
         setChoicesState(choices.map(choice => ({name:choice.name, state: "none"})));
     }, [choices]);
+
+    useEffect(() => {
+        handleChosenColorChange(initial?.chooseColorChange?.conditionColor);
+        handleDefaultColorChange(initial?.chooseColorChange?.color);
+        handleChosenSizeChange(initial?.chooseSizeChange?.conditionSize);
+        handleDefaultSizeChange(initial?.chooseSizeChange?.size);
+    }, [keyValues]);
     
     useEffect(() => {
         const conditionString = choicesState.map(choice => {
@@ -52,7 +59,7 @@ const TextChangeComponent=({keyValues,updateEditorValue,choices})=>{
     };
 
     const handleDefaultColorChange = (newDefaultColor: string) => {
-            updateEditorValue(chooseColorChange[1], newDefaultColor);
+        updateEditorValue(chooseColorChange[1], newDefaultColor);
     }
 
     const handleChosenSizeChange = (newChosenSize: number) => {
@@ -83,42 +90,66 @@ const TextChangeComponent=({keyValues,updateEditorValue,choices})=>{
 
 
 
-  return (
-    <Box m={2}>
-        <Box mb={2}>
-            <ColorInput label="Global Color" initialColor={"aqua"} onColorChange={handleDefaultColorChange} />
-        </Box>
-        <Box mb={2}>
-            <SizeInput size={initial?.chooseSizeChange?.size} label="Global Bar Width" onSizeChange={(e) => handleDefaultSizeChange(e)} min={initial?.chooseSizeChange?.min} max={initial?.chooseSizeChange?.max}/>
-        </Box>
-        <Box mb={2}>
-            <RangeInput min={0} max={1} step={0.1} label="Global Bar Opacity" initialValue={1} onValueChange={handleDefaultOpacityChange} />
-        </Box>
-
-
-        <Box mb={2}>
-            {choices.map((choice, index) => {
-                const {value,name} = choice;
-                return (
-                    <Box key={name} mb={2}>
-                        <SelectInput options={[...value,"none"]} label={name} selectedOption={"none"} onOptionSelect={(e)=>updateConditionChange(e,name)} />
+    return (
+        <Box m={2}>
+            <Box mb={2}>
+                {choices.map((choice, index) => {
+                    const {value,name} = choice;
+                    return (
+                        <Box key={name} mb={2} >
+                            <SelectInput options={[...value,"none"]} label={name} selectedOption={"none"} onOptionSelect={(e)=>updateConditionChange(e,name)} />
+                        </Box>
+                    )
+                })}
+            </Box>
+    
+            <Accordion>
+                <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel1a-content"
+                    id="panel1a-header"
+                >
+                    <Typography>Chosen Settings</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                    <Box>
+                        <Box mb={2}>
+                            <ColorInput label="Chosen Color" initialColor={initial?.chooseColorChange?.conditionColor} onColorChange={handleChosenColorChange} />
+                        </Box>
+                        <Box mb={2}>
+                            <SizeInput size={initial?.chooseSizeChange?.conditionSize} label="choosen size" onSizeChange={(e) => handleChosenSizeChange(e)} min={initial?.chooseSizeChange?.min} max={initial?.chooseSizeChange?.max}/>
+                        </Box>
+                        <Box mb={2}>
+                            <RangeInput min={0} max={1} step={0.1} label="Chosen Opacity" initialValue={1} onValueChange={handleChosenOpacityChange} />
+                        </Box>
                     </Box>
-                )
-            })}
+                </AccordionDetails>
+            </Accordion>
+    
+            <Accordion>
+                <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel2a-content"
+                    id="panel2a-header"
+                >
+                    <Typography>Default Settings</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                    <Box>
+                        <Box mb={2}>
+                            <ColorInput label="Default Color" initialColor={initial?.chooseColorChange?.color} onColorChange={handleDefaultColorChange} />
+                        </Box>
+                        <Box mb={2}>
+                            <SizeInput size={initial?.chooseSizeChange?.size} label="default size" onSizeChange={(e) => handleDefaultSizeChange(e)} min={initial?.chooseSizeChange?.min} max={initial?.chooseSizeChange?.max}/>
+                        </Box>
+                        <Box mb={2}>
+                            <RangeInput min={0} max={1} step={0.1} label="Default Opacity" initialValue={1} onValueChange={handleDefaultOpacityChange} />
+                        </Box>
+                    </Box>
+                </AccordionDetails>
+            </Accordion>
         </Box>
-
-        <Box mb={2}>
-            <ColorInput label="Highlight Color" initialColor={"aqua"} onColorChange={handleChosenColorChange} />
-        </Box>
-        <Box mb={2}>
-             <SizeInput size={initial?.chooseSizeChange?.conditionSize} label="Highlight Bar Size" onSizeChange={(e) => handleChosenSizeChange(e)} min={initial?.chooseSizeChange?.min} max={initial?.chooseSizeChange?.max}/>
-        </Box>
-
-        <Box mb={2}>
-            <RangeInput min={0} max={1} step={0.1} label="Highlight Bar Opacity" initialValue={1} onValueChange={handleChosenOpacityChange} />
-        </Box>
-    </Box>
-  )
+    )
 }
 
 export default TextChangeComponent

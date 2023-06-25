@@ -40,6 +40,42 @@
             }
         ]
     },
+    "encoding": {
+        "y": {
+            "field": "Characteristic",
+            "type": "nominal",
+            "sort": [
+                "Google",
+                "TOTAL Internet search engines and information",
+                "Yahoo (Verizon Media)",
+                "Ask.com",
+                "MSN (Microsoft)",
+                "AOL (Verizon Media)",
+                "Bing (Microsoft)",
+                "Answers.com"
+            ],
+            "axis": {
+                "grid": false,
+                "tickCount": 8,
+                "domain": false
+            }
+        },
+        "x": {
+            "field": "Index points",
+            "type": "quantitative",
+            "axis": {
+                "grid": false,
+                "tickCount": 5,
+                "domain": false
+            },
+            "scale": {
+                "domain": [
+                    0,
+                    100
+                ]
+            }
+        }
+    },
     "layer": [
         {
             "mark": {
@@ -49,43 +85,9 @@
                 "color": {
                     "condition": {
                         "test": "datum.Characteristic === 'Yahoo (Verizon Media)'",
-                        "value": "#0b4c4c"
+                        "value": "#da9191"
                     },
-                    "value": "#4be2e2"
-                },
-                "y": {
-                    "field": "Characteristic",
-                    "type": "nominal",
-                    "sort": [
-                        "Google",
-                        "TOTAL Internet search engines and information",
-                        "Yahoo (Verizon Media)",
-                        "Ask.com",
-                        "MSN (Microsoft)",
-                        "AOL (Verizon Media)",
-                        "Bing (Microsoft)",
-                        "Answers.com"
-                    ],
-                    "axis": {
-                        "grid": false,
-                        "tickCount": 8,
-                        "domain": false
-                    }
-                },
-                "x": {
-                    "field": "Index points",
-                    "type": "quantitative",
-                    "axis": {
-                        "grid": false,
-                        "tickCount": 5,
-                        "domain": false
-                    },
-                    "scale": {
-                        "domain": [
-                            0,
-                            100
-                        ]
-                    }
+                    "value": "#000000"
                 },
                 "opacity": {
                     "condition": {
@@ -99,7 +101,7 @@
                         "test": "datum.Characteristic === 'Yahoo (Verizon Media)'",
                         "value": 30
                     },
-                    "value": 55
+                    "value": 40
                 }
             }
         },
@@ -108,12 +110,12 @@
                 "type": "text",
                 "align": "left",
                 "baseline": "middle",
-                "dx": 20,
-                "dy": 20,
+                "dx": 0,
+                "dy": 0,
                 "angle": 0,
-                "fontSize": 30,
-                "fontStyle": "italic",
-                "fontWeight": 400,
+                "fontSize": 11,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
                 "color": "black",
                 "opacity": 1
             },
@@ -131,7 +133,7 @@
                     "type": "quantitative"
                 },
                 "color": {
-                    "value": "#af1919"
+                    "value": "#000000"
                 }
             }
         }

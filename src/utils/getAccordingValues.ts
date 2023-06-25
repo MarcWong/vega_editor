@@ -20,7 +20,7 @@ const json1261 = {
     "textFontWeight": "vconcat.0.layer.1.mark.fontWeight",
     "textOpacity": "vconcat.0.layer.1.mark.opacity",
     initial: {
-      "textColor": "#000000",
+      "textColor": "#000001",
       "textAngle": {
         "init": 0,
         "min": 0,
@@ -56,22 +56,8 @@ const json1261 = {
     },
   },
   "Axis": {
-    "AxisColor": [
-      "vconcat.0.encoding.x.axis.color.value",
-      "vconcat.0.encoding.y.axis.color.value",
-    ],
-    "AxisTickCount": [
-      "vconcat.0.encoding.x.axis.tickCount",
-      "vconcat.0.encoding.y.axis.tickCount",
-    ],
-    "AxisScaleDomain": [
-      "vconcat.0.encoding.x.scale.domain",
-      "vconcat.0.encoding.y.scale.domain",
-    ],
-    "AxisGrid": [
-      "vconcat.0.encoding.x.axis.grid",
-      "vconcat.0.encoding.y.axis.grid",
-    ],
+    "x": "vconcat.0.encoding.x",
+    "y": "vconcat.0.encoding.y",
     initial: {
       "AxisTickCount": {
         x: {
@@ -117,7 +103,6 @@ const json1261 = {
     "initial": {
       "chooseColorChange": {
         "conditionColor": "#000000",
-        "color": "#000000",
       },
       "chooseSizeChange": {
         "conditionSize": 30,
@@ -130,7 +115,7 @@ const json1261 = {
   },
   "Order": {
     "field": "Entity",
-    "sort": "vconcat.0.encoding",
+    "sort": ["vconcat.0.encoding"],
   },
   "Default": {
     "width": 400,
@@ -148,6 +133,21 @@ const json1261 = {
       "Very important",
     ],
   }],
+  "ColorArray": {
+    "types": [
+      "Not important at all",
+      "Not too important",
+      "Somewhat important",
+      "Very important",
+    ],
+    "colors": [
+      "#d73027",
+      "#fc8d59",
+      "#fee090",
+      "#91bfdb",
+    ],
+    "path": "vconcat.0.layer.0.encoding.color.scale.range",
+  },
 };
 
 const json4488 = {
@@ -207,18 +207,8 @@ const json4488 = {
     },
   },
   "Axis": {
-    "AxisTickCount": [
-      "vconcat.0.encoding.x.axis.tickCount",
-      "vconcat.0.encoding.y.axis.tickCount",
-    ],
-    "AxisScaleDomain": [
-      "vconcat.0.encoding.x.scale.domain",
-      "vconcat.0.encoding.y.scale.domain",
-    ],
-    "AxisGrid": [
-      "vconcat.0.encoding.x.axis.grid",
-      "vconcat.0.encoding.y.axis.grid",
-    ],
+    "x": "vconcat.0.encoding.x",
+    "y": "vconcat.0.encoding.y",
     initial: {
       "AxisTickCount": {
         x: {
@@ -277,7 +267,7 @@ const json4488 = {
   },
   "Order": {
     "field": "Entity",
-    "sort": "vconcat.0.encoding",
+    "sort": ["vconcat.0.encoding"],
   },
   "Default": {
     "width": 400,
@@ -312,23 +302,22 @@ const json9715 = {
     "textFontWeight": "layer.1.mark.fontWeight",
     "textOpacity": "layer.1.mark.opacity",
   },
+  "ColorArray": {
+    "types": [
+      "Favorable",
+      "Dont know",
+      "Unfavorable",
+    ],
+    "colors": [
+      "#fc8d59",
+      "#fee090",
+      "#91bfdb",
+    ],
+    "path": "layer.0.encoding.color.scale.range",
+  },
   "Axis": {
-    "AxisColor": [
-      "layer.0.encoding.x.axis.color",
-      "layer.0.encoding.y.axis.color",
-    ],
-    "AxisTickCount": [
-      "layer.0.encoding.x.axis.tickCount",
-      "layer.0.encoding.y.axis.tickCount",
-    ],
-    "AxisScaleDomain": [
-      "layer.0.encoding.x.scale.domain",
-      "layer.0.encoding.y.scale.domain",
-    ],
-    "AxisGrid": [
-      "layer.0.encoding.x.axis.grid",
-      "layer.0.encoding.y.axis.grid",
-    ],
+    "x": "encoding.x",
+    "y": "encoding.y",
     initial: {
       "AxisTickCount": {
         x: {
@@ -374,7 +363,6 @@ const json9715 = {
     "initial": {
       "chooseColorChange": {
         "conditionColor": "#000000",
-        "color": "#000000",
       },
       "chooseSizeChange": {
         "conditionSize": 30,
@@ -387,7 +375,7 @@ const json9715 = {
   },
   "Order": {
     "field": "Entity",
-    "sort": "layer.0.encoding",
+    "sort": ["encoding"],
   },
   "Default": {
     "width": 400,
@@ -451,22 +439,8 @@ const json0882 = {
     "textOpacity": "layer.1.mark.opacity",
   },
   "Axis": {
-    "AxisColor": [
-      "layer.0.encoding.x.axis.color",
-      "layer.0.encoding.y.axis.color",
-    ],
-    "AxisTickCount": [
-      "layer.0.encoding.x.axis.tickCount",
-      "layer.0.encoding.y.axis.tickCount",
-    ],
-    "AxisScaleDomain": [
-      "layer.0.encoding.x.scale.domain",
-      "layer.0.encoding.y.scale.domain",
-    ],
-    "AxisGrid": [
-      "layer.0.encoding.x.axis.grid",
-      "layer.0.encoding.y.axis.grid",
-    ],
+    "x": "encoding.x",
+    "y": "encoding.y",
     initial: {
       "AxisTickCount": {
         x: {
@@ -512,7 +486,6 @@ const json0882 = {
     "initial": {
       "chooseColorChange": {
         "conditionColor": "#000000",
-        "color": "#000000",
       },
       "chooseSizeChange": {
         "conditionSize": 30,
@@ -525,7 +498,7 @@ const json0882 = {
   },
   "Order": {
     "field": "Country",
-    "sort": "layer.0.encoding",
+    "sort": ["encoding"],
   },
   "Default": {
     "width": 400,
@@ -547,6 +520,21 @@ const json0882 = {
       ],
     },
   ],
+  "ColorArray": {
+    "types": [
+      "Malawi",
+      "Africa",
+      "Western Sahara",
+      "Netherlands",
+    ],
+    "colors": [
+      "#d73027",
+      "#fc8d59",
+      "#fee090",
+      "#91bfdb",
+    ],
+    "path": "layer.0.encoding.color.scale.range",
+  },
 };
 
 const json3972 = {
@@ -571,22 +559,8 @@ const json3972 = {
     "textOpacity": "layer.1.mark.opacity",
   },
   "Axis": {
-    "AxisColor": [
-      "layer.0.encoding.x.axis.color",
-      "layer.0.encoding.y.axis.color",
-    ],
-    "AxisTickCount": [
-      "layer.0.encoding.x.axis.tickCount",
-      "layer.0.encoding.y.axis.tickCount",
-    ],
-    "AxisScaleDomain": [
-      "layer.0.encoding.x.scale.domain",
-      "layer.0.encoding.y.scale.domain",
-    ],
-    "AxisGrid": [
-      "layer.0.encoding.x.axis.grid",
-      "layer.0.encoding.y.axis.grid",
-    ],
+    "x": "encoding.x",
+    "y": "encoding.y",
     initial: {
       "AxisTickCount": {
         x: {
@@ -632,7 +606,6 @@ const json3972 = {
     "initial": {
       "chooseColorChange": {
         "conditionColor": "#000000",
-        "color": "#000000",
       },
       "chooseSizeChange": {
         "conditionSize": 30,
@@ -644,8 +617,8 @@ const json3972 = {
     },
   },
   "Order": {
-    "field": "Country",
-    "sort": "layer.0.encoding",
+    "field": "Region",
+    "sort": ["encoding"],
   },
   "Default": {
     "width": 200,
@@ -673,6 +646,27 @@ const json3972 = {
       ],
     },
   ],
+  "ColorArray": {
+    "types": [
+      "Northern America",
+      "Europe",
+      "World",
+      "South America",
+      "Asia",
+      "Caribbean",
+      "Africa",
+    ],
+    "colors": [
+      "#d73027",
+      "#fc8d59",
+      "#fee090",
+      "#91bfdb",
+      "#4575b4",
+      "#4575b4",
+      "#4575b4",
+    ],
+    "path": "layer.0.encoding.color.scale.range",
+  },
 };
 
 const json5007 = {
@@ -697,22 +691,8 @@ const json5007 = {
     "textOpacity": "layer.1.mark.opacity",
   },
   "Axis": {
-    "AxisColor": [
-      "layer.0.encoding.x.axis.color",
-      "layer.0.encoding.y.axis.color",
-    ],
-    "AxisTickCount": [
-      "layer.0.encoding.x.axis.tickCount",
-      "layer.0.encoding.y.axis.tickCount",
-    ],
-    "AxisScaleDomain": [
-      "layer.0.encoding.x.scale.domain",
-      "layer.0.encoding.y.scale.domain",
-    ],
-    "AxisGrid": [
-      "layer.0.encoding.x.axis.grid",
-      "layer.0.encoding.y.axis.grid",
-    ],
+    "x": "encoding.x",
+    "y": "encoding.y",
     initial: {
       "AxisTickCount": {
         x: {
@@ -758,7 +738,6 @@ const json5007 = {
     "initial": {
       "chooseColorChange": {
         "conditionColor": "#589898",
-        "color": "#4682b4",
       },
       "chooseSizeChange": {
         "conditionSize": 30,
@@ -771,7 +750,7 @@ const json5007 = {
   },
   "Order": {
     "field": "Age",
-    "sort": "layer.0.encoding.y.sort",
+    "sort": ["encoding"],
   },
   "Default": {
     "width": 200,
@@ -797,6 +776,25 @@ const json5007 = {
       ],
     },
   ],
+  "ColorArray": {
+    "types": [
+      "15-49 years old",
+      "Age-standardized",
+      "All ages",
+      "5-14 years old",
+      "70+ years old",
+      "50-69 years old",
+    ],
+    "colors": [
+      "#d73027",
+      "#fc8d59",
+      "#fee090",
+      "#91bfdb",
+      "#4575b4",
+      "#2375b4",
+    ],
+    "path": "layer.0.encoding.color.scale.range",
+  },
 };
 
 const json9613 = {
@@ -821,22 +819,8 @@ const json9613 = {
     "textOpacity": "layer.1.mark.opacity",
   },
   "Axis": {
-    "AxisColor": [
-      "layer.0.encoding.x.axis.color",
-      "layer.0.encoding.y.axis.color",
-    ],
-    "AxisTickCount": [
-      "layer.0.encoding.x.axis.tickCount",
-      "layer.0.encoding.y.axis.tickCount",
-    ],
-    "AxisScaleDomain": [
-      "layer.0.encoding.x.scale.domain",
-      "layer.0.encoding.y.scale.domain",
-    ],
-    "AxisGrid": [
-      "layer.0.encoding.x.axis.grid",
-      "layer.0.encoding.y.axis.grid",
-    ],
+    "x": "encoding.x",
+    "y": "encoding.y",
     initial: {
       "AxisTickCount": {
         x: {
@@ -895,7 +879,7 @@ const json9613 = {
   },
   "Order": {
     "field": "Market",
-    "sort": "layer.0.encoding.y.sort.field",
+    "sort": ["encoding"],
   },
   "Default": {
     "width": 400,
@@ -947,22 +931,8 @@ const json1002 = {
     "textOpacity": "layer.1.mark.opacity",
   },
   "Axis": {
-    "AxisColor": [
-      "layer.0.encoding.x.axis.color",
-      "layer.0.encoding.y.axis.color",
-    ],
-    "AxisTickCount": [
-      "layer.0.encoding.x.axis.tickCount",
-      "layer.0.encoding.y.axis.tickCount",
-    ],
-    "AxisScaleDomain": [
-      "layer.0.encoding.x.scale.domain",
-      "layer.0.encoding.y.scale.domain",
-    ],
-    "AxisGrid": [
-      "layer.0.encoding.x.axis.grid",
-      "layer.0.encoding.y.axis.grid",
-    ],
+    "x": "encoding.x",
+    "y": "encoding.y",
     initial: {
       "AxisTickCount": {
         x: {
@@ -990,7 +960,6 @@ const json1002 = {
   "Condition": {
     "chooseColorChange": [
       "layer.0.encoding.color.condition.value",
-      "layer.0.encoding.color.value",
     ],
     "chooseSizeChange": [
       "layer.0.encoding.size.condition.value",
@@ -1021,7 +990,7 @@ const json1002 = {
   },
   "Order": {
     "field": "Entity",
-    "sort": "layer.0.encoding",
+    "sort": ["encoding"],
   },
   "Default": {
     "width": 400,
@@ -1085,22 +1054,8 @@ const jsonMRI = {
     "textOpacity": "layer.1.mark.opacity",
   },
   "Axis": {
-    "AxisColor": [
-      "layer.0.encoding.x.axis.color",
-      "layer.0.encoding.y.axis.color",
-    ],
-    "AxisTickCount": [
-      "layer.0.encoding.x.axis.tickCount",
-      "layer.0.encoding.y.axis.tickCount",
-    ],
-    "AxisScaleDomain": [
-      "layer.0.encoding.x.scale.domain",
-      "layer.0.encoding.y.scale.domain",
-    ],
-    "AxisGrid": [
-      "layer.0.encoding.x.axis.grid",
-      "layer.0.encoding.y.axis.grid",
-    ],
+    "x": "encoding.x",
+    "y": "encoding.y",
     initial: {
       "AxisTickCount": {
         x: {
@@ -1146,7 +1101,6 @@ const jsonMRI = {
     "initial": {
       "chooseColorChange": {
         "conditionColor": "#000000",
-        "color": "#000000",
       },
       "chooseSizeChange": {
         "conditionSize": 30,
@@ -1158,8 +1112,8 @@ const jsonMRI = {
     },
   },
   "Order": {
-    "field": "Entity",
-    "sort": "layer.0.encoding",
+    "field": "Country",
+    "sort": ["encoding"],
   },
   "Default": {
     "width": 400,
@@ -1179,6 +1133,19 @@ const jsonMRI = {
       ],
     },
   ],
+  "ColorArray": {
+    "types": [
+      "Greece",
+      "Italy",
+      "Austria",
+    ],
+    "colors": [
+      "#d73027",
+      "#fc8d59",
+      "#fee090",
+    ],
+    "path": "layer.0.encoding.color.scale.range",
+  },
 };
 
 const jsonRP = {
@@ -1203,22 +1170,8 @@ const jsonRP = {
     "textOpacity": "layer.1.mark.opacity",
   },
   "Axis": {
-    "AxisColor": [
-      "layer.0.encoding.x.axis.color",
-      "layer.0.encoding.y.axis.color",
-    ],
-    "AxisTickCount": [
-      "layer.0.encoding.x.axis.tickCount",
-      "layer.0.encoding.y.axis.tickCount",
-    ],
-    "AxisScaleDomain": [
-      "layer.0.encoding.x.scale.domain",
-      "layer.0.encoding.y.scale.domain",
-    ],
-    "AxisGrid": [
-      "layer.0.encoding.x.axis.grid",
-      "layer.0.encoding.y.axis.grid",
-    ],
+    "x": "encoding.x",
+    "y": "encoding.y",
     initial: {
       "AxisTickCount": {
         x: {
@@ -1264,7 +1217,6 @@ const jsonRP = {
     "initial": {
       "chooseColorChange": {
         "conditionColor": "#000000",
-        "color": "#000000",
       },
       "chooseSizeChange": {
         "conditionSize": 30,
@@ -1276,8 +1228,8 @@ const jsonRP = {
     },
   },
   "Order": {
-    "field": "Entity",
-    "sort": "layer.0.encoding",
+    "field": "Country",
+    "sort": ["encoding"],
   },
   "Default": {
     "width": 400,
@@ -1301,6 +1253,23 @@ const jsonRP = {
       ],
     },
   ],
+  "ColorArray": {
+    "types": [
+      "Indonesia",
+      "Lithuania",
+      "Germany",
+      "Denmark",
+      "Finland",
+    ],
+    "colors": [
+      "#d73027",
+      "#fc8d59",
+      "#fee090",
+      "#91bfdb",
+      "#4575b4",
+    ],
+    "path": "layer.0.encoding.color.scale.range",
+  },
 };
 
 const jsonRAB = {
@@ -1325,22 +1294,8 @@ const jsonRAB = {
     "textOpacity": "layer.1.mark.opacity",
   },
   "Axis": {
-    "AxisColor": [
-      "layer.0.encoding.x.axis.color",
-      "layer.0.encoding.y.axis.color",
-    ],
-    "AxisTickCount": [
-      "layer.0.encoding.x.axis.tickCount",
-      "layer.0.encoding.y.axis.tickCount",
-    ],
-    "AxisScaleDomain": [
-      "layer.0.encoding.x.scale.domain",
-      "layer.0.encoding.y.scale.domain",
-    ],
-    "AxisGrid": [
-      "layer.0.encoding.x.axis.grid",
-      "layer.0.encoding.y.axis.grid",
-    ],
+    "x": "encoding.x",
+    "y": "encoding.y",
     initial: {
       "AxisTickCount": {
         x: {
@@ -1386,7 +1341,6 @@ const jsonRAB = {
     "initial": {
       "chooseColorChange": {
         "conditionColor": "#000000",
-        "color": "#000000",
       },
       "chooseSizeChange": {
         "conditionSize": 30,
@@ -1398,8 +1352,8 @@ const jsonRAB = {
     },
   },
   "Order": {
-    "field": "Entity",
-    "sort": "layer.0.encoding",
+    "field": "Country",
+    "sort": ["encoding"],
   },
   "Default": {
     "width": 400,
@@ -1423,6 +1377,23 @@ const jsonRAB = {
       ],
     },
   ],
+  "ColorArray": {
+    "types": [
+      "Zambia",
+      "Singapore",
+      "South Africa",
+      "Bangladesh",
+      "Turkey",
+    ],
+    "colors": [
+      "#d73027",
+      "#fc8d59",
+      "#fee090",
+      "#91bfdb",
+      "#4575b4",
+    ],
+    "path": "layer.0.encoding.color.scale.range",
+  },
 };
 
 const jsonShort = {
@@ -1447,22 +1418,8 @@ const jsonShort = {
     "textOpacity": "layer.1.mark.opacity",
   },
   "Axis": {
-    "AxisColor": [
-      "layer.0.encoding.x.axis.color",
-      "layer.0.encoding.y.axis.color",
-    ],
-    "AxisTickCount": [
-      "layer.0.encoding.x.axis.tickCount",
-      "layer.0.encoding.y.axis.tickCount",
-    ],
-    "AxisScaleDomain": [
-      "layer.0.encoding.x.scale.domain",
-      "layer.0.encoding.y.scale.domain",
-    ],
-    "AxisGrid": [
-      "layer.0.encoding.x.axis.grid",
-      "layer.0.encoding.y.axis.grid",
-    ],
+    "x": "encoding.x",
+    "y": "encoding.y",
     initial: {
       "AxisTickCount": {
         x: {
@@ -1508,7 +1465,6 @@ const jsonShort = {
     "initial": {
       "chooseColorChange": {
         "conditionColor": "#000000",
-        "color": "#000000",
       },
       "chooseSizeChange": {
         "conditionSize": 30,
@@ -1520,8 +1476,8 @@ const jsonShort = {
     },
   },
   "Order": {
-    "field": "Entity",
-    "sort": "layer.0.encoding",
+    "field": "Country",
+    "sort": ["encoding"],
   },
   "Default": {
     "width": 400,
@@ -1543,6 +1499,21 @@ const jsonShort = {
       ],
     },
   ],
+  "ColorArray": {
+    "types": [
+      "Belgium",
+      "Ireland",
+      "Czech Republic",
+      "Korea",
+    ],
+    "colors": [
+      "#d73027",
+      "#fc8d59",
+      "#fee090",
+      "#91bfdb",
+    ],
+    "path": "layer.0.encoding.color.scale.range",
+  },
 };
 
 const json4306 = {
@@ -1567,22 +1538,8 @@ const json4306 = {
     "textOpacity": "layer.1.mark.opacity",
   },
   "Axis": {
-    "AxisColor": [
-      "layer.0.encoding.x.axis.color",
-      "layer.0.encoding.y.axis.color",
-    ],
-    "AxisTickCount": [
-      "layer.0.encoding.x.axis.tickCount",
-      "layer.0.encoding.y.axis.tickCount",
-    ],
-    "AxisScaleDomain": [
-      "layer.0.encoding.x.scale.domain",
-      "layer.0.encoding.y.scale.domain",
-    ],
-    "AxisGrid": [
-      "layer.0.encoding.x.axis.grid",
-      "layer.0.encoding.y.axis.grid",
-    ],
+    "x": "encoding.x",
+    "y": "encoding.y",
     initial: {
       "AxisTickCount": {
         x: {
@@ -1640,8 +1597,8 @@ const json4306 = {
     },
   },
   "Order": {
-    "field": "Entity",
-    "sort": "layer.0.encoding",
+    "field": "Characteristic",
+    "sort": ["encoding"],
   },
   "Default": {
     "width": 400,
@@ -1695,22 +1652,8 @@ const json1014 = {
     "textOpacity": "layer.1.mark.opacity",
   },
   "Axis": {
-    "AxisColor": [
-      "layer.0.encoding.x.axis.color",
-      "layer.0.encoding.y.axis.color",
-    ],
-    "AxisTickCount": [
-      "layer.0.encoding.x.axis.tickCount",
-      "layer.0.encoding.y.axis.tickCount",
-    ],
-    "AxisScaleDomain": [
-      "layer.0.encoding.x.scale.domain",
-      "layer.0.encoding.y.scale.domain",
-    ],
-    "AxisGrid": [
-      "layer.0.encoding.x.axis.grid",
-      "layer.0.encoding.y.axis.grid",
-    ],
+    "x": "encoding.x",
+    "y": "encoding.y",
     initial: {
       "AxisTickCount": {
         x: {
@@ -1769,24 +1712,11 @@ const json1014 = {
   },
   "Order": {
     "field": "Province",
-    "sort": "layer.0.encoding",
+    "sort": ["encoding"],
   },
   "Default": {
     "width": 400,
   },
-  "orderTypes": [
-    "Territories",
-    "British Columbia",
-    "Ontario",
-    "Alberta",
-    "Prince Edward Island",
-    "Quebec",
-    "Manitoba",
-    "Nova Scotia",
-    "Saskatchewan",
-    "New Brunswick",
-    "Newfoundland and Labrador",
-  ],
   "selectTypes": [
     {
       "name": "Province",
@@ -1804,6 +1734,19 @@ const json1014 = {
         "Newfoundland and Labrador",
       ],
     },
+  ],
+  "orderTypes": [
+    "Territories",
+    "British Columbia",
+    "Ontario",
+    "Alberta",
+    "Prince Edward Island",
+    "Quebec",
+    "Manitoba",
+    "Nova Scotia",
+    "Saskatchewan",
+    "New Brunswick",
+    "Newfoundland and Labrador",
   ],
 };
 
@@ -1829,22 +1772,8 @@ const json1044 = {
     "textOpacity": "layer.1.mark.opacity",
   },
   "Axis": {
-    "AxisColor": [
-      "layer.0.encoding.x.axis.color",
-      "layer.0.encoding.y.axis.color",
-    ],
-    "AxisTickCount": [
-      "layer.0.encoding.x.axis.tickCount",
-      "layer.0.encoding.y.axis.tickCount",
-    ],
-    "AxisScaleDomain": [
-      "layer.0.encoding.x.scale.domain",
-      "layer.0.encoding.y.scale.domain",
-    ],
-    "AxisGrid": [
-      "layer.0.encoding.x.axis.grid",
-      "layer.0.encoding.y.axis.grid",
-    ],
+    "x": "encoding.x",
+    "y": "encoding.y",
     initial: {
       "AxisTickCount": {
         "x": {
@@ -1901,10 +1830,6 @@ const json1044 = {
       },
     },
   },
-  "Order": {
-    "field": "Province",
-    "sort": "layer.0.encoding",
-  },
   "Default": {
     "width": 400,
   },
@@ -1950,22 +1875,8 @@ const json1045 = {
     "textOpacity": "layer.1.mark.opacity",
   },
   "Axis": {
-    "AxisColor": [
-      "layer.0.encoding.x.axis.color",
-      "layer.0.encoding.y.axis.color",
-    ],
-    "AxisTickCount": [
-      "layer.0.encoding.x.axis.tickCount",
-      "layer.0.encoding.y.axis.tickCount",
-    ],
-    "AxisScaleDomain": [
-      "layer.0.encoding.x.scale.domain",
-      "layer.0.encoding.y.scale.domain",
-    ],
-    "AxisGrid": [
-      "layer.0.encoding.x.axis.grid",
-      "layer.0.encoding.y.axis.grid",
-    ],
+    "x": "encoding.x",
+    "y": "encoding.y",
     initial: {
       "AxisTickCount": {
         "x": {
@@ -2023,8 +1934,8 @@ const json1045 = {
     },
   },
   "Order": {
-    "field": "Province",
-    "sort": "layer.0.encoding",
+    "field": "Country",
+    "sort": ["encoding"],
   },
   "Default": {
     "width": 400,
