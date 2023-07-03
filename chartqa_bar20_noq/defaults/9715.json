@@ -5,191 +5,189 @@
     "width": 400,
     "height": 400,
     "data": {
-        "values": [
-            {
-                "Entity": "Pakistan",
-                "Unfavorable": 60,
-                "Favorable": 30,
-                "Dont know": 10
-            },
-            {
-                "Entity": "Senegal",
-                "Unfavorable": 60,
-                "Favorable": 29,
-                "Dont know": 11
-            },
-            {
-                "Entity": "Malaysia",
-                "Unfavorable": 64,
-                "Favorable": 26,
-                "Dont know": 10
-            },
-            {
-                "Entity": "Burkina Faso",
-                "Unfavorable": 64,
-                "Favorable": 36,
-                "Dont know": 0
-            },
-            {
-                "Entity": "Nigeria",
-                "Unfavorable": 66,
-                "Favorable": 20,
-                "Dont know": 14
-            },
-            {
-                "Entity": "Turkey",
-                "Unfavorable": 73,
-                "Favorable": 19,
-                "Dont know": 8
-            },
-            {
-                "Entity": "Indonesia",
-                "Unfavorable": 78,
-                "Favorable": 22,
-                "Dont know": 0
-            },
-            {
-                "Entity": "Jordan",
-                "Unfavorable": 94,
-                "Favorable": 6,
-                "Dont know": 0
-            },
-            {
-                "Entity": "Israel",
-                "Unfavorable": 97,
-                "Favorable": 3,
-                "Dont know": 0
-            }
-        ]
+      "values": [
+        {
+          "Entity": "Pakistan",
+          "Unfavorable": 60,
+          "Favorable": 30,
+          "Dont know": 10
+        },
+        {
+          "Entity": "Senegal",
+          "Unfavorable": 60,
+          "Favorable": 29,
+          "Dont know": 11
+        },
+        {
+          "Entity": "Malaysia",
+          "Unfavorable": 64,
+          "Favorable": 26,
+          "Dont know": 10
+        },
+        {
+          "Entity": "Burkina Faso",
+          "Unfavorable": 64,
+          "Favorable": 36,
+          "Dont know": 0
+        },
+        {
+          "Entity": "Nigeria",
+          "Unfavorable": 66,
+          "Favorable": 20,
+          "Dont know": 14
+        },
+        {
+          "Entity": "Turkey",
+          "Unfavorable": 73,
+          "Favorable": 19,
+          "Dont know": 8
+        },
+        {
+          "Entity": "Indonesia",
+          "Unfavorable": 78,
+          "Favorable": 22,
+          "Dont know": 0
+        },
+        {
+          "Entity": "Jordan",
+          "Unfavorable": 94,
+          "Favorable": 6,
+          "Dont know": 0
+        },
+        {
+          "Entity": "Israel",
+          "Unfavorable": 97,
+          "Favorable": 3,
+          "Dont know": 0
+        }
+      ]
     },
     "transform": [
-        {
-            "fold": [
+      {
+        "fold": [
+          "Favorable",
+          "Dont know",
+          "Unfavorable"
+        ]
+      }
+    ],
+    "encoding": {
+      "y": {
+        "field": "Entity",
+        "type": "ordinal",
+        "title": "Country",
+        "axis": {
+          "grid": false,
+          "scale": {
+            "domain": [
+              null,
+              null
+            ]
+          }
+        },
+        "sort": [
+          "Senegal",
+          "Malaysia",
+          "Nigeria",
+          "Turkey",
+          "Israel",
+          "Indonesia",
+          "Burkina Faso",
+          "Jordan",
+          "Pakistan"
+        ]
+      },
+      "x": {
+        "field": "value",
+        "type": "quantitative",
+        "stack": "normalize",
+        "axis": {
+          "grid": false,
+          "tickCount": 5
+        },
+        "scale": {
+          "domain": [
+            0,
+            1
+          ]
+        }
+      }
+    },
+    "layer": [
+      {
+        "mark": "bar",
+        "encoding": {
+          "color": {
+            "condition": {
+              "test": "datum.Entity === 'none' && datum.key === 'none'",
+              "value": "#000000"
+            },
+            "field": "key",
+            "type": "nominal",
+            "scale": {
+              "domain": [
                 "Favorable",
                 "Dont know",
                 "Unfavorable"
-            ]
-        }
-    ],
-    "encoding": {
-        "y": {
-            "field": "Entity",
-            "type": "ordinal",
-            "title": "Country",
-            "axis": {
-                "grid": false,
-                "scale": {
-                    "domain": [
-                        null,
-                        null
-                    ]
-                }
+              ],
+              "range": [
+                "#ea9e2c",
+                "#949d48",
+                "#dcd8c7"
+              ]
+            }
+          },
+          "opacity": {
+            "condition": {
+              "test": "datum.Entity === 'none' && datum.key === 'none'",
+              "value": 0.4
             },
-            "sort": [
-                "Senegal",
-                "Malaysia",
-                "Nigeria",
-                "Turkey",
-                "Israel",
-                "Indonesia",
-                "Burkina Faso",
-                "Jordan",
-                "Pakistan"
-            ]
+            "value": 1
+          },
+          "size": {
+            "condition": {
+              "test": "datum.Entity === 'none' && datum.key === 'none'",
+              "value": 30
+            },
+            "value": 40
+          }
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "align": "left",
+          "baseline": "middle",
+          "dx": 0,
+          "dy": 0,
+          "angle": 0,
+          "fontSize": 11,
+          "font": "serif",
+          "opacity": 1
         },
-        "x": {
+        "encoding": {
+          "y": {
+            "field": "Entity",
+            "type": "nominal"
+          },
+          "x": {
             "field": "value",
             "type": "quantitative",
             "stack": "normalize",
-            "axis": {
-                "grid": false,
-                "tickCount": 5
+            "bandPosition": 0.5
+          },
+          "text": {
+            "condition": {
+              "test": "datum.value > 0",
+              "field": "value"
             },
-            "scale": {
-                "domain": [
-                    0,
-                    1
-                ]
-            }
+            "value": ""
+          },
+          "color": {
+            "value": "#000000"
+          }
         }
-    },
-    "layer": [
-        {
-            "mark": "bar",
-            "encoding": {
-                "color": {
-                    "condition": {
-                        "test": "datum.Entity === 'none' && datum.key === 'none'",
-                        "value": "#a97c48"
-                    },
-                    "field": "key",
-                    "type": "nominal",
-                    "scale": {
-                        "domain": [
-                            "Favorable",
-                            "Dont know",
-                            "Unfavorable"
-                        ],
-                        "range": [
-                            "#fc8d59",
-                            "#fee090",
-                            "#91bfdb"
-                        ]
-                    }
-                },
-                "opacity": {
-                    "condition": {
-                        "test": "datum.Entity === 'none' && datum.key === 'none'",
-                        "value": 0.4
-                    },
-                    "value": 1
-                },
-                "size": {
-                    "condition": {
-                        "test": "datum.Entity === 'none' && datum.key === 'none'",
-                        "value": 20
-                    },
-                    "value": 30
-                }
-            }
-        },
-        {
-            "mark": {
-                "type": "text",
-                "align": "left",
-                "baseline": "middle",
-                "dx": 0,
-                "dy": 0,
-                "angle": 0,
-                "fontSize": 30,
-                "fontStyle": "normal",
-                "fontWeight": 400,
-                "font": "serif",
-                "opacity": 1
-            },
-            "encoding": {
-                "y": {
-                    "field": "Entity",
-                    "type": "nominal"
-                },
-                "x": {
-                    "field": "value",
-                    "type": "quantitative",
-                    "stack": "normalize",
-                    "bandPosition": 0.5
-                },
-                "text": {
-                    "condition": {
-                        "test": "datum.value > 0",
-                        "field": "value"
-                    },
-                    "value": ""
-                },
-                "color": {
-                    "value": "#c72c2c"
-                }
-            }
-        }
+      }
     ],
     "name": "9715"
-}
+  }

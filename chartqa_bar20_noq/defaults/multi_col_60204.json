@@ -13,65 +13,26 @@
         {
             "data": {
                 "values": [
-                    {
-                        "2015": 33,
-                        "2016": 42,
-                        "2017": 47,
-                        "Entity": "Smartphone"
-                    },
-                    {
-                        "2015": 54,
-                        "2016": 45,
-                        "2017": 41,
-                        "Entity": "Desktop"
-                    },
-                    {
-                        "2015": 13,
-                        "2016": 13,
-                        "2017": 12,
-                        "Entity": "Tablet"
-                    }
+                        {"category":"2015", "group":"Smartphone", "value":33},
+                        {"category":"2016", "group":"Smartphone", "value":42},
+                        {"category":"2017", "group":"Smartphone", "value":47},
+                        {"category":"2015", "group":"Desktop", "value":54},
+                        {"category":"2016", "group":"Desktop", "value":45},
+                        {"category":"2017", "group":"Desktop", "value":41},
+                        {"category":"2015", "group":"Tablet", "value":13},
+                        {"category":"2016", "group":"Tablet", "value":13},
+                        {"category":"2017", "group":"Tablet", "value":12}
                 ]
             },
-            "transform": [
-                {
-                    "fold": [
-                        "2015",
-                        "2016",
-                        "2017"
-                    ],
-                    "as": [
-                        "Year",
-                        "value"
-                    ]
-                }
-            ],
-            "facet": {
-                "column": {
-                    "field": "Year",
-                    "type": "ordinal"
-                }
+            "mark": "bar",
+            "encoding": {
+                "column": {"field": "category","header": {"orient": "bottom"}},
+                "y": {"field": "value", "type": "quantitative"},
+                "x": {"field": "group", "axis": null},
+                "color": {"field": "group"}
             },
-            "spec": {
-                "mark": "bar",
-                "encoding": {
-                    "y": {
-                        "field": "value",
-                        "type": "quantitative"
-                    },
-                    "x": {
-                        "field": "Entity",
-                        "type": "ordinal"
-                    },
-                    "color": {
-                        "field": "Entity",
-                        "type": "nominal",
-                        "legend": null,
-                        "scale": {
-                            "scheme": "category10"
-                        }
-                    }
-                }
+            "config": {
+                "view": {"stroke": "transparent"}
             }
         },
         {

@@ -126,13 +126,14 @@ const TextChangeComponent=({keyValues,updateEditorValue,choices})=>{
                 </AccordionDetails>
             </Accordion>
     
+            
             <Accordion>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel2a-content"
                     id="panel2a-header"
                 >
-                    <Typography>Default Settings</Typography>
+                    <Typography>Global Settings</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                     <Box>

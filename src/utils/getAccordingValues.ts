@@ -5,8 +5,8 @@ const json1261 = {
     "height": "vconcat.0.height",
     "width": "vconcat.0.width",
     "initial": 1,
-    "min": 0.5,
-    "max": 2,
+    "min": 0.2,
+    "max": 5,
     "step": 0.1,
     "initialWidth": 400,
   },
@@ -20,29 +20,29 @@ const json1261 = {
     "textFontWeight": "vconcat.0.layer.1.mark.fontWeight",
     "textOpacity": "vconcat.0.layer.1.mark.opacity",
     initial: {
-      "textColor": "#000001",
+      "textColor": "#000000",
       "textAngle": {
         "init": 0,
         "min": 0,
         "max": 180,
-        "step": 1,
+        "step": 5,
       },
       "textDx": {
         "init": 0,
-        "min": -10,
-        "max": 10,
+        "min": -50,
+        "max": 50,
         "step": 1,
       },
       "textDy": {
         "init": 0,
-        "min": -10,
-        "max": 10,
+        "min": -50,
+        "max": 50,
         "step": 1,
       },
       "textFontSize": {
         "init": 11,
-        "min": 1,
-        "max": 20,
+        "min": 5,
+        "max": 50,
         "step": 1,
       },
       "textFontStyle": {
@@ -156,8 +156,8 @@ const json4488 = {
     "height": "vconcat.0.height",
     "width": "vconcat.0.width",
     "initial": 1,
-    "min": 0.5,
-    "max": 2,
+    "min": 0.2,
+    "max": 5,
     "step": 0.1,
     "initialWidth": 400,
   },
@@ -176,24 +176,24 @@ const json4488 = {
         "init": 0,
         "min": 0,
         "max": 180,
-        "step": 1,
+        "step": 5,
       },
       "textDx": {
         "init": 0,
-        "min": -10,
-        "max": 10,
+        "min": -50,
+        "max": 50,
         "step": 1,
       },
       "textDy": {
         "init": 0,
-        "min": -10,
-        "max": 10,
+        "min": -50,
+        "max": 50,
         "step": 1,
       },
       "textFontSize": {
         "init": 11,
-        "min": 1,
-        "max": 20,
+        "min": 5,
+        "max": 50,
         "step": 1,
       },
       "textFontStyle": {
@@ -253,8 +253,8 @@ const json4488 = {
     ],
     "initial": {
       "chooseColorChange": {
-        "conditionColor": "#000000",
-        "color": "#000000",
+        "conditionColor": "#949d48",
+        "color": "#949d48",
       },
       "chooseSizeChange": {
         "conditionSize": 30,
@@ -287,8 +287,8 @@ const json9715 = {
     "height": "height",
     "width": "width",
     "initial": 1,
-    "min": 0.5,
-    "max": 2,
+    "min": 0.2,
+    "max": 5,
     "step": 0.1,
     "initialWidth": 400,
   },
@@ -301,6 +301,33 @@ const json9715 = {
     "textFontStyle": "layer.1.mark.fontStyle",
     "textFontWeight": "layer.1.mark.fontWeight",
     "textOpacity": "layer.1.mark.opacity",
+    initial: {
+      "textColor": "#000000",
+      "textAngle": {
+        "init": 0,
+        "min": 0,
+        "max": 180,
+        "step": 5,
+      },
+      "textDx": {
+        "init": 0,
+        "min": -50,
+        "max": 50,
+        "step": 1,
+      },
+      "textDy": {
+        "init": 0,
+        "min": -50,
+        "max": 50,
+        "step": 1,
+      },
+      "textFontSize": {
+        "init": 11,
+        "min": 5,
+        "max": 50,
+        "step": 1,
+      },
+    }
   },
   "ColorArray": {
     "types": [
@@ -423,8 +450,8 @@ const json0882 = {
     "height": "height",
     "width": "width",
     "initial": 1,
-    "min": 0.5,
-    "max": 2,
+    "min": 0.2,
+    "max": 5,
     "step": 0.1,
     "initialWidth": 400,
   },
@@ -437,6 +464,33 @@ const json0882 = {
     "textFontStyle": "layer.1.mark.fontStyle",
     "textFontWeight": "layer.1.mark.fontWeight",
     "textOpacity": "layer.1.mark.opacity",
+    initial: {
+      "textColor": "#000000",
+      "textAngle": {
+        "init": 0,
+        "min": 0,
+        "max": 180,
+        "step": 5,
+      },
+      "textDx": {
+        "init": 0,
+        "min": -50,
+        "max": 50,
+        "step": 1,
+      },
+      "textDy": {
+        "init": 0,
+        "min": -50,
+        "max": 50,
+        "step": 1,
+      },
+      "textFontSize": {
+        "init": 11,
+        "min": 5,
+        "max": 50,
+        "step": 1,
+      },
+    }
   },
   "Axis": {
     "x": "encoding.x",
@@ -543,8 +597,8 @@ const json3972 = {
     "height": "height",
     "width": "width",
     "initial": 1,
-    "min": 0.5,
-    "max": 2,
+    "min": 0.2,
+    "max": 5,
     "step": 0.1,
     "initialWidth": 400,
   },
@@ -556,7 +610,7 @@ const json3972 = {
     "textFontSize": "layer.1.mark.fontSize",
     "textFontStyle": "layer.1.mark.fontStyle",
     "textFontWeight": "layer.1.mark.fontWeight",
-    "textOpacity": "layer.1.mark.opacity",
+    "textOpacity": "layer.1.mark.opacity"
   },
   "Axis": {
     "x": "encoding.x",
@@ -675,8 +729,8 @@ const json5007 = {
     "height": "height",
     "width": "width",
     "initial": 1,
-    "min": 0.5,
-    "max": 2,
+    "min": 0.2,
+    "max": 5,
     "step": 0.1,
     "initialWidth": 400,
   },
@@ -689,6 +743,33 @@ const json5007 = {
     "textFontStyle": "layer.1.mark.fontStyle",
     "textFontWeight": "layer.1.mark.fontWeight",
     "textOpacity": "layer.1.mark.opacity",
+    initial: {
+      "textColor": "#000000",
+      "textAngle": {
+        "init": 0,
+        "min": 0,
+        "max": 180,
+        "step": 5,
+      },
+      "textDx": {
+        "init": 0,
+        "min": -50,
+        "max": 50,
+        "step": 1,
+      },
+      "textDy": {
+        "init": 0,
+        "min": -50,
+        "max": 50,
+        "step": 1,
+      },
+      "textFontSize": {
+        "init": 11,
+        "min": 5,
+        "max": 50,
+        "step": 1,
+      },
+    }
   },
   "Axis": {
     "x": "encoding.x",
@@ -803,8 +884,8 @@ const json9613 = {
     "height": "height",
     "width": "width",
     "initial": 1,
-    "min": 0.5,
-    "max": 2,
+    "min": 0.2,
+    "max": 5,
     "step": 0.1,
     "initialWidth": 400,
   },
@@ -817,6 +898,33 @@ const json9613 = {
     "textFontStyle": "layer.1.mark.fontStyle",
     "textFontWeight": "layer.1.mark.fontWeight",
     "textOpacity": "layer.1.mark.opacity",
+    initial: {
+      "textColor": "#000000",
+      "textAngle": {
+        "init": 0,
+        "min": 0,
+        "max": 180,
+        "step": 5,
+      },
+      "textDx": {
+        "init": 0,
+        "min": -50,
+        "max": 50,
+        "step": 1,
+      },
+      "textDy": {
+        "init": 0,
+        "min": -50,
+        "max": 50,
+        "step": 1,
+      },
+      "textFontSize": {
+        "init": 11,
+        "min": 5,
+        "max": 50,
+        "step": 1,
+      },
+    }
   },
   "Axis": {
     "x": "encoding.x",
@@ -915,8 +1023,8 @@ const json1002 = {
     "height": "height",
     "width": "width",
     "initial": 1,
-    "min": 0.5,
-    "max": 2,
+    "min": 0.2,
+    "max": 5,
     "step": 0.1,
     "initialWidth": 400,
   },
@@ -929,6 +1037,33 @@ const json1002 = {
     "textFontStyle": "layer.1.mark.fontStyle",
     "textFontWeight": "layer.1.mark.fontWeight",
     "textOpacity": "layer.1.mark.opacity",
+    initial: {
+      "textColor": "#000000",
+      "textAngle": {
+        "init": 0,
+        "min": 0,
+        "max": 180,
+        "step": 5,
+      },
+      "textDx": {
+        "init": 0,
+        "min": -50,
+        "max": 50,
+        "step": 1,
+      },
+      "textDy": {
+        "init": 0,
+        "min": -50,
+        "max": 50,
+        "step": 1,
+      },
+      "textFontSize": {
+        "init": 11,
+        "min": 5,
+        "max": 50,
+        "step": 1,
+      },
+    }
   },
   "Axis": {
     "x": "encoding.x",
@@ -1037,9 +1172,9 @@ const jsonMRI = {
   "aspectRatio": {
     "height": "height",
     "width": "width",
-    "initial": 1,
-    "min": 0.5,
-    "max": 2,
+    "initial": 2,
+    "min": 0.2,
+    "max": 5,
     "step": 0.1,
     "initialWidth": 400,
   },
@@ -1052,13 +1187,40 @@ const jsonMRI = {
     "textFontStyle": "layer.1.mark.fontStyle",
     "textFontWeight": "layer.1.mark.fontWeight",
     "textOpacity": "layer.1.mark.opacity",
+    initial: {
+      "textColor": "#000000",
+      "textAngle": {
+        "init": 0,
+        "min": 0,
+        "max": 180,
+        "step": 5,
+      },
+      "textDx": {
+        "init": 0,
+        "min": -50,
+        "max": 50,
+        "step": 1,
+      },
+      "textDy": {
+        "init": 0,
+        "min": -50,
+        "max": 50,
+        "step": 1,
+      },
+      "textFontSize": {
+        "init": 11,
+        "min": 5,
+        "max": 50,
+        "step": 1,
+      },
+    }
   },
   "Axis": {
     "x": "encoding.x",
     "y": "encoding.y",
     initial: {
       "AxisTickCount": {
-        x: {
+        y: {
           "init": 5,
           "min": 1,
           "max": 20,
@@ -1066,11 +1228,11 @@ const jsonMRI = {
         },
       },
       "AxisScaleDomain": {
-        "x": {
+        "y": {
           "minimal": 0,
-          "maximal": 300,
+          "maximal": 130,
           "min": 0,
-          "max": 200,
+          "max": 130,
           "step": 5,
         },
       },
@@ -1140,9 +1302,9 @@ const jsonMRI = {
       "Austria",
     ],
     "colors": [
-      "#d73027",
-      "#fc8d59",
-      "#fee090",
+      "#1290da",
+      "#9a3585",
+      "#e52a2f"
     ],
     "path": "layer.0.encoding.color.scale.range",
   },
@@ -1154,8 +1316,8 @@ const jsonRP = {
     "height": "height",
     "width": "width",
     "initial": 1,
-    "min": 0.5,
-    "max": 2,
+    "min": 0.2,
+    "max": 5,
     "step": 0.1,
     "initialWidth": 400,
   },
@@ -1168,6 +1330,33 @@ const jsonRP = {
     "textFontStyle": "layer.1.mark.fontStyle",
     "textFontWeight": "layer.1.mark.fontWeight",
     "textOpacity": "layer.1.mark.opacity",
+    initial: {
+      "textColor": "#000000",
+      "textAngle": {
+        "init": 0,
+        "min": 0,
+        "max": 180,
+        "step": 5,
+      },
+      "textDx": {
+        "init": 0,
+        "min": -50,
+        "max": 50,
+        "step": 1,
+      },
+      "textDy": {
+        "init": 0,
+        "min": -50,
+        "max": 50,
+        "step": 1,
+      },
+      "textFontSize": {
+        "init": 11,
+        "min": 5,
+        "max": 50,
+        "step": 1,
+      },
+    }
   },
   "Axis": {
     "x": "encoding.x",
@@ -1278,8 +1467,8 @@ const jsonRAB = {
     "height": "height",
     "width": "width",
     "initial": 1,
-    "min": 0.5,
-    "max": 2,
+    "min": 0.2,
+    "max": 5,
     "step": 0.1,
     "initialWidth": 400,
   },
@@ -1292,6 +1481,33 @@ const jsonRAB = {
     "textFontStyle": "layer.1.mark.fontStyle",
     "textFontWeight": "layer.1.mark.fontWeight",
     "textOpacity": "layer.1.mark.opacity",
+    initial: {
+      "textColor": "#000000",
+      "textAngle": {
+        "init": 0,
+        "min": 0,
+        "max": 180,
+        "step": 5,
+      },
+      "textDx": {
+        "init": 0,
+        "min": -50,
+        "max": 50,
+        "step": 1,
+      },
+      "textDy": {
+        "init": 0,
+        "min": -50,
+        "max": 50,
+        "step": 1,
+      },
+      "textFontSize": {
+        "init": 11,
+        "min": 5,
+        "max": 50,
+        "step": 1,
+      },
+    }
   },
   "Axis": {
     "x": "encoding.x",
@@ -1402,8 +1618,8 @@ const jsonShort = {
     "height": "height",
     "width": "width",
     "initial": 1,
-    "min": 0.5,
-    "max": 2,
+    "min": 0.2,
+    "max": 5,
     "step": 0.1,
     "initialWidth": 400,
   },
@@ -1416,6 +1632,33 @@ const jsonShort = {
     "textFontStyle": "layer.1.mark.fontStyle",
     "textFontWeight": "layer.1.mark.fontWeight",
     "textOpacity": "layer.1.mark.opacity",
+    initial: {
+      "textColor": "#000000",
+      "textAngle": {
+        "init": 0,
+        "min": 0,
+        "max": 180,
+        "step": 5,
+      },
+      "textDx": {
+        "init": 0,
+        "min": -50,
+        "max": 50,
+        "step": 1,
+      },
+      "textDy": {
+        "init": 0,
+        "min": -50,
+        "max": 50,
+        "step": 1,
+      },
+      "textFontSize": {
+        "init": 11,
+        "min": 5,
+        "max": 50,
+        "step": 1,
+      },
+    }
   },
   "Axis": {
     "x": "encoding.x",
@@ -1522,8 +1765,8 @@ const json4306 = {
     "height": "height",
     "width": "width",
     "initial": 1,
-    "min": 0.5,
-    "max": 2,
+    "min": 0.2,
+    "max": 5,
     "step": 0.1,
     "initialWidth": 400,
   },
@@ -1536,6 +1779,33 @@ const json4306 = {
     "textFontStyle": "layer.1.mark.fontStyle",
     "textFontWeight": "layer.1.mark.fontWeight",
     "textOpacity": "layer.1.mark.opacity",
+    initial: {
+      "textColor": "#000000",
+      "textAngle": {
+        "init": 0,
+        "min": 0,
+        "max": 180,
+        "step": 5,
+      },
+      "textDx": {
+        "init": 0,
+        "min": -50,
+        "max": 50,
+        "step": 1,
+      },
+      "textDy": {
+        "init": 0,
+        "min": -50,
+        "max": 50,
+        "step": 1,
+      },
+      "textFontSize": {
+        "init": 11,
+        "min": 5,
+        "max": 50,
+        "step": 1,
+      },
+    }
   },
   "Axis": {
     "x": "encoding.x",
@@ -1636,8 +1906,8 @@ const json1014 = {
     "height": "height",
     "width": "width",
     "initial": 1,
-    "min": 0.5,
-    "max": 2,
+    "min": 0.2,
+    "max": 5,
     "step": 0.1,
     "initialWidth": 400,
   },
@@ -1650,6 +1920,33 @@ const json1014 = {
     "textFontStyle": "layer.1.mark.fontStyle",
     "textFontWeight": "layer.1.mark.fontWeight",
     "textOpacity": "layer.1.mark.opacity",
+    initial: {
+      "textColor": "#000000",
+      "textAngle": {
+        "init": 0,
+        "min": 0,
+        "max": 180,
+        "step": 5,
+      },
+      "textDx": {
+        "init": 0,
+        "min": -50,
+        "max": 50,
+        "step": 1,
+      },
+      "textDy": {
+        "init": 0,
+        "min": -50,
+        "max": 50,
+        "step": 1,
+      },
+      "textFontSize": {
+        "init": 11,
+        "min": 5,
+        "max": 50,
+        "step": 1,
+      },
+    }
   },
   "Axis": {
     "x": "encoding.x",
@@ -1756,8 +2053,8 @@ const json1044 = {
     "height": "height",
     "width": "width",
     "initial": 1,
-    "min": 0.5,
-    "max": 2,
+    "min": 0.2,
+    "max": 5,
     "step": 0.1,
     "initialWidth": 400,
   },
@@ -1770,6 +2067,33 @@ const json1044 = {
     "textFontStyle": "layer.1.mark.fontStyle",
     "textFontWeight": "layer.1.mark.fontWeight",
     "textOpacity": "layer.1.mark.opacity",
+    initial: {
+      "textColor": "#000000",
+      "textAngle": {
+        "init": 0,
+        "min": 0,
+        "max": 180,
+        "step": 5,
+      },
+      "textDx": {
+        "init": 0,
+        "min": -50,
+        "max": 50,
+        "step": 1,
+      },
+      "textDy": {
+        "init": 0,
+        "min": -50,
+        "max": 50,
+        "step": 1,
+      },
+      "textFontSize": {
+        "init": 11,
+        "min": 5,
+        "max": 50,
+        "step": 1,
+      },
+    }
   },
   "Axis": {
     "x": "encoding.x",
@@ -1859,8 +2183,8 @@ const json1045 = {
     "height": "height",
     "width": "width",
     "initial": 1,
-    "min": 0.5,
-    "max": 2,
+    "min": 0.2,
+    "max": 5,
     "step": 0.1,
     "initialWidth": 400,
   },
@@ -1873,6 +2197,33 @@ const json1045 = {
     "textFontStyle": "layer.1.mark.fontStyle",
     "textFontWeight": "layer.1.mark.fontWeight",
     "textOpacity": "layer.1.mark.opacity",
+    initial: {
+      "textColor": "#000000",
+      "textAngle": {
+        "init": 0,
+        "min": 0,
+        "max": 180,
+        "step": 5,
+      },
+      "textDx": {
+        "init": 0,
+        "min": -50,
+        "max": 50,
+        "step": 1,
+      },
+      "textDy": {
+        "init": 0,
+        "min": -50,
+        "max": 50,
+        "step": 1,
+      },
+      "textFontSize": {
+        "init": 11,
+        "min": 5,
+        "max": 50,
+        "step": 1,
+      },
+    }
   },
   "Axis": {
     "x": "encoding.x",
