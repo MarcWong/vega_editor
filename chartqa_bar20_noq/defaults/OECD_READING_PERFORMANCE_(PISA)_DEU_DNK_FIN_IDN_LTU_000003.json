@@ -1,168 +1,170 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Reading performance (PISA)",
-    "description": "A comparison of the Reading performance (PISA) across different countries.",
-    "width": 200,
-    "height": 400,
-    "data": {
-      "values": [
-        {
-          "Country": "Indonesia",
-          "Reading Performance (PISA)": 371
-        },
-        {
-          "Country": "Lithuania",
-          "Reading Performance (PISA)": 476
-        },
-        {
-          "Country": "Germany",
-          "Reading Performance (PISA)": 498
-        },
-        {
-          "Country": "Denmark",
-          "Reading Performance (PISA)": 501
-        },
-        {
-          "Country": "Finland",
-          "Reading Performance (PISA)": 520
-        }
-      ]
-    },
-    "layer": [
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Reading performance (PISA)",
+  "description": "A comparison of the Reading performance (PISA) across different countries.",
+  "width": 400,
+  "height": 200,
+  "data": {
+    "values": [
       {
-        "mark": {
-          "type": "bar",
-          "color": "#4682b4"
+        "Country": "Indonesia",
+        "Reading Performance (PISA)": 371
+      },
+      {
+        "Country": "Lithuania",
+        "Reading Performance (PISA)": 476
+      },
+      {
+        "Country": "Germany",
+        "Reading Performance (PISA)": 498
+      },
+      {
+        "Country": "Denmark",
+        "Reading Performance (PISA)": 501
+      },
+      {
+        "Country": "Finland",
+        "Reading Performance (PISA)": 520
+      }
+    ]
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "color": "#4682b4"
+      },
+      "encoding": {
+        "x": {
+          "field": "Country",
+          "type": "nominal",
+          "sort": [
+            "Indonesia",
+            "Lithuania",
+            "Germany",
+            "Denmark",
+            "Finland"
+          ],
+          "axis": {
+            "grid": false,
+            "tickCount": 5,
+            "domain": false,
+            "labelAngle": -45
+          }
         },
-        "encoding": {
-          "x": {
-            "field": "Country",
-            "type": "nominal",
-            "sort": [
+        "y": {
+          "field": "Reading Performance (PISA)",
+          "type": "quantitative",
+          "axis": {
+            "grid": false,
+            "tickCount": 5,
+            "domain": false
+          },
+          "scale": {
+            "domain": [
+              0,
+              600
+            ]
+          }
+        },
+        "color": {
+          "field": "Country",
+          "type": "nominal",
+          "legend": null,
+          "condition": {
+            "test": "datum.Country === 'none'",
+            "value": "#000000"
+          },
+          "scale": {
+            "domain": [
               "Indonesia",
               "Lithuania",
               "Germany",
               "Denmark",
               "Finland"
             ],
-            "axis": {
-              "grid": false,
-              "tickCount": 5,
-              "domain": false
-            }
-          },
-          "y": {
-            "field": "Reading Performance (PISA)",
-            "type": "quantitative",
-            "axis": {
-              "grid": false,
-              "tickCount": 5,
-              "domain": false
-            },
-            "scale": {
-              "domain": [
-                0,
-                600
-              ]
-            }
-          },
-          "color": {
-            "field": "Country",
-            "type": "nominal",
-            "legend": null,
-            "condition": {
-              "test": "datum.Country === 'none'",
-              "value": "#000000"
-            },
-            "scale": {
-              "domain": [
-                "Indonesia",
-                "Lithuania",
-                "Germany",
-                "Denmark",
-                "Finland"
-              ],
-              "range": [
-                  "#9a3585",
-                  "#739f25",
-                  "#e0531f",
-                  "#1290da",
-                  "#e52a2f"
-              ]
-            }
-          },
-          "opacity": {
-            "condition": {
-              "test": "datum.Country === 'none'",
-              "value": 1
-            },
-            "value": 1
-          },
-          "size": {
-            "condition": {
-              "test": "datum.Country === 'none'",
-              "value": 30
-            },
-            "value": 40
-          }
-        }
-      },
-      {
-        "mark": {
-          "type": "text",
-          "align": "left",
-          "baseline": "middle",
-          "dx": 0,
-          "dy": 0,
-          "angle": 0,
-          "fontSize": 11,
-          "color": "black",
-          "opacity": 1
-        },
-        "encoding": {
-          "x": {
-            "field": "Country",
-            "type": "nominal"
-          },
-          "y": {
-            "field": "Reading Performance (PISA)",
-            "type": "quantitative"
-          },
-          "text": {
-            "field": "Reading Performance (PISA)",
-            "type": "quantitative"
-          },
-          "color": {
-            "value": "#000000"
-          }
-        }
-      }
-    ],
-    "name": "RP",
-    "encoding": {
-      "y": {
-        "axis": {
-          "grid": false,
-          "scale": {
-            "domain": [
-              null,
-              null
+            "range": [
+              "#9a3585",
+              "#739f25",
+              "#e0531f",
+              "#1290da",
+              "#e52a2f"
             ]
           }
-        }
-      },
-      "x": {
-        "axis": {
-          "grid": false,
-          "tickCount": 5
         },
-        "sort": [
-          "Indonesia",
-          "Lithuania",
-          "Germany",
-          "Denmark",
-          "Finland"
-      ]
+        "opacity": {
+          "condition": {
+            "test": "datum.Country === 'none'",
+            "value": 1
+          },
+          "value": 1
+        },
+        "size": {
+          "condition": {
+            "test": "datum.Country === 'none'",
+            "value": 60
+          },
+          "value": 60
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": -8,
+        "dy": -8,
+        "angle": 0,
+        "fontSize": 11,
+        "color": "black",
+        "opacity": 1
+      },
+      "encoding": {
+        "x": {
+          "field": "Country",
+          "type": "nominal"
+        },
+        "y": {
+          "field": "Reading Performance (PISA)",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "Reading Performance (PISA)",
+          "type": "quantitative"
+        },
+        "color": {
+          "value": "#000000"
+        }
       }
     }
+  ],
+  "name": "RP",
+  "encoding": {
+    "y": {
+      "axis": {
+        "grid": false,
+        "tickCount": 100,
+        "scale": {
+          "domain": [
+            null,
+            null
+          ]
+        }
+      }
+    },
+    "x": {
+      "axis": {
+        "grid": false,
+        "tickCount": 5
+      },
+      "sort": [
+        "Indonesia",
+        "Lithuania",
+        "Germany",
+        "Denmark",
+        "Finland"
+      ]
+    }
   }
+}

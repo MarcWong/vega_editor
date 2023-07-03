@@ -1408,8 +1408,8 @@ const jsonRP = {
         "conditionColor": "#000000",
       },
       "chooseSizeChange": {
-        "conditionSize": 30,
-        "size": 40,
+        "conditionSize": 50,
+        "size": 50,
         "maxSize": 100,
         "minSize": 0,
         "stepSize": 1,
@@ -1641,13 +1641,13 @@ const jsonShort = {
         "step": 5,
       },
       "textDx": {
-        "init": 0,
+        "init": -8,
         "min": -50,
         "max": 50,
         "step": 1,
       },
       "textDy": {
-        "init": 0,
+        "init": -8,
         "min": -50,
         "max": 50,
         "step": 1,
@@ -1665,7 +1665,7 @@ const jsonShort = {
     "y": "encoding.y",
     initial: {
       "AxisTickCount": {
-        x: {
+        y: {
           "init": 5,
           "min": 1,
           "max": 20,
@@ -1673,7 +1673,7 @@ const jsonShort = {
         },
       },
       "AxisScaleDomain": {
-        "x": {
+        "y": {
           "minimal": 0,
           "maximal": 20,
           "min": 0,
@@ -1750,10 +1750,10 @@ const jsonShort = {
       "Korea",
     ],
     "colors": [
-      "#d73027",
-      "#fc8d59",
-      "#fee090",
-      "#91bfdb",
+      "#9a3585",
+      "#1290da",
+      "#e0531f",
+      "#e52a2f"
     ],
     "path": "layer.0.encoding.color.scale.range",
   },
@@ -1788,13 +1788,13 @@ const json4306 = {
         "step": 5,
       },
       "textDx": {
-        "init": 0,
+        "init": -8,
         "min": -50,
         "max": 50,
         "step": 1,
       },
       "textDy": {
-        "init": 0,
+        "init": -8,
         "min": -50,
         "max": 50,
         "step": 1,

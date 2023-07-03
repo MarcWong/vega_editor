@@ -1,140 +1,139 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Magnetic resonance imaging (MRI) exams",
-    "description": "A comparison of the number of MRI exams across different countries.",
-    "width": 200,
-    "height": 400,
-    "data": {
-      "values": [
-        {
-          "Country": "Greece",
-          "MRI Exams": 64
-        },
-        {
-          "Country": "Italy",
-          "MRI Exams": 68
-        },
-        {
-          "Country": "Austria",
-          "MRI Exams": 120
-        }
-      ]
-    },
-    "encoding": {
-      "y": {
-        "field": "MRI Exams",
-        "type": "quantitative",
-        "axis": {
-          "grid": true,
-          "scale": {
-            "domain": [
-              null,
-              null
-            ]
-          }
-        },
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Magnetic resonance imaging (MRI) exams",
+  "description": "A comparison of the number of MRI exams across different countries.",
+  "width": 200,
+  "height": 400,
+  "data": {
+    "values": [
+      {
+        "Country": "Greece",
+        "MRI Exams": 64
+      },
+      {
+        "Country": "Italy",
+        "MRI Exams": 68
+      },
+      {
+        "Country": "Austria",
+        "MRI Exams": 120
+      }
+    ]
+  },
+  "encoding": {
+    "y": {
+      "field": "MRI Exams",
+      "type": "quantitative",
+      "axis": {
+        "grid": true,
         "scale": {
           "domain": [
-            0,
-            125
+            null,
+            null
           ]
         }
       },
-      "x": {
-        "field": "Country",
-        "type": "nominal",
-        "sort": [
-          "Italy",
-          "Greece",
-          "Austria"
-        ],
-        "axis": {
-          "grid": false,
-          "tickCount": 5
-        }
+      "scale": {
+        "domain": [
+          0,
+          125
+        ]
       }
     },
-    "layer": [
-      {
-        "mark": {
-          "type": "bar",
-          "color": "#4682b4"
-        },
-        "encoding": {
-          "color": {
-            "field": "Country",
-            "type": "nominal",
-            "legend": null,
-            "condition": {
-              "test": "datum.Country === 'none'",
-              "value": "#000000"
-            },
-            "scale": {
-              "domain": [
-                "Greece",
-                "Italy",
-                "Austria"
-              ],
-              "range": [
-                "#1290da",
-                "#9a3585",
-                "#e52a2f"
-              ]
-            }
-          },
-          "opacity": {
-            "condition": {
-              "test": "datum.Country === 'none'",
-              "value": 1
-            },
-            "value": 1
-          },
-          "size": {
-            "condition": {
-              "test": "datum.Country === 'none'",
-              "value": 30
-            },
-            "value": 40
-          }
-        }
+    "x": {
+      "field": "Country",
+      "type": "nominal",
+      "sort": [
+        "Italy",
+        "Greece",
+        "Austria"
+      ],
+      "axis": {
+        "grid": false,
+        "tickCount": 5,
+        "labelAngle": -45
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "color": "#4682b4"
       },
-      {
-        "mark": {
-          "type": "text",
-          "align": "left",
-          "baseline": "middle",
-          "dx": -8,
-          "dy": -7,
-          "angle": 0,
-          "fontSize": 11,
-          "fontStyle": "normal",
-          "fontWeight": "normal",
-          "color": "black",
-          "opacity": 1
-        },
-        "encoding": {
-          "x": {
-            "field": "Country",
-            "type": "nominal",
-            "sort": [
+      "encoding": {
+        "color": {
+          "field": "Country",
+          "type": "nominal",
+          "legend": null,
+          "condition": {
+            "test": "datum.Country === 'none'",
+            "value": "#000000"
+          },
+          "scale": {
+            "domain": [
               "Greece",
               "Italy",
               "Austria"
+            ],
+            "range": [
+              "#1290da",
+              "#9a3585",
+              "#e52a2f"
             ]
-          },
-          "y": {
-            "field": "MRI Exams",
-            "type": "quantitative"
-          },
-          "text": {
-            "field": "MRI Exams",
-            "type": "quantitative"
-          },
-          "color": {
-            "value": "#000000"
           }
+        },
+        "opacity": {
+          "condition": {
+            "test": "datum.Country === 'none'",
+            "value": 1
+          },
+          "value": 1
+        },
+        "size": {
+          "condition": {
+            "test": "datum.Country === 'none'",
+            "value": 30
+          },
+          "value": 40
         }
       }
-    ],
-    "name": "MRI"
-  }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 0,
+        "dy": 0,
+        "angle": 0,
+        "fontSize": 11,
+        "color": "black",
+        "opacity": 1
+      },
+      "encoding": {
+        "x": {
+          "field": "Country",
+          "type": "nominal",
+          "sort": [
+            "Greece",
+            "Italy",
+            "Austria"
+          ]
+        },
+        "y": {
+          "field": "MRI Exams",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "MRI Exams",
+          "type": "quantitative"
+        },
+        "color": {
+          "value": "#000000"
+        }
+      }
+    }
+  ],
+  "name": "MRI"
+}
