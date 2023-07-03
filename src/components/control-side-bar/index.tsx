@@ -217,8 +217,18 @@ const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,edit
       </Accordion>
 
       <Accordion>
+        <AccordionSummary expandIcon={<ExpandIcon />} aria-controls="colorArray-content" id="colorArray-header">
+          <Typography>Data Color Panel</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <ColorArrayInput keyValues={accordingValues?.ColorArray} updateEditorValue={updateEditorValue} defaultValues={accordingValues?.colorArray}
+              choices={choices}/>
+        </AccordionDetails>
+      </Accordion>
+
+      <Accordion>
         <AccordionSummary expandIcon={<ExpandIcon />} aria-controls="textChange-content" id="textChange-header">
-          <Typography>Text Panel</Typography>
+          <Typography>Data Label Panel</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <TextChangeComponent keyValues={accordingValues?.Text} updateEditorValue={updateEditorValue} />
@@ -231,12 +241,13 @@ const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,edit
         </AccordionSummary>
         <AccordionDetails>
           <AxisChangeComponent keyValues={accordingValues?.Axis} updateEditorValue={updateEditorValue} defaultValues={accordingValues?.axisChange}/>
+          <SwapButton onSwap={exchangeAxes} />
         </AccordionDetails>
       </Accordion>
 
       <Accordion>
         <AccordionSummary expandIcon={<ExpandIcon />} aria-controls="highlightChange-content" id="highlightChange-header">
-          <Typography>Color Encoding Panel</Typography>
+          <Typography>Data Highlight Panel</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <HighlightChangeComponent keyValues={accordingValues?.Condition} updateEditorValue={updateEditorValue} defaultValues={accordingValues?.highlightChange} 
@@ -245,18 +256,13 @@ const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,edit
       </Accordion>
 
       <Accordion>
-
-        <AccordionSummary expandIcon={<ExpandIcon />} aria-controls="colorArray-content" id="colorArray-header">
-          <Typography>Color Array</Typography>
+        <AccordionSummary expandIcon={<ExpandIcon />} aria-controls="dataOrder-content" id="dataOrder-header">
+          <Typography>Data Order Panel</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <ColorArrayInput keyValues={accordingValues?.ColorArray} updateEditorValue={updateEditorValue} defaultValues={accordingValues?.colorArray}
-              choices={choices}/>
+          <OrderInput entities={accordingValues?.orderTypes}  updateEditorValue={updateEditorValue} getEditorValue={getEditorValue} keyValues={accordingValues?.Order}/>
         </AccordionDetails>
       </Accordion>
-
-      <SwapButton onSwap={exchangeAxes} />
-      <OrderInput entities={accordingValues?.orderTypes}  updateEditorValue={updateEditorValue} getEditorValue={getEditorValue} keyValues={accordingValues?.Order}/>
 
       <Button variant="contained" color="primary" onClick={downloadLogs}>
         Download Logs

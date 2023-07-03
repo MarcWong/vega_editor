@@ -8,7 +8,7 @@
   "vconcat": [
     {
       "width": 400,
-      "height": 400,
+      "height": 133.33333333333334,
       "title": {
         "text": "Americans and Germans differ over importance of U.S. military bases in Germany to national security.",
         "subtitle": "% who think U.S. military bases in Germany are for their country's national security.",
@@ -73,17 +73,11 @@
           "field": "Entity",
           "type": "ordinal",
           "axis": {
-            "grid": false,
-            "scale": {
-              "domain": [
-                null,
-                null
-              ]
-            }
+            "grid": false
           },
           "sort": [
-            "Germany",
-            "U.S."
+            "U.S.",
+            "Germany"
           ]
         },
         "order": {
@@ -183,7 +177,7 @@
       "data": {
         "values": [
           {
-            "text": "Footer text goes here"
+            "text": "Note: Don't know responses not shown. Full question wording:'as you may know, the United States currently operates several military bases in Germany with approximately 35,000 active-duty American troops.'"
           }
         ]
       },

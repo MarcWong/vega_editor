@@ -102,10 +102,6 @@ const TextChangeComponent=({keyValues,updateEditorValue})=>{
       <ColorInput label="Text Color" initialColor={initial?.textColor} onColorChange={handleTextColor} />
     </Box>
     <Box mb={2}>
-      <SizeInput size={initial?.textAngle?.init} label="Angle" onSizeChange={handleAngleChange} min={initial?.textAngle?.min} 
-      max={initial?.textAngle?.max} step={initial?.textAngle?.step} />
-    </Box>
-    <Box mb={2}>
       <SizeInput size={initial?.textDx?.init} label="Dx" onSizeChange={handleDxChange} min={initial?.textDx?.min} 
       max={initial?.textDx?.max} step={initial?.textDx?.step} />
     </Box>
@@ -131,6 +127,11 @@ const TextChangeComponent=({keyValues,updateEditorValue})=>{
 
     <Box mb={2}>
       {textOpacity && <RangeInput min={0} max={1} step={0.1} label="Text Opacity" initialValue={1} onValueChange={(e)=>updateEditorValue(textOpacity,e)} />}
+    </Box>
+
+    <Box mb={2}>
+      <SizeInput size={initial?.textAngle?.init} label="Angle" onSizeChange={handleAngleChange} min={initial?.textAngle?.min} 
+      max={initial?.textAngle?.max} step={initial?.textAngle?.step} />
     </Box>
   
   </Box>

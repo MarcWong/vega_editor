@@ -8,7 +8,7 @@
   "vconcat": [
     {
       "width": 400,
-      "height": 250,
+      "height": 285.7142857142857,
       "title": {
         "text": "Consensus that China plays a bigger role in the world today",
         "subtitle": "% who say plays a more important role in the world than it did 10 years ago",
@@ -51,8 +51,7 @@
           "field": "Entity",
           "type": "ordinal",
           "axis": {
-            "grid": false,
-            "tickCount": 2
+            "grid": false
           },
           "sort": [
             "China",
@@ -91,7 +90,7 @@
             "color": {
               "condition": {
                 "test": "datum.Entity === 'none'",
-                "value": "#000000"
+                "value": "#949d48"
               },
               "value": "#949d48"
             },
@@ -107,7 +106,7 @@
                 "test": "datum.Entity === 'none'",
                 "value": 30
               },
-              "value": 29
+              "value": 40
             }
           }
         },
@@ -116,7 +115,7 @@
             "type": "text",
             "dx": 0,
             "dy": 0,
-            "xOffset": 0,
+            "xOffset": 10,
             "yOffset": 0,
             "angle": 0,
             "align": "right",
