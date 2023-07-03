@@ -2,141 +2,142 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Index points",
     "description": "A comparison of the index points across different characteristics.",
-    "width": 200,
-    "height": 400,
+    "width": 600,
+    "height": 333.33333333333337,
     "data": {
-        "values": [
-            {
-                "Characteristic": "Google",
-                "Index points": 79
-            },
-            {
-                "Characteristic": "TOTAL Internet search engines and information",
-                "Index points": 76
-            },
-            {
-                "Characteristic": "Yahoo (Verizon Media)",
-                "Index points": 72
-            },
-            {
-                "Characteristic": "Ask.com",
-                "Index points": 71
-            },
-            {
-                "Characteristic": "MSN (Microsoft)",
-                "Index points": 71
-            },
-            {
-                "Characteristic": "AOL (Verizon Media)",
-                "Index points": 71
-            },
-            {
-                "Characteristic": "Bing (Microsoft)",
-                "Index points": 71
-            },
-            {
-                "Characteristic": "Answers.com",
-                "Index points": 70
-            }
-        ]
+      "values": [
+        {
+          "Characteristic": "Google",
+          "Index points": 79
+        },
+        {
+          "Characteristic": "TOTAL Internet search engines and information",
+          "Index points": 76
+        },
+        {
+          "Characteristic": "Yahoo (Verizon Media)",
+          "Index points": 72
+        },
+        {
+          "Characteristic": "Ask.com",
+          "Index points": 71
+        },
+        {
+          "Characteristic": "MSN (Microsoft)",
+          "Index points": 71
+        },
+        {
+          "Characteristic": "AOL (Verizon Media)",
+          "Index points": 71
+        },
+        {
+          "Characteristic": "Bing (Microsoft)",
+          "Index points": 71
+        },
+        {
+          "Characteristic": "Answers.com",
+          "Index points": 70
+        }
+      ]
     },
     "encoding": {
-        "y": {
-            "field": "Characteristic",
-            "type": "nominal",
-            "sort": [
-                "Google",
-                "TOTAL Internet search engines and information",
-                "Yahoo (Verizon Media)",
-                "Ask.com",
-                "MSN (Microsoft)",
-                "AOL (Verizon Media)",
-                "Bing (Microsoft)",
-                "Answers.com"
-            ],
-            "axis": {
-                "grid": false,
-                "tickCount": 8,
-                "domain": false
-            }
-        },
-        "x": {
-            "field": "Index points",
-            "type": "quantitative",
-            "axis": {
-                "grid": false,
-                "tickCount": 5,
-                "domain": false
-            },
-            "scale": {
-                "domain": [
-                    0,
-                    100
-                ]
-            }
+      "x": {
+        "field": "Characteristic",
+        "type": "nominal",
+        "sort": [
+          "Google",
+          "TOTAL Internet search engines and information",
+          "Yahoo (Verizon Media)",
+          "Ask.com",
+          "MSN (Microsoft)",
+          "AOL (Verizon Media)",
+          "Bing (Microsoft)",
+          "Answers.com"
+        ],
+        "axis": {
+          "grid": false
         }
+      },
+      "y": {
+        "field": "Index points",
+        "type": "quantitative",
+        "axis": {
+          "grid": true,
+          "tickCount": 5,
+          "scale": {
+            "domain": [
+              0,
+              100
+            ]
+          }
+        },
+        "scale": {
+          "domain": [
+            0,
+            100
+          ]
+        }
+      }
     },
     "layer": [
-        {
-            "mark": {
-                "type": "bar"
-            },
-            "encoding": {
-                "color": {
-                    "condition": {
-                        "test": "datum.Characteristic === 'Yahoo (Verizon Media)'",
-                        "value": "#da9191"
-                    },
-                    "value": "#000000"
-                },
-                "opacity": {
-                    "condition": {
-                        "test": "datum.Characteristic === 'Yahoo (Verizon Media)'",
-                        "value": 1
-                    },
-                    "value": 1
-                },
-                "size": {
-                    "condition": {
-                        "test": "datum.Characteristic === 'Yahoo (Verizon Media)'",
-                        "value": 30
-                    },
-                    "value": 40
-                }
-            }
+      {
+        "mark": {
+          "type": "bar"
         },
-        {
-            "mark": {
-                "type": "text",
-                "align": "left",
-                "baseline": "middle",
-                "dx": 0,
-                "dy": 0,
-                "angle": 0,
-                "fontSize": 11,
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-                "color": "black",
-                "opacity": 1
+        "encoding": {
+          "color": {
+            "condition": {
+              "test": "datum.Characteristic === 'TOTAL Internet search engines and information'",
+              "value": "#c0c0c0"
             },
-            "encoding": {
-                "y": {
-                    "field": "Characteristic",
-                    "type": "nominal"
-                },
-                "x": {
-                    "field": "Index points",
-                    "type": "quantitative"
-                },
-                "text": {
-                    "field": "Index points",
-                    "type": "quantitative"
-                },
-                "color": {
-                    "value": "#000000"
-                }
-            }
+            "value": "#2876dd"
+          },
+          "opacity": {
+            "condition": {
+              "test": "datum.Characteristic === 'TOTAL Internet search engines and information'",
+              "value": 1
+            },
+            "value": 1
+          },
+          "size": {
+            "condition": {
+              "test": "datum.Characteristic === 'TOTAL Internet search engines and information'",
+              "value": 50
+            },
+            "value": 50
+          }
         }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "align": "left",
+          "baseline": "middle",
+          "dx": -5,
+          "dy": -6,
+          "angle": 0,
+          "fontSize": 11,
+          "color": "black",
+          "opacity": 1
+        },
+        "encoding": {
+          "x": {
+            "field": "Characteristic",
+            "type": "nominal"
+          },
+          "y": {
+            "field": "Index points",
+            "type": "quantitative"
+          },
+          "text": {
+            "field": "Index points",
+            "type": "quantitative"
+          },
+          "color": {
+            "value": "#000000"
+          }
+        }
+      }
     ],
     "name": "4306"
-}
+  }

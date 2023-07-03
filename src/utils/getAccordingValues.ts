@@ -1812,7 +1812,7 @@ const json4306 = {
     "y": "encoding.y",
     initial: {
       "AxisTickCount": {
-        x: {
+        y: {
           "init": 5,
           "min": 1,
           "max": 20,
@@ -1820,7 +1820,7 @@ const json4306 = {
         },
       },
       "AxisScaleDomain": {
-        "x": {
+        "y": {
           "minimal": 0,
           "maximal": 200,
           "min": 0,
@@ -1854,8 +1854,8 @@ const json4306 = {
     ],
     "initial": {
       "chooseColorChange": {
-        "conditionColor": "#000000",
-        "color": "#000000",
+        "conditionColor": "#c0c0c0",
+        "color": "#2876dd",
       },
       "chooseSizeChange": {
         "conditionSize": 30,
@@ -1995,8 +1995,8 @@ const json1014 = {
     ],
     "initial": {
       "chooseColorChange": {
-        "conditionColor": "#000000",
-        "color": "#000000",
+        "conditionColor": "#2876dd",
+        "color": "#2876dd",
       },
       "chooseSizeChange": {
         "conditionSize": 30,
@@ -2100,7 +2100,7 @@ const json1044 = {
     "y": "encoding.y",
     initial: {
       "AxisTickCount": {
-        "x": {
+        "y": {
           "init": 5,
           "min": 1,
           "max": 20,
@@ -2108,7 +2108,7 @@ const json1044 = {
         },
       },
       "AxisScaleDomain": {
-        "x": {
+        "y": {
           "minimal": 0,
           "maximal": 200,
           "min": 0,
@@ -2142,8 +2142,8 @@ const json1044 = {
     ],
     "initial": {
       "chooseColorChange": {
-        "conditionColor": "#000000",
-        "color": "#000000",
+        "conditionColor": "#2876dd",
+        "color": "#2876dd",
       },
       "chooseSizeChange": {
         "conditionSize": 30,
