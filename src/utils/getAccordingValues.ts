@@ -1363,7 +1363,7 @@ const jsonRP = {
     "y": "encoding.y",
     initial: {
       "AxisTickCount": {
-        x: {
+        y: {
           "init": 5,
           "min": 1,
           "max": 20,
@@ -1371,7 +1371,7 @@ const jsonRP = {
         },
       },
       "AxisScaleDomain": {
-        "x": {
+        "y": {
           "minimal": 0,
           "maximal": 1000,
           "min": 0,
@@ -1451,11 +1451,11 @@ const jsonRP = {
       "Finland",
     ],
     "colors": [
-      "#d73027",
-      "#fc8d59",
-      "#fee090",
-      "#91bfdb",
-      "#4575b4",
+      "#9a3585",
+      "#739f25",
+      "#e0531f",
+      "#1290da",
+      "#e52a2f"
     ],
     "path": "layer.0.encoding.color.scale.range",
   },
@@ -1514,7 +1514,7 @@ const jsonRAB = {
     "y": "encoding.y",
     initial: {
       "AxisTickCount": {
-        x: {
+        y: {
           "init": 5,
           "min": 1,
           "max": 20,
@@ -1522,7 +1522,7 @@ const jsonRAB = {
         },
       },
       "AxisScaleDomain": {
-        "x": {
+        "y": {
           "minimal": 0,
           "maximal": 200,
           "min": 0,

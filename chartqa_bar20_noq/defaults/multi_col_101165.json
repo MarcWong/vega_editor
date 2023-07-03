@@ -13,39 +13,28 @@
         {
             "data": {
                 "values": [
-                    {
-                        "2005": 52.4,
-                        "2013": 55.5,
-                        "2015": 56.9,
-                        "2017": 56.8,
-                        "2019": 55.2,
-                        "Entity": "Poland"
-                    },
-                    {
-                        "2005": 62.0,
-                        "2013": 63.8,
-                        "2015": 65.0,
-                        "2017": 66.2,
-                        "2019": 67.4,
-                        "Entity": "EU-28"
-                    }
+                        {"category":"2005", "group":"Poland", "value":52.4},
+                        {"category":"2013", "group":"Poland", "value":55.5},
+                        {"category":"2015", "group":"Poland", "value":56.9},
+                        {"category":"2017", "group":"Poland", "value":56.8},
+                        {"category":"2019", "group":"Poland", "value":55.2},
+                        {"category":"2005", "group":"EU-28", "value":62.0},
+                        {"category":"2013", "group":"EU-28", "value":63.8},
+                        {"category":"2015", "group":"EU-28", "value":65.0},
+                        {"category":"2017", "group":"EU-28", "value":66.2},
+                        {"category":"2019", "group":"EU-28", "value":67.4}
                 ]
             },
-            "transform": [
-                {
-                    "fold": [
-                        "2005",
-                        "2013",
-                        "2015",
-                        "2017",
-                        "2019"
-                    ],
-                    "as": [
-                        "Year",
-                        "value"
-                    ]
-                }
-            ],
+            "mark": "bar",
+            "encoding": {
+                "column": {"field": "category","header": {"orient": "bottom"}},
+                "y": {"field": "value", "type": "quantitative"},
+                "x": {"field": "group", "axis": null},
+                "color": {"field": "group"}
+            },
+            "config": {
+                "view": {"stroke": "transparent"}
+            },
             "facet": {
                 "column": {
                     "field": "Year",

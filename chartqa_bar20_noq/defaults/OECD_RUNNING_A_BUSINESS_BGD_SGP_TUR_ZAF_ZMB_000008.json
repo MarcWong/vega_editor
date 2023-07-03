@@ -2,143 +2,149 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Running a business",
     "description": "A comparison of the scores for running a business across different countries.",
-    "width": 200,
-    "height": 400,
+    "width": 400,
+    "height": 190.47619047619048,
     "data": {
-        "values": [
-            {
-                "Country": "Zambia",
-                "Running a business": 37.3
-            },
-            {
-                "Country": "Singapore",
-                "Running a business": 45.6
-            },
-            {
-                "Country": "South Africa",
-                "Running a business": 50.2
-            },
-            {
-                "Country": "Bangladesh",
-                "Running a business": 61.5
-            },
-            {
-                "Country": "Turkey",
-                "Running a business": 72.9
-            }
-        ]
-    },
-    "layer": [
+      "values": [
         {
-            "mark": {
-                "type": "bar",
-                "color": "#4682b4"
-            },
-            "encoding": {
-                "y": {
-                    "field": "Country",
-                    "type": "nominal",
-                    "sort": [
-                        "Zambia",
-                        "Singapore",
-                        "South Africa",
-                        "Bangladesh",
-                        "Turkey"
-                    ],
-                    "axis": {
-                        "grid": false,
-                        "tickCount": 5,
-                        "domain": false
-                    }
-                },
-                "x": {
-                    "field": "Running a business",
-                    "type": "quantitative",
-                    "axis": {
-                        "grid": false,
-                        "tickCount": 5,
-                        "domain": false
-                    },
-                    "scale": {
-                        "domain": [
-                            0,
-                            100
-                        ]
-                    }
-                },
-                "color": {
-                    "field": "Country",
-                    "type": "nominal",
-                    "legend": null,
-                    "condition": {
-                        "test": "datum.Country === 'South Africa'",
-                        "value": "#46afaf"
-                    },
-                    "scale": {
-                        "domain": [
-                            "Zambia",
-                            "Singapore",
-                            "South Africa",
-                            "Bangladesh",
-                            "Turkey"
-                        ],
-                        "range": [
-                            "#4daf4a",
-                            "#377eb8",
-                            "#ff7f00",
-                            "#984ea3",
-                            "#e41a1c"
-                        ]
-                    }
-                },
-                "opacity": {
-                    "condition": {
-                        "test": "datum.Country === 'South Africa'",
-                        "value": 1
-                    },
-                    "value": 1
-                },
-                "size": {
-                    "condition": {
-                        "test": "datum.Country === 'South Africa'",
-                        "value": 30
-                    },
-                    "value": 40
-                }
-            }
+          "Country": "Zambia",
+          "Running a business": 37.3
         },
         {
-            "mark": {
-                "type": "text",
-                "align": "left",
-                "baseline": "middle",
-                "dx": 0,
-                "dy": 0,
-                "angle": 0,
-                "fontSize": 12,
-                "fontStyle": "italic",
-                "fontWeight": 500,
-                "color": "black",
-                "opacity": 1
-            },
-            "encoding": {
-                "y": {
-                    "field": "Country",
-                    "type": "nominal"
-                },
-                "x": {
-                    "field": "Running a business",
-                    "type": "quantitative"
-                },
-                "text": {
-                    "field": "Running a business",
-                    "type": "quantitative"
-                },
-                "color": {
-                    "value": "#af1d1d"
-                }
-            }
+          "Country": "Singapore",
+          "Running a business": 45.6
+        },
+        {
+          "Country": "South Africa",
+          "Running a business": 50.2
+        },
+        {
+          "Country": "Bangladesh",
+          "Running a business": 61.5
+        },
+        {
+          "Country": "Turkey",
+          "Running a business": 72.9
         }
+      ]
+    },
+    "layer": [
+      {
+        "mark": {
+          "type": "bar"
+        },
+        "encoding": {
+          "x": {
+            "field": "Country",
+            "type": "nominal",
+            "sort": [
+              "Zambia",
+              "Singapore",
+              "South Africa",
+              "Bangladesh",
+              "Turkey"
+            ],
+            "axis": {
+              "grid": false,
+              "tickCount": 5,
+              "domain": false
+            }
+          },
+          "y": {
+            "field": "Running a business",
+            "type": "quantitative",
+            "axis": {
+              "grid": false,
+              "tickCount": 5,
+              "domain": false
+            },
+            "scale": {
+              "domain": [
+                0,
+                100
+              ]
+            }
+          },
+          "color": {
+            "field": "Country",
+            "type": "nominal",
+            "legend": null,
+            "condition": {
+              "test": "datum.Country === 'South Africa'",
+              "value": "#1290da"
+            },
+            "scale": {
+              "domain": [
+                "Zambia",
+                "Singapore",
+                "South Africa",
+                "Bangladesh",
+                "Turkey"
+              ],
+              "range": [
+                "#739f25",
+                "#e0531f",
+                "#1290da",
+                "#9a3585",
+                "#e52a2f"
+              ]
+            }
+          },
+          "opacity": {
+            "condition": {
+              "test": "datum.Country === 'South Africa'",
+              "value": 1
+            },
+            "value": 1
+          },
+          "size": {
+            "condition": {
+              "test": "datum.Country === 'South Africa'",
+              "value": 50
+            },
+            "value": 50
+          }
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "align": "left",
+          "baseline": "middle",
+          "dx": 0,
+          "dy": 0,
+          "angle": 0,
+          "fontSize": 12,
+          "fontStyle": "italic",
+          "fontWeight": 500,
+          "color": "black",
+          "opacity": 1
+        },
+        "encoding": {
+          "x": {
+            "field": "Country",
+            "type": "nominal",
+            "sort": [
+              "Zambia",
+              "Singapore",
+              "South Africa",
+              "Bangladesh",
+              "Turkey"
+            ]
+          },
+          "y": {
+            "field": "Running a business",
+            "type": "quantitative"
+          },
+          "text": {
+            "field": "Running a business",
+            "type": "quantitative"
+          },
+          "color": {
+            "value": "#af1d1d"
+          }
+        }
+      }
     ],
     "name": "RAB"
-}
+  }

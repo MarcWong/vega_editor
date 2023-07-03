@@ -33,6 +33,33 @@
             },
             "config": {
                 "view": {"stroke": "transparent"}
+            },
+            "facet": {
+                "column": {
+                    "field": "Year",
+                    "type": "ordinal"
+                }
+            },
+            "spec": {
+                "mark": "bar",
+                "encoding": {
+                    "y": {
+                        "field": "value",
+                        "type": "quantitative"
+                    },
+                    "x": {
+                        "field": "Entity",
+                        "type": "ordinal"
+                    },
+                    "color": {
+                        "field": "Entity",
+                        "type": "nominal",
+                        "legend": null,
+                        "scale": {
+                            "scheme": "category10"
+                        }
+                    }
+                }
             }
         },
         {
