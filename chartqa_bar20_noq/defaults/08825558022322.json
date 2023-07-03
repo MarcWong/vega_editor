@@ -31,60 +31,34 @@
       "axis": {
         "grid": false,
         "scale": {
-          "domain": [
-            null,
-            null
-          ]
+          "domain": [null, null]
         }
       },
-      "sort": [
-        "Age-standardized",
-        "15-49 years old",
-        "All ages",
-        "5-14 years old",
-        "70+ years old",
-        "50-69 years old"
-      ]
+      "sort": ["Age-standardized", "15-49 years old", "All ages", "5-14 years old", "70+ years old", "50-69 years old"]
     },
     "x": {
       "field": "DALYs",
       "type": "quantitative",
-      "sort": [
-        "15-49 years old",
-        "Age-standardized",
-        "All ages",
-        "5-14 years old",
-        "70+ years old",
-        "50-69 years old"
-      ],
+      "sort": ["15-49 years old", "Age-standardized", "All ages", "5-14 years old", "70+ years old", "50-69 years old"],
       "axis": {
         "grid": false,
         "tickCount": 5
       },
       "scale": {
-        "domain": [
-          0,
-          10
-        ]
+        "domain": [0, 10]
       }
     }
   },
   "layer": [
     {
       "mark": {
-        "type": "bar",
-        "color": "#4682b4"
+        "type": "bar"
       },
       "encoding": {
         "y": {
           "field": "Country",
           "type": "nominal",
-          "sort": [
-            "Malawi",
-            "Africa",
-            "Western Sahara",
-            "Netherlands"
-          ],
+          "sort": ["Malawi", "Africa", "Western Sahara", "Netherlands"],
           "axis": {
             "grid": false,
             "tickCount": 4,
@@ -100,10 +74,7 @@
             "domain": false
           },
           "scale": {
-            "domain": [
-              0,
-              10
-            ]
+            "domain": [0, 10]
           }
         },
         "color": {
@@ -115,18 +86,8 @@
             "value": "#000000"
           },
           "scale": {
-            "domain": [
-              "Malawi",
-              "Africa",
-              "Western Sahara",
-              "Netherlands"
-            ],
-            "range": [
-              "#27955c",
-              "#637ca8",
-              "#9a4f57",
-              "#596a7d"
-            ]
+            "domain": ["Malawi", "Africa", "Western Sahara", "Netherlands"],
+            "range": ["#27955c", "#637ca8", "#9a4f57", "#596a7d"]
           }
         },
         "opacity": {
@@ -163,12 +124,7 @@
         "y": {
           "field": "Country",
           "type": "nominal",
-          "sort": [
-            "Malawi",
-            "Africa",
-            "Western Sahara",
-            "Netherlands"
-          ]
+          "sort": ["Malawi", "Africa", "Western Sahara", "Netherlands"]
         },
         "x": {
           "field": "Children per woman, 1988",

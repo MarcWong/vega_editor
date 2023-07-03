@@ -336,9 +336,9 @@ const json9715 = {
       "Unfavorable",
     ],
     "colors": [
-      "#fc8d59",
-      "#fee090",
-      "#91bfdb",
+      "#ea9e2c",
+      "#949d48",
+      "#dcd8c7"
     ],
     "path": "layer.0.encoding.color.scale.range",
   },
@@ -392,7 +392,7 @@ const json9715 = {
         "conditionColor": "#000000",
       },
       "chooseSizeChange": {
-        "conditionSize": 30,
+        "conditionSize": 40,
         "size": 40,
         "maxSize": 100,
         "minSize": 0,
@@ -538,11 +538,8 @@ const json0882 = {
       "layer.0.encoding.opacity.condition.test",
     ],
     "initial": {
-      "chooseColorChange": {
-        "conditionColor": "#000000",
-      },
       "chooseSizeChange": {
-        "conditionSize": 30,
+        "conditionSize": 40,
         "size": 40,
         "maxSize": 100,
         "minSize": 0,
@@ -582,10 +579,10 @@ const json0882 = {
       "Netherlands",
     ],
     "colors": [
-      "#d73027",
-      "#fc8d59",
-      "#fee090",
-      "#91bfdb",
+      "#27955c",
+      "#637ca8",
+      "#9a4f57",
+      "#596a7d"
     ],
     "path": "layer.0.encoding.color.scale.range",
   },
@@ -658,11 +655,8 @@ const json3972 = {
       "layer.0.encoding.opacity.condition.test",
     ],
     "initial": {
-      "chooseColorChange": {
-        "conditionColor": "#000000",
-      },
       "chooseSizeChange": {
-        "conditionSize": 30,
+        "conditionSize": 40,
         "size": 40,
         "maxSize": 100,
         "minSize": 0,
@@ -711,13 +705,13 @@ const json3972 = {
       "Africa",
     ],
     "colors": [
-      "#d73027",
-      "#fc8d59",
-      "#fee090",
-      "#91bfdb",
-      "#4575b4",
-      "#4575b4",
-      "#4575b4",
+      "#27955c",
+      "#9a4f57",
+      "#984ea3",
+      "#d62f7d",
+      "#269691",
+      "#596a7d",
+      "#bd532c"
     ],
     "path": "layer.0.encoding.color.scale.range",
   },
@@ -867,12 +861,12 @@ const json5007 = {
       "50-69 years old",
     ],
     "colors": [
-      "#d73027",
-      "#fc8d59",
-      "#fee090",
-      "#91bfdb",
-      "#4575b4",
-      "#2375b4",
+      "#9a4f57",
+      "#d62f7d",
+      "#835ba1",
+      "#269691",
+      "#000000",
+      "#000000"
     ],
     "path": "layer.0.encoding.color.scale.range",
   },
@@ -999,7 +993,7 @@ const json9613 = {
     "Japan steam spot cif price",
     "Asian marker price",
     "Northwest Europe marker price",
-    "US Central Appalachian coal spot price index",
+    "US Central Appalachian coal spot price index"
   ],
   "selectTypes": [
     {
@@ -1015,6 +1009,27 @@ const json9613 = {
       ],
     },
   ],
+  "ColorArray": {
+    "types": [
+      "Japan coking coal import cif price",
+      "Japan steam coal import cif price",
+      "China Qinhuangdao spot price",
+      "Japan steam spot cif price",
+      "Asian marker price",
+      "Northwest Europe marker price",
+      "US Central Appalachian coal spot price index"
+    ],
+    "colors": [
+      "#27955c",
+      "#9a4f57",
+      "#d62f7d",
+      "#269691",
+      "#835ba1",
+      "#bd532c",
+      "#596a7d"
+    ],
+    "path": "layer.0.encoding.color.scale.range",
+  }
 };
 
 const json1002 = {

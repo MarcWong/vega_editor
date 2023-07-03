@@ -1,89 +1,87 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "config": {
-        "view": {
-            "stroke": "transparent",
-            "continuousWidth": 400
-        },
-        "facet": {
-            "spacing": 10
-        }
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "config": {
+    "view": {
+      "stroke": "transparent",
+      "continuousWidth": 400
     },
-    "vconcat": [
-        {
-            "data": {
-                "values": [
-                        {"category":"2015", "group":"Smartphone", "value":33},
-                        {"category":"2016", "group":"Smartphone", "value":42},
-                        {"category":"2017", "group":"Smartphone", "value":47},
-                        {"category":"2015", "group":"Desktop", "value":54},
-                        {"category":"2016", "group":"Desktop", "value":45},
-                        {"category":"2017", "group":"Desktop", "value":41},
-                        {"category":"2015", "group":"Tablet", "value":13},
-                        {"category":"2016", "group":"Tablet", "value":13},
-                        {"category":"2017", "group":"Tablet", "value":12}
-                ]
-            },
-            "mark": "bar",
-            "encoding": {
-                "column": {"field": "category","header": {"orient": "bottom"}},
-                "y": {"field": "value", "type": "quantitative"},
-                "x": {"field": "group", "axis": null},
-                "color": {"field": "group"}
-            },
-            "config": {
-                "view": {"stroke": "transparent"}
-            },
-            "facet": {
-                "column": {
-                    "field": "Year",
-                    "type": "ordinal"
-                }
-            },
-            "spec": {
-                "mark": "bar",
-                "encoding": {
-                    "y": {
-                        "field": "value",
-                        "type": "quantitative"
-                    },
-                    "x": {
-                        "field": "Entity",
-                        "type": "ordinal"
-                    },
-                    "color": {
-                        "field": "Entity",
-                        "type": "nominal",
-                        "legend": null,
-                        "scale": {
-                            "scheme": "category10"
-                        }
-                    }
-                }
-            }
-        },
-        {
-            "width": 400,
-            "height": 100,
-            "data": {
-                "values": [
-                    {
-                        "text": "Footer text goes here"
-                    }
-                ]
-            },
-            "mark": {
-                "type": "text",
-                "align": "center",
-                "baseline": "middle",
-                "opacity": 1
-            },
-            "encoding": {
-                "text": {
-                    "field": "text",
-                    "type": "nominal"
-                }
-            }
+    "facet": {
+      "spacing": 10
+    }
+  },
+  "vconcat": [
+    {
+      "data": {
+        "values": [
+          { "category": "2015", "group": "Smartphone", "value": 33 },
+          { "category": "2016", "group": "Smartphone", "value": 42 },
+          { "category": "2017", "group": "Smartphone", "value": 47 },
+          { "category": "2015", "group": "Desktop", "value": 54 },
+          { "category": "2016", "group": "Desktop", "value": 45 },
+          { "category": "2017", "group": "Desktop", "value": 41 },
+          { "category": "2015", "group": "Tablet", "value": 13 },
+          { "category": "2016", "group": "Tablet", "value": 13 },
+          { "category": "2017", "group": "Tablet", "value": 12 }
+        ]
+      },
+      "mark": "bar",
+      "encoding": {
+        "column": { "field": "category", "header": { "orient": "bottom" } },
+        "y": { "field": "value", "type": "quantitative" },
+        "x": { "field": "group", "axis": null },
+        "color": { "field": "group" }
+      },
+      "facet": {
+        "column": {
+          "field": "Year",
+          "type": "ordinal"
         }
-    ]
+      },
+      "spec": {
+        "mark": "bar",
+        "encoding": {
+          "y": {
+            "field": "value",
+            "type": "quantitative",
+            "title": "population"
+          },
+          "x": {
+            "field": "Entity",
+            "type": "ordinal"
+          },
+          "color": {
+            "field": "Entity",
+            "type": "nominal",
+            "legend": null,
+            "scale": {
+              "scheme": "category10"
+            }
+          }
+        }
+      }
+    },
+    {
+      "width": 400,
+      "height": 100,
+      "data": {
+        "values": [
+          {
+            "text": "Footer text goes here"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "middle",
+        "opacity": 1
+      },
+      "encoding": {
+        "text": {
+          "field": "text",
+          "type": "nominal"
+        }
+      }
+    }
+  ]
 }
