@@ -9,6 +9,10 @@ interface ColorInputProps {
 }
 
 const ColorInput: React.FC<ColorInputProps> = ({ label, initialColor, onColorChange }) => {
+
+    if(!initialColor){
+        return null;
+    }
     const [color, setColor] = useState(initialColor);
 
     const handleColorChange = (newColor: any) => {

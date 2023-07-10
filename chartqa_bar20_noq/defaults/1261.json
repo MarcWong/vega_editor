@@ -34,16 +34,8 @@
       },
       "transform": [
         {
-          "fold": [
-            "Not important at all",
-            "Not too important",
-            "Somewhat important",
-            "Very important"
-          ],
-          "as": [
-            "category",
-            "value"
-          ]
+          "fold": ["Not important at all", "Not too important", "Somewhat important", "Very important"],
+          "as": ["category", "value"]
         },
         {
           "calculate": "{'Not important at all': 1, 'Not too important': 2, 'Somewhat important': 3, 'Very important': 4}[datum.category]",
@@ -59,14 +51,15 @@
           "field": "value",
           "type": "quantitative",
           "scale": {
-            "domain": [
-              -100,
-              100
-            ]
+            "domain": [-100, 100]
           },
           "axis": {
             "grid": false,
-            "tickCount": 5
+            "tickCount": 5,
+            "labelFontSize": 12,
+            "labelOffset": 10,
+            "labelPadding": 10,
+            "labelAngle": 0
           }
         },
         "y": {
@@ -75,10 +68,7 @@
           "axis": {
             "grid": false
           },
-          "sort": [
-            "U.S.",
-            "Germany"
-          ]
+          "sort": ["U.S.", "Germany"]
         },
         "order": {
           "field": "order",
@@ -113,18 +103,13 @@
               "field": "category",
               "type": "nominal",
               "scale": {
-                "domain": [
-                  "Not important at all",
-                  "Not too important",
-                  "Somewhat important",
-                  "Very important"
-                ],
-                "range": [
-                  "#d73027",
-                  "#fc8d59",
-                  "#fee090",
-                  "#91bfdb"
-                ]
+                "domain": ["Not important at all", "Not too important", "Somewhat important", "Very important"],
+                "range": ["#d73027", "#fc8d59", "#fee090", "#91bfdb"]
+              },
+              "legend": {
+                "legendX": 10,
+                "legendY": 20,
+                "orient": "none"
               }
             },
             "opacity": {

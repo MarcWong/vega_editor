@@ -13,23 +13,74 @@
     {
       "data": {
         "values": [
-          { "category": "2015", "group": "Smartphone", "value": 33 },
-          { "category": "2016", "group": "Smartphone", "value": 42 },
-          { "category": "2017", "group": "Smartphone", "value": 47 },
-          { "category": "2015", "group": "Desktop", "value": 54 },
-          { "category": "2016", "group": "Desktop", "value": 45 },
-          { "category": "2017", "group": "Desktop", "value": 41 },
-          { "category": "2015", "group": "Tablet", "value": 13 },
-          { "category": "2016", "group": "Tablet", "value": 13 },
-          { "category": "2017", "group": "Tablet", "value": 12 }
+          {
+            "category": "2015",
+            "group": "Smartphone",
+            "value": 33
+          },
+          {
+            "category": "2016",
+            "group": "Smartphone",
+            "value": 42
+          },
+          {
+            "category": "2017",
+            "group": "Smartphone",
+            "value": 47
+          },
+          {
+            "category": "2015",
+            "group": "Desktop",
+            "value": 54
+          },
+          {
+            "category": "2016",
+            "group": "Desktop",
+            "value": 45
+          },
+          {
+            "category": "2017",
+            "group": "Desktop",
+            "value": 41
+          },
+          {
+            "category": "2015",
+            "group": "Tablet",
+            "value": 13
+          },
+          {
+            "category": "2016",
+            "group": "Tablet",
+            "value": 13
+          },
+          {
+            "category": "2017",
+            "group": "Tablet",
+            "value": 12
+          }
         ]
       },
-      "mark": "bar",
+      "mark": {
+        "type": "bar"
+      },
       "encoding": {
-        "column": { "field": "category", "header": { "orient": "bottom" } },
-        "y": { "field": "value", "type": "quantitative" },
-        "x": { "field": "group", "axis": null },
-        "color": { "field": "group" }
+        "column": {
+          "field": "category",
+          "header": {
+            "orient": "bottom"
+          }
+        },
+        "y": {
+          "field": "value",
+          "type": "quantitative"
+        },
+        "x": {
+          "field": "group",
+          "axis": null
+        },
+        "color": {
+          "field": "group"
+        }
       },
       "facet": {
         "column": {

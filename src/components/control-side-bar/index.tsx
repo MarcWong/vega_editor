@@ -13,8 +13,7 @@ import { ConsoleFormattedStream } from 'browser-bunyan';
 import { ConsoleRawStream } from 'browser-bunyan';
 import Button from '@mui/material/Button';
 import ColorArrayInput from './color-array-input';
-
-// import 
+import LegendChangeComponent from './legend-change';
 
 interface ControlSidebarProps {
     onParametersChange: (params: { [key: string]: string }) => void;
@@ -30,7 +29,6 @@ const log = createLogger({
       { level: 'debug', stream: new ConsoleRawStream() },
   ]
 });
-
 
 
 
@@ -87,17 +85,27 @@ const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,edit
   };
 
 
-    const downloadLogs = () => {
-      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(logMessages));
-      const downloadAnchorNode = document.createElement('a');
-      downloadAnchorNode.setAttribute("href",     dataStr);
-      downloadAnchorNode.setAttribute("download", "log.json");
-      document.body.appendChild(downloadAnchorNode); // required for firefox
-      downloadAnchorNode.click();
-      downloadAnchorNode.remove();
-    }
+  const downloadLogs = () => {
+    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(logMessages));
+    const downloadAnchorNode = document.createElement('a');
+    downloadAnchorNode.setAttribute("href",     dataStr);
+    downloadAnchorNode.setAttribute("download", "log.json");
+    document.body.appendChild(downloadAnchorNode); // required for firefox
+    downloadAnchorNode.click();
+    downloadAnchorNode.remove();
+  }
+
+  const dowloadJson = () => {
+    const jsonedspec=JSON.stringify(spec, null, 2);
+    const blob = new Blob([jsonedspec], {type: "application/json;charset=utf-8"});
+    const filename = "project.json";
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = filename;
+    a.click();
+  }
     
-    const getEditorValue = (path: string) => {
+  const getEditorValue = (path: string) => {
       if (typeof path !== 'string') {
         return;
     }
@@ -108,7 +116,7 @@ const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,edit
           let target = spec;
           for (let i = 0; i < pathParts.length; i++) {
               const part = pathParts[i];
-              if (!target.hasOwnProperty(part)) {
+              if (!target?.hasOwnProperty(part)) {
                   return; // path does not exist, return undefined
               }
               if (i === pathParts.length - 1) {
@@ -204,6 +212,9 @@ const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,edit
     }
   }, [accordingValues]);
 
+  if(!accordingValues){
+    return <div></div>
+  }
 
   return (
     <div className="control-sidebar" style={{overflow: 'auto', height: '100%'}}>
@@ -212,7 +223,8 @@ const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,edit
           <Typography>Aspect Ratio</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <AspectRatioComponent keyValue={accordingValues?.aspectRatio} updateEditorValue={updateEditorValue}/>
+          <AspectRatioComponent keyValue={accordingValues?.aspectRatio} 
+          updateEditorValue={updateEditorValue} getEditorValue={getEditorValue}/>
         </AccordionDetails>
       </Accordion>
 
@@ -221,7 +233,8 @@ const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,edit
           <Typography>Data Color Panel</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <ColorArrayInput keyValues={accordingValues?.ColorArray} updateEditorValue={updateEditorValue} defaultValues={accordingValues?.colorArray}
+          <ColorArrayInput keyValues={accordingValues?.ColorArray} getEditorValue={getEditorValue}
+          updateEditorValue={updateEditorValue} defaultValues={accordingValues?.colorArray}
               choices={choices}/>
         </AccordionDetails>
       </Accordion>
@@ -231,7 +244,7 @@ const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,edit
           <Typography>Data Label Panel</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <TextChangeComponent keyValues={accordingValues?.Text} updateEditorValue={updateEditorValue} />
+          <TextChangeComponent getEditorValue={getEditorValue} keyValues={accordingValues?.Text} updateEditorValue={updateEditorValue} />
         </AccordionDetails>
       </Accordion>
 
@@ -240,7 +253,7 @@ const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,edit
           <Typography>Axis Panel</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <AxisChangeComponent keyValues={accordingValues?.Axis} updateEditorValue={updateEditorValue} defaultValues={accordingValues?.axisChange}/>
+          <AxisChangeComponent keyValues={accordingValues?.Axis} getEditorValue={getEditorValue} updateEditorValue={updateEditorValue} defaultValues={accordingValues?.axisChange}/>
           <SwapButton onSwap={exchangeAxes} />
         </AccordionDetails>
       </Accordion>
@@ -250,7 +263,7 @@ const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,edit
           <Typography>Data Highlight Panel</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <HighlightChangeComponent keyValues={accordingValues?.Condition} updateEditorValue={updateEditorValue} defaultValues={accordingValues?.highlightChange} 
+          <HighlightChangeComponent keyValues={accordingValues?.Condition} updateEditorValue={updateEditorValue} getEditorValue={getEditorValue}
               choices={choices}/>
         </AccordionDetails>
       </Accordion>
@@ -264,8 +277,21 @@ const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,edit
         </AccordionDetails>
       </Accordion>
 
+      <Accordion>
+        <AccordionSummary expandIcon={<ExpandIcon />} aria-controls="aspectRatio-content" id="aspectRatio-header">
+          <Typography>Legend Position</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <LegendChangeComponent updateEditorValue={updateEditorValue} getEditorValue={getEditorValue}/>
+        </AccordionDetails>
+      </Accordion>
+
       <Button variant="contained" color="primary" onClick={downloadLogs}>
         Download Logs
+      </Button>
+
+      <Button variant="contained" color="primary" onClick={dowloadJson}>
+        Download Json
       </Button>
     </div>
   );

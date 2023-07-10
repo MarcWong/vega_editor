@@ -5,6 +5,7 @@ import ColorInput from './components/color-input';
 import SelectInput from './components/select-input';
 import CheckboxInput from './components/check-box-input';
 import RangeInput from './components/range-input';
+import { CheckBox } from '@mui/icons-material';
 
 const defaultInitial= {
   "textColor": "#000000",
@@ -42,71 +43,98 @@ const defaultInitial= {
   },
 }
 
-const TextChangeComponent=({keyValues,updateEditorValue})=>{
+const DEFAULT_TEXT_PATH="vconcat.0.layer.1"
 
-   if(!keyValues?.textColor){
+// "textColor": "vconcat.0.layer.1.encoding.color.value",
+// "textAngle": "vconcat.0.layer.1.mark.angle",
+// "textDx": "vconcat.0.layer.1.mark.dx",
+// "textDy": "vconcat.0.layer.1.mark.dy",
+// "textFontSize": "vconcat.0.layer.1.mark.fontSize",
+// "textFontStyle": "vconcat.0.layer.1.mark.fontStyle",
+// "textFontWeight": "vconcat.0.layer.1.mark.fontWeight",
+// "textOpacity": "vconcat.0.layer.1.mark.opacity",
+
+const TEXT_COLOR_PATH=`${DEFAULT_TEXT_PATH}.encoding.color.value`;
+const TEXT_ANGLE_PATH=`${DEFAULT_TEXT_PATH}.mark.angle`;
+const TEXT_DX_PATH=`${DEFAULT_TEXT_PATH}.mark.dx`;
+const TEXT_DY_PATH=`${DEFAULT_TEXT_PATH}.mark.dy`;
+const TEXT_FONT_SIZE_PATH=`${DEFAULT_TEXT_PATH}.mark.fontSize`;
+const TEXT_FONT_STYLE_PATH=`${DEFAULT_TEXT_PATH}.mark.fontStyle`;
+const TEXT_FONT_WEIGHT_PATH=`${DEFAULT_TEXT_PATH}.mark.fontWeight`;
+const TEXT_OPACITY_PATH=`${DEFAULT_TEXT_PATH}.mark.opacity`;
+
+const TextChangeComponent=({keyValues,updateEditorValue,getEditorValue})=>{
+   if(!keyValues?.initial){
     return null;
    }
 
-  let {textColor,textAngle,textDx,textDy,textFontSize,textFontStyle,textFontWeight,initial,textOpacity}=keyValues;
+  let {initial}=keyValues;
 
   if(!initial){
     initial=defaultInitial;
   }
 
-  useEffect(()=>{
-    if(!keyValues?.textColor){
-      return;
-    }
-    updateEditorValue(textColor,initial?.textColor);
-    updateEditorValue(textAngle,initial?.textAngle?.init);
-    updateEditorValue(textDx,initial?.textDx?.init);
-    updateEditorValue(textDy,initial?.textDy?.init);
-    updateEditorValue(textFontSize,initial?.textFontSize?.init);
-    updateEditorValue(textFontStyle,initial?.textFontStyle?.init);
-    updateEditorValue(textFontWeight,initial?.textFontWeight?.init);
-    updateEditorValue(textOpacity,1);
-  },[keyValues])
+  // useEffect(()=>{
+  //   if(!keyValues?.textColor){
+  //     return;
+  //   }
+  //   updateEditorValue(TEXT_COLOR_PATH,initial?.textColor);
+  //   updateEditorValue(TEXT_ANGLE_PATH,initial?.textAngle?.init);
+  //   updateEditorValue(TEXT_DX_PATH,initial?.textDx?.init);
+  //   updateEditorValue(TEXT_DY_PATH,initial?.textDy?.init);
+  //   updateEditorValue(TEXT_FONT_SIZE_PATH,initial?.textFontSize?.init);
+  //   updateEditorValue(TEXT_FONT_STYLE_PATH,initial?.textFontStyle?.init);
+  //   updateEditorValue(TEXT_FONT_WEIGHT_PATH,initial?.textFontWeight?.init);
+  //   updateEditorValue(TEXT_OPACITY_PATH,1);
+  // },[keyValues])
  
   const handleTextColor= (newTextColor: string) => {
-    updateEditorValue(textColor, newTextColor);
+    updateEditorValue(TEXT_COLOR_PATH, newTextColor);
     };
 
   const handleAngleChange = (newAngle: number) => {
-    updateEditorValue(textAngle, newAngle);
+    updateEditorValue(TEXT_ANGLE_PATH, newAngle);
   };
 
   const handleDxChange = (newDx: number) => {
-      updateEditorValue(textDx, newDx);
+      updateEditorValue(TEXT_DX_PATH, newDx);
   };
 
   const handleDyChange = (newDy: number) => {
-      updateEditorValue(textDy, newDy);
+      updateEditorValue(TEXT_DY_PATH, newDy);
   };
 
     const handleFontSize= (newFontSize: number) => {
-        updateEditorValue(textFontSize, newFontSize);
+        updateEditorValue(TEXT_FONT_SIZE_PATH, newFontSize);
     };
 
     const handleFontWeight= (newFontWeight: number) => {
-        updateEditorValue(textFontWeight, newFontWeight);
+        updateEditorValue(TEXT_FONT_WEIGHT_PATH, newFontWeight);
     };
 
     const handleFontStyle= (newFontStyle: string) => {
-        updateEditorValue(textFontStyle, newFontStyle);
+        updateEditorValue(TEXT_FONT_STYLE_PATH, newFontStyle);
+    }
+
+    const handleTextOpacityChange=(e)=>{
+      if(e){
+        updateEditorValue(TEXT_OPACITY_PATH,1);
+      }else{
+        updateEditorValue(TEXT_OPACITY_PATH,0);
+      }
     }
 
   return (
   <Box m={2}> {/* Added margin */}
     <Box mb={2}> {/* Added bottom margin */}
-      <ColorInput label="Text Color" initialColor={initial?.textColor} onColorChange={handleTextColor} />
+      <ColorInput label="Text Color" initialColor={getEditorValue(TEXT_COLOR_PATH)} onColorChange={handleTextColor} />
     </Box>
     <Box mb={2}>
-      <SizeInput size={initial?.textDx?.init} label="Dx" onSizeChange={handleDxChange} min={initial?.textDx?.min} 
+      <SizeInput size={getEditorValue(TEXT_DX_PATH)} label="Dx" onSizeChange={handleDxChange} min={initial?.textDx?.min} 
       max={initial?.textDx?.max} step={initial?.textDx?.step} />
     </Box>
     <Box mb={2}>
-      <SizeInput size={initial?.textDy?.init} label="Dy" onSizeChange={handleDyChange} min={initial?.textDy?.min}
+      <SizeInput size={getEditorValue(TEXT_DY_PATH)} label="Dy" onSizeChange={handleDyChange} min={initial?.textDy?.min}
        max={initial?.textDy?.max} step={initial?.textDy?.step} />
     </Box>
     <Box mb={2}>
@@ -126,11 +154,11 @@ const TextChangeComponent=({keyValues,updateEditorValue})=>{
     </Box>
 
     <Box mb={2}>
-      {textOpacity && <RangeInput min={0} max={1} step={0.1} label="Text Opacity" initialValue={1} onValueChange={(e)=>updateEditorValue(textOpacity,e)} />}
+      <CheckboxInput label="TextOpacity" initialChecked={true} onCheckChange={(e) => handleTextOpacityChange(e)} />
     </Box>
 
     <Box mb={2}>
-      <SizeInput size={initial?.textAngle?.init} label="Angle" onSizeChange={handleAngleChange} min={initial?.textAngle?.min} 
+      <SizeInput size={getEditorValue(TEXT_ANGLE_PATH)} label="Angle" onSizeChange={handleAngleChange} min={initial?.textAngle?.min} 
       max={initial?.textAngle?.max} step={initial?.textAngle?.step} />
     </Box>
   

@@ -1,189 +1,179 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Hours Preference in Different Restaurant Jobs",
-    "description": "Do you have a preference for your working hours in your current job?",
-    "width": 400,
-    "height": 400,
-    "data": {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "vconcat": [
+    {
+      "title": "Hours Preference in Different Restaurant Jobs",
+      "description": "Do you have a preference for your working hours in your current job?",
+      "width": 400,
+      "height": 400,
+      "data": {
         "values": [
-            {
-                "Characteristic": "Business operations",
-                "Happy with current hours": 69,
-                "Would like more hours": 4,
-                "Would like fewer hours": 27
-            },
-            {
-                "Characteristic": "Shift or crew supervisor",
-                "Happy with current hours": 63,
-                "Would like more hours": 21,
-                "Would like fewer hours": 16
-            },
-            {
-                "Characteristic": "Bartender",
-                "Happy with current hours": 63,
-                "Would like more hours": 27,
-                "Would like fewer hours": 10
-            },
-            {
-                "Characteristic": "Waiter/waitress",
-                "Happy with current hours": 56,
-                "Would like more hours": 36,
-                "Would like fewer hours": 8
-            },
-            {
-                "Characteristic": "Chef or cook",
-                "Happy with current hours": 54,
-                "Would like more hours": 25,
-                "Would like fewer hours": 21
-            },
-            {
-                "Characteristic": "Restaurant manager",
-                "Happy with current hours": 52,
-                "Would like more hours": 3,
-                "Would like fewer hours": 45
-            },
-            {
-                "Characteristic": "Crew person (fast food)",
-                "Happy with current hours": 47,
-                "Would like more hours": 48,
-                "Would like fewer hours": 5
-            },
-            {
-                "Characteristic": "Host/hostess",
-                "Happy with current hours": 46,
-                "Would like more hours": 46,
-                "Would like fewer hours": 9
-            },
-            {
-                "Characteristic": "Dishwasher/bus person",
-                "Happy with current hours": 40,
-                "Would like more hours": 52,
-                "Would like fewer hours": 8
-            }
+          {
+            "Characteristic": "Business operations",
+            "Happy with current hours": 69,
+            "Would like more hours": 4,
+            "Would like fewer hours": 27
+          },
+          {
+            "Characteristic": "Shift or crew supervisor",
+            "Happy with current hours": 63,
+            "Would like more hours": 21,
+            "Would like fewer hours": 16
+          },
+          {
+            "Characteristic": "Bartender",
+            "Happy with current hours": 63,
+            "Would like more hours": 27,
+            "Would like fewer hours": 10
+          },
+          {
+            "Characteristic": "Waiter/waitress",
+            "Happy with current hours": 56,
+            "Would like more hours": 36,
+            "Would like fewer hours": 8
+          },
+          {
+            "Characteristic": "Chef or cook",
+            "Happy with current hours": 54,
+            "Would like more hours": 25,
+            "Would like fewer hours": 21
+          },
+          {
+            "Characteristic": "Restaurant manager",
+            "Happy with current hours": 52,
+            "Would like more hours": 3,
+            "Would like fewer hours": 45
+          },
+          {
+            "Characteristic": "Crew person (fast food)",
+            "Happy with current hours": 47,
+            "Would like more hours": 48,
+            "Would like fewer hours": 5
+          },
+          {
+            "Characteristic": "Host/hostess",
+            "Happy with current hours": 46,
+            "Would like more hours": 46,
+            "Would like fewer hours": 9
+          },
+          {
+            "Characteristic": "Dishwasher/bus person",
+            "Happy with current hours": 40,
+            "Would like more hours": 52,
+            "Would like fewer hours": 8
+          }
         ]
-    },
-    "transform": [
+      },
+      "transform": [
         {
-            "fold": [
-                "Happy with current hours",
-                "Would like more hours",
-                "Would like fewer hours"
-            ]
+          "fold": ["Happy with current hours", "Would like more hours", "Would like fewer hours"]
         }
-    ],
-    "encoding": {
+      ],
+      "encoding": {
         "y": {
-            "field": "Characteristic",
-            "type": "ordinal",
-            "title": "Job",
-            "axis": {
-                "grid": false,
-                "tickCount": 9
-            },
-            "sort": [
-                "Shift or crew supervisor",
-                "Bartender",
-                "Business operations",
-                "Waiter/waitress",
-                "Chef or cook",
-                "Restaurant manager",
-                "Crew person (fast food)",
-                "Host/hostess",
-                "Dishwasher/bus person"
-            ]
+          "field": "Characteristic",
+          "type": "ordinal",
+          "title": "Job",
+          "axis": {
+            "grid": false,
+            "tickCount": 9
+          },
+          "sort": [
+            "Shift or crew supervisor",
+            "Bartender",
+            "Business operations",
+            "Waiter/waitress",
+            "Chef or cook",
+            "Restaurant manager",
+            "Crew person (fast food)",
+            "Host/hostess",
+            "Dishwasher/bus person"
+          ]
         },
         "x": {
-            "field": "value",
-            "type": "quantitative",
-            "stack": "normalize",
-            "axis": {
-                "grid": false,
-                "tickCount": 5
-            },
-            "scale": {
-                "domain": [
-                    0,
-                    1
-                ]
-            }
+          "field": "value",
+          "type": "quantitative",
+          "stack": "normalize",
+          "axis": {
+            "grid": false,
+            "tickCount": 5
+          },
+          "scale": {
+            "domain": [0, 1]
+          }
         }
-    },
-    "layer": [
+      },
+      "layer": [
         {
-            "mark": "bar",
-            "encoding": {
-                "color": {
-                    "condition": {
-                        "test": "datum.Characteristic === 'Restaurant manager' && datum.key === 'Would like more hours'",
-                        "value": "#27c9c9"
-                    },
-                    "field": "key",
-                    "type": "nominal",
-                    "scale": {
-                        "domain": [
-                            "Happy with current hours",
-                            "Would like more hours",
-                            "Would like fewer hours"
-                        ],
-                        "range": [
-                            "lightgreen",
-                            "lightblue",
-                            "darkred"
-                        ]
-                    }
-                },
-                "opacity": {
-                    "condition": {
-                        "test": "datum.Characteristic === 'Restaurant manager' && datum.key === 'Would like more hours'",
-                        "value": 0.4
-                    },
-                    "value": 1
-                },
-                "size": {
-                    "condition": {
-                        "test": "datum.Characteristic === 'Restaurant manager' && datum.key === 'Would like more hours'",
-                        "value": 20
-                    },
-                    "value": 30
-                }
+          "mark": "bar",
+          "encoding": {
+            "color": {
+              "condition": {
+                "test": "datum.Characteristic === 'none' && datum.key === 'none'",
+                "value": "#000000"
+              },
+              "field": "key",
+              "type": "nominal",
+              "scale": {
+                "domain": ["Happy with current hours", "Would like more hours", "Would like fewer hours"],
+                "range": ["lightgreen", "lightblue", "darkred"]
+              },
+              "value": "#000000"
+            },
+            "opacity": {
+              "condition": {
+                "test": "datum.Characteristic === 'none' && datum.key === 'none'",
+                "value": 0.4
+              },
+              "value": 1
+            },
+            "size": {
+              "condition": {
+                "test": "datum.Characteristic === 'none' && datum.key === 'none'",
+                "value": 30
+              },
+              "value": 40
             }
+          }
         },
         {
-            "mark": {
-                "type": "text",
-                "align": "left",
-                "baseline": "middle",
-                "dx": 0,
-                "dy": 0,
-                "angle": 0,
-                "fontSize": 30,
-                "fontStyle": "normal",
-                "fontWeight": 400,
-                "font": "serif",
-                "opacity": 1
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "middle",
+            "dx": 0,
+            "dy": 0,
+            "angle": 0,
+            "fontSize": 30,
+            "fontStyle": "normal",
+            "fontWeight": 400,
+            "font": "serif",
+            "opacity": 1
+          },
+          "encoding": {
+            "y": {
+              "field": "Characteristic",
+              "type": "nominal"
             },
-            "encoding": {
-                "y": {
-                    "field": "Characteristic",
-                    "type": "nominal"
-                },
-                "x": {
-                    "field": "value",
-                    "type": "quantitative",
-                    "stack": "normalize"
-                },
-                "text": {
-                    "condition": {
-                        "test": "datum.value > 0",
-                        "field": "value"
-                    },
-                    "value": ""
-                },
-                "color": {
-                    "value": "#d09696"
-                }
+            "x": {
+              "field": "value",
+              "type": "quantitative",
+              "stack": "normalize"
+            },
+            "text": {
+              "condition": {
+                "test": "datum.value > 0",
+                "field": "value"
+              },
+              "value": ""
+            },
+            "color": {
+              "value": "#d09696"
             }
+          }
         }
-    ],
-    "name": "1002"
+      ]
+    }
+  ],
+  "name": "1002"
 }

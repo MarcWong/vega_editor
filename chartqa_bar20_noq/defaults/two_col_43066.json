@@ -1,143 +1,141 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Index points",
-    "description": "A comparison of the index points across different characteristics.",
-    "width": 600,
-    "height": 333.33333333333337,
-    "data": {
-      "values": [
-        {
-          "Characteristic": "Google",
-          "Index points": 79
-        },
-        {
-          "Characteristic": "TOTAL Internet search engines and information",
-          "Index points": 76
-        },
-        {
-          "Characteristic": "Yahoo (Verizon Media)",
-          "Index points": 72
-        },
-        {
-          "Characteristic": "Ask.com",
-          "Index points": 71
-        },
-        {
-          "Characteristic": "MSN (Microsoft)",
-          "Index points": 71
-        },
-        {
-          "Characteristic": "AOL (Verizon Media)",
-          "Index points": 71
-        },
-        {
-          "Characteristic": "Bing (Microsoft)",
-          "Index points": 71
-        },
-        {
-          "Characteristic": "Answers.com",
-          "Index points": 70
-        }
-      ]
-    },
-    "encoding": {
-      "x": {
-        "field": "Characteristic",
-        "type": "nominal",
-        "sort": [
-          "Google",
-          "TOTAL Internet search engines and information",
-          "Yahoo (Verizon Media)",
-          "Ask.com",
-          "MSN (Microsoft)",
-          "AOL (Verizon Media)",
-          "Bing (Microsoft)",
-          "Answers.com"
-        ],
-        "axis": {
-          "grid": false
-        }
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "vconcat": [
+    {
+      "title": "Index points",
+      "description": "A comparison of the index points across different characteristics.",
+      "width": 600,
+      "height": 333.33333333333337,
+      "data": {
+        "values": [
+          {
+            "Characteristic": "Google",
+            "Index points": 79
+          },
+          {
+            "Characteristic": "TOTAL Internet search engines and information",
+            "Index points": 76
+          },
+          {
+            "Characteristic": "Yahoo (Verizon Media)",
+            "Index points": 72
+          },
+          {
+            "Characteristic": "Ask.com",
+            "Index points": 71
+          },
+          {
+            "Characteristic": "MSN (Microsoft)",
+            "Index points": 71
+          },
+          {
+            "Characteristic": "AOL (Verizon Media)",
+            "Index points": 71
+          },
+          {
+            "Characteristic": "Bing (Microsoft)",
+            "Index points": 71
+          },
+          {
+            "Characteristic": "Answers.com",
+            "Index points": 70
+          }
+        ]
       },
-      "y": {
-        "field": "Index points",
-        "type": "quantitative",
-        "axis": {
-          "grid": true,
-          "tickCount": 5,
-          "scale": {
-            "domain": [
-              0,
-              100
-            ]
+      "encoding": {
+        "x": {
+          "field": "Characteristic",
+          "type": "nominal",
+          "sort": [
+            "Google",
+            "TOTAL Internet search engines and information",
+            "Yahoo (Verizon Media)",
+            "Ask.com",
+            "MSN (Microsoft)",
+            "AOL (Verizon Media)",
+            "Bing (Microsoft)",
+            "Answers.com"
+          ],
+          "axis": {
+            "grid": false
           }
         },
-        "scale": {
-          "domain": [
-            0,
-            100
-          ]
-        }
-      }
-    },
-    "layer": [
-      {
-        "mark": {
-          "type": "bar"
-        },
-        "encoding": {
-          "color": {
-            "condition": {
-              "test": "datum.Characteristic === 'TOTAL Internet search engines and information'",
-              "value": "#c0c0c0"
-            },
-            "value": "#2876dd"
+        "y": {
+          "field": "Index points",
+          "type": "quantitative",
+          "axis": {
+            "grid": true,
+            "tickCount": 5,
+            "scale": {
+              "domain": [0, 100]
+            }
           },
-          "opacity": {
-            "condition": {
-              "test": "datum.Characteristic === 'TOTAL Internet search engines and information'",
+          "scale": {
+            "domain": [0, 100]
+          }
+        }
+      },
+      "layer": [
+        {
+          "mark": {
+            "type": "bar"
+          },
+          "encoding": {
+            "color": {
+              "condition": {
+                "test": "datum.Characteristic === 'TOTAL Internet search engines and information'",
+                "value": "#c0c0c0"
+              },
+              "value": "#2876dd"
+            },
+            "opacity": {
+              "condition": {
+                "test": "datum.Characteristic === 'TOTAL Internet search engines and information'",
+                "value": 1
+              },
               "value": 1
             },
-            "value": 1
-          },
-          "size": {
-            "condition": {
-              "test": "datum.Characteristic === 'TOTAL Internet search engines and information'",
+            "size": {
+              "condition": {
+                "test": "datum.Characteristic === 'TOTAL Internet search engines and information'",
+                "value": 50
+              },
               "value": 50
-            },
-            "value": 50
+            }
           }
-        }
-      },
-      {
-        "mark": {
-          "type": "text",
-          "align": "left",
-          "baseline": "middle",
-          "dx": -5,
-          "dy": -6,
-          "angle": 0,
-          "fontSize": 11,
-          "color": "black",
-          "opacity": 1
         },
-        "encoding": {
-          "x": {
-            "field": "Characteristic",
-            "type": "nominal"
+        {
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "middle",
+            "dx": -5,
+            "dy": -6,
+            "angle": 0,
+            "fontSize": 11,
+            "color": "black",
+            "opacity": 1
           },
-          "y": {
-            "field": "Index points",
-            "type": "quantitative"
-          },
-          "text": {
-            "field": "Index points",
-            "type": "quantitative"
-          },
-          "color": {
-            "value": "#000000"
+          "encoding": {
+            "x": {
+              "field": "Characteristic",
+              "type": "nominal"
+            },
+            "y": {
+              "field": "Index points",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "Index points",
+              "type": "quantitative"
+            },
+            "color": {
+              "value": "#000000"
+            }
           }
         }
-      }
-    ],
-    "name": "4306"
-  }
+      ]
+    }
+  ],
+  "name": "4306"
+}

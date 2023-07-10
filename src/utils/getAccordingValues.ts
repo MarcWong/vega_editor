@@ -1,6 +1,11 @@
 // This is a file to map the actual value changes and file name
+
+const DEFAULT_JSON_PATH = {
+  defaultPath: "vconcat.0",
+  textPath: "vconcat.0.layer.1",
+};
+
 const json1261 = {
-  "typeName": "Entity",
   "aspectRatio": {
     "height": "vconcat.0.height",
     "width": "vconcat.0.width",
@@ -147,6 +152,9 @@ const json1261 = {
       "#91bfdb",
     ],
     "path": "vconcat.0.layer.0.encoding.color.scale.range",
+  },
+  "Legend": {
+    "path": "vconcat.0.layer.0.encoding.color.legend",
   },
 };
 
@@ -327,7 +335,7 @@ const json9715 = {
         "max": 50,
         "step": 1,
       },
-    }
+    },
   },
   "ColorArray": {
     "types": [
@@ -338,7 +346,7 @@ const json9715 = {
     "colors": [
       "#ea9e2c",
       "#949d48",
-      "#dcd8c7"
+      "#dcd8c7",
     ],
     "path": "layer.0.encoding.color.scale.range",
   },
@@ -408,15 +416,15 @@ const json9715 = {
     "width": 400,
   },
   "orderTypes": [
-    "Pakistan",
     "Senegal",
     "Malaysia",
-    "Burkina Faso",
     "Nigeria",
     "Turkey",
-    "Indonesia",
-    "Jordan",
     "Israel",
+    "Indonesia",
+    "Burkina Faso",
+    "Jordan",
+    "Pakistan",
   ],
   "selectTypes": [
     {
@@ -490,7 +498,7 @@ const json0882 = {
         "max": 50,
         "step": 1,
       },
-    }
+    },
   },
   "Axis": {
     "x": "encoding.x",
@@ -582,7 +590,7 @@ const json0882 = {
       "#27955c",
       "#637ca8",
       "#9a4f57",
-      "#596a7d"
+      "#596a7d",
     ],
     "path": "layer.0.encoding.color.scale.range",
   },
@@ -607,7 +615,7 @@ const json3972 = {
     "textFontSize": "layer.1.mark.fontSize",
     "textFontStyle": "layer.1.mark.fontStyle",
     "textFontWeight": "layer.1.mark.fontWeight",
-    "textOpacity": "layer.1.mark.opacity"
+    "textOpacity": "layer.1.mark.opacity",
   },
   "Axis": {
     "x": "encoding.x",
@@ -711,7 +719,7 @@ const json3972 = {
       "#d62f7d",
       "#269691",
       "#596a7d",
-      "#bd532c"
+      "#bd532c",
     ],
     "path": "layer.0.encoding.color.scale.range",
   },
@@ -763,7 +771,7 @@ const json5007 = {
         "max": 50,
         "step": 1,
       },
-    }
+    },
   },
   "Axis": {
     "x": "encoding.x",
@@ -866,7 +874,7 @@ const json5007 = {
       "#835ba1",
       "#269691",
       "#000000",
-      "#000000"
+      "#000000",
     ],
     "path": "layer.0.encoding.color.scale.range",
   },
@@ -918,7 +926,7 @@ const json9613 = {
         "max": 50,
         "step": 1,
       },
-    }
+    },
   },
   "Axis": {
     "x": "encoding.x",
@@ -993,7 +1001,7 @@ const json9613 = {
     "Japan steam spot cif price",
     "Asian marker price",
     "Northwest Europe marker price",
-    "US Central Appalachian coal spot price index"
+    "US Central Appalachian coal spot price index",
   ],
   "selectTypes": [
     {
@@ -1017,7 +1025,7 @@ const json9613 = {
       "Japan steam spot cif price",
       "Asian marker price",
       "Northwest Europe marker price",
-      "US Central Appalachian coal spot price index"
+      "US Central Appalachian coal spot price index",
     ],
     "colors": [
       "#27955c",
@@ -1026,10 +1034,10 @@ const json9613 = {
       "#269691",
       "#835ba1",
       "#bd532c",
-      "#596a7d"
+      "#596a7d",
     ],
     "path": "layer.0.encoding.color.scale.range",
-  }
+  },
 };
 
 const json1002 = {
@@ -1078,7 +1086,7 @@ const json1002 = {
         "max": 50,
         "step": 1,
       },
-    }
+    },
   },
   "Axis": {
     "x": "encoding.x",
@@ -1228,7 +1236,7 @@ const jsonMRI = {
         "max": 50,
         "step": 1,
       },
-    }
+    },
   },
   "Axis": {
     "x": "encoding.x",
@@ -1319,7 +1327,7 @@ const jsonMRI = {
     "colors": [
       "#1290da",
       "#9a3585",
-      "#e52a2f"
+      "#e52a2f",
     ],
     "path": "layer.0.encoding.color.scale.range",
   },
@@ -1371,7 +1379,7 @@ const jsonRP = {
         "max": 50,
         "step": 1,
       },
-    }
+    },
   },
   "Axis": {
     "x": "encoding.x",
@@ -1470,7 +1478,7 @@ const jsonRP = {
       "#739f25",
       "#e0531f",
       "#1290da",
-      "#e52a2f"
+      "#e52a2f",
     ],
     "path": "layer.0.encoding.color.scale.range",
   },
@@ -1522,7 +1530,7 @@ const jsonRAB = {
         "max": 50,
         "step": 1,
       },
-    }
+    },
   },
   "Axis": {
     "x": "encoding.x",
@@ -1673,7 +1681,7 @@ const jsonShort = {
         "max": 50,
         "step": 1,
       },
-    }
+    },
   },
   "Axis": {
     "x": "encoding.x",
@@ -1768,7 +1776,7 @@ const jsonShort = {
       "#9a3585",
       "#1290da",
       "#e0531f",
-      "#e52a2f"
+      "#e52a2f",
     ],
     "path": "layer.0.encoding.color.scale.range",
   },
@@ -1820,7 +1828,7 @@ const json4306 = {
         "max": 50,
         "step": 1,
       },
-    }
+    },
   },
   "Axis": {
     "x": "encoding.x",
@@ -1961,7 +1969,7 @@ const json1014 = {
         "max": 50,
         "step": 1,
       },
-    }
+    },
   },
   "Axis": {
     "x": "encoding.x",
@@ -2108,7 +2116,7 @@ const json1044 = {
         "max": 50,
         "step": 1,
       },
-    }
+    },
   },
   "Axis": {
     "x": "encoding.x",
@@ -2238,7 +2246,7 @@ const json1045 = {
         "max": 50,
         "step": 1,
       },
-    }
+    },
   },
   "Axis": {
     "x": "encoding.x",

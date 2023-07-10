@@ -58,25 +58,21 @@ interface ScaleDomainState {
 }
 
 
-const AxisChangeComponent: React.FC<AxisChangeComponentProps> = ({keyValues, updateEditorValue}) => {
+const AxisChangeComponent: React.FC<AxisChangeComponentProps> = ({getEditorValue,updateEditorValue,keyValues}) => {
 
     // if keyValues do not have key 
     if(!keyValues?.initial) return null;
 
-    const {x,y,initial } = keyValues;
-    const [axisXState,setAxisXState]=useState<AxisState|null>({
-        grid: initial?.AxisGrid?.x,
-        tickCount: initial?.AxisTickCount?.x?.init,
-    });
+    const {initial } = keyValues;
 
-    const [scaleDomainXState,setScaleDomainXState]=useState<ScaleDomainState>({domain:[initial?.AxisScaleDomain?.x?.min,initial?.AxisScaleDomain?.x?.max]});
-    const [scaleDomainYState,setScaleDomainYState]=useState<ScaleDomainState>({domain:[initial?.AxisScaleDomain?.y?.min,initial?.AxisScaleDomain?.y?.max]});
+    const x="vconcat.0.encoding.x"
+    const y="vconcat.0.encoding.y"
+    const [axisXState,setAxisXState]=useState<AxisState|null>(getEditorValue(x+'.axis'));
 
-    const [axisYState,setAxisYState]=useState<AxisState|null>({
-        grid: initial?.AxisGrid?.y,
-        tickCount: initial?.AxisTickCount?.y?.init,
-        scale:{domain: [initial?.AxisScaleDomain?.y?.min,initial?.AxisScaleDomain?.y?.max]}
-    });
+    const [scaleDomainXState,setScaleDomainXState]=useState<ScaleDomainState>(getEditorValue(x+'.scale'));
+    const [scaleDomainYState,setScaleDomainYState]=useState<ScaleDomainState>(getEditorValue(y+'.scale'));
+
+    const [axisYState,setAxisYState]=useState<AxisState|null>(getEditorValue(y+'.axis'));
 
     const [Xmin, setXMin] = useState(initial?.AxisScaleDomain?.x?.min);
     const [Xmax, setXMax] = useState(initial?.AxisScaleDomain?.x?.max);
@@ -138,13 +134,13 @@ const AxisChangeComponent: React.FC<AxisChangeComponentProps> = ({keyValues, upd
     }, [axisYState]);
 
     useEffect(() => {
-        if(typeof scaleDomainXState.domain[0] !== 'number' || typeof scaleDomainXState.domain[1] !== 'number') return;
+        if(typeof scaleDomainXState?.domain[0] !== 'number' || typeof scaleDomainXState?.domain[1] !== 'number') return;
         updateEditorValue(x+'.scale', scaleDomainXState);
     }, [scaleDomainXState]);
 
     useEffect(() => {
         // make sure that the array is [number,number]
-        if(typeof scaleDomainYState.domain[0] !== 'number' || typeof scaleDomainYState.domain[1] !== 'number') return;
+        if(typeof scaleDomainYState?.domain[0] !== 'number' || typeof scaleDomainYState?.domain[1] !== 'number') return;
 
         updateEditorValue(y+'.scale', scaleDomainYState);
     }, [scaleDomainYState]);
@@ -176,12 +172,41 @@ const AxisChangeComponent: React.FC<AxisChangeComponentProps> = ({keyValues, upd
             <Box mb={2}>
                 <CheckboxInput label="Y Axis Grid" initialChecked={initial?.AxisGrid?.y} onCheckChange={(e) => handleAxisGridChange(e, "y")} />
             </Box>
+
                 <Box mb={2}>
                     <CheckboxInput label="X Axis Visible" initialChecked={true} onCheckChange={(e)=>handleAxisChange(e,"x")} />
                 </Box>
                 <Box mb={2}>
                     <CheckboxInput label="Y Axis Visible" initialChecked={true} onCheckChange={(e)=>handleAxisChange(e,'y')} />
                 </Box>
+
+            <Box mb={2}>
+                <SizeInput size={12} label="X Label Font Size" onSizeChange={(e) => setAxisXState((prev)=>({...prev,labelFontSize:e}))} 
+                min={2} max={20} step={1}/>
+                <SizeInput size={12} label="Y Label Font Size" onSizeChange={(e) => setAxisYState((prev)=>({...prev,labelFontSize:e}))}
+                min={2} max={20} step={1}/>
+            </Box>
+
+            <Box mb={2}>
+                <SizeInput size={0} label="X label padding" onSizeChange={(e) => setAxisXState((prev)=>({...prev,labelOffset:e}))} 
+                min={-10} max={10} step={1}/>
+                <SizeInput size={0} label="Y label padding" onSizeChange={(e) => setAxisYState((prev)=>({...prev,labelOffset:e}))}
+                min={-10} max={10} step={1}/>
+            </Box>
+
+            <Box mb={2}>
+                <SizeInput size={0} label="X label padding" onSizeChange={(e) => setAxisXState((prev)=>({...prev,labelPadding:e}))} 
+                min={-10} max={10} step={1}/>
+                <SizeInput size={0} label="Y label padding" onSizeChange={(e) => setAxisYState((prev)=>({...prev,labelPadding:e}))}
+                min={-10} max={10} step={1}/>
+            </Box>
+
+            <Box mb={2}>
+                <SizeInput size={0} label="X label angle" onSizeChange={(e) => setAxisXState((prev)=>({...prev,labelAngle:e}))} 
+                min={-90} max={90} step={1}/>
+                <SizeInput size={0} label="Y label angle" onSizeChange={(e) => setAxisYState((prev)=>({...prev,labelAngle:e}))}
+                min={-90} max={90} step={1}/>
+            </Box>
          </Box>
         </Box>
     )

@@ -1,174 +1,172 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "config": {
-      "view": {
-        "stroke": "transparent"
-      }
-    },
-    "width": 600,
-    "height": 400,
-    "data": {
-      "values": [
-        {
-          "Province": "Territories",
-          "Net employment growth": 47.4
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "config": {
+    "view": {
+      "stroke": "transparent"
+    }
+  },
+  "vconcat": [
+    {
+      "width": 600,
+      "height": 400,
+      "data": {
+        "values": [
+          {
+            "Province": "Territories",
+            "Net employment growth": 47.4
+          },
+          {
+            "Province": "British Columbia",
+            "Net employment growth": 3.4
+          },
+          {
+            "Province": "Ontario",
+            "Net employment growth": 2.4
+          },
+          {
+            "Province": "Alberta",
+            "Net employment growth": 1.4
+          },
+          {
+            "Province": "Prince Edward Island",
+            "Net employment growth": 1.3
+          },
+          {
+            "Province": "Quebec",
+            "Net employment growth": 1.1
+          },
+          {
+            "Province": "Manitoba",
+            "Net employment growth": 1
+          },
+          {
+            "Province": "Nova Scotia",
+            "Net employment growth": 0.3
+          },
+          {
+            "Province": "Saskatchewan",
+            "Net employment growth": -0.5
+          },
+          {
+            "Province": "New Brunswick",
+            "Net employment growth": -2.1
+          },
+          {
+            "Province": "Newfoundland and Labrador",
+            "Net employment growth": -5.3
+          }
+        ]
+      },
+      "encoding": {
+        "y": {
+          "field": "Province",
+          "type": "nominal",
+          "sort": [
+            "Territories",
+            "British Columbia",
+            "Ontario",
+            "Alberta",
+            "Prince Edward Island",
+            "Quebec",
+            "Manitoba",
+            "Nova Scotia",
+            "Saskatchewan",
+            "New Brunswick",
+            "Newfoundland and Labrador"
+          ],
+          "axis": {
+            "grid": false,
+            "scale": {
+              "domain": [null, null]
+            }
+          }
         },
-        {
-          "Province": "British Columbia",
-          "Net employment growth": 3.4
-        },
-        {
-          "Province": "Ontario",
-          "Net employment growth": 2.4
-        },
-        {
-          "Province": "Alberta",
-          "Net employment growth": 1.4
-        },
-        {
-          "Province": "Prince Edward Island",
-          "Net employment growth": 1.3
-        },
-        {
-          "Province": "Quebec",
-          "Net employment growth": 1.1
-        },
-        {
-          "Province": "Manitoba",
-          "Net employment growth": 1
-        },
-        {
-          "Province": "Nova Scotia",
-          "Net employment growth": 0.3
-        },
-        {
-          "Province": "Saskatchewan",
-          "Net employment growth": -0.5
-        },
-        {
-          "Province": "New Brunswick",
-          "Net employment growth": -2.1
-        },
-        {
-          "Province": "Newfoundland and Labrador",
-          "Net employment growth": -5.3
-        }
-      ]
-    },
-    "encoding": {
-      "y": {
-        "field": "Province",
-        "type": "nominal",
-        "sort": [
-          "Territories",
-          "British Columbia",
-          "Ontario",
-          "Alberta",
-          "Prince Edward Island",
-          "Quebec",
-          "Manitoba",
-          "Nova Scotia",
-          "Saskatchewan",
-          "New Brunswick",
-          "Newfoundland and Labrador"
-        ],
-        "axis": {
-          "grid": false,
+        "x": {
+          "field": "Net employment growth",
+          "type": "quantitative",
+          "axis": {
+            "grid": true,
+            "tickCount": 10
+          },
           "scale": {
-            "domain": [
-              null,
-              null
-            ]
+            "domain": [-10, 60]
           }
         }
       },
-      "x": {
-        "field": "Net employment growth",
-        "type": "quantitative",
-        "axis": {
-          "grid": true,
-          "tickCount": 10
-        },
-        "scale": {
-          "domain": [
-            -10,
-            60
-          ]
-        }
-      }
-    },
-    "layer": [
-      {
-        "mark": {
-          "type": "bar"
-        },
-        "encoding": {
-          "color": {
-            "condition": {
-              "test": "datum.Province === 'none'",
+      "layer": [
+        {
+          "mark": {
+            "type": "bar"
+          },
+          "encoding": {
+            "color": {
+              "condition": {
+                "test": "datum.Province === 'none'",
+                "value": "#2876dd"
+              },
               "value": "#2876dd"
             },
-            "value": "#2876dd"
-          },
-          "opacity": {
-            "condition": {
-              "test": "datum.Province === 'none'",
+            "opacity": {
+              "condition": {
+                "test": "datum.Province === 'none'",
+                "value": 1
+              },
               "value": 1
             },
-            "value": 1
-          },
-          "size": {
-            "condition": {
-              "test": "datum.Province === 'none'",
+            "size": {
+              "condition": {
+                "test": "datum.Province === 'none'",
+                "value": 30
+              },
               "value": 30
-            },
-            "value": 30
+            }
           }
-        }
-      },
-      {
-        "mark": {
-          "type": "text",
-          "align": "left",
-          "baseline": "middle",
-          "dx": 0,
-          "dy": 0,
-          "angle": 0,
-          "fontSize": 11,
-          "color": "black",
-          "opacity": 1
         },
-        "encoding": {
-          "y": {
-            "field": "Province",
-            "type": "nominal",
-            "sort": [
-              "Territories",
-              "British Columbia",
-              "Ontario",
-              "Alberta",
-              "Prince Edward Island",
-              "Quebec",
-              "Manitoba",
-              "Nova Scotia",
-              "Saskatchewan",
-              "New Brunswick",
-              "Newfoundland and Labrador"
-            ]
+        {
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "middle",
+            "dx": 0,
+            "dy": 0,
+            "angle": 0,
+            "fontSize": 11,
+            "color": "black",
+            "opacity": 1
           },
-          "x": {
-            "field": "Net employment growth",
-            "type": "quantitative"
-          },
-          "text": {
-            "field": "Net employment growth",
-            "type": "quantitative"
-          },
-          "color": {
-            "value": "#000000"
+          "encoding": {
+            "y": {
+              "field": "Province",
+              "type": "nominal",
+              "sort": [
+                "Territories",
+                "British Columbia",
+                "Ontario",
+                "Alberta",
+                "Prince Edward Island",
+                "Quebec",
+                "Manitoba",
+                "Nova Scotia",
+                "Saskatchewan",
+                "New Brunswick",
+                "Newfoundland and Labrador"
+              ]
+            },
+            "x": {
+              "field": "Net employment growth",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "Net employment growth",
+              "type": "quantitative"
+            },
+            "color": {
+              "value": "#000000"
+            }
           }
         }
-      }
-    ],
-    "name": "1014"
-  }
+      ]
+    }
+  ],
+  "name": "1014"
+}

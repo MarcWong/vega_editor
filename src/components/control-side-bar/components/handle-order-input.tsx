@@ -16,8 +16,6 @@ const OrderSelect: React.FC<OrderSelectProps> = ({ entities, updateEditorValue, 
     const { sort, field } = keyValues;
     const [order, setOrder] = useState(entities);
 
-    console.log('entities',entities,'order',order,'sort',sort,'field',field);
-
     useEffect(() => {
         setOrder(entities);
     }, [entities]);

@@ -1,63 +1,38 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "DALYs from eating disorders by age, Albania, 2011",
-  "description": "Comparing the DALYs from eating disorders across different age groups in Albania in 2011.",
-  "width": 400,
-  "height": 266.6666666666667,
-  "data": {
-    "values": [
-      {
-        "Age": "15-49 years old",
-        "DALYs": 61.23
-      },
-      {
-        "Age": "Age-standardized",
-        "DALYs": 33.25
-      },
-      {
-        "Age": "All ages",
-        "DALYs": 32.57
-      },
-      {
-        "Age": "5-14 years old",
-        "DALYs": 10.06
-      },
-      {
-        "Age": "70+ years old",
-        "DALYs": 0
-      },
-      {
-        "Age": "50-69 years old",
-        "DALYs": 0
-      }
-    ]
-  },
-  "encoding": {
-    "y": {
-      "field": "Age",
-      "type": "nominal",
-      "sort": ["15-49 years old", "Age-standardized", "All ages", "5-14 years old", "70+ years old", "50-69 years old"],
-      "axis": {
-        "grid": false,
-        "scale": {
-          "domain": [null, null]
-        }
-      }
-    },
-    "x": {
-      "field": "DALYs",
-      "type": "quantitative",
-      "axis": {
-        "grid": true,
-        "tickCount": 5
-      }
-    }
-  },
-  "layer": [
+  "vconcat": [
     {
-      "mark": {
-        "type": "bar",
-        "color": "#4682b4"
+      "title": "DALYs from eating disorders by age, Albania, 2011",
+      "description": "Comparing the DALYs from eating disorders across different age groups in Albania in 2011.",
+      "width": 400,
+      "height": 266.6666666666667,
+      "data": {
+        "values": [
+          {
+            "Age": "15-49 years old",
+            "DALYs": 61.23
+          },
+          {
+            "Age": "Age-standardized",
+            "DALYs": 33.25
+          },
+          {
+            "Age": "All ages",
+            "DALYs": 32.57
+          },
+          {
+            "Age": "5-14 years old",
+            "DALYs": 10.06
+          },
+          {
+            "Age": "70+ years old",
+            "DALYs": 0
+          },
+          {
+            "Age": "50-69 years old",
+            "DALYs": 0
+          }
+        ]
       },
       "encoding": {
         "y": {
@@ -73,8 +48,9 @@
           ],
           "axis": {
             "grid": false,
-            "tickCount": 6,
-            "domain": false
+            "scale": {
+              "domain": [null, null]
+            }
           }
         },
         "x": {
@@ -82,73 +58,78 @@
           "type": "quantitative",
           "axis": {
             "grid": false,
-            "tickCount": 5,
-            "domain": false,
-            "title": "DALYs"
-          },
-          "scale": {
-            "domain": [0, 70]
+            "tickCount": 5
           }
-        },
-        "color": {
-          "field": "Age",
-          "type": "nominal",
-          "legend": null,
-          "condition": {
-            "test": "datum.Age === 'none'",
-            "value": "#589898"
-          },
-          "scale": {
-            "domain": [
-              "15-49 years old",
-              "Age-standardized",
-              "All ages",
-              "5-14 years old",
-              "70+ years old",
-              "50-69 years old"
-            ],
-            "range": ["#9a4f57", "#d62f7d", "#835ba1", "#269691", "#000000", "#000000"]
-          }
-        },
-        "opacity": {
-          "condition": {
-            "test": "datum.Age === 'none'",
-            "value": 1
-          },
-          "value": 1
-        },
-        "size": {
-          "condition": {
-            "test": "datum.Age === 'none'",
-            "value": 30
-          },
-          "value": 40
         }
-      }
-    },
-    {
-      "mark": {
-        "type": "text",
-        "align": "left",
-        "baseline": "middle",
-        "dx": 6,
-        "dy": 0,
-        "angle": 0,
-        "fontSize": 11,
-        "fontStyle": "normal",
-        "fontWeight": "normal",
-        "color": "#7c8964",
-        "opacity": 1
       },
-      "encoding": {
-        "text": {
-          "field": "DALYs",
-          "type": "quantitative"
+      "layer": [
+        {
+          "mark": {
+            "type": "bar",
+            "color": "#4682b4"
+          },
+          "encoding": {
+            "color": {
+              "field": "Age",
+              "type": "nominal",
+              "legend": null,
+              "condition": {
+                "test": "datum.Age === 'none'",
+                "value": "#589898"
+              },
+              "scale": {
+                "domain": [
+                  "15-49 years old",
+                  "Age-standardized",
+                  "All ages",
+                  "5-14 years old",
+                  "70+ years old",
+                  "50-69 years old"
+                ],
+                "range": ["#9a4f57", "#d62f7d", "#835ba1", "#269691", "#000000", "#000000"]
+              }
+            },
+            "opacity": {
+              "condition": {
+                "test": "datum.Age === 'none'",
+                "value": 1
+              },
+              "value": 1
+            },
+            "size": {
+              "condition": {
+                "test": "datum.Age === 'none'",
+                "value": 30
+              },
+              "value": 40
+            }
+          }
         },
-        "color": {
-          "value": "#000000"
+        {
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "middle",
+            "dx": 6,
+            "dy": 0,
+            "angle": 0,
+            "fontSize": 11,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "color": "#7c8964",
+            "opacity": 1
+          },
+          "encoding": {
+            "text": {
+              "field": "DALYs",
+              "type": "quantitative"
+            },
+            "color": {
+              "value": "#000000"
+            }
+          }
         }
-      }
+      ]
     }
   ],
   "name": "5007"

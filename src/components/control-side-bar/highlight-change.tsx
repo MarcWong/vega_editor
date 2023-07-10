@@ -18,13 +18,21 @@ interface ChoicesState{
     state:string
 }
 
-const TextChangeComponent=({keyValues,updateEditorValue,choices})=>{
+
+const DEFAULT_CONDITION_PATH="vconcat.0.layer.0.encoding";
+
+const TextChangeComponent=({keyValues,updateEditorValue,choices,getEditorValue})=>{
 
     if(!keyValues){
         return null;
     }
 
-    const {chooseColorChange,chooseSizeChange,chooseOpacityChange,conditions,initial}=keyValues;
+    const {initial}=keyValues;
+
+    const chooseColorChange=[`${DEFAULT_CONDITION_PATH}.color.condition.value`,`${DEFAULT_CONDITION_PATH}.color.value`];
+    const chooseSizeChange=[`${DEFAULT_CONDITION_PATH}.size.condition.value`,`${DEFAULT_CONDITION_PATH}.size.value`];
+    const chooseOpacityChange=[`${DEFAULT_CONDITION_PATH}.opacity.condition.value`,`${DEFAULT_CONDITION_PATH}.opacity.value`];
+    const conditions=[`${DEFAULT_CONDITION_PATH}.color.condition.test`,`${DEFAULT_CONDITION_PATH}.size.condition.test`,`${DEFAULT_CONDITION_PATH}.opacity.condition.test`];
 
     const [choicesState, setChoicesState] = useState<Array<ChoicesState>>(choices.map(choice=>({name:choice.name,state:"none"})));
 
@@ -45,7 +53,6 @@ const TextChangeComponent=({keyValues,updateEditorValue,choices})=>{
             return `datum.${name} === '${state}'`;
         }).join(' && ');
         handleConditionChange(conditionString);
-
     }, [choicesState]);
   
     const handleConditionChange = (newCondition: string) => {
@@ -87,8 +94,6 @@ const TextChangeComponent=({keyValues,updateEditorValue,choices})=>{
         })
         setChoicesState(newChoicesState);
     }
-
-
 
     return (
         <Box m={2}>
