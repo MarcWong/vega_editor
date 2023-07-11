@@ -19,6 +19,8 @@ interface ChoicesState{
 }
 
 const DEFAULT_CONDITION_PATH="vconcat.0.layer.0.encoding";
+const TEXT_DEFAULT_CONDITION_PATH="vconcat.0.layer.1.encoding";
+
 
 const HighlightComponent=({keyValues,updateEditorValue,choices,getEditorValue})=>{
 
@@ -34,6 +36,9 @@ const HighlightComponent=({keyValues,updateEditorValue,choices,getEditorValue})=
     const chooseSizeChange=[`${DEFAULT_CONDITION_PATH}.size.condition.value`,`${DEFAULT_CONDITION_PATH}.size.value`];
     const chooseOpacityChange=[`${DEFAULT_CONDITION_PATH}.opacity.condition.value`,`${DEFAULT_CONDITION_PATH}.opacity.value`];
     const conditions=[`${DEFAULT_CONDITION_PATH}.color.condition`,`${DEFAULT_CONDITION_PATH}.size.condition`,`${DEFAULT_CONDITION_PATH}.opacity.condition`];
+
+    const textChooseColorChange=[`${TEXT_DEFAULT_CONDITION_PATH}.color.condition.value`,`${TEXT_DEFAULT_CONDITION_PATH}.color.value`];
+    const textConditions=[`${TEXT_DEFAULT_CONDITION_PATH}.color.condition`]
 
     const [choicesState, setChoicesState] = useState<Array<ChoicesState>>(choices.map(choice=>({name:choice.name,state:"none"})));
     const [conditionString, setConditionString] = useState<string>("");
@@ -135,6 +140,33 @@ const HighlightComponent=({keyValues,updateEditorValue,choices,getEditorValue})=
         setChoicesState(newChoicesState);
     }
 
+    const handleTextChosenColorChange = (newChosenColor: string) => {
+        // if conditionString does not include "none"
+        if(conditionString.includes("none")){
+            return;
+        }
+        let conditionArray=getEditorValue(textConditions[0]);
+        console.log(conditionArray,'=---------------',conditionString);
+        if(!conditionArray?.length){
+            conditionArray=[];
+        }
+
+        conditionArray.forEach((condition,index)=>{
+            if(condition.test===conditionString){
+                conditionArray.splice(index,1);
+            }
+        })
+        conditionArray.push({
+            test:conditionString,
+            value:newChosenColor
+        });
+        updateEditorValue(textConditions[0],conditionArray);
+    };
+
+    const handleTextDefaultColorChange = (newDefaultColor: string) => {
+        updateEditorValue(textChooseColorChange[1], newDefaultColor);
+    }
+
     return (
         <Box m={2}>
             <Box mb={2}>
@@ -186,10 +218,29 @@ const HighlightComponent=({keyValues,updateEditorValue,choices,getEditorValue})=
                             <ColorInput label="Default Color" initialColor={initial?.chooseColorChange?.color} onColorChange={handleDefaultColorChange} />
                         </Box>
                         <Box mb={2}>
-                            <SizeInput size={initial?.chooseSizeChange?.size} label="default size" onSizeChange={(e) => handleDefaultSizeChange(e)} min={initial?.chooseSizeChange?.min} max={initial?.chooseSizeChange?.max}/>
+                            <SizeInput size={initial?.chooseSizeChange?.size||30} label="default size" onSizeChange={(e) => handleDefaultSizeChange(e)} min={initial?.chooseSizeChange?.min||10} max={initial?.chooseSizeChange?.max||100}/>
                         </Box>
                         <Box mb={2}>
                             <RangeInput min={0} max={1} step={0.1} label="Default Opacity" initialValue={1} onValueChange={handleDefaultOpacityChange} />
+                        </Box>
+                    </Box>
+                </AccordionDetails>
+            </Accordion>
+
+            <Accordion>
+                <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel2a-content"
+                    id="panel2a-header"
+                >
+                    <Typography>Text highlight Settings</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                    <Box>
+                        <Box mb={2}>
+                            <ColorInput label="Default Color" initialColor={initial?.chooseColorChange?.color||"000000"} onColorChange={handleTextDefaultColorChange} />
+                            <ColorInput label="Chosen Color" initialColor={initial?.chooseColorChange?.color||"000000"} onColorChange={handleTextChosenColorChange} />
+
                         </Box>
                     </Box>
                 </AccordionDetails>
