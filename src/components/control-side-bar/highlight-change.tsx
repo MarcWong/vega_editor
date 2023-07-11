@@ -18,51 +18,57 @@ interface ChoicesState{
     state:string
 }
 
-
 const DEFAULT_CONDITION_PATH="vconcat.0.layer.0.encoding";
 
-const TextChangeComponent=({keyValues,updateEditorValue,choices,getEditorValue})=>{
+const HighlightComponent=({keyValues,updateEditorValue,choices,getEditorValue})=>{
 
     if(!keyValues){
         return null;
     }
 
-    const {initial}=keyValues;
+    const {initial}=keyValues
+
+
 
     const chooseColorChange=[`${DEFAULT_CONDITION_PATH}.color.condition.value`,`${DEFAULT_CONDITION_PATH}.color.value`];
     const chooseSizeChange=[`${DEFAULT_CONDITION_PATH}.size.condition.value`,`${DEFAULT_CONDITION_PATH}.size.value`];
     const chooseOpacityChange=[`${DEFAULT_CONDITION_PATH}.opacity.condition.value`,`${DEFAULT_CONDITION_PATH}.opacity.value`];
-    const conditions=[`${DEFAULT_CONDITION_PATH}.color.condition.test`,`${DEFAULT_CONDITION_PATH}.size.condition.test`,`${DEFAULT_CONDITION_PATH}.opacity.condition.test`];
+    const conditions=[`${DEFAULT_CONDITION_PATH}.color.condition`,`${DEFAULT_CONDITION_PATH}.size.condition`,`${DEFAULT_CONDITION_PATH}.opacity.condition`];
 
     const [choicesState, setChoicesState] = useState<Array<ChoicesState>>(choices.map(choice=>({name:choice.name,state:"none"})));
-
+    const [conditionString, setConditionString] = useState<string>("");
     useEffect(() => {
         setChoicesState(choices.map(choice => ({name:choice.name, state: "none"})));
     }, [choices]);
-
-    useEffect(() => {
-        handleChosenColorChange(initial?.chooseColorChange?.conditionColor);
-        handleDefaultColorChange(initial?.chooseColorChange?.color);
-        handleChosenSizeChange(initial?.chooseSizeChange?.conditionSize);
-        handleDefaultSizeChange(initial?.chooseSizeChange?.size);
-    }, [keyValues]);
     
     useEffect(() => {
         const conditionString = choicesState.map(choice => {
             const {name,state} = choice;
             return `datum.${name} === '${state}'`;
         }).join(' && ');
-        handleConditionChange(conditionString);
+        setConditionString(conditionString);
     }, [choicesState]);
-  
-    const handleConditionChange = (newCondition: string) => {
-          updateEditorValue(conditions[0], newCondition);
-          updateEditorValue(conditions[1], newCondition);
-          updateEditorValue(conditions[2], newCondition);
-    };
 
     const handleChosenColorChange = (newChosenColor: string) => {
-        updateEditorValue(chooseColorChange[0], newChosenColor);
+        // if conditionString does not include "none"
+        if(conditionString.includes("none")){
+            return;
+        }
+        let conditionArray=getEditorValue(conditions[0]);
+        if(!conditionArray?.length){
+            conditionArray=[];
+        }
+
+        conditionArray.forEach((condition,index)=>{
+            if(condition.test===conditionString){
+                conditionArray.splice(index,1);
+            }
+        })
+        conditionArray.push({
+            test:conditionString,
+            value:newChosenColor
+        });
+        updateEditorValue(conditions[0],conditionArray);
     };
 
     const handleDefaultColorChange = (newDefaultColor: string) => {
@@ -70,7 +76,24 @@ const TextChangeComponent=({keyValues,updateEditorValue,choices,getEditorValue})
     }
 
     const handleChosenSizeChange = (newChosenSize: number) => {
-        updateEditorValue(chooseSizeChange[0], newChosenSize);
+        if(conditionString.includes("none")){
+            return;
+        }
+        let conditionArray=getEditorValue(conditions[1]);
+        if(!conditionArray?.length){
+            conditionArray=[];
+        }
+
+        conditionArray.forEach((condition,index)=>{
+            if(condition.test===conditionString){
+                conditionArray.splice(index,1);
+            }
+        })
+        conditionArray.push({
+            test:conditionString,
+            value:newChosenSize
+        });
+        updateEditorValue(conditions[1],conditionArray);
     }
 
     const handleDefaultSizeChange = (newDefaultSize: number) => {
@@ -78,6 +101,23 @@ const TextChangeComponent=({keyValues,updateEditorValue,choices,getEditorValue})
     }
 
     const handleChosenOpacityChange = (newChosenOpacity: number) => {
+        if(conditionString.includes("none")){
+            return;
+        }
+        let conditionArray=getEditorValue(conditions[2]);
+        if(!conditionArray?.length){
+            conditionArray=[];
+        }
+
+        conditionArray.forEach((condition,index)=>{
+            if(condition.test===conditionString){
+                conditionArray.splice(index,1);
+            }
+        })
+        conditionArray.push({
+            test:conditionString,
+            value:newChosenOpacity
+        });
         updateEditorValue(chooseOpacityChange[0], newChosenOpacity);
     }
 
@@ -158,4 +198,4 @@ const TextChangeComponent=({keyValues,updateEditorValue,choices,getEditorValue})
     )
 }
 
-export default TextChangeComponent
+export default HighlightComponent
