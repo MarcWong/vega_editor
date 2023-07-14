@@ -37,29 +37,6 @@
             "color": "#4682b4"
           },
           "encoding": {
-            "x": {
-              "field": "Country",
-              "type": "nominal",
-              "sort": ["Indonesia", "Lithuania", "Germany", "Denmark", "Finland"],
-              "axis": {
-                "grid": false,
-                "tickCount": 5,
-                "domain": false,
-                "labelAngle": -45
-              }
-            },
-            "y": {
-              "field": "Reading Performance (PISA)",
-              "type": "quantitative",
-              "axis": {
-                "grid": false,
-                "tickCount": 5,
-                "domain": false
-              },
-              "scale": {
-                "domain": [0, 600]
-              }
-            },
             "color": {
               "field": "Country",
               "type": "nominal",
@@ -102,14 +79,6 @@
             "opacity": 1
           },
           "encoding": {
-            "x": {
-              "field": "Country",
-              "type": "nominal"
-            },
-            "y": {
-              "field": "Reading Performance (PISA)",
-              "type": "quantitative"
-            },
             "text": {
               "field": "Reading Performance (PISA)",
               "type": "quantitative"
@@ -121,21 +90,28 @@
         }
       ],
       "encoding": {
-        "y": {
+        "x": {
+          "field": "Country",
+          "type": "nominal",
+          "sort": ["Lithuania", "Germany", "Finland", "Denmark", "Indonesia"],
           "axis": {
             "grid": false,
-            "tickCount": 100,
-            "scale": {
-              "domain": [null, null]
-            }
+            "tickCount": 5,
+            "domain": false,
+            "labelAngle": -45
           }
         },
-        "x": {
+        "y": {
+          "field": "Reading Performance (PISA)",
+          "type": "quantitative",
           "axis": {
             "grid": false,
-            "tickCount": 5
+            "tickCount": 5,
+            "domain": false
           },
-          "sort": ["Indonesia", "Lithuania", "Germany", "Denmark", "Finland"]
+          "scale": {
+            "domain": [0, 600]
+          }
         }
       }
     }

@@ -49,10 +49,10 @@
           "sort": [
             "Google",
             "TOTAL Internet search engines and information",
-            "Yahoo (Verizon Media)",
             "Ask.com",
             "MSN (Microsoft)",
             "AOL (Verizon Media)",
+            "Yahoo (Verizon Media)",
             "Bing (Microsoft)",
             "Answers.com"
           ],
@@ -117,14 +117,6 @@
             "opacity": 1
           },
           "encoding": {
-            "x": {
-              "field": "Characteristic",
-              "type": "nominal"
-            },
-            "y": {
-              "field": "Index points",
-              "type": "quantitative"
-            },
             "text": {
               "field": "Index points",
               "type": "quantitative"

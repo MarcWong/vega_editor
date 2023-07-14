@@ -14,6 +14,7 @@ interface OrderSelectProps {
 const OrderSelect: React.FC<OrderSelectProps> = ({ entities, updateEditorValue, getEditorValue, keyValues}) => {
     if (!keyValues) return (<div></div>);
     const { sort, field } = keyValues;
+    console.log(keyValues,'------------------');
     const [order, setOrder] = useState(entities);
 
     useEffect(() => {
@@ -26,9 +27,13 @@ const OrderSelect: React.FC<OrderSelectProps> = ({ entities, updateEditorValue, 
         newOrder.splice(oldPosition, 1); // Remove entity from its old position
         newOrder.splice(newPosition, 0, entity); // Insert entity at its new position
         setOrder(newOrder);
+        console.log(sort,'-------------------',newOrder,'-------------------',field)
         //sort is an array of objects
 
+
         sort.forEach((s: any) => {
+            console.log(getEditorValue(s+".x.field"));
+            console.log(getEditorValue(s+".y.field"))
             if(getEditorValue(s+".x.field")===field){
                 updateEditorValue(s+".x.sort", newOrder);
             }

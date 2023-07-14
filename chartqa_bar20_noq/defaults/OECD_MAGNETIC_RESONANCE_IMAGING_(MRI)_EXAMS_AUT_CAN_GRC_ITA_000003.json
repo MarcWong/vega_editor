@@ -39,7 +39,7 @@
         "x": {
           "field": "Country",
           "type": "nominal",
-          "sort": ["Italy", "Greece", "Austria"],
+          "sort": ["Austria", "Greece", "Italy"],
           "axis": {
             "grid": false,
             "tickCount": 5,
@@ -96,15 +96,6 @@
             "opacity": 1
           },
           "encoding": {
-            "x": {
-              "field": "Country",
-              "type": "nominal",
-              "sort": ["Greece", "Italy", "Austria"]
-            },
-            "y": {
-              "field": "MRI Exams",
-              "type": "quantitative"
-            },
             "text": {
               "field": "MRI Exams",
               "type": "quantitative"

@@ -30,35 +30,37 @@
           }
         ]
       },
+      "encoding": {
+        "x": {
+          "field": "Country",
+          "type": "nominal",
+          "sort": ["Zambia", "Singapore", "South Africa", "Bangladesh", "Turkey"],
+          "axis": {
+            "grid": false,
+            "tickCount": 5,
+            "domain": false,
+            "labelAngle": -45
+          }
+        },
+        "y": {
+          "field": "Running a business",
+          "type": "quantitative",
+          "axis": {
+            "grid": false,
+            "tickCount": 5,
+            "domain": false
+          },
+          "scale": {
+            "domain": [0, 100]
+          }
+        }
+      },
       "layer": [
         {
           "mark": {
             "type": "bar"
           },
           "encoding": {
-            "x": {
-              "field": "Country",
-              "type": "nominal",
-              "sort": ["Zambia", "Singapore", "South Africa", "Bangladesh", "Turkey"],
-              "axis": {
-                "grid": false,
-                "tickCount": 5,
-                "domain": false,
-                "labelAngle": -45
-              }
-            },
-            "y": {
-              "field": "Running a business",
-              "type": "quantitative",
-              "axis": {
-                "grid": false,
-                "tickCount": 5,
-                "domain": false
-              },
-              "scale": {
-                "domain": [0, 100]
-              }
-            },
             "color": {
               "field": "Country",
               "type": "nominal",
@@ -101,15 +103,6 @@
             "opacity": 1
           },
           "encoding": {
-            "x": {
-              "field": "Country",
-              "type": "nominal",
-              "sort": ["Zambia", "Singapore", "South Africa", "Bangladesh", "Turkey"]
-            },
-            "y": {
-              "field": "Running a business",
-              "type": "quantitative"
-            },
             "text": {
               "field": "Running a business",
               "type": "quantitative"

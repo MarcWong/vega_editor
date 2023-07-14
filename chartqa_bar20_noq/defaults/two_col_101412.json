@@ -135,27 +135,6 @@
             "opacity": 1
           },
           "encoding": {
-            "y": {
-              "field": "Province",
-              "type": "nominal",
-              "sort": [
-                "Territories",
-                "British Columbia",
-                "Ontario",
-                "Alberta",
-                "Prince Edward Island",
-                "Quebec",
-                "Manitoba",
-                "Nova Scotia",
-                "Saskatchewan",
-                "New Brunswick",
-                "Newfoundland and Labrador"
-              ]
-            },
-            "x": {
-              "field": "Net employment growth",
-              "type": "quantitative"
-            },
             "text": {
               "field": "Net employment growth",
               "type": "quantitative"

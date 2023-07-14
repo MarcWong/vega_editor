@@ -146,7 +146,6 @@ const HighlightComponent=({keyValues,updateEditorValue,choices,getEditorValue})=
             return;
         }
         let conditionArray=getEditorValue(textConditions[0]);
-        console.log(conditionArray,'=---------------',conditionString);
         if(!conditionArray?.length){
             conditionArray=[];
         }

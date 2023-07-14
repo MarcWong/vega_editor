@@ -89,22 +89,30 @@
           },
           "encoding": {
             "size": {
-              "condition": {
-                "test": "datum.Entity === 'none' && datum.category === 'none'",
-                "value": 30
-              },
-              "value": 40
+              "condition": [
+                {
+                  "test": "datum.Entity === 'Germany' && datum.category === 'Not too important'",
+                  "value": 20
+                },
+                {
+                  "test": "datum.Entity === 'U.S.' && datum.category === 'Not too important'",
+                  "value": 22
+                }
+              ],
+              "value": 30
             },
             "color": {
-              "condition": {
-                "test": "datum.Entity === 'none' && datum.category === 'none'",
-                "value": "#000000"
-              },
+              "condition": [
+                {
+                  "test": "datum.Entity === 'U.S.' && datum.category === 'Not too important'",
+                  "value": "#caa7a7"
+                }
+              ],
               "field": "category",
               "type": "nominal",
               "scale": {
                 "domain": ["Not important at all", "Not too important", "Somewhat important", "Very important"],
-                "range": ["#d73027", "#fc8d59", "#fee090", "#91bfdb"]
+                "range": ["#d2bebd", "#fc8d59", "#fee090", "#91bfdb"]
               },
               "legend": {
                 "legendX": 10,
@@ -113,10 +121,7 @@
               }
             },
             "opacity": {
-              "condition": {
-                "test": "datum.Entity === 'none' && datum.category === 'none'",
-                "value": 1
-              },
+              "condition": [],
               "value": 1
             }
           }
@@ -150,7 +155,13 @@
               "type": "quantitative"
             },
             "color": {
-              "value": "#000001"
+              "value": "#8c6b6b",
+              "condition": [
+                {
+                  "test": "datum.Entity === 'Germany' && datum.category === 'Not important at all'",
+                  "value": "#bb9d9d"
+                }
+              ]
             }
           }
         }

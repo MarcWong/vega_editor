@@ -410,7 +410,7 @@ const json9715 = {
   },
   "Order": {
     "field": "Entity",
-    "sort": ["encoding"],
+    "sort": ["vconcat.0.encoding"],
   },
   "Default": {
     "width": 400,
@@ -557,7 +557,7 @@ const json0882 = {
   },
   "Order": {
     "field": "Country",
-    "sort": ["encoding"],
+    "sort": ["vconcat.0.encoding"],
   },
   "Default": {
     "width": 400,
@@ -674,7 +674,7 @@ const json3972 = {
   },
   "Order": {
     "field": "Region",
-    "sort": ["encoding"],
+    "sort": ["vconcat.0.encoding"],
   },
   "Default": {
     "width": 200,
@@ -833,7 +833,7 @@ const json5007 = {
   },
   "Order": {
     "field": "Age",
-    "sort": ["encoding"],
+    "sort": ["vconcat.0.encoding"],
   },
   "Default": {
     "width": 200,
@@ -989,7 +989,7 @@ const json9613 = {
   },
   "Order": {
     "field": "Market",
-    "sort": ["encoding"],
+    "sort": ["vconcat.0.encoding"],
   },
   "Default": {
     "width": 400,
@@ -1148,7 +1148,7 @@ const json1002 = {
   },
   "Order": {
     "field": "Entity",
-    "sort": ["encoding"],
+    "sort": ["vconcat.0.encoding"],
   },
   "Default": {
     "width": 400,
@@ -1298,7 +1298,7 @@ const jsonMRI = {
   },
   "Order": {
     "field": "Country",
-    "sort": ["encoding"],
+    "sort": ["vconcat.0.encoding"],
   },
   "Default": {
     "width": 400,
@@ -1441,7 +1441,7 @@ const jsonRP = {
   },
   "Order": {
     "field": "Country",
-    "sort": ["encoding"],
+    "sort": ["vconcat.0.encoding"],
   },
   "Default": {
     "width": 400,
@@ -1592,7 +1592,7 @@ const jsonRAB = {
   },
   "Order": {
     "field": "Country",
-    "sort": ["encoding"],
+    "sort": ["vconcat.0.encoding"],
   },
   "Default": {
     "width": 400,
@@ -1743,7 +1743,7 @@ const jsonShort = {
   },
   "Order": {
     "field": "Country",
-    "sort": ["encoding"],
+    "sort": ["vconcat.0.encoding"],
   },
   "Default": {
     "width": 400,
@@ -1891,7 +1891,7 @@ const json4306 = {
   },
   "Order": {
     "field": "Characteristic",
-    "sort": ["encoding"],
+    "sort": ["vconcat.0.encoding"],
   },
   "Default": {
     "width": 400,
@@ -2032,7 +2032,7 @@ const json1014 = {
   },
   "Order": {
     "field": "Province",
-    "sort": ["encoding"],
+    "sort": ["vconcat.0.encoding"],
   },
   "Default": {
     "width": 400,
@@ -2309,7 +2309,7 @@ const json1045 = {
   },
   "Order": {
     "field": "Country",
-    "sort": ["encoding"],
+    "sort": ["vconcat.0.encoding"],
   },
   "Default": {
     "width": 400,

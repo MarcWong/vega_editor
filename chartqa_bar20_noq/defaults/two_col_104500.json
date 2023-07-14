@@ -45,27 +45,6 @@
             "type": "bar"
           },
           "encoding": {
-            "y": {
-              "field": "Country",
-              "type": "nominal",
-              "axis": {
-                "title": "",
-                "grid": false,
-                "tickCount": 6,
-                "domain": false
-              },
-              "sort": ["United States", "China", "Germany", "Japan", "France", "Rest of the world"]
-            },
-            "x": {
-              "field": "Share",
-              "type": "quantitative",
-              "axis": {
-                "title": "Share of the global plasma market in 2017 (%)",
-                "grid": false,
-                "tickCount": 7,
-                "domain": false
-              }
-            },
             "color": {
               "condition": {
                 "test": "datum.Country === 'none'",
@@ -102,15 +81,6 @@
             "opacity": 1
           },
           "encoding": {
-            "y": {
-              "field": "Country",
-              "type": "nominal",
-              "sort": ["United States", "China", "Germany", "Japan", "France", "Rest of the world"]
-            },
-            "x": {
-              "field": "Share",
-              "type": "quantitative"
-            },
             "text": {
               "field": "Share",
               "type": "quantitative"
@@ -122,10 +92,25 @@
         }
       ],
       "encoding": {
-        "x": {
+        "y": {
+          "field": "Country",
+          "type": "nominal",
           "axis": {
-            "grid": true,
-            "tickCount": 5
+            "title": "",
+            "grid": false,
+            "tickCount": 6,
+            "domain": false
+          },
+          "sort": ["Japan", "United States", "China", "Germany", "Rest of the world", "France"]
+        },
+        "x": {
+          "field": "Share",
+          "type": "quantitative",
+          "axis": {
+            "title": "Share of the global plasma market in 2017 (%)",
+            "grid": false,
+            "tickCount": 7,
+            "domain": false
           }
         }
       }

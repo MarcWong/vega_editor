@@ -28,37 +28,22 @@
       },
       "encoding": {
         "y": {
-          "field": "Age",
-          "type": "nominal",
+          "field": "Country",
+          "type": "ordinal",
+          "sort": ["Africa", "Malawi", "Western Sahara", "Netherlands"],
           "axis": {
             "grid": false,
-            "scale": {
-              "domain": [null, null]
-            }
-          },
-          "sort": [
-            "Age-standardized",
-            "15-49 years old",
-            "All ages",
-            "5-14 years old",
-            "70+ years old",
-            "50-69 years old"
-          ]
+            "tickCount": 4,
+            "domain": false
+          }
         },
         "x": {
-          "field": "DALYs",
+          "field": "Children per woman, 1988",
           "type": "quantitative",
-          "sort": [
-            "15-49 years old",
-            "Age-standardized",
-            "All ages",
-            "5-14 years old",
-            "70+ years old",
-            "50-69 years old"
-          ],
           "axis": {
-            "grid": false,
-            "tickCount": 5
+            "grid": true,
+            "tickCount": 5,
+            "domain": false
           },
           "scale": {
             "domain": [0, 10]
@@ -71,28 +56,6 @@
             "type": "bar"
           },
           "encoding": {
-            "y": {
-              "field": "Country",
-              "type": "nominal",
-              "sort": ["Malawi", "Africa", "Western Sahara", "Netherlands"],
-              "axis": {
-                "grid": false,
-                "tickCount": 4,
-                "domain": false
-              }
-            },
-            "x": {
-              "field": "Children per woman, 1988",
-              "type": "quantitative",
-              "axis": {
-                "grid": true,
-                "tickCount": 5,
-                "domain": false
-              },
-              "scale": {
-                "domain": [0, 10]
-              }
-            },
             "color": {
               "field": "Country",
               "type": "nominal",
@@ -137,15 +100,6 @@
             "opacity": 1
           },
           "encoding": {
-            "y": {
-              "field": "Country",
-              "type": "nominal",
-              "sort": ["Malawi", "Africa", "Western Sahara", "Netherlands"]
-            },
-            "x": {
-              "field": "Children per woman, 1988",
-              "type": "quantitative"
-            },
             "text": {
               "field": "Children per woman, 1988",
               "type": "quantitative"
