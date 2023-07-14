@@ -1,10 +1,19 @@
 {
-    "Examples": {
-        "simple": [
-            {
-                "name": "1261",
-                "title": "Simple Bar Chart"
-            }
-        ]
-    }
+  "Examples": {
+    "simple": [
+      {
+        "name": "1261",
+        "title": "Simple Bar Chart"
+      },
+      {
+        "name": "4488"
+      },
+      {
+        "name": "9715"
+      },
+      {
+        "name": "11124"
+      }
+    ]
+  }
 }

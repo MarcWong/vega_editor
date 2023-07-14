@@ -20,7 +20,10 @@ interface ControlSidebarProps {
     editorRef: any;
 }
 
-const logMessages = [];
+const logMessages = {
+  undo: [],
+  redo: []
+};
 
 const log = createLogger({
   name: 'my-logger',
@@ -50,6 +53,7 @@ const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,edit
       return;
     }
     if (editorRef && editorRef.getValue) {
+      let oldValue;
         const spec = JSON.parse(editorRef.getValue());
         const pathParts = path.split('.');
         let target = spec;
@@ -59,6 +63,7 @@ const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,edit
             // If we are at the end of the path
             if (i === pathParts.length - 1) {
                 // If the property doesn't exist or it is null
+                oldValue = target[part];
                 if (!target[part] || target[part] === null) {
                     target[part] = {}; // create an empty object
                 }
@@ -80,7 +85,26 @@ const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,edit
         };
     
         // Store log info to array
-        logMessages.push(logInfo);
+        logMessages.undo.push({ path, value: oldValue }); // push old value instead of new value
+        logMessages.redo = [];
+    }
+  };
+
+  const undo = () => {
+    if (logMessages.undo.length > 0) {
+      const lastChange = logMessages.undo.pop();
+      const currentValue = getEditorValue(lastChange.path); // get current value before undoing
+      updateEditorValue(lastChange.path, lastChange.value);
+      logMessages.redo.push({ path: lastChange.path, value: currentValue }); // push current value to redo stack
+    }
+  };
+
+  const redo = () => {
+    if (logMessages.redo.length > 0) {
+      const lastChange = logMessages.redo.pop();
+      const currentValue = getEditorValue(lastChange.path); // get current value before redoing
+      updateEditorValue(lastChange.path, lastChange.value);
+      logMessages.undo.push({ path: lastChange.path, value: currentValue }); // push current value to undo stack
     }
   };
 
@@ -293,6 +317,16 @@ const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,edit
       <Button variant="contained" color="primary" onClick={dowloadJson}>
         Download Json
       </Button>
+
+      <Button variant="contained" color="primary" onClick={undo}>
+        Undo
+      </Button>
+
+      <Button variant="contained" color="primary" onClick={redo}>
+        Redo
+      </Button>
+
+
     </div>
   );
 };

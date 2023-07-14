@@ -1,0 +1,136 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "vconcat": [
+    {
+      "title": "Protein supply by region, 1988",
+      "description": "Comparing the protein supply in grams across different regions in 1988.",
+      "width": 400,
+      "height": 363.6363636363636,
+      "data": {
+        "values": [
+          {
+            "Region": "Northern America",
+            "Protein supply, 1988": 105.96
+          },
+          {
+            "Region": "Europe",
+            "Protein supply, 1988": 104.45
+          },
+          {
+            "Region": "World",
+            "Protein supply, 1988": 70.74
+          },
+          {
+            "Region": "South America",
+            "Protein supply, 1988": 65.76
+          },
+          {
+            "Region": "Asia",
+            "Protein supply, 1988": 61.21
+          },
+          {
+            "Region": "Caribbean",
+            "Protein supply, 1988": 60.03
+          },
+          {
+            "Region": "Africa",
+            "Protein supply, 1988": 58.47
+          }
+        ]
+      },
+      "encoding": {
+        "y": {
+          "field": "Region",
+          "type": "nominal",
+          "sort": ["Northern America", "Europe", "World", "South America", "Asia", "Caribbean", "Africa"],
+          "axis": {
+            "grid": false,
+            "tickCount": 7,
+            "domain": false
+          }
+        },
+        "x": {
+          "field": "Protein supply, 1988",
+          "type": "quantitative",
+          "axis": {
+            "grid": false,
+            "tickCount": 5,
+            "domain": false
+          },
+          "scale": {
+            "domain": [0, 120]
+          }
+        }
+      },
+      "layer": [
+        {
+          "mark": {
+            "type": "bar"
+          },
+          "encoding": {
+            "color": {
+              "field": "Region",
+              "type": "nominal",
+              "legend": null,
+              "condition": {
+                "test": "datum.Region === 'none'",
+                "value": "#000000"
+              },
+              "scale": {
+                "domain": ["Northern America", "Europe", "World", "South America", "Asia", "Caribbean", "Africa"],
+                "range": ["#27955c", "#9a4f57", "#984ea3", "#d62f7d", "#269691", "#596a7d", "#bd532c"]
+              }
+            },
+            "opacity": {
+              "condition": {
+                "test": "datum.Region === 'none'",
+                "value": 1
+              },
+              "value": 1
+            },
+            "size": {
+              "condition": {
+                "test": "datum.Region === 'none'",
+                "value": 40
+              },
+              "value": 40
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "middle",
+            "dx": 4,
+            "dy": 0,
+            "angle": 0,
+            "fontSize": 11,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "color": "black",
+            "opacity": 1
+          },
+          "encoding": {
+            "y": {
+              "field": "Region",
+              "type": "nominal"
+            },
+            "x": {
+              "field": "Protein supply, 1988",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "Protein supply, 1988",
+              "type": "quantitative"
+            },
+            "color": {
+              "value": "#000000"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "name": "3972"
+}
