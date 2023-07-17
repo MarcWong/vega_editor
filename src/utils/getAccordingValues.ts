@@ -1147,7 +1147,7 @@ const json1002 = {
     },
   },
   "Order": {
-    "field": "Entity",
+    "field": "Characteristic",
     "sort": ["vconcat.0.encoding"],
   },
   "Default": {
@@ -1185,6 +1185,295 @@ const json1002 = {
         "Happy with current hours",
         "Would like more hours",
         "Would like fewer hours",
+      ],
+    },
+  ],
+};
+
+const json1011 = {
+  "typeName": "Entity",
+  "aspectRatio": {
+    "height": "height",
+    "width": "width",
+    "initial": 1,
+    "min": 0.2,
+    "max": 5,
+    "step": 0.1,
+    "initialWidth": 400,
+  },
+  "Text": {
+    "textColor": "layer.1.encoding.color.value",
+    "textAngle": "layer.1.mark.angle",
+    "textDx": "layer.1.mark.dx",
+    "textDy": "layer.1.mark.dy",
+    "textFontSize": "layer.1.mark.fontSize",
+    "textFontStyle": "layer.1.mark.fontStyle",
+    "textFontWeight": "layer.1.mark.fontWeight",
+    "textOpacity": "layer.1.mark.opacity",
+    initial: {
+      "textColor": "#000000",
+      "textAngle": {
+        "init": 0,
+        "min": 0,
+        "max": 180,
+        "step": 5,
+      },
+      "textDx": {
+        "init": 0,
+        "min": -50,
+        "max": 50,
+        "step": 1,
+      },
+      "textDy": {
+        "init": 0,
+        "min": -50,
+        "max": 50,
+        "step": 1,
+      },
+      "textFontSize": {
+        "init": 11,
+        "min": 5,
+        "max": 50,
+        "step": 1,
+      },
+    },
+  },
+  "Axis": {
+    "x": "encoding.x",
+    "y": "encoding.y",
+    initial: {
+      "AxisTickCount": {
+        x: {
+          "init": 5,
+          "min": 1,
+          "max": 20,
+          "step": 1,
+        },
+      },
+      "AxisScaleDomain": {
+        "x": {
+          "minimal": 0,
+          "maximal": 2,
+          "min": 0,
+          "max": 1,
+          "step": 0.1,
+        },
+      },
+      "AxisGrid": {
+        "x": false,
+        "y": false,
+      },
+    },
+  },
+  "Condition": {
+    "chooseColorChange": [
+      "layer.0.encoding.color.condition.value",
+    ],
+    "chooseSizeChange": [
+      "layer.0.encoding.size.condition.value",
+      "layer.0.encoding.size.value",
+    ],
+    "chooseOpacityChange": [
+      "layer.0.encoding.opacity.condition.value",
+      "layer.0.encoding.opacity.value",
+    ],
+    "conditions": [
+      "layer.0.encoding.color.condition.test",
+      "layer.0.encoding.size.condition.test",
+      "layer.0.encoding.opacity.condition.test",
+    ],
+    "initial": {
+      "chooseColorChange": {
+        "conditionColor": "#000000",
+        "color": "#000000",
+      },
+      "chooseSizeChange": {
+        "conditionSize": 30,
+        "size": 40,
+        "maxSize": 100,
+        "minSize": 0,
+        "stepSize": 1,
+      },
+    },
+  },
+  // "Order": {
+  //   "field": "Characteristic",
+  //   "sort": ["vconcat.0.encoding"],
+  // },
+  "Default": {
+    "width": 400,
+  },
+  // "orderTypes": [
+  //   "Business operations",
+  //   "Shift or crew supervisor",
+  //   "Bartender",
+  //   "Waiter/waitress",
+  //   "Chef or cook",
+  //   "Restaurant manager",
+  //   "Crew person (fast food)",
+  //   "Host/hostess",
+  //   "Dishwasher/bus person",
+  // ],
+  "selectTypes": [
+    {
+      "name": "Product",
+      "value": [
+        "Product 1",
+        "Product 2",
+        "Product 3",
+        "Product 4",
+      ],
+    },
+    {
+      "name": "value",
+      "value": [
+        "Low sales",
+        "Medium sales",
+        "High sales",
+      ],
+    },
+  ],
+};
+
+const json60204 = {
+  "typeName": "Entity",
+  "aspectRatio": {
+    "height": "height",
+    "width": "width",
+    "initial": 1,
+    "min": 0.2,
+    "max": 5,
+    "step": 0.1,
+    "initialWidth": 400,
+  },
+  "Text": {
+    "textColor": "layer.1.encoding.color.value",
+    "textAngle": "layer.1.mark.angle",
+    "textDx": "layer.1.mark.dx",
+    "textDy": "layer.1.mark.dy",
+    "textFontSize": "layer.1.mark.fontSize",
+    "textFontStyle": "layer.1.mark.fontStyle",
+    "textFontWeight": "layer.1.mark.fontWeight",
+    "textOpacity": "layer.1.mark.opacity",
+    initial: {
+      "textColor": "#000000",
+      "textAngle": {
+        "init": 0,
+        "min": 0,
+        "max": 180,
+        "step": 5,
+      },
+      "textDx": {
+        "init": 0,
+        "min": -50,
+        "max": 50,
+        "step": 1,
+      },
+      "textDy": {
+        "init": 0,
+        "min": -50,
+        "max": 50,
+        "step": 1,
+      },
+      "textFontSize": {
+        "init": 11,
+        "min": 5,
+        "max": 50,
+        "step": 1,
+      },
+    },
+  },
+  "Axis": {
+    "x": "encoding.x",
+    "y": "encoding.y",
+    initial: {
+      "AxisTickCount": {
+        x: {
+          "init": 5,
+          "min": 1,
+          "max": 20,
+          "step": 1,
+        },
+      },
+      "AxisScaleDomain": {
+        "x": {
+          "minimal": 0,
+          "maximal": 2,
+          "min": 0,
+          "max": 1,
+          "step": 0.1,
+        },
+      },
+      "AxisGrid": {
+        "x": false,
+        "y": false,
+      },
+    },
+  },
+  "Condition": {
+    "chooseColorChange": [
+      "layer.0.encoding.color.condition.value",
+    ],
+    "chooseSizeChange": [
+      "layer.0.encoding.size.condition.value",
+      "layer.0.encoding.size.value",
+    ],
+    "chooseOpacityChange": [
+      "layer.0.encoding.opacity.condition.value",
+      "layer.0.encoding.opacity.value",
+    ],
+    "conditions": [
+      "layer.0.encoding.color.condition.test",
+      "layer.0.encoding.size.condition.test",
+      "layer.0.encoding.opacity.condition.test",
+    ],
+    "initial": {
+      "chooseColorChange": {
+        "conditionColor": "#000000",
+        "color": "#000000",
+      },
+      "chooseSizeChange": {
+        "conditionSize": 30,
+        "size": 40,
+        "maxSize": 100,
+        "minSize": 0,
+        "stepSize": 1,
+      },
+    },
+  },
+  // "Order": {
+  //   "field": "Characteristic",
+  //   "sort": ["vconcat.0.encoding"],
+  // },
+  "Default": {
+    "width": 400,
+  },
+  // "orderTypes": [
+  //   "Business operations",
+  //   "Shift or crew supervisor",
+  //   "Bartender",
+  //   "Waiter/waitress",
+  //   "Chef or cook",
+  //   "Restaurant manager",
+  //   "Crew person (fast food)",
+  //   "Host/hostess",
+  //   "Dishwasher/bus person",
+  // ],
+  "selectTypes": [
+    {
+      "name": "Year",
+      "value": [
+        2015,
+        2016,
+        2017,
+      ],
+    },
+    {
+      "name": "key",
+      "value": [
+        "Smartphone",
+        "Desktop",
+        "Tablet",
       ],
     },
   ],
@@ -2354,6 +2643,8 @@ const json_values = {
   "json1014": json1014,
   "json1044": json1044,
   "json1045": json1045,
+  "json60204": json60204,
+  "json1011": json1011,
 };
 
 export const getAccordingValues = (value: string) => {

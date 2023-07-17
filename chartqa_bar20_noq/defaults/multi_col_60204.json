@@ -1,110 +1,134 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "config": {
-    "view": {
-      "stroke": "transparent",
-      "continuousWidth": 400
-    },
-    "facet": {
-      "spacing": 10
-    }
-  },
+  "title": "Device Usage Over the Years",
+  "description": "The percentage of device usage in different years",
   "vconcat": [
     {
+      "width": 400,
+      "height": 400,
       "data": {
         "values": [
           {
-            "category": "2015",
-            "group": "Smartphone",
-            "value": 33
+            "Year": "2015",
+            "Smartphone": 33,
+            "Desktop": 54,
+            "Tablet": 13
           },
           {
-            "category": "2016",
-            "group": "Smartphone",
-            "value": 42
+            "Year": "2016",
+            "Smartphone": 42,
+            "Desktop": 45,
+            "Tablet": 13
           },
           {
-            "category": "2017",
-            "group": "Smartphone",
-            "value": 47
-          },
-          {
-            "category": "2015",
-            "group": "Desktop",
-            "value": 54
-          },
-          {
-            "category": "2016",
-            "group": "Desktop",
-            "value": 45
-          },
-          {
-            "category": "2017",
-            "group": "Desktop",
-            "value": 41
-          },
-          {
-            "category": "2015",
-            "group": "Tablet",
-            "value": 13
-          },
-          {
-            "category": "2016",
-            "group": "Tablet",
-            "value": 13
-          },
-          {
-            "category": "2017",
-            "group": "Tablet",
-            "value": 12
+            "Year": "2017",
+            "Smartphone": 47,
+            "Desktop": 41,
+            "Tablet": 12
           }
         ]
       },
-      "mark": {
-        "type": "bar"
-      },
+      "transform": [
+        {
+          "fold": ["Smartphone", "Desktop", "Tablet"]
+        }
+      ],
       "encoding": {
-        "column": {
-          "field": "category",
-          "header": {
-            "orient": "bottom"
-          }
-        },
         "y": {
-          "field": "value",
-          "type": "quantitative"
+          "field": "Year",
+          "type": "ordinal",
+          "title": "Year",
+          "axis": {
+            "grid": false,
+            "tickCount": 3
+          }
         },
         "x": {
-          "field": "group",
-          "axis": null
-        },
-        "color": {
-          "field": "group"
+          "field": "value",
+          "type": "quantitative",
+          "stack": "normalize",
+          "axis": {
+            "grid": false,
+            "tickCount": 10
+          },
+          "scale": {
+            "domain": [0, 1]
+          }
         }
-      }
+      },
+      "layer": [
+        {
+          "mark": "bar",
+          "encoding": {
+            "color": {
+              "field": "key",
+              "type": "nominal",
+              "scale": {
+                "domain": ["Smartphone", "Desktop", "Tablet"],
+                "range": ["#59ea59", "lightblue", "#bd3b3b"]
+              },
+              "legend": {
+                "legendX": -120,
+                "legendY": -120,
+                "orient": "none"
+              },
+              "condition": [
+                {
+                  "test": "datum.Year === '2017' && datum.value === 'Desktop'",
+                  "value": "#bd3737"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "middle",
+            "dx": 0,
+            "dy": 0,
+            "angle": 0,
+            "fontSize": 11,
+            "font": "serif",
+            "opacity": 1
+          },
+          "encoding": {
+            "y": {
+              "field": "Year",
+              "type": "nominal"
+            },
+            "x": {
+              "field": "value",
+              "type": "quantitative",
+              "stack": "normalize",
+              "bandPosition": 0.5
+            },
+            "text": {
+              "condition": {
+                "test": "datum.value > 0",
+                "field": "value"
+              },
+              "value": ""
+            },
+            "color": {
+              "value": "#f92828"
+            }
+          }
+        }
+      ]
     },
     {
-      "width": 400,
-      "height": 100,
-      "data": {
-        "values": [
-          {
-            "text": "Footer text goes here"
-          }
-        ]
-      },
       "mark": {
         "type": "text",
-        "align": "center",
-        "baseline": "middle",
-        "opacity": 1
+        "align": "center"
       },
       "encoding": {
         "text": {
-          "field": "text",
-          "type": "nominal"
+          "value": "Source: International Data Corporation"
         }
       }
     }
-  ]
+  ],
+  "name": "60204"
 }

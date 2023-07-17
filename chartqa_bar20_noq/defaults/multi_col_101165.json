@@ -1,148 +1,129 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "config": {
-    "view": {
-      "stroke": "transparent",
-      "continuousWidth": 400
-    },
-    "facet": {
-      "spacing": 10
-    }
-  },
   "vconcat": [
     {
+      "title": "Product Sales",
+      "description": "Preference for product sales.",
+      "width": 400,
+      "height": 400,
       "data": {
         "values": [
           {
-            "category": "2005",
-            "group": "Poland",
-            "value": 52.4
+            "Product": "Product 1",
+            "Low sales": 12,
+            "Medium sales": 40,
+            "High sales": 48
           },
           {
-            "category": "2013",
-            "group": "Poland",
-            "value": 55.5
+            "Product": "Product 2",
+            "Low sales": 20,
+            "Medium sales": 55,
+            "High sales": 25
           },
           {
-            "category": "2015",
-            "group": "Poland",
-            "value": 56.9
+            "Product": "Product 3",
+            "Low sales": 30,
+            "Medium sales": 45,
+            "High sales": 25
           },
           {
-            "category": "2017",
-            "group": "Poland",
-            "value": 56.8
-          },
-          {
-            "category": "2019",
-            "group": "Poland",
-            "value": 55.2
-          },
-          {
-            "category": "2005",
-            "group": "EU-28",
-            "value": 62.0
-          },
-          {
-            "category": "2013",
-            "group": "EU-28",
-            "value": 63.8
-          },
-          {
-            "category": "2015",
-            "group": "EU-28",
-            "value": 65.0
-          },
-          {
-            "category": "2017",
-            "group": "EU-28",
-            "value": 66.2
-          },
-          {
-            "category": "2019",
-            "group": "EU-28",
-            "value": 67.4
+            "Product": "Product 4",
+            "Low sales": 22,
+            "Medium sales": 35,
+            "High sales": 43
           }
         ]
       },
-      "mark": "bar",
+      "transform": [
+        {
+          "fold": ["Low sales", "Medium sales", "High sales"]
+        }
+      ],
       "encoding": {
-        "column": {
-          "field": "category",
-          "header": {
-            "orient": "bottom"
-          }
-        },
         "y": {
-          "field": "value",
-          "type": "quantitative"
+          "field": "Product",
+          "type": "ordinal",
+          "title": "Product",
+          "axis": {
+            "grid": false,
+            "tickCount": 9
+          }
         },
         "x": {
-          "field": "group",
-          "axis": null
+          "field": "value",
+          "type": "quantitative",
+          "stack": "normalize",
+          "axis": {
+            "grid": false,
+            "tickCount": 5
+          },
+          "scale": {
+            "domain": [0, 1]
+          }
+        }
+      },
+      "layer": [
+        {
+          "mark": "bar",
+          "encoding": {
+            "color": {
+              "field": "key",
+              "type": "nominal",
+              "scale": {
+                "domain": ["Low sales", "Medium sales", "High sales"],
+                "range": ["#3ba63b", "lightblue", "#bd3b3b"]
+              },
+              "legend": {
+                "legendX": -120,
+                "legendY": -120,
+                "orient": "none"
+              }
+            },
+            "opacity": {
+              "value": 1
+            },
+            "size": {
+              "value": 40
+            }
+          }
         },
-        "color": {
-          "field": "group"
-        }
-      },
-      "config": {
-        "view": {
-          "stroke": "transparent"
-        }
-      },
-      "facet": {
-        "column": {
-          "field": "Year",
-          "type": "ordinal"
-        }
-      },
-      "spec": {
-        "mark": "bar",
-        "encoding": {
-          "y": {
-            "field": "value",
-            "type": "quantitative",
-            "axis": {
-              "title": "Index score (1 = full unequality, 100 = full equality)"
-            }
+        {
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "middle",
+            "dx": 0,
+            "dy": 0,
+            "angle": 0,
+            "fontSize": 11,
+            "font": "serif",
+            "opacity": 1
           },
-          "x": {
-            "field": "Entity",
-            "type": "ordinal"
-          },
-          "color": {
-            "field": "Entity",
-            "type": "nominal",
-            "legend": null,
-            "scale": {
-              "scheme": "category10"
+          "encoding": {
+            "y": {
+              "field": "Product",
+              "type": "nominal"
+            },
+            "x": {
+              "field": "value",
+              "type": "quantitative",
+              "stack": "normalize",
+              "bandPosition": 0.5
+            },
+            "text": {
+              "condition": {
+                "test": "datum.value > 0",
+                "field": "value"
+              },
+              "value": ""
+            },
+            "color": {
+              "value": "#a67c7c"
             }
           }
         }
-      }
-    },
-    {
-      "width": 400,
-      "height": 100,
-      "data": {
-        "values": [
-          {
-            "text": "Footer text goes here"
-          }
-        ]
-      },
-      "mark": {
-        "type": "text",
-        "align": "center",
-        "baseline": "middle",
-        "opacity": 1
-      },
-      "encoding": {
-        "text": {
-          "field": "text",
-          "type": "nominal"
-        }
-      }
+      ]
     }
-  ]
+  ],
+  "name": "1011"
 }

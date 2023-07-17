@@ -4,13 +4,16 @@ import ColorInput from './components/color-input';
 
 
 const COLOR_ARRAY_PATH = "vconcat.0.layer.0.encoding.color.scale.range";
+const COLOR_DOMAIN_PATH = "vconcat.0.layer.0.encoding.color.scale.domain";
 
 const ColorArrayInput: React.FC<any> = ({keyValues,updateEditorValue,getEditorValue}) => {
-    if(!keyValues?.types){
-        return null;
-    }
+    
+    // if(!keyValues?.types){
+    //     return null;
+    // }
 
     const colors= getEditorValue(COLOR_ARRAY_PATH);
+    const DOMAINS= getEditorValue(COLOR_DOMAIN_PATH);
 
     if(!colors){
         return null;
@@ -26,7 +29,7 @@ const ColorArrayInput: React.FC<any> = ({keyValues,updateEditorValue,getEditorVa
         <Box m={2}>
             {colors.map((color, index) => (
                 <Box key={index} mb={2}>
-                    <ColorInput label={keyValues?.types[index]} initialColor={color} onColorChange={(newColor) => handleColorChange(newColor, index)} />
+                    <ColorInput label={DOMAINS[index]} initialColor={color} onColorChange={(newColor) => handleColorChange(newColor, index)} />
                 </Box>
             ))}
         </Box>

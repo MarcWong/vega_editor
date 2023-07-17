@@ -119,13 +119,11 @@ const AxisChangeComponent: React.FC<AxisChangeComponentProps> = ({getEditorValue
     useEffect(() => {
         // same for Y
         if (Ymin !== undefined && Ymax !== undefined &&Ymin!==null &&Ymax!==null && Ymin <= Ymax) {
-        console.log(Ymin,Ymax,'Ymin,Ymax')
             setScaleDomainYState({...scaleDomainYState,domain: [Ymin, Ymax]});
         }
     }, [Ymin, Ymax]);
 
     useEffect(() => {
-        console.log(axisXState,'axisXState')
         updateEditorValue(x+'.axis', axisXState);
     }, [axisXState]);
 
