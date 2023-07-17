@@ -81,34 +81,6 @@
         "color": {
           "field": "group"
         }
-      },
-      "facet": {
-        "column": {
-          "field": "Year",
-          "type": "ordinal"
-        }
-      },
-      "spec": {
-        "mark": "bar",
-        "encoding": {
-          "y": {
-            "field": "value",
-            "type": "quantitative",
-            "title": "population"
-          },
-          "x": {
-            "field": "Entity",
-            "type": "ordinal"
-          },
-          "color": {
-            "field": "Entity",
-            "type": "nominal",
-            "legend": null,
-            "scale": {
-              "scheme": "category10"
-            }
-          }
-        }
       }
     },
     {

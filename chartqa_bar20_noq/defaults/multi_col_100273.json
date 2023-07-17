@@ -105,7 +105,9 @@
       },
       "layer": [
         {
-          "mark": "bar",
+          "mark": {
+            "type": "bar"
+          },
           "encoding": {
             "color": {
               "condition": {
