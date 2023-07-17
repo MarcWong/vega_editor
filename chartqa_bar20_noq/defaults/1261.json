@@ -34,8 +34,16 @@
       },
       "transform": [
         {
-          "fold": ["Not important at all", "Not too important", "Somewhat important", "Very important"],
-          "as": ["category", "value"]
+          "fold": [
+            "Not important at all",
+            "Not too important",
+            "Somewhat important",
+            "Very important"
+          ],
+          "as": [
+            "category",
+            "value"
+          ]
         },
         {
           "calculate": "{'Not important at all': 1, 'Not too important': 2, 'Somewhat important': 3, 'Very important': 4}[datum.category]",
@@ -51,7 +59,10 @@
           "field": "value",
           "type": "quantitative",
           "scale": {
-            "domain": [-100, 100]
+            "domain": [
+              -100,
+              100
+            ]
           },
           "axis": {
             "grid": false,
@@ -68,7 +79,10 @@
           "axis": {
             "grid": false
           },
-          "sort": ["U.S.", "Germany"]
+          "sort": [
+            "U.S.",
+            "Germany"
+          ]
         },
         "order": {
           "field": "order",
@@ -111,12 +125,22 @@
               "field": "category",
               "type": "nominal",
               "scale": {
-                "domain": ["Not important at all", "Not too important", "Somewhat important", "Very important"],
-                "range": ["#d2bebd", "#fc8d59", "#fee090", "#91bfdb"]
+                "domain": [
+                  "Not important at all",
+                  "Not too important",
+                  "Somewhat important",
+                  "Very important"
+                ],
+                "range": [
+                  "#d73027",
+                  "#fc8d59",
+                  "#fee090",
+                  "#91bfdb"
+                ]
               },
               "legend": {
-                "legendX": 10,
-                "legendY": 20,
+                "legendX": 420,
+                "legendY": 10,
                 "orient": "none"
               }
             },
@@ -168,19 +192,41 @@
       ]
     },
     {
-      "width": 400,
-      "height": 100,
+      "width": 200,
+      "height": 50,
       "data": {
         "values": [
           {
-            "text": "Note: Don't know responses not shown. Full question wording:'as you may know, the United States currently operates several military bases in Germany with approximately 35,000 active-duty American troops.'"
+            "text": "Note: Don't know responses not shown. Full question wording:'as you may know, the United States"
           }
         ]
       },
       "mark": {
         "type": "text",
         "align": "center",
-        "baseline": "middle"
+        "baseline": "top"
+      },
+      "encoding": {
+        "text": {
+          "field": "text",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "width": 200,
+      "height": 10,
+      "data": {
+        "values": [
+          {
+            "text": "currently operates several military bases in Germany with approximately 35,000 active-duty American troops.'"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "bottom"
       },
       "encoding": {
         "text": {
