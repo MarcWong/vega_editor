@@ -1,0 +1,120 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "vconcat": [
+    {
+      "title": "Reading performance (PISA)",
+      "description": "A comparison of the Reading performance (PISA) across different countries.",
+      "width": 400,
+      "height": 200,
+      "data": {
+        "values": [
+          {
+            "Country": "Indonesia",
+            "Reading Performance (PISA)": 371
+          },
+          {
+            "Country": "Lithuania",
+            "Reading Performance (PISA)": 476
+          },
+          {
+            "Country": "Germany",
+            "Reading Performance (PISA)": 498
+          },
+          {
+            "Country": "Denmark",
+            "Reading Performance (PISA)": 501
+          },
+          {
+            "Country": "Finland",
+            "Reading Performance (PISA)": 520
+          }
+        ]
+      },
+      "layer": [
+        {
+          "mark": {
+            "type": "bar",
+            "color": "#4682b4"
+          },
+          "encoding": {
+            "color": {
+              "field": "Country",
+              "type": "nominal",
+              "legend": null,
+              "condition": {
+                "test": "datum.Country === 'none'",
+                "value": "#000000"
+              },
+              "scale": {
+                "domain": ["Indonesia", "Lithuania", "Germany", "Denmark", "Finland"],
+                "range": ["#9a3585", "#739f25", "#e0531f", "#1290da", "#e52a2f"]
+              }
+            },
+            "opacity": {
+              "condition": {
+                "test": "datum.Country === 'none'",
+                "value": 1
+              },
+              "value": 1
+            },
+            "size": {
+              "condition": {
+                "test": "datum.Country === 'none'",
+                "value": 60
+              },
+              "value": 60
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "middle",
+            "dx": -8,
+            "dy": -8,
+            "angle": 0,
+            "fontSize": 11,
+            "color": "black",
+            "opacity": 1
+          },
+          "encoding": {
+            "text": {
+              "field": "Reading Performance (PISA)",
+              "type": "quantitative"
+            },
+            "color": {
+              "value": "#000000"
+            }
+          }
+        }
+      ],
+      "encoding": {
+        "x": {
+          "field": "Country",
+          "type": "nominal",
+          "sort": ["Lithuania", "Germany", "Finland", "Denmark", "Indonesia"],
+          "axis": {
+            "grid": false,
+            "tickCount": 5,
+            "domain": false,
+            "labelAngle": -45
+          }
+        },
+        "y": {
+          "field": "Reading Performance (PISA)",
+          "type": "quantitative",
+          "axis": {
+            "grid": false,
+            "tickCount": 5,
+            "domain": false
+          },
+          "scale": {
+            "domain": [0, 600]
+          }
+        }
+      }
+    }
+  ],
+  "name": "RP"
+}

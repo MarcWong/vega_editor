@@ -1,0 +1,146 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "vconcat": [
+    {
+      "title": "Coal prices, 2011",
+      "description": "Comparing coal prices in different markets in 2011.",
+      "width": 600,
+      "height": 400,
+      "data": {
+        "values": [
+          {
+            "Market": "Japan coking coal import cif price",
+            "Price": 229.12
+          },
+          {
+            "Market": "Japan steam coal import cif price",
+            "Price": 136.21
+          },
+          {
+            "Market": "China Qinhuangdao spot price",
+            "Price": 127.27
+          },
+          {
+            "Market": "Japan steam spot cif price",
+            "Price": 126.13
+          },
+          {
+            "Market": "Asian marker price",
+            "Price": 125.74
+          },
+          {
+            "Market": "Northwest Europe marker price",
+            "Price": 121.48
+          },
+          {
+            "Market": "US Central Appalachian coal spot price index",
+            "Price": 84.75
+          }
+        ]
+      },
+      "encoding": {
+        "y": {
+          "field": "Market",
+          "type": "nominal",
+          "sort": {
+            "field": "Price",
+            "order": "descending"
+          },
+          "axis": {
+            "grid": false,
+            "scale": {
+              "domain": [null, null]
+            }
+          }
+        },
+        "x": {
+          "field": "Price",
+          "type": "quantitative",
+          "axis": {
+            "grid": false,
+            "tickCount": 5
+          },
+          "scale": {
+            "domain": [0, 200]
+          }
+        }
+      },
+      "layer": [
+        {
+          "mark": {
+            "type": "bar"
+          },
+          "encoding": {
+            "color": {
+              "field": "Market",
+              "type": "nominal",
+              "legend": null,
+              "condition": {
+                "test": "datum.Market === 'none'",
+                "value": "#000000"
+              },
+              "scale": {
+                "domain": [
+                  "Japan coking coal import cif price",
+                  "Japan steam coal import cif price",
+                  "China Qinhuangdao spot price",
+                  "Japan steam spot cif price",
+                  "Asian marker price",
+                  "Northwest Europe marker price",
+                  "US Central Appalachian coal spot price index"
+                ],
+                "range": ["#27955c", "#9a4f57", "#d62f7d", "#269691", "#835ba1", "#bd532c", "#596a7d"]
+              },
+              "value": "#000000"
+            },
+            "opacity": {
+              "condition": {
+                "test": "datum.Market === 'none'",
+                "value": 1
+              },
+              "value": 1
+            },
+            "size": {
+              "condition": {
+                "test": "datum.Market === 'none'",
+                "value": 30
+              },
+              "value": 40
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "middle",
+            "dx": 0,
+            "dy": 0,
+            "angle": 0,
+            "fontSize": 11,
+            "color": "black",
+            "opacity": 1
+          },
+          "encoding": {
+            "y": {
+              "field": "Market",
+              "type": "nominal"
+            },
+            "x": {
+              "field": "Price",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "Price",
+              "type": "quantitative"
+            },
+            "color": {
+              "value": "#000000"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "name": "9613"
+}
