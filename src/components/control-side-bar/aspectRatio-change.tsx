@@ -24,8 +24,8 @@ const AspectRatioComponent = ({ keyValue, updateEditorValue,getEditorValue }) =>
   // }, [aspectRatio]);
 
   return (
-    <Box m={3} sx={{ width: "90%" }}>
-      <Paper sx={{ width: "100%", alignItems: "center", textAlign: "center", marginBottom:"12px" }} elevation={3}> 
+    <Box m={3}>
+      <Paper sx={{ width: "100%", alignItems: "center", textAlign: "center", marginBottom:"15px" }} elevation={3}> 
           <Typography variant="h6">Aspect Ratio</Typography>
       </Paper>
       <Slider

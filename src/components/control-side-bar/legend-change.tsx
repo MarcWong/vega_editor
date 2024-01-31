@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import SizeInput from './components/size-input';
 import SelectInput from './components/select-input';
-import { Box } from  '@mui/material';
+import { Box, Grid, Paper, Typography } from  '@mui/material';
 
 
 const LEGEND_PATH="vconcat.0.layer.0.encoding.color.legend"
@@ -23,8 +23,17 @@ const LegendComponent = ({ updateEditorValue,getEditorValue }) => {
 
   return (
     <Box m={2}>
-       <SizeInput size={legend?.legendX} label="Legend X" onSizeChange={(legendX) => updateEditorValue(LEGEND_PATH,{ ...legend, legendX:legendX||0})} />
-        <SizeInput size={legend?.legendY} label="Legend Y" onSizeChange={(legendY) => updateEditorValue(LEGEND_PATH,{ ...legend, legendY:legendY||0})} />
+        <Paper sx={{ width: "100%", alignItems: "center", textAlign: "center", marginBottom:"8px" }} elevation={3}> 
+            <Typography variant="h6">Legend</Typography>
+        </Paper>
+        <Grid container spacing={3} style={{alignItems: "center", textAlign: "center", marginBottom:"8px"}}>
+          <Grid item xs={4} style={{alignItems: "center", textAlign: "center"}}>
+            <SizeInput size={legend?.legendX} label="Legend X" onSizeChange={(legendX) => updateEditorValue(LEGEND_PATH,{ ...legend, legendX:legendX||0})} />
+          </Grid>
+          <Grid item xs={4} style={{alignItems: "center", textAlign: "center"}}>
+            <SizeInput size={legend?.legendY} label="Legend Y" onSizeChange={(legendY) => updateEditorValue(LEGEND_PATH,{ ...legend, legendY:legendY||0})} />
+          </Grid>
+        </Grid>
     </Box>
   );
 };

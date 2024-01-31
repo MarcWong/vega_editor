@@ -4,8 +4,9 @@ import SizeInput from './components/size-input';
 import ColorInput from './components/color-input';
 import RangeInput from './components/range-input';
 import SelectInput from './components/select-input';
-import { Accordion, AccordionSummary, AccordionDetails, Typography } from '@mui/material';
+import { Accordion, AccordionSummary, AccordionDetails, Typography, Paper, Grid, FormControlLabel, Checkbox, Slider } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import HighlightIcon from '@mui/icons-material/Highlight';
 
 interface ChoiceType{
     name:string,
@@ -168,65 +169,92 @@ const HighlightComponent=({keyValues,updateEditorValue,choices,getEditorValue})=
 
     return (
         <Box m={2}>
-            <Box mb={2}>
+            <Paper sx={{ width: "100%", alignItems: "center", textAlign: "center", marginBottom:"8px" }} elevation={3}> 
+                <Typography variant="h6">Appearance</Typography>
+            </Paper>
+            <Grid container spacing={2} style={{alignItems: "center", textAlign: "center", marginBottom:"8px"}}>
                 {choices.map((choice, index) => {
-                    const {value,name} = choice;
+                    const {value, name} = choice;
                     return (
-                        <Box key={name} mb={2} >
-                            <SelectInput options={[...value,"none"]} label={name} selectedOption={"none"} onOptionSelect={(e)=>updateConditionChange(e,name)} />
-                        </Box>
+                        value.map((v,i) => {
+                        return(
+                        <Grid key={v} item xs={3} style={{alignItems: "center", textAlign: "center"}}>
+                                <FormControlLabel control={<Checkbox
+                                    checked={choicesState.filter(choice=>choice.name===name)[0]?.state === v}
+                                    onChange={(_,e) => {
+                                        updateConditionChange(e?v:"none", name)
+                                    }}
+                                    icon={<HighlightIcon />}
+                                    checkedIcon={<HighlightIcon />}
+                                />} label = {v} />
+                        </Grid>)
+                        })
                     )
                 })}
-            </Box>
-            <Accordion>
-                <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel2a-content"
-                    id="panel2a-header"
-                >
-                    <Typography>Global Settings</Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                    <Box>
-                        <Box mb={2}>
-                            <ColorInput label="Data Color" initialColor={initial?.chooseColorChange?.color} onColorChange={handleDefaultColorChange} />
-                            <ColorInput label="Text Color" initialColor={initial?.chooseColorChange?.color||"000000"} onColorChange={handleTextDefaultColorChange} />
-                        </Box>
-                        <Box mb={2}>
-                            <SizeInput size={initial?.chooseSizeChange?.size||30} label="Global Width" onSizeChange={(e) => handleDefaultSizeChange} min={initial?.chooseSizeChange?.min||10} max={initial?.chooseSizeChange?.max||100}/>
-                        </Box>
-                        <Box mb={2}>
-                            <RangeInput min={0} max={1} step={0.1} label="Global Opacity" initialValue={1} onValueChange={handleDefaultOpacityChange} />
-                        </Box>
+            </Grid>
+            <Grid container spacing={2} style={{ textAlign: "center", marginBottom:"8px"}}>
+            <Grid item xs={6} style={{alignItems: "center", textAlign: "center"}}>
+                <Paper elevation={2} style={{ margin:"auto" }}>
+                    <div style={{ margin:"3px" }}>
+                    <Typography variant="h6">Lowlight</Typography>
+                    </div>
+                    <Box mb={2}>
+                        <ColorInput gridsize={6} label="Data Color" initialColor={initial?.chooseColorChange?.color} onColorChange={handleDefaultColorChange} />
+                        <ColorInput gridsize={6} label="Text Color" initialColor={initial?.chooseColorChange?.color||"000000"} onColorChange={handleTextDefaultColorChange} />
                     </Box>
-                </AccordionDetails>
-            </Accordion>
-            <Accordion>
-                <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel1a-content"
-                    id="panel1a-header"
-                >
-                    <Typography>Highlight Settings</Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                    <Box>
-                        <Box mb={2}>
-                            <ColorInput label="Data Color" initialColor={initial?.chooseColorChange?.conditionColor} onColorChange={handleChosenColorChange} />
-                            <ColorInput label="Text Color" initialColor={initial?.chooseColorChange?.color||"000000"} onColorChange={handleTextChosenColorChange} />
-                        </Box>
-                        
-                        <Box mb={2}>
-                            <SizeInput size={initial?.chooseSizeChange?.conditionSize} label="Highlight Width" onSizeChange={(e) => handleChosenSizeChange} min={initial?.chooseSizeChange?.min} max={initial?.chooseSizeChange?.max}/>
-                        </Box>
-                        <Box mb={2}>
-                            <RangeInput min={0} max={1} step={0.1} label="Highlight Opacity" initialValue={1} onValueChange={handleChosenOpacityChange} />
-                        </Box>
+                    <Box mb={2}>
+                        <div style={{ margin:"5px", alignItems: "center", textAlign: "center" }}>
+                            <SizeInput size={initial?.chooseSizeChange?.size||30} label="Width" onSizeChange={(e) => handleDefaultSizeChange} min={initial?.chooseSizeChange?.min||10} max={initial?.chooseSizeChange?.max||100}/>
+                        </div>
                     </Box>
-                </AccordionDetails>
-            </Accordion>
-
-
+                    <Box mb={2}>
+                        <Typography variant="subtitle1">Opacity</Typography>
+                        <div style={{ marginLeft:"30px", marginRight:"30px", alignItems: "center", textAlign: "center" }}>
+                        <Slider
+                            marks
+                            step={0.1}
+                            defaultValue={1}
+                            valueLabelDisplay="auto"
+                            min={0}
+                            max={1}
+                            onChange={(e, v) => handleDefaultOpacityChange(v)}
+                        />
+                        </div>
+                    </Box>
+                </Paper>
+            </Grid>
+            <Grid item xs={6} style={{alignItems: "center", textAlign: "center"}}>
+                <Paper elevation={2} style={{ margin:"auto" }}>
+                    <div style={{  margin:"3px" }}>
+                    <Typography variant="h6">Highlight</Typography>
+                    </div>
+                    <Box mb={2}>
+                        <ColorInput gridsize={6} label="Data Color" initialColor={initial?.chooseColorChange?.conditionColor} onColorChange={handleChosenColorChange} />
+                        <ColorInput gridsize={6} label="Text Color" initialColor={initial?.chooseColorChange?.color||"000000"} onColorChange={handleTextChosenColorChange} />
+                    </Box>
+                    
+                    <Box mb={2}>
+                        <div style={{ margin:"5px", alignItems: "center", textAlign: "center" }}>
+                        <SizeInput size={initial?.chooseSizeChange?.conditionSize} label="Width" onSizeChange={(e) => handleChosenSizeChange} min={initial?.chooseSizeChange?.min} max={initial?.chooseSizeChange?.max}/>
+                        </div>
+                    </Box>
+                    <Box mb={2}>
+                        <Typography variant="subtitle1">Opacity</Typography>
+                        <div style={{ marginLeft:"30px", marginRight:"30px", alignItems: "center", textAlign: "center" }}>
+                        <Slider
+                            marks
+                            step={0.1}
+                            defaultValue={1}
+                            valueLabelDisplay="auto"
+                            min={0}
+                            max={1}
+                            onChange={(e, v) => handleChosenOpacityChange(v)}
+                        />
+                        </div>
+                    </Box>
+                </Paper>
+            </Grid>
+            </Grid>
         </Box>
     )
 }

@@ -6,7 +6,7 @@ import AspectRatioComponent from './aspectRatio-change';
 import TextChangeComponent from './text-change';
 import AxisChangeComponent from './axis-change';
 import HighlightChangeComponent from './highlight-change';
-import { Accordion, AccordionSummary, AccordionDetails, Typography, Tabs, Tab, Box, BottomNavigation, BottomNavigationAction, Paper } from '@mui/material';
+import { Accordion, AccordionSummary, AccordionDetails, Typography, Tabs, Tab, Box, BottomNavigation, BottomNavigationAction, Paper, Checkbox } from '@mui/material';
 import ExpandIcon from '@mui/icons-material/Expand';
 import { createLogger } from 'browser-bunyan';
 import { ConsoleFormattedStream } from 'browser-bunyan';
@@ -295,7 +295,7 @@ const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,edit
             <TextChangeComponent getEditorValue={getEditorValue} keyValues={accordingValues?.Text} updateEditorValue={updateEditorValue} />
         </TabPanel>,
           <TabPanel key={"3"} value={"3"} >
-            <AxisChangeComponent swap={exchangeAxes} keyValues={accordingValues?.Axis} getEditorValue={getEditorValue} updateEditorValue={updateEditorValue} defaultValues={accordingValues?.axisChange}/>
+            <AxisChangeComponent keyValues={accordingValues?.Axis} getEditorValue={getEditorValue} updateEditorValue={updateEditorValue} defaultValues={accordingValues?.axisChange} swap={exchangeAxes} />
         </TabPanel>,<TabPanel key={"4"} value={"4"} >
             <HighlightChangeComponent keyValues={accordingValues?.Condition} updateEditorValue={updateEditorValue} getEditorValue={getEditorValue}
               choices={choices}/>
@@ -322,32 +322,40 @@ const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,edit
 
   return (
     <div className="control-sidebar" style={{width: "40%", height: '100%'}}>
-      <div style={{width: "100%",}}>
+      <div style={{width: "100%"}}>
         <Box sx={{ borderBottom: 1, borderColor: 'divider', height:"5%"}}>
           <Tabs value={value} onChange={handleChange} aria-label="scrollable prevent basic tabs example" variant="scrollable" scrollButtons="auto">
             {renderTabs()}
           </Tabs>
         </Box>
       </div>
-      <div style={{width: "100%", overflow: 'auto', height: "50%"}}>  
+      <Paper elevation={2} style={{width: "100%", overflow: 'auto', marginBottom:"2px", height: isShow ?"30%":"83%"}}>
         <TabContext value={value}>
           {renderTabPanels()}
         </TabContext>
+      </Paper>
+      <div style={{position: 'static', width: "100%", overflow: 'auto', height: "54%", display: isShow ? '':'none', alignItems: "center", textAlign: "center"}}>
+      <div style={{maxWidth: "95%", overflow: "hidden"}}>
+        <img src="saliency/OECD_RUNNING_A_BUSINESS_BGD_SGP_TUR_ZAF_ZMB_000008_mdeam.png" style={{width: "100%", objectFit: "contain"}}/>
+        </div>
+      </div>
+      <div>
         <Paper sx={{ position: 'fixed', bottom: 0, width: "40%" }} elevation={3}>
           <BottomNavigation
             showLabels
           >
             <BottomNavigationAction color="primary" icon={<UndoIcon/>} onClick={undo}/>
             <BottomNavigationAction color="primary" icon={<RedoIcon/>} onClick={redo}/>
-            <BottomNavigationAction color="primary" icon={<ExpandIcon/>} onClick={toggleSaliency}/>
+            <BottomNavigationAction color="primary" icon={<Checkbox
+              checked={isShow}
+              icon={<ExpandIcon/>}
+              checkedIcon={<ExpandIcon/>}
+            />} onClick={toggleSaliency}/>
             <BottomNavigationAction color="primary" icon={<DownloadIcon/>} label="Logs" onClick={downloadLogs}/>
             <BottomNavigationAction color="primary" icon={<DownloadIcon/>} label="Json" onClick={dowloadJson} />
           </BottomNavigation>
         </Paper>
       </div>
-      <div style={{position: 'static', bottom: 0, width: "100%", overflow: 'auto', height: "50%", display: isShow ? '':'none'}}> 
-        <img src="saliency/OECD_RUNNING_A_BUSINESS_BGD_SGP_TUR_ZAF_ZMB_000008_mdeam.png" style={{"max-width": "100%", height: "auto"}}/>
-    </div>
     </div>
   );
 };
