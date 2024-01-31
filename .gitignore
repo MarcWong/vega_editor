@@ -21,5 +21,4 @@ yarn.lock
 .yarnrc.yml
 .editorconfig
 
-# anything with png
-*.png
+chartqa_bar20_noq/

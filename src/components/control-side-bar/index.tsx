@@ -21,6 +21,7 @@ import DownloadIcon from '@mui/icons-material/Download';
 import UndoIcon from '@mui/icons-material/Undo';
 import RedoIcon from '@mui/icons-material/Redo';
 
+
 interface ControlSidebarProps {
     onParametersChange: (params: { [key: string]: string }) => void;
     editorRef: any;
@@ -42,17 +43,38 @@ const log = createLogger({
 
 
 const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,editorRef}) => {
+  // function processImage(){
+  //   const imageCanvas = document.getElementsByClassName('marks')
+  //   if (imageCanvas.item(0)) {
+  //     const canvas = imageCanvas.item(0)
+  //     const ctx = canvas.getContext("2d")
+  //     const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  //     console.log(canvas.width, canvas.height, imageData.data.length)
+  //     const img = imageToMatrix(imageData)
+  //     console.log(img.length)
+  //   }
 
+  // }
+  // const imageToMatrix = (imageData) => {
+  //   const matrix = [];
+  //   const data = imageData.data;
 
+  //   for (let i = 0; i < data.length; i += 4) {
+  //     // Extract RGB values and convert to grayscale
+  //     const grayscale = (data[i] + data[i + 1] + data[i + 2]) / 3;
+
+  //     // Push the grayscale value to the matrix
+  //     matrix.push(grayscale);
+  //   }
+
+  //   return matrix;
+  // };
+
+  // processImage()
   const [spec,setSpec]=useState<any>({});
-
-
   const [entityTypes, setEntityTypes] = useState<string[]>([]);
   const [choices, setChoices] = useState<string[]>([]);
-
   const [orderTypes, setOrderTypes] = useState<string[]>([]);
-
-
   const [accordingValues,setAccordingValues]=useState<any>({})
   const updateEditorValue = (path: string, value: any) => {
     if (typeof path !== 'string') {
@@ -113,6 +135,12 @@ const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,edit
       logMessages.undo.push({ path: lastChange.path, value: currentValue }); // push current value to undo stack
     }
   };
+
+  const [isShow,setisShow] = useState(true)
+  const toggleSaliency = ()=>{
+    setisShow(!isShow)
+  }
+
 
 
   const downloadLogs = () => {
@@ -301,7 +329,7 @@ const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,edit
           </Tabs>
         </Box>
       </div>
-      <div style={{width: "100%", overflow: 'auto', height: "85%"}}>  
+      <div style={{width: "100%", overflow: 'auto', height: "50%"}}>  
         <TabContext value={value}>
           {renderTabPanels()}
         </TabContext>
@@ -309,15 +337,17 @@ const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,edit
           <BottomNavigation
             showLabels
           >
-            <BottomNavigationAction color="primary" icon={<DownloadIcon/>} label="Logs" onClick={downloadLogs}/>
-            <BottomNavigationAction color="primary" icon={<DownloadIcon/>} label="Json" onClick={dowloadJson} />
             <BottomNavigationAction color="primary" icon={<UndoIcon/>} onClick={undo}/>
             <BottomNavigationAction color="primary" icon={<RedoIcon/>} onClick={redo}/>
+            <BottomNavigationAction color="primary" icon={<ExpandIcon/>} onClick={toggleSaliency}/>
+            <BottomNavigationAction color="primary" icon={<DownloadIcon/>} label="Logs" onClick={downloadLogs}/>
+            <BottomNavigationAction color="primary" icon={<DownloadIcon/>} label="Json" onClick={dowloadJson} />
           </BottomNavigation>
         </Paper>
       </div>
-
-
+      <div style={{position: 'static', bottom: 0, width: "100%", overflow: 'auto', height: "50%", display: isShow ? '':'none'}}> 
+        <img src="saliency/OECD_RUNNING_A_BUSINESS_BGD_SGP_TUR_ZAF_ZMB_000008_mdeam.png" style={{"max-width": "100%", height: "auto"}}/>
+    </div>
     </div>
   );
 };

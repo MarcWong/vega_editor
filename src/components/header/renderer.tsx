@@ -201,12 +201,12 @@ class Header extends React.PureComponent<PropsType, State> {
       </div>
     );
 
-    const optionsButton = (
-      <div className="header-button" onClick={this.openCommandPalette.bind(this)}>
-        <Terminal className="header-icon" />
-        {'Commands'}
-      </div>
-    );
+    // const optionsButton = (
+    //   <div className="header-button" onClick={this.openCommandPalette.bind(this)}>
+    //     <Terminal className="header-icon" />
+    //     {'Commands'}
+    //   </div>
+    // );
 
     const runOptions = this.props.manualParse ? [{label: 'Auto'}] : [{label: 'Manual'}];
 
@@ -319,16 +319,65 @@ class Header extends React.PureComponent<PropsType, State> {
     const exportContent = <ExportModal />;
     const shareContent = <ShareModal />;
 
+    // { {modeSwitcher} }
+    // <span ref="splitButton" className={splitClass}>
+    //   {runButton}
+    //   {autoRunToggle}
+    // </span>
+    // { {optionsButton} }
+
     return (
       <div className="app-header" role="banner">
         <section className="left-section">
-          {modeSwitcher}
-          <span ref="splitButton" className={splitClass}>
-            {runButton}
-            {autoRunToggle}
-          </span>
-          {optionsButton}
 
+        <PortalWithState
+            closeOnEsc
+            defaultOpen={this.props.showExample}
+            onOpen={() => {
+              const node = ReactDOM.findDOMNode(this.examplePortal.current) as Element;
+              node.scrollTop = this.props.lastPosition;
+              this.setState({showVega: false});
+              node.addEventListener('scroll', () => {
+                this.setState({
+                  scrollPosition: node.scrollTop,
+                });
+              });
+            }}
+            onClose={() => {
+              this.props.setScrollPosition(this.state.scrollPosition);
+            }}
+          >
+            {({openPortal, closePortal, portal}) => [
+              <span key="0" onClick={openPortal}>
+                {examplesButton}
+              </span>,
+              portal(
+                <div className="modal-background" onClick={closePortal}>
+                  <div className="modal" onClick={(e) => e.stopPropagation()}>
+                    <div>
+                      <div className="button-groups">
+                        <div
+                          // onClick={() => {
+                          //   this.setState({showVega: false});
+                          //   const node = ReactDOM.findDOMNode(this.examplePortal.current) as Element;
+                          //   node.scrollTop = 0;
+                          // }}
+                        >
+                          tests
+                        </div>
+                      </div>
+                      <button className="close-button" onClick={closePortal}>
+                        <X />
+                      </button>
+                    </div>
+                    <div className="modal-body" ref={this.examplePortal}>
+                      {vegalite(closePortal)}
+                    </div>
+                  </div>
+                </div>
+              ),
+            ]}
+          </PortalWithState>
           { <PortalWithState closeOnEsc>
             {({openPortal, closePortal, portal}) => [
               <span key="0" onClick={openPortal}>
@@ -389,54 +438,6 @@ class Header extends React.PureComponent<PropsType, State> {
             ]}
           </PortalWithState> */}
 
-          <PortalWithState
-            closeOnEsc
-            defaultOpen={this.props.showExample}
-            onOpen={() => {
-              const node = ReactDOM.findDOMNode(this.examplePortal.current) as Element;
-              node.scrollTop = this.props.lastPosition;
-              this.setState({showVega: false});
-              node.addEventListener('scroll', () => {
-                this.setState({
-                  scrollPosition: node.scrollTop,
-                });
-              });
-            }}
-            onClose={() => {
-              this.props.setScrollPosition(this.state.scrollPosition);
-            }}
-          >
-            {({openPortal, closePortal, portal}) => [
-              <span key="0" onClick={openPortal}>
-                {examplesButton}
-              </span>,
-              portal(
-                <div className="modal-background" onClick={closePortal}>
-                  <div className="modal" onClick={(e) => e.stopPropagation()}>
-                    <div>
-                      <div className="button-groups">
-                        <div
-                          // onClick={() => {
-                          //   this.setState({showVega: false});
-                          //   const node = ReactDOM.findDOMNode(this.examplePortal.current) as Element;
-                          //   node.scrollTop = 0;
-                          // }}
-                        >
-                          tests
-                        </div>
-                      </div>
-                      <button className="close-button" onClick={closePortal}>
-                        <X />
-                      </button>
-                    </div>
-                    <div className="modal-body" ref={this.examplePortal}>
-                      {vegalite(closePortal)}
-                    </div>
-                  </div>
-                </div>
-              ),
-            ]}
-          </PortalWithState>
         </section>
 
         <section className="right-section">

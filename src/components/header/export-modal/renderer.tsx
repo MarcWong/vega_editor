@@ -21,6 +21,7 @@ interface State {
 class ExportModal extends React.PureComponent<Props, State> {
   constructor(props) {
     super(props);
+    console.log(props.view)
     this.state = {
       downloadVegaJSON: false,
       includeConfig: true,
