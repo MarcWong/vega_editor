@@ -6,7 +6,7 @@ import AspectRatioComponent from './aspectRatio-change';
 import TextChangeComponent from './text-change';
 import AxisChangeComponent from './axis-change';
 import HighlightChangeComponent from './highlight-change';
-import { Accordion, AccordionSummary, AccordionDetails, Typography } from '@mui/material';
+import { Accordion, AccordionSummary, AccordionDetails, Typography, Tabs, Tab, Box, BottomNavigation, BottomNavigationAction, Paper } from '@mui/material';
 import ExpandIcon from '@mui/icons-material/Expand';
 import { createLogger } from 'browser-bunyan';
 import { ConsoleFormattedStream } from 'browser-bunyan';
@@ -14,6 +14,12 @@ import { ConsoleRawStream } from 'browser-bunyan';
 import Button from '@mui/material/Button';
 import ColorArrayInput from './color-array-input';
 import LegendChangeComponent from './legend-change';
+import { filter } from 'd3-array';
+import TabPanel from '@mui/lab/TabPanel';
+import TabContext from '@mui/lab/TabContext';
+import DownloadIcon from '@mui/icons-material/Download';
+import UndoIcon from '@mui/icons-material/Undo';
+import RedoIcon from '@mui/icons-material/Redo';
 
 interface ControlSidebarProps {
     onParametersChange: (params: { [key: string]: string }) => void;
@@ -240,91 +246,76 @@ const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,edit
     return <div></div>
   }
 
-  return (
-    <div className="control-sidebar" style={{overflow: 'auto', height: '100%'}}>
-      <Accordion>
-        <AccordionSummary expandIcon={<ExpandIcon />} aria-controls="aspectRatio-content" id="aspectRatio-header">
-          <Typography>Aspect Ratio</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <AspectRatioComponent keyValue={accordingValues?.aspectRatio} 
-          updateEditorValue={updateEditorValue} getEditorValue={getEditorValue}/>
-        </AccordionDetails>
-      </Accordion>
+  const [value, setValue] = React.useState("0");
 
-      <Accordion>
-        <AccordionSummary expandIcon={<ExpandIcon />} aria-controls="colorArray-content" id="colorArray-header">
-          <Typography>Data Color Panel</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <ColorArrayInput keyValues={accordingValues?.ColorArray} getEditorValue={getEditorValue}
+  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+    setValue(newValue);
+  };
+
+  let tabList = [<Tab key={"0"} value="0" label="Aspect Ratio" />,<Tab value="1" key={"1"} label="Data Color Panel" />,<Tab value="2" key={"2"} label="Data Label Panel" />,
+          <Tab value="3" key={"3"} label="Axis Panel" />,<Tab value="4" key={"4"} label="Data Highlight Panel" />,
+          <Tab value="5" key={"5"} label="Data Order Panel" />,<Tab value="6" key={"6"} label="Legend Position" />]
+
+  let panelList = [<TabPanel key={"0"} value={"0"} >
+            <AspectRatioComponent keyValue={accordingValues?.aspectRatio} 
+            updateEditorValue={updateEditorValue} getEditorValue={getEditorValue}/>
+        </TabPanel>,<TabPanel key={"1"} value={"1"} >
+            <ColorArrayInput keyValues={accordingValues?.ColorArray} getEditorValue={getEditorValue}
           updateEditorValue={updateEditorValue} defaultValues={accordingValues?.colorArray}
               choices={choices}/>
-        </AccordionDetails>
-      </Accordion>
-
-      <Accordion>
-        <AccordionSummary expandIcon={<ExpandIcon />} aria-controls="textChange-content" id="textChange-header">
-          <Typography>Data Label Panel</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <TextChangeComponent getEditorValue={getEditorValue} keyValues={accordingValues?.Text} updateEditorValue={updateEditorValue} />
-        </AccordionDetails>
-      </Accordion>
-
-      <Accordion>
-        <AccordionSummary expandIcon={<ExpandIcon />} aria-controls="axisChange-content" id="axisChange-header">
-          <Typography>Axis Panel</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <AxisChangeComponent keyValues={accordingValues?.Axis} getEditorValue={getEditorValue} updateEditorValue={updateEditorValue} defaultValues={accordingValues?.axisChange}/>
-          <SwapButton onSwap={exchangeAxes} />
-        </AccordionDetails>
-      </Accordion>
-
-      <Accordion>
-        <AccordionSummary expandIcon={<ExpandIcon />} aria-controls="highlightChange-content" id="highlightChange-header">
-          <Typography>Data Highlight Panel</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <HighlightChangeComponent keyValues={accordingValues?.Condition} updateEditorValue={updateEditorValue} getEditorValue={getEditorValue}
+        </TabPanel>,<TabPanel key={"2"} value={"2"} >
+            <TextChangeComponent getEditorValue={getEditorValue} keyValues={accordingValues?.Text} updateEditorValue={updateEditorValue} />
+        </TabPanel>,
+          <TabPanel key={"3"} value={"3"} >
+            <AxisChangeComponent swap={exchangeAxes} keyValues={accordingValues?.Axis} getEditorValue={getEditorValue} updateEditorValue={updateEditorValue} defaultValues={accordingValues?.axisChange}/>
+        </TabPanel>,<TabPanel key={"4"} value={"4"} >
+            <HighlightChangeComponent keyValues={accordingValues?.Condition} updateEditorValue={updateEditorValue} getEditorValue={getEditorValue}
               choices={choices}/>
-        </AccordionDetails>
-      </Accordion>
+        </TabPanel>,
+          <TabPanel key={"5"} value={"5"} >
+            <OrderInput entities={accordingValues?.orderTypes}  updateEditorValue={updateEditorValue} getEditorValue={getEditorValue} keyValues={accordingValues?.Order}/>
+        </TabPanel>,<TabPanel key={"6"} value={"6"} >
+            <LegendChangeComponent updateEditorValue={updateEditorValue} getEditorValue={getEditorValue}/>
+        </TabPanel>]
 
-      <Accordion>
-        <AccordionSummary expandIcon={<ExpandIcon />} aria-controls="dataOrder-content" id="dataOrder-header">
-          <Typography>Data Order Panel</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <OrderInput entities={accordingValues?.orderTypes}  updateEditorValue={updateEditorValue} getEditorValue={getEditorValue} keyValues={accordingValues?.Order}/>
-        </AccordionDetails>
-      </Accordion>
+  let filterValues = [accordingValues?.aspectRatio?.initial!== undefined, accordingValues?.ColorArray?.colors?.length > 0, 
+          accordingValues?.Text?.initial!== undefined,
+          accordingValues?.Axis?.initial!== undefined, accordingValues?.Condition?.initial!== undefined, accordingValues?.Order!== undefined, 
+          getEditorValue("vconcat.0.layer.0.encoding.color.legend")?.length > 0]
 
-      <Accordion>
-        <AccordionSummary expandIcon={<ExpandIcon />} aria-controls="aspectRatio-content" id="aspectRatio-header">
-          <Typography>Legend Position</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <LegendChangeComponent updateEditorValue={updateEditorValue} getEditorValue={getEditorValue}/>
-        </AccordionDetails>
-      </Accordion>
+  function renderTabs(){
+    return tabList.filter((t, i) => filterValues[i])
+  }
 
-      <Button variant="contained" color="primary" onClick={downloadLogs}>
-        Download Logs
-      </Button>
+  function renderTabPanels(){
+    console.log(accordingValues)
+    return panelList.filter((t, i) => filterValues[i])
+  }
 
-      <Button variant="contained" color="primary" onClick={dowloadJson}>
-        Download Json
-      </Button>
-
-      <Button variant="contained" color="primary" onClick={undo}>
-        Undo
-      </Button>
-
-      <Button variant="contained" color="primary" onClick={redo}>
-        Redo
-      </Button>
+  return (
+    <div className="control-sidebar" style={{width: "40%", height: '100%'}}>
+      <div style={{width: "100%",}}>
+        <Box sx={{ borderBottom: 1, borderColor: 'divider', height:"5%"}}>
+          <Tabs value={value} onChange={handleChange} aria-label="scrollable prevent basic tabs example" variant="scrollable" scrollButtons="auto">
+            {renderTabs()}
+          </Tabs>
+        </Box>
+      </div>
+      <div style={{width: "100%", overflow: 'auto', height: "85%"}}>  
+        <TabContext value={value}>
+          {renderTabPanels()}
+        </TabContext>
+        <Paper sx={{ position: 'fixed', bottom: 0, width: "40%" }} elevation={3}>
+          <BottomNavigation
+            showLabels
+          >
+            <BottomNavigationAction color="primary" icon={<DownloadIcon/>} label="Logs" onClick={downloadLogs}/>
+            <BottomNavigationAction color="primary" icon={<DownloadIcon/>} label="Json" onClick={dowloadJson} />
+            <BottomNavigationAction color="primary" icon={<UndoIcon/>} onClick={undo}/>
+            <BottomNavigationAction color="primary" icon={<RedoIcon/>} onClick={redo}/>
+          </BottomNavigation>
+        </Paper>
+      </div>
 
 
     </div>

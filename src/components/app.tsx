@@ -184,8 +184,8 @@ class App extends React.PureComponent<PropsType> {
         >
           <SplitPane
             split="vertical"
-            minSize={300}
-            defaultSize={Math.min(this.w * 0.4, 800)}
+            minSize={0}
+            defaultSize={/*Math.min(this.w * 0.4, 800)*/0}
             pane1Style={{display: 'flex'}}
             className="main-pane"
             pane2Style={{overflow: 'scroll'}}

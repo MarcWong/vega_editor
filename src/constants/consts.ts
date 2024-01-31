@@ -25,7 +25,7 @@ export const NAMES = {
 export const LAYOUT = {
   DebugPaneSize: 200,
   HeaderHeight: 60,
-  MinPaneSize: 30,
+  MinPaneSize: 0,
 };
 
 export const SCHEMA = {

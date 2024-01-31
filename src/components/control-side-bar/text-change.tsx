@@ -1,11 +1,23 @@
 import React, {useState,useEffect} from 'react';
-import { Box } from '@mui/material';
+import { Box, Checkbox, FormControl, FormControlLabel, FormLabel, Grid, IconButton, Paper, RadioGroup, Typography } from '@mui/material';
 import SizeInput from './components/size-input';
 import ColorInput from './components/color-input';
 import SelectInput from './components/select-input';
 import CheckboxInput from './components/check-box-input';
 import RangeInput from './components/range-input';
 import { CheckBox } from '@mui/icons-material';
+import FormatBoldIcon from '@mui/icons-material/FormatBold';
+import FormatItalicIcon from '@mui/icons-material/FormatItalic';
+import FormatClearIcon from '@mui/icons-material/FormatClear';
+import FormatColorTextIcon from '@mui/icons-material/FormatColorText';
+import TextIncreaseIcon from '@mui/icons-material/TextIncrease';
+import TextDecreaseIcon from '@mui/icons-material/TextDecrease';
+import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
+import ArrowRightIcon from '@mui/icons-material/ArrowRight';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
+import RotateLeftIcon from '@mui/icons-material/RotateLeft';
+import RotateRightIcon from '@mui/icons-material/RotateRight';
 
 const defaultInitial= {
   "textColor": "#000000",
@@ -68,7 +80,16 @@ const TextChangeComponent=({keyValues,updateEditorValue,getEditorValue})=>{
     return null;
    }
 
-  let {initial}=keyValues;
+  let {initial} = keyValues;
+
+  const [changeFormat, setStyle] = React.useState(0);
+
+
+  const [textSize, setTextSize] = React.useState(initial.textFontSize.init);
+  const [dx, setDX] = React.useState(getEditorValue(TEXT_DX_PATH));
+  const [dy, setDY] = React.useState(getEditorValue(TEXT_DY_PATH));
+  const [angle, setAngle] = React.useState(getEditorValue(TEXT_ANGLE_PATH));
+
 
   if(!initial){
     initial=defaultInitial;
@@ -93,18 +114,22 @@ const TextChangeComponent=({keyValues,updateEditorValue,getEditorValue})=>{
     };
 
   const handleAngleChange = (newAngle: number) => {
+    setAngle(newAngle);
     updateEditorValue(TEXT_ANGLE_PATH, newAngle);
   };
 
   const handleDxChange = (newDx: number) => {
+    setDX(newDx);
       updateEditorValue(TEXT_DX_PATH, newDx);
   };
 
   const handleDyChange = (newDy: number) => {
+    setDY(newDy);
       updateEditorValue(TEXT_DY_PATH, newDy);
   };
 
     const handleFontSize= (newFontSize: number) => {
+        setTextSize(newFontSize);
         updateEditorValue(TEXT_FONT_SIZE_PATH, newFontSize);
     };
 
@@ -113,6 +138,7 @@ const TextChangeComponent=({keyValues,updateEditorValue,getEditorValue})=>{
     };
 
     const handleFontStyle= (newFontStyle: string) => {
+      console.log(newFontStyle)
         updateEditorValue(TEXT_FONT_STYLE_PATH, newFontStyle);
     }
 
@@ -124,43 +150,108 @@ const TextChangeComponent=({keyValues,updateEditorValue,getEditorValue})=>{
       }
     }
 
+    /**<CheckboxInput label="TextOpacity" initialChecked={true} onCheckChange={(e) => handleTextOpacityChange(e)} /> */
+
   return (
   <Box m={2}> {/* Added margin */}
+    <Paper sx={{ width: "100%", alignItems: "center", textAlign: "center", marginBottom:"12px" }} elevation={3}> 
+        <Typography variant="h6">Appearance</Typography>
+    </Paper>
     <Box mb={2}> {/* Added bottom margin */}
-      <ColorInput label="Text Color" initialColor={getEditorValue(TEXT_COLOR_PATH)} onColorChange={handleTextColor} />
+      <Grid container spacing={2} style={{alignItems: "center", textAlign: "center"}}>
+          <Grid item xs={2} style={{alignItems: "center", textAlign: "center"}}>
+              <ColorInput girdsize={1} label={<FormatColorTextIcon/>} initialColor={getEditorValue(TEXT_COLOR_PATH)} onColorChange={handleTextColor} />
+          </Grid>
+          <Grid item xs={4} style={{ alignItems: "center", textAlign: "center", display:"flex"}}>
+            <div style={{margin:"5px"}} >
+              <SizeInput size={textSize} label="Size" onSizeChange={handleFontSize} min={initial.textFontSize.min} 
+              max={initial.textFontSize.max} step={initial.textFontSize.step} />
+              </div>
+              <IconButton onClick={() => handleFontSize(textSize + 1)}>
+                <TextIncreaseIcon />
+              </IconButton>
+              <IconButton onClick={() => handleFontSize(textSize - 1)}>
+                <TextDecreaseIcon />
+              </IconButton>
+              
+          </Grid>
+          <Grid item xs={4} style={{alignItems: "center", textAlign: "center"}}>
+                <Checkbox
+                                          checked={changeFormat === 0}
+                                          onChange={() => {
+                                            setStyle(0);
+                                            handleFontStyle("normal")
+                                          }}
+                                          icon={<FormatClearIcon />}
+                                          checkedIcon={<FormatClearIcon />}
+                                        />
+                <Checkbox
+                                          checked={changeFormat=== 1}
+                                          onChange={() => {
+                                            setStyle(1);
+                                            handleFontStyle("oblique")
+                                          }}
+                                          icon={<FormatBoldIcon />}
+                                          checkedIcon={<FormatBoldIcon />}
+                                        />
+                <Checkbox
+                                          checked={changeFormat=== 2}
+                                          onChange={() => {
+                                            setStyle(2);
+                                            handleFontStyle("italic")
+                                          }}
+                                          icon={<FormatItalicIcon />}
+                                          checkedIcon={<FormatItalicIcon />}
+                                        />
+          </Grid>
+          <Grid item xs={2} style={{alignItems: "center", textAlign: "center"}}>
+                <SizeInput size={500} label="Weight" onSizeChange={handleFontWeight} min={100} max={900} step={100} />
+          </Grid>
+          
+          
+      </Grid>
     </Box>
-    <Box mb={2}>
-      <SizeInput size={getEditorValue(TEXT_DX_PATH)} label="Dx" onSizeChange={handleDxChange} min={initial?.textDx?.min} 
-      max={initial?.textDx?.max} step={initial?.textDx?.step} />
-    </Box>
-    <Box mb={2}>
-      <SizeInput size={getEditorValue(TEXT_DY_PATH)} label="Dy" onSizeChange={handleDyChange} min={initial?.textDy?.min}
-       max={initial?.textDy?.max} step={initial?.textDy?.step} />
-    </Box>
-    <Box mb={2}>
-      <SizeInput size={11} label="Font Size" onSizeChange={handleFontSize} min={2} 
-      max={40} step={1} />
-    </Box>
-    <Box mb={2}>
-      <SelectInput
-          options={["normal", "italic", "oblique"]}
-          label="Font Style"
-          selectedOption={"normal"}
-          onOptionSelect={handleFontStyle}
-      />
-    </Box>
-    <Box mb={2}>
-      <SizeInput size={500} label="Font Weight" onSizeChange={handleFontWeight} min={100} max={900} step={100} />
-    </Box>
-
-    <Box mb={2}>
-      <CheckboxInput label="TextOpacity" initialChecked={true} onCheckChange={(e) => handleTextOpacityChange(e)} />
-    </Box>
-
-    <Box mb={2}>
-      <SizeInput size={getEditorValue(TEXT_ANGLE_PATH)} label="Angle" onSizeChange={handleAngleChange} min={initial?.textAngle?.min} 
-      max={initial?.textAngle?.max} step={initial?.textAngle?.step} />
-    </Box>
+    <Paper sx={{ width: "100%", alignItems: "center", textAlign: "center", marginBottom:"12px" }} elevation={3}> 
+        <Typography variant="h6">Position</Typography>
+    </Paper>
+    <Grid container spacing={2} style={{alignItems: "center", textAlign: "center"}}>
+          <Grid item xs={4} style={{alignItems: "center", textAlign: "center"}}>
+            <div style={{margin:"5px"}} >
+            <SizeInput size={dx} label="Dx" onSizeChange={handleDxChange} min={initial?.textDx?.min} 
+                  max={initial?.textDx?.max} step={initial?.textDx?.step} />
+            </div>
+            <IconButton onClick={() => handleDxChange(dx - 1)}>
+                <ArrowLeftIcon />
+              </IconButton>
+            <IconButton onClick={() => handleDxChange(dx + 1)}>
+                <ArrowRightIcon />
+              </IconButton>
+          </Grid>
+          <Grid item xs={4} style={{alignItems: "center", textAlign: "center"}}>
+            <div style={{margin:"5px"}} >
+            <SizeInput size={dy} label="Dy" onSizeChange={handleDyChange} min={initial?.textDy?.min}
+                max={initial?.textDy?.max} step={initial?.textDy?.step} />
+            </div>
+            <IconButton onClick={() => handleDyChange(dy - initial?.textDy?.step)}>
+                <ArrowDropDownIcon />
+              </IconButton>
+            <IconButton onClick={() => handleDyChange(dy + initial?.textDy?.step)}>
+                <ArrowDropUpIcon />
+              </IconButton>
+          </Grid>
+          <Grid item xs={4} style={{alignItems: "center", textAlign: "center"}}>
+            <div style={{margin:"5px"}} >
+            <SizeInput size={angle} label="Angle" onSizeChange={handleAngleChange} min={initial?.textAngle?.min} 
+              max={initial?.textAngle?.max} step={initial?.textAngle?.step} />
+            </div>
+            <IconButton onClick={() => handleAngleChange(angle - initial?.textAngle?.step)}>
+                <RotateLeftIcon />
+              </IconButton>
+            <IconButton onClick={() => handleAngleChange(angle + initial?.textAngle?.step)}>
+                <RotateRightIcon />
+              </IconButton>
+          </Grid>
+    </Grid>
   
   </Box>
   )

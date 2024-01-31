@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import SizeInput from './components/size-input';
-import { Box } from  '@mui/material';
+import { Box, Paper, Slider, Typography } from  '@mui/material';
 
 
     // path  "height": "vconcat.0.height",
@@ -15,7 +15,7 @@ const AspectRatioComponent = ({ keyValue, updateEditorValue,getEditorValue }) =>
   // const [aspectRatio, setAspectRatio] = useState( getEditorValue(PATH_WIDTH) / getEditorValue(PATH_HEIGHT));
   const aspectRatio = getEditorValue(PATH_WIDTH) / getEditorValue(PATH_HEIGHT);
 
-  const handleAspectRatioChange = (newAspectRatio: number) => {
+  const handleAspectRatioChange = (e:Event, newAspectRatio: number) => {
     updateEditorValue(PATH_HEIGHT, getEditorValue(PATH_WIDTH)/ newAspectRatio);
   };
 
@@ -24,9 +24,31 @@ const AspectRatioComponent = ({ keyValue, updateEditorValue,getEditorValue }) =>
   // }, [aspectRatio]);
 
   return (
-    <Box m={2}>
-      <SizeInput size={aspectRatio} label="Aspect Ratio" onSizeChange={handleAspectRatioChange}
-       step={step} min={min} max={max} />
+    <Box m={3} sx={{ width: "90%" }}>
+      <Paper sx={{ width: "100%", alignItems: "center", textAlign: "center", marginBottom:"12px" }} elevation={3}> 
+          <Typography variant="h6">Aspect Ratio</Typography>
+      </Paper>
+      <Slider
+        marks
+        step={step}
+        defaultValue={aspectRatio}
+        valueLabelDisplay="auto"
+        min={min}
+        max={max}
+        onChange={handleAspectRatioChange}
+      />
+      <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+        <Typography
+          variant="body2"
+        >
+          {min}
+        </Typography>
+        <Typography
+          variant="body2"
+        >
+          {max}
+        </Typography>
+      </Box>
     </Box>
   );
 };
