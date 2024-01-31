@@ -12,8 +12,7 @@ node_modules
 npm-debug.log*
 package-lock.json
 prettier.config.js
-public/data/
-public/examples/
+public/
 stats.json
 yarn-debug.log*
 yarn-error.log*

@@ -1,244 +1,220 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "config": {
-        "view": {
-            "continuousWidth": 400
-        }
-    },
-    "vconcat": [
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "config": {
+    "view": {
+      "continuousWidth": 400
+    }
+  },
+  "vconcat": [
+    {
+      "width": 400,
+      "height": 178.57142857142858,
+      "title": {
+        "text": "Americans and Germans differ over importance of U.S. military bases in Germany to national security.",
+        "subtitle": "% who think U.S. military bases in Germany are for their country's national security.",
+        "anchor": "start"
+      },
+      "data": {
+        "values": [
+          {
+            "Entity": "Germany",
+            "Not important at all": -15,
+            "Not too important": -30,
+            "Somewhat important": 37,
+            "Very important": 15
+          },
+          {
+            "Entity": "U.S.",
+            "Not important at all": -5,
+            "Not too important": -8,
+            "Somewhat important": 29,
+            "Very important": 56
+          }
+        ]
+      },
+      "transform": [
         {
-            "width": 400,
-            "height": 178.57142857142858,
-            "title": {
-                "text": "Americans and Germans differ over importance of U.S. military bases in Germany to national security.",
-                "subtitle": "% who think U.S. military bases in Germany are for their country's national security.",
-                "anchor": "start"
-            },
-            "data": {
-                "values": [
-                    {
-                        "Entity": "Germany",
-                        "Not important at all": -15,
-                        "Not too important": -30,
-                        "Somewhat important": 37,
-                        "Very important": 15
-                    },
-                    {
-                        "Entity": "U.S.",
-                        "Not important at all": -5,
-                        "Not too important": -8,
-                        "Somewhat important": 29,
-                        "Very important": 56
-                    }
-                ]
-            },
-            "transform": [
-                {
-                    "fold": [
-                        "Not important at all",
-                        "Not too important",
-                        "Somewhat important",
-                        "Very important"
-                    ],
-                    "as": [
-                        "category",
-                        "value"
-                    ]
-                },
-                {
-                    "calculate": "{'Not important at all': 1, 'Not too important': 2, 'Somewhat important': 3, 'Very important': 4}[datum.category]",
-                    "as": "order"
-                },
-                {
-                    "calculate": "abs(datum.value)",
-                    "as": "abs_value"
-                }
-            ],
-            "encoding": {
-                "y": {
-                    "field": "Entity",
-                    "type": "ordinal",
-                    "axis": {
-                        "orient": "left",
-                        "offset": 0,
-                        "position": 0,
-                        "domain": true,
-                        "labels": true,
-                        "labelAlign": "center",
-                        "labelAngle": 0,
-                        "labelBaseline": "alphabetic",
-                        "labelBound": false,
-                        "labelColor": "black",
-                        "labelFlush": true,
-                        "labelFlushOffset": 0,
-                        "title": "Entity",
-                        "titleAlign": "center",
-                        "titleAnchor": "middle",
-                        "titleAngle": -90,
-                        "titleBaseline": "middle",
-                        "titleColor": "black",
-                        "grid": true,
-                        "gridCap": "butt",
-                        "gridColor": "black",
-                        "gridOpacity": 0,
-                        "gridWidth": 0,
-                        "tickCount": 10
-                    }
-                },
-                "x": {
-                    "field": "value",
-                    "type": "quantitative",
-                    "scale": {
-                        "domain": [
-                            -50,
-                            100
-                        ]
-                    },
-                    "axis": {
-                        "tickCount": 13,
-                        "orient": "bottom",
-                        "offset": 0,
-                        "position": 0,
-                        "domain": true,
-                        "labels": true,
-                        "labelAlign": "center",
-                        "labelAngle": 0,
-                        "labelBaseline": "alphabetic",
-                        "labelBound": false,
-                        "labelColor": "black",
-                        "labelFlush": true,
-                        "labelFlushOffset": 0,
-                        "title": "good",
-                        "titleAlign": "center",
-                        "titleAnchor": "middle",
-                        "titleAngle": 0,
-                        "titleBaseline": "middle",
-                        "titleColor": "black",
-                        "grid": true,
-                        "gridCap": "square",
-                        "gridColor": "#9b7d7d",
-                        "gridOpacity": 0.3,
-                        "gridWidth": 3
-                    }
-                },
-                "color": {
-                    "field": "category",
-                    "type": "nominal",
-                    "scale": {
-                        "domain": [
-                            "Not important at all",
-                            "Not too important",
-                            "Somewhat important",
-                            "Very important"
-                        ],
-                        "range": [
-                            "darkblue",
-                            "lightblue",
-                            "lightgreen",
-                            "darkgreen"
-                        ]
-                    }
-                },
-                "order": {
-                    "field": "order",
-                    "type": "ordinal"
-                },
-                "opacity": {
-                    "value": 1
-                }
-            },
-            "layer": [
-                {
-                    "mark": {
-                        "type": "bar",
-                        "cornerRadius": 0,
-                        "width": {
-                            "band": 1
-                        },
-                        "height": {
-                            "band": 0.9
-                        },
-                        "orient": "horizontal",
-                        "align": "left",
-                        "baseline": "top",
-                        "binSpacing": "0"
-                    }
-                },
-                {
-                    "mark": {
-                        "type": "text",
-                        "dx": 16,
-                        "dy": -5,
-                        "xOffset": -9,
-                        "yOffset": 5,
-                        "angle": 47,
-                        "align": "right",
-                        "baseline": "top",
-                        "font": "serif",
-                        "fontSize": 25,
-                        "fontStyle": "normal",
-                        "fontWeight": 800,
-                        "limit": 0
-                    },
-                    "encoding": {
-                        "text": {
-                            "field": "abs_value",
-                            "type": "quantitative"
-                        },
-                        "x": {
-                            "field": "value",
-                            "type": "quantitative"
-                        },
-                        "color": {
-                            "value": "white"
-                        }
-                    }
-                },
-                {
-                    "data": {
-                        "values": [
-                            {
-                                "dummy": 0
-                            }
-                        ]
-                    },
-                    "mark": {
-                        "type": "rule",
-                        "strokeDash": [
-                            2,
-                            2
-                        ],
-                        "size": 2
-                    },
-                    "encoding": {
-                        "x": {
-                            "datum": 10
-                        }
-                    }
-                }
-            ]
+          "fold": ["Not important at all", "Not too important", "Somewhat important", "Very important"],
+          "as": ["category", "value"]
         },
         {
-            "width": 400,
-            "height": 100,
-            "data": {
-                "values": [
-                    {
-                        "text": "Footer text goes here"
-                    }
-                ]
-            },
-            "mark": {
-                "type": "text",
-                "align": "center",
-                "baseline": "middle"
-            },
-            "encoding": {
-                "text": {
-                    "field": "text",
-                    "type": "nominal"
-                }
-            }
+          "calculate": "{'Not important at all': 1, 'Not too important': 2, 'Somewhat important': 3, 'Very important': 4}[datum.category]",
+          "as": "order"
+        },
+        {
+          "calculate": "abs(datum.value)",
+          "as": "abs_value"
         }
-    ]
+      ],
+      "encoding": {
+        "y": {
+          "field": "Entity",
+          "type": "ordinal",
+          "axis": {
+            "orient": "left",
+            "offset": 0,
+            "position": 0,
+            "domain": true,
+            "labels": true,
+            "labelAlign": "center",
+            "labelAngle": 0,
+            "labelBaseline": "alphabetic",
+            "labelBound": false,
+            "labelColor": "black",
+            "labelFlush": true,
+            "labelFlushOffset": 0,
+            "title": "Entity",
+            "titleAlign": "center",
+            "titleAnchor": "middle",
+            "titleAngle": -90,
+            "titleBaseline": "middle",
+            "titleColor": "black",
+            "grid": true,
+            "gridCap": "butt",
+            "gridColor": "black",
+            "gridOpacity": 0,
+            "gridWidth": 0,
+            "tickCount": 10
+          }
+        },
+        "x": {
+          "field": "value",
+          "type": "quantitative",
+          "scale": {
+            "domain": [-50, 100]
+          },
+          "axis": {
+            "tickCount": 13,
+            "orient": "bottom",
+            "offset": 0,
+            "position": 0,
+            "domain": true,
+            "labels": true,
+            "labelAlign": "center",
+            "labelAngle": 0,
+            "labelBaseline": "alphabetic",
+            "labelBound": false,
+            "labelColor": "black",
+            "labelFlush": true,
+            "labelFlushOffset": 0,
+            "title": "good",
+            "titleAlign": "center",
+            "titleAnchor": "middle",
+            "titleAngle": 0,
+            "titleBaseline": "middle",
+            "titleColor": "black",
+            "grid": true,
+            "gridCap": "square",
+            "gridColor": "#9b7d7d",
+            "gridOpacity": 0.3,
+            "gridWidth": 3
+          }
+        },
+        "color": {
+          "field": "category",
+          "type": "nominal",
+          "scale": {
+            "domain": ["Not important at all", "Not too important", "Somewhat important", "Very important"],
+            "range": ["darkblue", "lightblue", "lightgreen", "darkgreen"]
+          }
+        },
+        "order": {
+          "field": "order",
+          "type": "ordinal"
+        },
+        "opacity": {
+          "value": 1
+        }
+      },
+      "layer": [
+        {
+          "mark": {
+            "type": "bar",
+            "cornerRadius": 0,
+            "width": {
+              "band": 1
+            },
+            "height": {
+              "band": 0.9
+            },
+            "orient": "horizontal",
+            "align": "left",
+            "baseline": "top",
+            "binSpacing": "0"
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "dx": 16,
+            "dy": -5,
+            "xOffset": -9,
+            "yOffset": 5,
+            "angle": 47,
+            "align": "right",
+            "baseline": "top",
+            "font": "serif",
+            "fontSize": 25,
+            "fontStyle": "normal",
+            "fontWeight": 800,
+            "limit": 0
+          },
+          "encoding": {
+            "text": {
+              "field": "abs_value",
+              "type": "quantitative"
+            },
+            "x": {
+              "field": "value",
+              "type": "quantitative"
+            },
+            "color": {
+              "value": "white"
+            }
+          }
+        },
+        {
+          "data": {
+            "values": [
+              {
+                "dummy": 0
+              }
+            ]
+          },
+          "mark": {
+            "type": "rule",
+            "strokeDash": [2, 2],
+            "size": 2
+          },
+          "encoding": {
+            "x": {
+              "datum": 10
+            }
+          }
+        }
+      ]
+    },
+    {
+      "width": 400,
+      "height": 100,
+      "data": {
+        "values": [
+          {
+            "text": "Footer text goes here"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "middle"
+      },
+      "encoding": {
+        "text": {
+          "field": "text",
+          "type": "nominal"
+        }
+      }
+    }
+  ]
 }

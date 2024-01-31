@@ -303,14 +303,14 @@ const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,edit
         <SelectInput options={[...entityTypes,"none"]} label="Entity" selectedOption={"none"} onOptionSelect={(e)=>setCurrentEntityType(e)} />
         <SelectInput options={[...choices,"none"]} label="Choice" selectedOption={"none"} onOptionSelect={(e)=>setCurrentChoice(e)} />
 
-        <ColorInput label="Chosen Color" initialColor={"aqua"} onColorChange={handleChosenColorChange} />
-        <ColorInput label="Default Color" initialColor={"aqua"} onColorChange={handleDefaultColorChange} />
+        <ColorInput label="Highlight Color" initialColor={"aqua"} onColorChange={handleChosenColorChange} />
+        <ColorInput label="Global Color" initialColor={"aqua"} onColorChange={handleDefaultColorChange} />
 
-        <RangeInput min={20} max={100} step={5} label="Chosen Size" initialValue={50} onValueChange={handleChosenSizeChange} />
-        <RangeInput min={20} max={100} step={5} label="Default Size" initialValue={50} onValueChange={handleDefaultSizeChange} />
+        <RangeInput min={20} max={100} step={5} label="Highlight Size" initialValue={50} onValueChange={handleChosenSizeChange} />
+        <RangeInput min={20} max={100} step={5} label="Global Size" initialValue={50} onValueChange={handleDefaultSizeChange} />
 
-        <RangeInput min={0} max={1} step={0.1} label="Chosen Opacity" initialValue={1} onValueChange={handleChosenOpacityChange} />
-        <RangeInput min={0} max={1} step={0.1} label="Default Opacity" initialValue={1} onValueChange={handleDefaultOpacityChange} />
+        <RangeInput min={0} max={1} step={0.1} label="Highlight Data Opacity" initialValue={1} onValueChange={handleChosenOpacityChange} />
+        <RangeInput min={0} max={1} step={0.1} label="Global Opacity" initialValue={1} onValueChange={handleDefaultOpacityChange} />
 
         <SwapButton onSwap={exchangeAxes} />
         <OrderInput entities={entityTypes} onOrderChange={(e)=>console.log(e)} />

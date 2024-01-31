@@ -180,12 +180,12 @@ class Header extends React.PureComponent<PropsType, State> {
       </div>
     );
 
-    // const exportButton = (
-    //   <div className="header-button">
-    //     <ExternalLink className="header-icon" />
-    //     {'Export'}
-    //   </div>
-    // );
+    const exportButton = (
+      <div className="header-button">
+        <ExternalLink className="header-icon" />
+        {'Export'}
+      </div>
+    );
 
     // const shareButton = (
     //   <div className="header-button">
@@ -329,7 +329,7 @@ class Header extends React.PureComponent<PropsType, State> {
           </span>
           {optionsButton}
 
-          {/* <PortalWithState closeOnEsc>
+          { <PortalWithState closeOnEsc>
             {({openPortal, closePortal, portal}) => [
               <span key="0" onClick={openPortal}>
                 {exportButton}
@@ -347,7 +347,7 @@ class Header extends React.PureComponent<PropsType, State> {
                 </div>
               ),
             ]}
-          </PortalWithState> */}
+          </PortalWithState> }
 
           {/* <PortalWithState closeOnEsc>
             {({openPortal, closePortal, portal}) => [

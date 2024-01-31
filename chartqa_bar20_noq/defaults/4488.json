@@ -53,15 +53,7 @@
           "axis": {
             "grid": false
           },
-          "sort": [
-            "China",
-            "Russia",
-            "Germany",
-            "U.S.",
-            "India",
-            "France",
-            "UK"
-          ]
+          "sort": ["China", "Russia", "Germany", "U.S.", "India", "France", "UK"]
         },
         "x": {
           "field": "Importance",
@@ -71,10 +63,7 @@
             "tickCount": 5
           },
           "scale": {
-            "domain": [
-              0,
-              100
-            ]
+            "domain": [0, 100]
           }
         },
         "opacity": {

@@ -178,31 +178,6 @@ const HighlightComponent=({keyValues,updateEditorValue,choices,getEditorValue})=
                     )
                 })}
             </Box>
-    
-            <Accordion>
-                <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel1a-content"
-                    id="panel1a-header"
-                >
-                    <Typography>Chosen Settings</Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                    <Box>
-                        <Box mb={2}>
-                            <ColorInput label="Chosen Color" initialColor={initial?.chooseColorChange?.conditionColor} onColorChange={handleChosenColorChange} />
-                        </Box>
-                        <Box mb={2}>
-                            <SizeInput size={initial?.chooseSizeChange?.conditionSize} label="choosen size" onSizeChange={(e) => handleChosenSizeChange(e)} min={initial?.chooseSizeChange?.min} max={initial?.chooseSizeChange?.max}/>
-                        </Box>
-                        <Box mb={2}>
-                            <RangeInput min={0} max={1} step={0.1} label="Chosen Opacity" initialValue={1} onValueChange={handleChosenOpacityChange} />
-                        </Box>
-                    </Box>
-                </AccordionDetails>
-            </Accordion>
-    
-            
             <Accordion>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
@@ -214,36 +189,44 @@ const HighlightComponent=({keyValues,updateEditorValue,choices,getEditorValue})=
                 <AccordionDetails>
                     <Box>
                         <Box mb={2}>
-                            <ColorInput label="Default Color" initialColor={initial?.chooseColorChange?.color} onColorChange={handleDefaultColorChange} />
+                            <ColorInput label="Data Color" initialColor={initial?.chooseColorChange?.color} onColorChange={handleDefaultColorChange} />
+                            <ColorInput label="Text Color" initialColor={initial?.chooseColorChange?.color||"000000"} onColorChange={handleTextDefaultColorChange} />
                         </Box>
                         <Box mb={2}>
-                            <SizeInput size={initial?.chooseSizeChange?.size||30} label="default size" onSizeChange={(e) => handleDefaultSizeChange(e)} min={initial?.chooseSizeChange?.min||10} max={initial?.chooseSizeChange?.max||100}/>
+                            <SizeInput size={initial?.chooseSizeChange?.size||30} label="Global Width" onSizeChange={(e) => handleDefaultSizeChange} min={initial?.chooseSizeChange?.min||10} max={initial?.chooseSizeChange?.max||100}/>
                         </Box>
                         <Box mb={2}>
-                            <RangeInput min={0} max={1} step={0.1} label="Default Opacity" initialValue={1} onValueChange={handleDefaultOpacityChange} />
+                            <RangeInput min={0} max={1} step={0.1} label="Global Opacity" initialValue={1} onValueChange={handleDefaultOpacityChange} />
                         </Box>
                     </Box>
                 </AccordionDetails>
             </Accordion>
-
             <Accordion>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel2a-content"
-                    id="panel2a-header"
+                    aria-controls="panel1a-content"
+                    id="panel1a-header"
                 >
-                    <Typography>Text highlight Settings</Typography>
+                    <Typography>Highlight Settings</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                     <Box>
                         <Box mb={2}>
-                            <ColorInput label="Default Color" initialColor={initial?.chooseColorChange?.color||"000000"} onColorChange={handleTextDefaultColorChange} />
-                            <ColorInput label="Chosen Color" initialColor={initial?.chooseColorChange?.color||"000000"} onColorChange={handleTextChosenColorChange} />
-
+                            <ColorInput label="Data Color" initialColor={initial?.chooseColorChange?.conditionColor} onColorChange={handleChosenColorChange} />
+                            <ColorInput label="Text Color" initialColor={initial?.chooseColorChange?.color||"000000"} onColorChange={handleTextChosenColorChange} />
+                        </Box>
+                        
+                        <Box mb={2}>
+                            <SizeInput size={initial?.chooseSizeChange?.conditionSize} label="Highlight Width" onSizeChange={(e) => handleChosenSizeChange} min={initial?.chooseSizeChange?.min} max={initial?.chooseSizeChange?.max}/>
+                        </Box>
+                        <Box mb={2}>
+                            <RangeInput min={0} max={1} step={0.1} label="Highlight Opacity" initialValue={1} onValueChange={handleChosenOpacityChange} />
                         </Box>
                     </Box>
                 </AccordionDetails>
             </Accordion>
+
+
         </Box>
     )
 }
