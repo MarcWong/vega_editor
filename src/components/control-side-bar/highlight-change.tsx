@@ -4,7 +4,7 @@ import SizeInput from './components/size-input';
 import ColorInput from './components/color-input';
 import RangeInput from './components/range-input';
 import SelectInput from './components/select-input';
-import { Accordion, AccordionSummary, AccordionDetails, Typography, Paper, Grid, FormControlLabel, Checkbox, Slider } from '@mui/material';
+import { Accordion, AccordionSummary, AccordionDetails, Typography, Paper, Grid, FormControlLabel, Checkbox, Slider, Tooltip } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import HighlightIcon from '@mui/icons-material/Highlight';
 
@@ -172,7 +172,10 @@ const HighlightComponent=({keyValues,updateEditorValue,choices,getEditorValue})=
             <Paper sx={{ width: "100%", alignItems: "center", textAlign: "center", marginBottom:"8px" }} elevation={3}> 
                 <Typography variant="h6">Appearance</Typography>
             </Paper>
+            <Tooltip placement="top" title={"Select the data you want to highlight. Only one can be selected at a time"}>
+                    <div>
             <Grid container spacing={2} style={{alignItems: "center", textAlign: "center", marginBottom:"8px"}}>
+                
                 {choices.map((choice, index) => {
                     const {value, name} = choice;
                     return (
@@ -191,9 +194,14 @@ const HighlightComponent=({keyValues,updateEditorValue,choices,getEditorValue})=
                         })
                     )
                 })}
+                
             </Grid>
+            </div>
+                </Tooltip>
             <Grid container spacing={2} style={{ textAlign: "center", marginBottom:"8px"}}>
             <Grid item xs={6} style={{alignItems: "center", textAlign: "center"}}>
+                <Tooltip placement="top" title={"Adjust the color of the datarepresentation and text, widht, and opacity of the non-highlighted values"}>
+                    <div>
                 <Paper elevation={2} style={{ margin:"auto" }}>
                     <div style={{ margin:"3px" }}>
                     <Typography variant="h6">Lowlight</Typography>
@@ -222,8 +230,12 @@ const HighlightComponent=({keyValues,updateEditorValue,choices,getEditorValue})=
                         </div>
                     </Box>
                 </Paper>
+                </div>
+                </Tooltip>
             </Grid>
             <Grid item xs={6} style={{alignItems: "center", textAlign: "center"}}>
+                <Tooltip placement="top" title={"Adjust the color of the datarepresentation and text, widht, and opacity of the highlighted value"}>
+                    <div>
                 <Paper elevation={2} style={{ margin:"auto" }}>
                     <div style={{  margin:"3px" }}>
                     <Typography variant="h6">Highlight</Typography>
@@ -253,6 +265,8 @@ const HighlightComponent=({keyValues,updateEditorValue,choices,getEditorValue})=
                         </div>
                     </Box>
                 </Paper>
+                </div>
+                </Tooltip>
             </Grid>
             </Grid>
         </Box>

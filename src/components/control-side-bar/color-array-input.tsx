@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import ColorInput from './components/color-input';
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
 
 
 const COLOR_ARRAY_PATH = "vconcat.0.layer.0.encoding.color.scale.range";
@@ -28,16 +29,13 @@ const ColorArrayInput: React.FC<any> = ({keyValues,updateEditorValue,getEditorVa
     }
 
     return (
-        <Box m={2}>
-            {/* <Paper sx={{ width: "100%", alignItems: "center", textAlign: "center", marginBottom:"12px" }} elevation={3}> 
-                <Typography variant="h6">Values</Typography>
-            </Paper> */}
+        <Grid container spacing={1} style={{alignItems: "center", textAlign: "center", marginBottom:"8px"}}>
             {colors.map((color, index) => (
-                <Box key={index} mb={2}>
-                    <ColorInput gridsize={4} label={DOMAINS[index] + ":"} initialColor={color} onColorChange={(newColor) => handleColorChange(newColor, index)} />
-                </Box>
+                <Grid key={index} item xs={6} style={{alignItems: "center", textAlign: "center"}}>
+                    <ColorInput gridsize={5} label={DOMAINS[index] + ":"} initialColor={color} onColorChange={(newColor) => handleColorChange(newColor, index)} />
+                </Grid>
             ))}
-        </Box>
+        </Grid>
     );
 }
 

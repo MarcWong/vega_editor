@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from 'react';
-import { Box, Checkbox, FormControl, FormControlLabel, FormLabel, Grid, IconButton, Paper, RadioGroup, Typography } from '@mui/material';
+import { Box, Checkbox, FormControl, FormControlLabel, FormLabel, Grid, IconButton, Paper, RadioGroup, Tooltip, Typography } from '@mui/material';
 import SizeInput from './components/size-input';
 import ColorInput from './components/color-input';
 import SelectInput from './components/select-input';
@@ -152,6 +152,7 @@ const TextChangeComponent=({keyValues,updateEditorValue,getEditorValue})=>{
 
     /**<CheckboxInput label="TextOpacity" initialChecked={true} onCheckChange={(e) => handleTextOpacityChange(e)} /> */
 
+
   return (
   <Box m={2}> {/* Added margin */}
     <Paper sx={{ width: "100%", alignItems: "center", textAlign: "center", marginBottom:"12px" }} elevation={3}> 
@@ -160,22 +161,34 @@ const TextChangeComponent=({keyValues,updateEditorValue,getEditorValue})=>{
     <Box mb={2}> {/* Added bottom margin */}
       <Grid container spacing={2} style={{alignItems: "center", textAlign: "center"}}>
           <Grid item xs={2} style={{alignItems: "center", textAlign: "center"}}>
-              <ColorInput girdsize={1} label={<FormatColorTextIcon/>} initialColor={getEditorValue(TEXT_COLOR_PATH)} onColorChange={handleTextColor} />
+            <Tooltip placement="top" title={"Adjust fill color of the text inside the graphic"}>
+              <div>
+                <ColorInput girdsize={1} label={<FormatColorTextIcon/>} initialColor={getEditorValue(TEXT_COLOR_PATH)} onColorChange={handleTextColor} />
+              </div>
+            </Tooltip>
           </Grid>
           <Grid item xs={4} style={{ alignItems: "center", textAlign: "center", display:"flex"}}>
-            <div style={{margin:"5px"}} >
+              <Tooltip placement="top" title={"Adjust fontsize directly"}>
+              <div style={{margin:"5px"}} >
               <SizeInput size={textSize} label="Size" onSizeChange={handleFontSize} min={initial.textFontSize.min} 
               max={initial.textFontSize.max} step={initial.textFontSize.step} />
               </div>
-              <IconButton onClick={() => handleFontSize(textSize + 1)}>
-                <TextIncreaseIcon />
-              </IconButton>
+              </Tooltip>
+              <Tooltip placement="top" title={"Decrase Fontsizy by 1"}>
               <IconButton onClick={() => handleFontSize(textSize - 1)}>
                 <TextDecreaseIcon />
               </IconButton>
+              </Tooltip>
+              <Tooltip placement="top" title={"Incrase Fontsizy by 1"}>
+              <IconButton onClick={() => handleFontSize(textSize + 1)}>
+                <TextIncreaseIcon />
+              </IconButton>
+              </Tooltip>
               
           </Grid>
           <Grid item xs={4} style={{alignItems: "center", textAlign: "center"}}>
+            <Tooltip placement="top" title={"Change Fontstyle to normal - bold - italic"}>
+              <div>
                 <Checkbox
                                           checked={changeFormat === 0}
                                           onChange={() => {
@@ -202,10 +215,16 @@ const TextChangeComponent=({keyValues,updateEditorValue,getEditorValue})=>{
                                           }}
                                           icon={<FormatItalicIcon />}
                                           checkedIcon={<FormatItalicIcon />}
-                                        />
+                                        />                                           
+              </div>
+            </Tooltip>
           </Grid>
           <Grid item xs={2} style={{alignItems: "center", textAlign: "center"}}>
+            <Tooltip placement="top" title={"Change the Fontweight, so the width of the stroke changes"}>
+              <div>
                 <SizeInput size={500} label="Weight" onSizeChange={handleFontWeight} min={100} max={900} step={100} />
+              </div>
+            </Tooltip>
           </Grid>
           
           
@@ -216,6 +235,8 @@ const TextChangeComponent=({keyValues,updateEditorValue,getEditorValue})=>{
     </Paper>
     <Grid container spacing={2} style={{alignItems: "center", textAlign: "center"}}>
           <Grid item xs={4} style={{alignItems: "center", textAlign: "center"}}>
+            <Tooltip placement="top" title={"Change the x-position of the text. Dx is the difference between the determined position and the current one. Negative values shift the text to the left by the amount of pixel"}>
+              <div>
             <div style={{margin:"5px"}} >
             <SizeInput size={dx} label="Dx" onSizeChange={handleDxChange} min={initial?.textDx?.min} 
                   max={initial?.textDx?.max} step={initial?.textDx?.step} />
@@ -226,8 +247,12 @@ const TextChangeComponent=({keyValues,updateEditorValue,getEditorValue})=>{
             <IconButton onClick={() => handleDxChange(dx + 1)}>
                 <ArrowRightIcon />
               </IconButton>
+              </div>
+            </Tooltip>
           </Grid>
           <Grid item xs={4} style={{alignItems: "center", textAlign: "center"}}>
+            <Tooltip placement="top" title={"Change the y-position of the text. Dy is the difference between the determined position and the current one. Negative values shift the text to the top by the amount of pixel"}>
+              <div>
             <div style={{margin:"5px"}} >
             <SizeInput size={dy} label="Dy" onSizeChange={handleDyChange} min={initial?.textDy?.min}
                 max={initial?.textDy?.max} step={initial?.textDy?.step} />
@@ -238,8 +263,12 @@ const TextChangeComponent=({keyValues,updateEditorValue,getEditorValue})=>{
             <IconButton onClick={() => handleDyChange(dy + initial?.textDy?.step)}>
                 <ArrowDropUpIcon />
               </IconButton>
+              </div>
+            </Tooltip>
           </Grid>
           <Grid item xs={4} style={{alignItems: "center", textAlign: "center"}}>
+            <Tooltip placement="top" title={"Change the angle of the text. Values are in Degree, so -90 rotates the text to the left by 90 degree"}>
+              <div>
             <div style={{margin:"5px"}} >
             <SizeInput size={angle} label="Angle" onSizeChange={handleAngleChange} min={initial?.textAngle?.min} 
               max={initial?.textAngle?.max} step={initial?.textAngle?.step} />
@@ -250,6 +279,8 @@ const TextChangeComponent=({keyValues,updateEditorValue,getEditorValue})=>{
             <IconButton onClick={() => handleAngleChange(angle + initial?.textAngle?.step)}>
                 <RotateRightIcon />
               </IconButton>
+              </div>
+            </Tooltip>
           </Grid>
     </Grid>
   

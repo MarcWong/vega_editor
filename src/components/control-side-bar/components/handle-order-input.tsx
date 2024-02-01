@@ -11,7 +11,7 @@ import ListItemSecondaryAction from "@mui/material/ListItemSecondaryAction";
 import DragHandleIcon from '@mui/icons-material/DragHandle';
 import { Container, Draggable } from "react-smooth-dnd";
 import {arrayMoveImmutable} from "array-move";
-import { Paper, Typography } from '@mui/material';
+import { Paper, Tooltip, Typography } from '@mui/material';
 
 
 interface OrderSelectProps {
@@ -70,9 +70,13 @@ const OrderSelect: React.FC<OrderSelectProps> = ({ entities, updateEditorValue, 
 
     return (
         <div style={{alignItems: "center", textAlign: "center"}}>
+            <Tooltip placement="top" title={"Order of items changes the representation in the plot"}>
+                    <div>
             <Paper sx={{ width: "100%", alignItems: "center", textAlign: "center", marginBottom:"8px" }} elevation={3}> 
                 <Typography variant="h6">Order</Typography>
             </Paper>
+            </div>
+                </Tooltip>
             <List>
                 <Container dragHandleSelector=".drag-handle" lockAxis="y" onDrop={onDrop} onDragEnd={() => document.body.style.cursor = 'default'} onDragStart={() => document.body.style.cursor = 'grabbing'}>
                     {order.map((v,i) => (

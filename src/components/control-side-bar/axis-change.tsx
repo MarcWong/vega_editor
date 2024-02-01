@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import RangeInput from './components/range-input';
 import ScaleDomainInput from './components/scale-domain-input';
 import CheckboxInput from './components/check-box-input';
-import { Box, Checkbox, FormControlLabel, Grid, IconButton, Paper, Typography } from '@mui/material';
+import { Box, Checkbox, FormControlLabel, Grid, IconButton, Paper, Tooltip, Typography } from '@mui/material';
 import SizeInput from './components/size-input';
 import Slider from '@mui/material/Slider';
 import PivotTableChartIcon from '@mui/icons-material/PivotTableChart';
@@ -239,11 +239,17 @@ const AxisChangeComponent: React.FC<AxisChangeComponentProps> = ({getEditorValue
             </Paper>
             <Grid container spacing={3} style={{alignItems: "center", textAlign: "center", marginBottom:"8px"}}>
                 <Grid item xs={4} style={{alignItems: "center", textAlign: "center"}}>
-                <IconButton onClick={swap}>
-                    <PivotTableChartIcon sx={{transform: "rotate(-90deg)"}}/>
-                </IconButton>
+                <Tooltip placement="top" title={"Swap Axis so X-Axis is the new Y-Axis"}>
+                    <div>
+                        <IconButton onClick={swap}>
+                            <PivotTableChartIcon sx={{transform: "rotate(-90deg)"}}/>
+                        </IconButton>
+                    </div>
+                </Tooltip>
                 </Grid>
                 <Grid item xs={4} style={{alignItems: "center", textAlign: "center"}}>
+                     <Tooltip placement="top" title={"Show / Hide X-Axis"}>
+                    <div>
                 <FormControlLabel control={
                 <Checkbox
                     defaultChecked
@@ -255,8 +261,12 @@ const AxisChangeComponent: React.FC<AxisChangeComponentProps> = ({getEditorValue
                     checkedIcon={<VisibilityIcon />}
                 />
                 } label={"X-Axis"} />
+                </div>
+                </Tooltip>
                 </Grid>
                 <Grid item xs={4} style={{alignItems: "center", textAlign: "center"}}>
+                     <Tooltip placement="top" title={"Show / Hide Y-Axis"}>
+                    <div>
                 <FormControlLabel control={
                 <Checkbox
                 defaultChecked
@@ -267,6 +277,8 @@ const AxisChangeComponent: React.FC<AxisChangeComponentProps> = ({getEditorValue
                     checkedIcon={<VisibilityIcon />}
                 />
                 } label={"Y-Axis"} />
+                </div>
+                </Tooltip>
                 </Grid>
             </Grid>
             <Paper sx={{ width: "100%", alignItems: "center", textAlign: "center", marginBottom:"12px" }} elevation={3}> 
@@ -279,19 +291,21 @@ const AxisChangeComponent: React.FC<AxisChangeComponentProps> = ({getEditorValue
                     min={2} max={20} step={1}/>
                     </div>
                     <IconButton onClick={() => {
-                            let temp = xParam[0] + 1
-                            change("x", temp, 0)
-                        }}>
-                        <TextIncreaseIcon />
-                    </IconButton>
-                    <IconButton onClick={() => {
                         let temp = xParam[0] - 1
                         change("x", temp, 0)
                         }}>
                         <TextDecreaseIcon />
                     </IconButton>
+                    <IconButton onClick={() => {
+                            let temp = xParam[0] + 1
+                            change("x", temp, 0)
+                        }}>
+                        <TextIncreaseIcon />
+                    </IconButton>
                 </Grid>
                 <Grid item xs={3} style={{alignItems: "center", textAlign: "center"}}>
+                    <Tooltip placement="top" title={"Offset moves the labeltext to the left or right"}>
+                    <div>
                     <div style={{margin:"5px"}} >
                     <SizeInput size={xParam[1]} label="Offset" onSizeChange={(e) => setAxisXState((prev)=>({...prev,labelOffset:e}))} 
                         min={-10} max={10} step={1}/>
@@ -308,8 +322,12 @@ const AxisChangeComponent: React.FC<AxisChangeComponentProps> = ({getEditorValue
                         }}>
                         <ArrowRightIcon />
                     </IconButton>
+                    </div>
+                </Tooltip>
                 </Grid>
                 <Grid item xs={3} style={{alignItems: "center", textAlign: "center"}}>
+                    <Tooltip placement="top" title={"Padding reduces or adds space between labels and the axis => move up or down"}>
+                    <div>
                     <div style={{margin:"5px"}} >
                     <SizeInput size={xParam[2]} label="Padding" onSizeChange={(e) => setAxisXState((prev)=>({...prev,labelPadding:e}))} 
                         min={-10} max={10} step={1}/>
@@ -326,8 +344,12 @@ const AxisChangeComponent: React.FC<AxisChangeComponentProps> = ({getEditorValue
                         }}>
                         <ArrowDropDownIcon />
                     </IconButton>
+                    </div>
+                </Tooltip>
                 </Grid>
                 <Grid item xs={3} style={{alignItems: "center", textAlign: "center"}}>
+                    <Tooltip placement="top" title={"Angle rotates the labeltext"}>
+                    <div>
                     <div style={{margin:"5px"}} >
                         <SizeInput size={xParam[3]} label="Angle" onSizeChange={(e) => setAxisXState((prev)=>({...prev,labelAngle:e}))} 
                         min={-90} max={90} step={1}/>
@@ -344,9 +366,13 @@ const AxisChangeComponent: React.FC<AxisChangeComponentProps> = ({getEditorValue
                         }}>
                         <RotateRightIcon />
                     </IconButton>
+                    </div>
+                </Tooltip>
                 </Grid>
                 </Grid>
                 { initial?.AxisScaleDomain?.x !== undefined?
+                <Tooltip placement="top" title={"Select the domain of the x-axis, so the span of values that is shown on the axis"}>
+                    <div>
                 <Box sx={{ width: "80%", margin:"auto", alignItems: "center", textAlign: "center" }}>
                     <Typography variant="subtitle1">X-Domain</Typography>
                     <Slider
@@ -360,20 +386,29 @@ const AxisChangeComponent: React.FC<AxisChangeComponentProps> = ({getEditorValue
                         min={initial?.AxisScaleDomain?.x?.minimal}
                         max={initial?.AxisScaleDomain?.x?.maximum}
                     />
-                </Box>: <></>}
+                </Box></div>
+                </Tooltip>: <></>}
 
                 <Grid container spacing={3} style={{alignItems: "center", textAlign: "center", margin:"8px"}}>
                     <Grid item xs={3} style={{alignItems: "center", textAlign: "center"}}>
+                        <Tooltip placement="top" title={"Show / Hide the x-ticks in the grid"}>
+                            <div>
                             <Checkbox
                             defaultChecked={initial?.AxisGrid?.x} 
                             onChange={(_,e) => handleAxisGridChange(e, "x")}
                                 icon={<GridOffIcon />}
                                 checkedIcon={<GridOnIcon />}
                             />
+                            </div>
+                </Tooltip>
                     </Grid>
                     <Grid item xs={5} style={{alignItems: "center", textAlign: "center"}}>
+                        <Tooltip placement="top" title={"Change the amount of ticks on the x-axis"}>
+                    <div>
                         <SizeInput size={initial?.AxisTickCount?.x?.init} label="X Axis Tick Count" onSizeChange={(e) => handleAxisTickCountChange(e, "x")}
                         min={initial?.AxisTickCount?.x?.min} max={initial?.AxisTickCount?.x?.max} step={initial?.AxisTickCount?.x?.step} />
+                    </div>
+                </Tooltip>
                     </Grid>
                 </Grid>
                 
@@ -389,19 +424,22 @@ const AxisChangeComponent: React.FC<AxisChangeComponentProps> = ({getEditorValue
                     min={2} max={20} step={1}/>
                     </div>
                     <IconButton onClick={() => {
-                            let temp = yParam[0] + 1
-                            change("y", temp, 0)
-                        }}>
-                        <TextIncreaseIcon />
-                    </IconButton>
-                    <IconButton onClick={() => {
                         let temp = yParam[0] - 1
                         change("y", temp, 0)
                         }}>
                         <TextDecreaseIcon />
                     </IconButton>
+                    <IconButton onClick={() => {
+                            let temp = yParam[0] + 1
+                            change("y", temp, 0)
+                        }}>
+                        <TextIncreaseIcon />
+                    </IconButton>
+                    
                 </Grid>
                 <Grid item xs={3} style={{alignItems: "center", textAlign: "center"}}>
+                    <Tooltip placement="top" title={"Offset moves the labeltext up or down"}>
+                    <div>
                     <div style={{margin:"5px"}} >
                     <SizeInput size={yParam[1]} label="Offset" onSizeChange={(e) => setAxisYState((prev)=>({...prev,labelOffset:e}))} 
                         min={-10} max={10} step={1}/>
@@ -419,8 +457,12 @@ const AxisChangeComponent: React.FC<AxisChangeComponentProps> = ({getEditorValue
                         }}>
                         <ArrowDropDownIcon />
                     </IconButton>
+                    </div>
+                </Tooltip>
                 </Grid>
                 <Grid item xs={3} style={{alignItems: "center", textAlign: "center"}}>
+                    <Tooltip placement="top" title={"Padding reduces or adds space between labels and the axis => move left or right"}>
+                    <div>
                     <div style={{margin:"5px"}} >
                     <SizeInput size={yParam[2]} label="Padding" onSizeChange={(e) => setAxisYState((prev)=>({...prev,labelPadding:e}))} 
                         min={-10} max={10} step={1}/>
@@ -437,8 +479,12 @@ const AxisChangeComponent: React.FC<AxisChangeComponentProps> = ({getEditorValue
                         }}>
                         <ArrowRightIcon />
                     </IconButton>
+                    </div>
+                </Tooltip>
                 </Grid>
                 <Grid item xs={3} style={{alignItems: "center", textAlign: "center"}}>
+                    <Tooltip placement="top" title={"Angle rotates the labeltext"}>
+                    <div>
                     <div style={{margin:"5px"}} >
                         <SizeInput size={yParam[3]} label="Angle" onSizeChange={(e) => setAxisYState((prev)=>({...prev,labelAngle:e}))} 
                         min={-90} max={90} step={1}/>
@@ -455,9 +501,13 @@ const AxisChangeComponent: React.FC<AxisChangeComponentProps> = ({getEditorValue
                         }}>
                         <RotateRightIcon />
                     </IconButton>
+                    </div>
+                </Tooltip>
                 </Grid>
                 </Grid>
                 { initial?.AxisScaleDomain?.y !== undefined?
+                <Tooltip placement="top" title={"Select the domain of the y-axis, so the span of values that is shown on the axis"}>
+                    <div>
                 <Box sx={{ width: "80%", margin:"auto", alignItems: "center", textAlign: "center" }}>
                             <Typography variant="subtitle1">Y-Domain</Typography>
                             <Slider
@@ -471,21 +521,30 @@ const AxisChangeComponent: React.FC<AxisChangeComponentProps> = ({getEditorValue
                                 min={initial?.AxisScaleDomain?.y?.minimal}
                                 max={initial?.AxisScaleDomain?.y?.maximum}
                             />
-                        </Box>
+                        </Box></div>
+                </Tooltip>
                     :<></>}
 
                 <Grid container spacing={3} style={{alignItems: "center", textAlign: "center", margin:"8px"}}>
                     <Grid item xs={3} style={{alignItems: "center", textAlign: "center"}}>
+                        <Tooltip placement="top" title={"Show / Hide the y-ticks in the grid"}>
+                    <div>
                         <Checkbox
                         defaultChecked={initial?.AxisGrid?.y} 
                         onChange={(_,e) => handleAxisGridChange(e, "y")}
                             icon={<GridOffIcon />}
                             checkedIcon={<GridOnIcon />}
                         />
+                        </div>
+                </Tooltip>
                     </Grid>
                     <Grid item xs={5} style={{alignItems: "center", textAlign: "center"}}>
+                        <Tooltip placement="top" title={"Change the amount of ticks on the y-axis"}>
+                    <div>
                         <SizeInput size={initial?.AxisTickCount?.y?.init} label="Y Axis Tick Count" onSizeChange={(e) => handleAxisTickCountChange(e, "y")}
                         min={initial?.AxisTickCount?.y?.min} max={initial?.AxisTickCount?.y?.max} step={initial?.AxisTickCount?.y?.step} />
+                    </div>
+                </Tooltip>
                     </Grid>
                 </Grid>
         </div>
