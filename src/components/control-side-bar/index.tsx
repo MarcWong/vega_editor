@@ -312,6 +312,8 @@ const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,edit
           true]
 
   function renderTabs(){
+    console.log(spec)
+    console.log(filterValues)
     return tabList.filter((t, i) => filterValues[i])
   }
 
@@ -335,7 +337,7 @@ const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,edit
       </Paper>
       <div style={{position: 'static', width: "100%", overflow: 'auto', height: "54%", display: isShow ? '':'none', alignItems: "center", textAlign: "center"}}>
       <div style={{maxWidth: "95%", overflow: "hidden"}}>
-        <img src="saliency/OECD_RUNNING_A_BUSINESS_BGD_SGP_TUR_ZAF_ZMB_000008_mdeam.png" style={{width: "100%", objectFit: "contain"}}/>
+        <img src={`saliency/${spec.name}_mdeam.png`} style={{width: "100%", objectFit: "contain"}}/>
         </div>
       </div>
       <div>

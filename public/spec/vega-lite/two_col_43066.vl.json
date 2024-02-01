@@ -8,38 +8,17 @@
       "height": 333.33333333333337,
       "data": {
         "values": [
-          {
-            "Characteristic": "Google",
-            "Index points": 79
-          },
+          { "Characteristic": "Google", "Index points": 79 },
           {
             "Characteristic": "TOTAL Internet search engines and information",
             "Index points": 76
           },
-          {
-            "Characteristic": "Yahoo (Verizon Media)",
-            "Index points": 72
-          },
-          {
-            "Characteristic": "Ask.com",
-            "Index points": 71
-          },
-          {
-            "Characteristic": "MSN (Microsoft)",
-            "Index points": 71
-          },
-          {
-            "Characteristic": "AOL (Verizon Media)",
-            "Index points": 71
-          },
-          {
-            "Characteristic": "Bing (Microsoft)",
-            "Index points": 71
-          },
-          {
-            "Characteristic": "Answers.com",
-            "Index points": 70
-          }
+          { "Characteristic": "Yahoo (Verizon Media)", "Index points": 72 },
+          { "Characteristic": "Ask.com", "Index points": 71 },
+          { "Characteristic": "MSN (Microsoft)", "Index points": 71 },
+          { "Characteristic": "AOL (Verizon Media)", "Index points": 71 },
+          { "Characteristic": "Bing (Microsoft)", "Index points": 71 },
+          { "Characteristic": "Answers.com", "Index points": 70 }
         ]
       },
       "encoding": {
@@ -56,30 +35,18 @@
             "Bing (Microsoft)",
             "Answers.com"
           ],
-          "axis": {
-            "grid": false
-          }
+          "axis": { "grid": false, "labelAngle": -20 }
         },
         "y": {
           "field": "Index points",
           "type": "quantitative",
-          "axis": {
-            "grid": true,
-            "tickCount": 5,
-            "scale": {
-              "domain": [0, 100]
-            }
-          },
-          "scale": {
-            "domain": [0, 100]
-          }
+          "axis": { "grid": true, "tickCount": 5, "scale": { "domain": [0, 100] } },
+          "scale": { "domain": [0, 100] }
         }
       },
       "layer": [
         {
-          "mark": {
-            "type": "bar"
-          },
+          "mark": { "type": "bar" },
           "encoding": {
             "color": {
               "condition": {
@@ -117,17 +84,13 @@
             "opacity": 1
           },
           "encoding": {
-            "text": {
-              "field": "Index points",
-              "type": "quantitative"
-            },
-            "color": {
-              "value": "#000000"
-            }
+            "text": { "field": "Index points", "type": "quantitative" },
+            "color": { "value": "#000000" }
           }
         }
       ]
     }
   ],
-  "name": "4306"
+  "name": "4306",
+  "config": {}
 }

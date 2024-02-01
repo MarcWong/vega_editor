@@ -298,7 +298,7 @@ class Header extends React.PureComponent<PropsType, State> {
                       >
                         <div
                           style={{
-                            backgroundImage: `url(png/${spec.name}.png)`,
+                            backgroundImage: `url(png/${spec.title}.png)`,
                           }}
                           className="img"
                         />

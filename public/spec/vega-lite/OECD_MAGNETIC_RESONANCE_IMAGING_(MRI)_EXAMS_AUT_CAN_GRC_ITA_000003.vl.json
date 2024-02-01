@@ -5,54 +5,31 @@
       "title": "Magnetic resonance imaging (MRI) exams",
       "description": "A comparison of the number of MRI exams across different countries.",
       "width": 200,
-      "height": 400,
+      "height": 83.33333333333334,
       "data": {
         "values": [
-          {
-            "Country": "Greece",
-            "MRI Exams": 64
-          },
-          {
-            "Country": "Italy",
-            "MRI Exams": 68
-          },
-          {
-            "Country": "Austria",
-            "MRI Exams": 120
-          }
+          { "Country": "Greece", "MRI Exams": 64 },
+          { "Country": "Italy", "MRI Exams": 68 },
+          { "Country": "Austria", "MRI Exams": 120 }
         ]
       },
       "encoding": {
         "y": {
           "field": "MRI Exams",
           "type": "quantitative",
-          "axis": {
-            "grid": true,
-            "scale": {
-              "domain": [null, null]
-            }
-          },
-          "scale": {
-            "domain": [0, 125]
-          }
+          "axis": { "grid": true, "scale": { "domain": [null, null] } },
+          "scale": { "domain": [0, 125] }
         },
         "x": {
           "field": "Country",
           "type": "nominal",
           "sort": ["Austria", "Greece", "Italy"],
-          "axis": {
-            "grid": false,
-            "tickCount": 5,
-            "labelAngle": -45
-          }
+          "axis": { "grid": false, "tickCount": 5, "labelAngle": -45 }
         }
       },
       "layer": [
         {
-          "mark": {
-            "type": "bar",
-            "color": "#4682b4"
-          },
+          "mark": { "type": "bar", "color": "#4682b4" },
           "encoding": {
             "color": {
               "field": "Country",
@@ -68,17 +45,11 @@
               }
             },
             "opacity": {
-              "condition": {
-                "test": "datum.Country === 'none'",
-                "value": 1
-              },
+              "condition": { "test": "datum.Country === 'none'", "value": 1 },
               "value": 1
             },
             "size": {
-              "condition": {
-                "test": "datum.Country === 'none'",
-                "value": 30
-              },
+              "condition": { "test": "datum.Country === 'none'", "value": 30 },
               "value": 40
             }
           }
@@ -96,17 +67,13 @@
             "opacity": 1
           },
           "encoding": {
-            "text": {
-              "field": "MRI Exams",
-              "type": "quantitative"
-            },
-            "color": {
-              "value": "#000000"
-            }
+            "text": { "field": "MRI Exams", "type": "quantitative" },
+            "color": { "value": "#000000" }
           }
         }
       ]
     }
   ],
-  "name": "MRI"
+  "name": "MRI",
+  "config": {}
 }

@@ -1,49 +1,25 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "config": {
-    "view": {
-      "stroke": "transparent"
-    }
-  },
+  "config": { "view": { "stroke": "transparent" } },
   "vconcat": [
     {
       "title": "Global Plasma Market Share in 2017",
       "description": "A comparison of the share of the global plasma market in different countries in 2017.",
       "width": 400,
-      "height": 400,
+      "height": 250,
       "data": {
         "values": [
-          {
-            "Country": "United States",
-            "Share": 44
-          },
-          {
-            "Country": "China",
-            "Share": 16
-          },
-          {
-            "Country": "Germany",
-            "Share": 5
-          },
-          {
-            "Country": "Japan",
-            "Share": 4
-          },
-          {
-            "Country": "France",
-            "Share": 3
-          },
-          {
-            "Country": "Rest of the world",
-            "Share": 28
-          }
+          { "Country": "United States", "Share": 44 },
+          { "Country": "China", "Share": 16 },
+          { "Country": "Germany", "Share": 5 },
+          { "Country": "Japan", "Share": 4 },
+          { "Country": "France", "Share": 3 },
+          { "Country": "Rest of the world", "Share": 28 }
         ]
       },
       "layer": [
         {
-          "mark": {
-            "type": "bar"
-          },
+          "mark": { "type": "bar" },
           "encoding": {
             "color": {
               "condition": {
@@ -53,17 +29,11 @@
               "value": "#2876dd"
             },
             "opacity": {
-              "condition": {
-                "test": "datum.Country === 'none'",
-                "value": 1
-              },
+              "condition": { "test": "datum.Country === 'none'", "value": 1 },
               "value": 1
             },
             "size": {
-              "condition": {
-                "test": "datum.Country === 'none'",
-                "value": 30
-              },
+              "condition": { "test": "datum.Country === 'none'", "value": 30 },
               "value": 40
             }
           }
@@ -81,13 +51,8 @@
             "opacity": 1
           },
           "encoding": {
-            "text": {
-              "field": "Share",
-              "type": "quantitative"
-            },
-            "color": {
-              "value": "#000000"
-            }
+            "text": { "field": "Share", "type": "quantitative" },
+            "color": { "value": "#000000" }
           }
         }
       ],
@@ -95,12 +60,7 @@
         "y": {
           "field": "Country",
           "type": "nominal",
-          "axis": {
-            "title": "",
-            "grid": false,
-            "tickCount": 6,
-            "domain": false
-          },
+          "axis": { "title": "", "grid": false, "tickCount": 6, "domain": false },
           "sort": ["Japan", "United States", "China", "Germany", "Rest of the world", "France"]
         },
         "x": {
