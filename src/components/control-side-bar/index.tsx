@@ -6,7 +6,7 @@ import AspectRatioComponent from './aspectRatio-change';
 import TextChangeComponent from './text-change';
 import AxisChangeComponent from './axis-change';
 import HighlightChangeComponent from './highlight-change';
-import { Accordion, AccordionSummary, AccordionDetails, Typography, Tabs, Tab, Box, BottomNavigation, BottomNavigationAction, Paper, Checkbox } from '@mui/material';
+import { Accordion, AccordionSummary, AccordionDetails, Typography, Tabs, Tab, Box, BottomNavigation, BottomNavigationAction, Paper, Checkbox, Tooltip } from '@mui/material';
 import ExpandIcon from '@mui/icons-material/Expand';
 import { createLogger } from 'browser-bunyan';
 import { ConsoleFormattedStream } from 'browser-bunyan';
@@ -20,6 +20,7 @@ import TabContext from '@mui/lab/TabContext';
 import DownloadIcon from '@mui/icons-material/Download';
 import UndoIcon from '@mui/icons-material/Undo';
 import RedoIcon from '@mui/icons-material/Redo';
+import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
 
 
 interface ControlSidebarProps {
@@ -345,15 +346,26 @@ const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,edit
           <BottomNavigation
             showLabels
           >
+            <Tooltip placement="top" title={"Undo"}>
             <BottomNavigationAction color="primary" icon={<UndoIcon/>} onClick={undo}/>
+                </Tooltip>
+            <Tooltip placement="top" title={"Redo"}>
             <BottomNavigationAction color="primary" icon={<RedoIcon/>} onClick={redo}/>
+                </Tooltip>
+            <Tooltip placement="top" title={"Show saliency heatmap"}>
             <BottomNavigationAction color="primary" icon={<Checkbox
               checked={isShow}
               icon={<ExpandIcon/>}
-              checkedIcon={<ExpandIcon/>}
+              checkedIcon={<SkipPreviousIcon sx={{transform: "rotate(-90deg)"}}/>}
             />} onClick={toggleSaliency}/>
+
+                </Tooltip>
+            <Tooltip placement="top" title={"Download the Logs"}>
             <BottomNavigationAction color="primary" icon={<DownloadIcon/>} label="Logs" onClick={downloadLogs}/>
+                </Tooltip>
+            <Tooltip placement="top" title={"Download the Json of the plot"}>
             <BottomNavigationAction color="primary" icon={<DownloadIcon/>} label="Json" onClick={dowloadJson} />
+                </Tooltip>
           </BottomNavigation>
         </Paper>
       </div>

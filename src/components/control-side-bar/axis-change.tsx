@@ -94,6 +94,10 @@ const AxisChangeComponent: React.FC<AxisChangeComponentProps> = ({getEditorValue
     const [xParam, setXParam] = useState([12, 0, 0, 0]);
     const [yParam, setYParam] = useState([12, 0, 0, 0]);
 
+
+
+    const [swaped, setSwap] = useState(false);
+
     function change(axis, value, index){
         if(axis === "x"){
             if(index === 0)
@@ -241,7 +245,7 @@ const AxisChangeComponent: React.FC<AxisChangeComponentProps> = ({getEditorValue
                 <Grid item xs={4} style={{alignItems: "center", textAlign: "center"}}>
                 <Tooltip placement="top" title={"Swap Axis so X-Axis is the new Y-Axis"}>
                     <div>
-                        <IconButton onClick={swap}>
+                        <IconButton onClick={ () => {swap(); setSwap(!swaped)}}>    
                             <PivotTableChartIcon sx={{transform: "rotate(-90deg)"}}/>
                         </IconButton>
                     </div>
@@ -370,7 +374,7 @@ const AxisChangeComponent: React.FC<AxisChangeComponentProps> = ({getEditorValue
                 </Tooltip>
                 </Grid>
                 </Grid>
-                { initial?.AxisScaleDomain?.x !== undefined?
+                { !swaped&&initial?.AxisScaleDomain?.x !== undefined || swaped&&initial?.AxisScaleDomain?.y !== undefined?
                 <Tooltip placement="top" title={"Select the domain of the x-axis, so the span of values that is shown on the axis"}>
                     <div>
                 <Box sx={{ width: "80%", margin:"auto", alignItems: "center", textAlign: "center" }}>
@@ -405,8 +409,10 @@ const AxisChangeComponent: React.FC<AxisChangeComponentProps> = ({getEditorValue
                     <Grid item xs={5} style={{alignItems: "center", textAlign: "center"}}>
                         <Tooltip placement="top" title={"Change the amount of ticks on the x-axis"}>
                     <div>
-                        <SizeInput size={initial?.AxisTickCount?.x?.init} label="X Axis Tick Count" onSizeChange={(e) => handleAxisTickCountChange(e, "x")}
-                        min={initial?.AxisTickCount?.x?.min} max={initial?.AxisTickCount?.x?.max} step={initial?.AxisTickCount?.x?.step} />
+                        { !swaped&&initial?.AxisTickCount?.x !== undefined || swaped&&initial?.AxisTickCount?.y !== undefined?
+                            <SizeInput size={initial?.AxisTickCount?.x?.init} label="X Axis Tick Count" onSizeChange={(e) => handleAxisTickCountChange(e, "x")}
+                            min={initial?.AxisTickCount?.x?.min} max={initial?.AxisTickCount?.x?.max} step={initial?.AxisTickCount?.x?.step} />
+                        :<></>}
                     </div>
                 </Tooltip>
                     </Grid>
@@ -505,7 +511,7 @@ const AxisChangeComponent: React.FC<AxisChangeComponentProps> = ({getEditorValue
                 </Tooltip>
                 </Grid>
                 </Grid>
-                { initial?.AxisScaleDomain?.y !== undefined?
+                { !swaped&&initial?.AxisScaleDomain?.y !== undefined || swaped&&initial?.AxisScaleDomain?.x !== undefined?
                 <Tooltip placement="top" title={"Select the domain of the y-axis, so the span of values that is shown on the axis"}>
                     <div>
                 <Box sx={{ width: "80%", margin:"auto", alignItems: "center", textAlign: "center" }}>
@@ -541,8 +547,10 @@ const AxisChangeComponent: React.FC<AxisChangeComponentProps> = ({getEditorValue
                     <Grid item xs={5} style={{alignItems: "center", textAlign: "center"}}>
                         <Tooltip placement="top" title={"Change the amount of ticks on the y-axis"}>
                     <div>
+                        { !swaped&&initial?.AxisTickCount?.y !== undefined || swaped&&initial?.AxisScaleDomain?.x !== undefined?
                         <SizeInput size={initial?.AxisTickCount?.y?.init} label="Y Axis Tick Count" onSizeChange={(e) => handleAxisTickCountChange(e, "y")}
                         min={initial?.AxisTickCount?.y?.min} max={initial?.AxisTickCount?.y?.max} step={initial?.AxisTickCount?.y?.step} />
+                        :<></>}
                     </div>
                 </Tooltip>
                     </Grid>
