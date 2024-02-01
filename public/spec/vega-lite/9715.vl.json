@@ -124,7 +124,8 @@
                 "legendX": -120,
                 "legendY": 20,
                 "orient": "none"
-              }
+              },
+              "title": ""
             },
             "opacity": {
               "condition": {

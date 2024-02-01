@@ -189,7 +189,7 @@ const TextChangeComponent=({keyValues,updateEditorValue,getEditorValue})=>{
                                           checked={changeFormat=== 1}
                                           onChange={() => {
                                             setStyle(1);
-                                            handleFontStyle("oblique")
+                                            handleFontStyle("bold")
                                           }}
                                           icon={<FormatBoldIcon />}
                                           checkedIcon={<FormatBoldIcon />}

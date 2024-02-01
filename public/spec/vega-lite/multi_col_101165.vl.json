@@ -82,7 +82,13 @@
           "axis": null
         },
         "color": {
-          "field": "group"
+          "field": "group",
+          "legend": {
+            "legendX": 280,
+            "legendY": 20,
+            "orient": "none"
+          },
+          "title": ""
         }
       },
       "config": {

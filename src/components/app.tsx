@@ -104,6 +104,7 @@ class App extends React.PureComponent<PropsType> {
         break;
       }
       case 'vega-lite': {
+        console.log('fetch', `./spec/vega-lite/${name}.vl.json`)
         const r = await fetch(`./spec/vega-lite/${name}.vl.json`);
         this.props.setVegaLiteExample(name, await r.text());
         break;

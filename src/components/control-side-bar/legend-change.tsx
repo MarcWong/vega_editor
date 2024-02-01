@@ -4,15 +4,17 @@ import SelectInput from './components/select-input';
 import { Box, Grid, Paper, Typography } from  '@mui/material';
 
 
-const LEGEND_PATH="vconcat.0.layer.0.encoding.color.legend"
+const LEGEND_PATH = "vconcat.0.layer.0.encoding.color.legend"
+const LEGEND_PATH_1 = "vconcat.0.encoding.color.legend"
 
 const LegendComponent = ({ updateEditorValue,getEditorValue }) => {
 
 
-  const legend=getEditorValue(LEGEND_PATH);
+  let legend=getEditorValue(LEGEND_PATH)
+  if (legend == undefined) {
+    legend=getEditorValue(LEGEND_PATH_1)
+  }
 
-
-  // console.log("legend",legend,getEditorValue(LEGEND_PATH)
 
   // useEffect(() => {
   //   setLegend(getEditorValue(LEGEND_PATH));

@@ -118,7 +118,8 @@
                 "legendX": 10,
                 "legendY": 20,
                 "orient": "none"
-              }
+              },
+              "title": ""
             },
             "opacity": {
               "condition": [],

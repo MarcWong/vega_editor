@@ -79,7 +79,37 @@
           "axis": null
         },
         "color": {
-          "field": "group"
+          "field": "group",
+          "legend": {
+            "legendX": 280,
+            "legendY": 20,
+            "orient": "none"
+          },
+          "title": ""
+        }
+      },
+      "spec": {
+        "mark": "bar",
+        "encoding": {
+          "y": {
+            "field": "value",
+            "type": "quantitative",
+            "axis": {
+              "title": "Index score (1 = full unequality, 100 = full equality)"
+            }
+          },
+          "x": {
+            "field": "Entity",
+            "type": "ordinal"
+          },
+          "color": {
+            "field": "Entity",
+            "type": "nominal",
+            "legend": null,
+            "scale": {
+              "scheme": "category10"
+            }
+          }
         }
       }
     },

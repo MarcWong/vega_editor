@@ -309,14 +309,14 @@ const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,edit
   let filterValues = [accordingValues?.aspectRatio?.initial!== undefined, accordingValues?.ColorArray?.colors?.length > 0, 
           accordingValues?.Text?.initial!== undefined,
           accordingValues?.Axis?.initial!== undefined, accordingValues?.Condition?.initial!== undefined, accordingValues?.Order!== undefined, 
-          getEditorValue("vconcat.0.layer.0.encoding.color.legend")?.length > 0]
+          true]
 
   function renderTabs(){
+    console.log(filterValues)
     return tabList.filter((t, i) => filterValues[i])
   }
 
   function renderTabPanels(){
-    console.log(accordingValues)
     return panelList.filter((t, i) => filterValues[i])
   }
 

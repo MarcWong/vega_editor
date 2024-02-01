@@ -10,57 +10,57 @@
         "values": [
           {
             "Characteristic": "Business operations",
-            "Happy with current hours": 69,
-            "Would like more hours": 4,
+            "Happy with current hours": 4,
+            "Would like more hours": 69,
             "Would like fewer hours": 27
           },
           {
             "Characteristic": "Shift or crew supervisor",
-            "Happy with current hours": 63,
-            "Would like more hours": 21,
-            "Would like fewer hours": 16
-          },
-          {
-            "Characteristic": "Bartender",
-            "Happy with current hours": 63,
-            "Would like more hours": 27,
-            "Would like fewer hours": 10
-          },
-          {
-            "Characteristic": "Waiter/waitress",
-            "Happy with current hours": 56,
-            "Would like more hours": 36,
-            "Would like fewer hours": 8
-          },
-          {
-            "Characteristic": "Chef or cook",
-            "Happy with current hours": 54,
-            "Would like more hours": 25,
+            "Happy with current hours": 16,
+            "Would like more hours": 63,
             "Would like fewer hours": 21
           },
           {
+            "Characteristic": "Bartender",
+            "Happy with current hours": 10,
+            "Would like more hours": 63,
+            "Would like fewer hours": 27
+          },
+          {
+            "Characteristic": "Waiter/waitress",
+            "Happy with current hours": 8,
+            "Would like more hours": 56,
+            "Would like fewer hours": 36
+          },
+          {
+            "Characteristic": "Chef or cook",
+            "Happy with current hours": 21,
+            "Would like more hours": 54,
+            "Would like fewer hours": 25
+          },
+          {
             "Characteristic": "Restaurant manager",
-            "Happy with current hours": 52,
-            "Would like more hours": 3,
+            "Happy with current hours": 3,
+            "Would like more hours": 52,
             "Would like fewer hours": 45
           },
           {
             "Characteristic": "Crew person (fast food)",
-            "Happy with current hours": 47,
-            "Would like more hours": 48,
-            "Would like fewer hours": 5
+            "Happy with current hours": 5,
+            "Would like more hours": 47,
+            "Would like fewer hours": 48
           },
           {
             "Characteristic": "Host/hostess",
-            "Happy with current hours": 46,
+            "Happy with current hours": 9,
             "Would like more hours": 46,
-            "Would like fewer hours": 9
+            "Would like fewer hours": 46
           },
           {
             "Characteristic": "Dishwasher/bus person",
-            "Happy with current hours": 40,
-            "Would like more hours": 52,
-            "Would like fewer hours": 8
+            "Happy with current hours": 8,
+            "Would like more hours": 40,
+            "Would like fewer hours": 52
           }
         ]
       },
@@ -81,10 +81,10 @@
           "sort": [
             "Shift or crew supervisor",
             "Bartender",
-            "Business operations",
             "Waiter/waitress",
             "Chef or cook",
             "Restaurant manager",
+            "Business operations",
             "Crew person (fast food)",
             "Host/hostess",
             "Dishwasher/bus person"
@@ -108,17 +108,24 @@
           "mark": "bar",
           "encoding": {
             "color": {
-              "condition": {
-                "test": "datum.Characteristic === 'none' && datum.key === 'none'",
-                "value": "#000000"
-              },
+              "condition": [
+                {
+                  "test": "datum.Characteristic === 'Shift or crew supervisor' && datum.key === 'Would like more hours'",
+                  "value": "#ae6b6b"
+                }
+              ],
               "field": "key",
               "type": "nominal",
               "scale": {
                 "domain": ["Happy with current hours", "Would like more hours", "Would like fewer hours"],
-                "range": ["lightgreen", "lightblue", "darkred"]
+                "range": ["#1e541e", "lightblue", "#bd3b3b"]
               },
-              "value": "#000000"
+              "legend": {
+                "legendX": -120,
+                "legendY": -120,
+                "orient": "none"
+              },
+              "title": ""
             },
             "opacity": {
               "condition": {
@@ -130,7 +137,7 @@
             "size": {
               "condition": {
                 "test": "datum.Characteristic === 'none' && datum.key === 'none'",
-                "value": 30
+                "value": 40
               },
               "value": 40
             }
@@ -144,9 +151,7 @@
             "dx": 0,
             "dy": 0,
             "angle": 0,
-            "fontSize": 30,
-            "fontStyle": "normal",
-            "fontWeight": 400,
+            "fontSize": 11,
             "font": "serif",
             "opacity": 1
           },
@@ -158,7 +163,8 @@
             "x": {
               "field": "value",
               "type": "quantitative",
-              "stack": "normalize"
+              "stack": "normalize",
+              "bandPosition": 0.5
             },
             "text": {
               "condition": {
@@ -168,7 +174,7 @@
               "value": ""
             },
             "color": {
-              "value": "#d09696"
+              "value": "#000000"
             }
           }
         }
