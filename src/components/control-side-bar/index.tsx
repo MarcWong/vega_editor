@@ -337,7 +337,12 @@ const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,edit
       </Paper>
       <div style={{position: 'static', width: "100%", overflow: 'auto', height: "54%", display: isShow ? '':'none', alignItems: "center", textAlign: "center"}}>
       <div style={{maxWidth: "95%", overflow: "hidden"}}>
+        <p>Visual saliency for a 5-second observation<br/>
+        MD-EAM prediction, from Wang et al. TVCG '23</p>
         <img src={`saliency/${spec.name}_mdeam.png`} style={{width: "100%", objectFit: "contain"}}/>
+        <p>Visual importance (UMSI)<br/>
+        UMSI prediction, from Fosco et al. UIST '20</p>
+        <img src={`saliency/${spec.name}_umsi.png`} style={{width: "100%", objectFit: "contain"}}/>
         </div>
       </div>
       <div>
