@@ -21,7 +21,7 @@ import DownloadIcon from '@mui/icons-material/Download';
 import UndoIcon from '@mui/icons-material/Undo';
 import RedoIcon from '@mui/icons-material/Redo';
 import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
-
+import TextField from '@mui/material/TextField';
 
 interface ControlSidebarProps {
     onParametersChange: (params: { [key: string]: string }) => void;
@@ -41,35 +41,34 @@ const log = createLogger({
   ]
 });
 
-
-
 const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,editorRef}) => {
-  // function processImage(){
-  //   const imageCanvas = document.getElementsByClassName('marks')
-  //   if (imageCanvas.item(0)) {
-  //     const canvas = imageCanvas.item(0)
-  //     const ctx = canvas.getContext("2d")
-  //     const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-  //     console.log(canvas.width, canvas.height, imageData.data.length)
-  //     const img = imageToMatrix(imageData)
-  //     console.log(img.length)
-  //   }
+  function processImage(){
+    const imageCanvas = document.getElementsByClassName('marks');
+    if (imageCanvas.item(0)) {
+      const canvas = imageCanvas.item(0) as HTMLCanvasElement
+      const ctx = canvas.getContext("2d")
+      const imageDataUrl = canvas.toDataURL('image/png');
+      console.log(imageDataUrl);
+      const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      const img = imageToMatrix(imageData)
+      console.log(img.length)
+    }
 
-  // }
-  // const imageToMatrix = (imageData) => {
-  //   const matrix = [];
-  //   const data = imageData.data;
+  }
+  const imageToMatrix = (imageData) => {
+    const matrix = [];
+    const data = imageData.data;
 
-  //   for (let i = 0; i < data.length; i += 4) {
-  //     // Extract RGB values and convert to grayscale
-  //     const grayscale = (data[i] + data[i + 1] + data[i + 2]) / 3;
+    for (let i = 0; i < data.length; i += 4) {
+      // Extract RGB values and convert to grayscale
+      const grayscale = (data[i] + data[i + 1] + data[i + 2]) / 3;
 
-  //     // Push the grayscale value to the matrix
-  //     matrix.push(grayscale);
-  //   }
+      // Push the grayscale value to the matrix
+      matrix.push(grayscale);
+    }
 
-  //   return matrix;
-  // };
+    return matrix;
+  };
 
   // processImage()
   const [spec,setSpec]=useState<any>({});
@@ -77,6 +76,9 @@ const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,edit
   const [choices, setChoices] = useState<string[]>([]);
   const [orderTypes, setOrderTypes] = useState<string[]>([]);
   const [accordingValues,setAccordingValues]=useState<any>({})
+  const [question, setQuestion]=useState<string>("");
+  const [imageSrc, setImageSrc] = useState('');
+
   const updateEditorValue = (path: string, value: any) => {
     if (typeof path !== 'string') {
       return;
@@ -242,6 +244,8 @@ const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,edit
     if (editorRef && typeof editorRef.getValue === "function") {
       let spec;
       try {
+        console.log("????")
+        console.log(editorRef.getValue())
         spec = JSON.parse(editorRef.getValue());
         setSpec(spec);
       } catch (err) {
@@ -322,6 +326,40 @@ const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,edit
     return panelList.filter((t, i) => filterValues[i])
   }
 
+  const handleQuestion = (e) => {
+    setQuestion(e.target.value);
+  }
+
+  const runPredict = () => {
+    const imageCanvas = document.getElementsByClassName('marks');
+    const canvas = imageCanvas.item(0) as HTMLCanvasElement;
+    const imageDataUrl = canvas.toDataURL('image/png');
+
+    fetch('http://localhost:8000/upload', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ 
+          imageDataUrl: imageDataUrl,
+          question: question
+        }),
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.blob();
+    })
+    .then(blob => {
+      setImageSrc(URL.createObjectURL(blob));
+      console.log(imageSrc)
+    })
+    .catch(error => {
+        // Handle error
+    });
+  }
+
   return (
     <div className="control-sidebar" style={{width: "40%", height: '100%'}}>
       <div style={{width: "100%"}}>
@@ -338,13 +376,17 @@ const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,edit
       </Paper>
       <div style={{position: 'static', width: "100%", overflow: 'auto', height: "54%", display: isShow ? '':'none', alignItems: "center", textAlign: "center"}}>
       <div style={{maxWidth: "95%", overflow: "hidden"}}>
-        <p>Visual saliency for a 5-second observation<br/>
+        <div><TextField fullWidth id="standard-basic" onChange={handleQuestion} label="Question" variant="standard" /><Button onClick={runPredict} style={{marginTop:10, marginLeft: 10}} variant="contained">Predict</Button></div>
+        {imageSrc? <div>
+            <img style={{marginTop: 20}} src={imageSrc} alt="Image from FastAPI" />
+          </div>: null}
+        {/* <p>Visual saliency for a 5-second observation<br/>
         MD-EAM prediction, from Wang et al. TVCG '23</p>
         <img src={`saliency/${spec.name}_mdeam.png`} style={{width: "100%", objectFit: "contain"}}/>
         <p>Visual importance (UMSI)<br/>
         UMSI prediction, from Fosco et al. UIST '20</p>
-        <img src={`saliency/${spec.name}_umsi.png`} style={{width: "100%", objectFit: "contain"}}/>
-        </div>
+        <img src={`saliency/${spec.name}_umsi.png`} style={{width: "100%", objectFit: "contain"}}/> */}
+      </div>
       </div>
       <div>
         <Paper sx={{ position: 'fixed', bottom: 0, width: "40%" }} elevation={3}>

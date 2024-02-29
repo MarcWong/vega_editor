@@ -23,6 +23,7 @@ import RotateRightIcon from '@mui/icons-material/RotateRight';
 type AxisType = 'x' | 'y';
 
 interface AxisChangeComponentProps {
+    getEditorValue;
     keyValues?: any;
     updateEditorValue: (key: any, value: any) => void;
     defaultValues?: any;
