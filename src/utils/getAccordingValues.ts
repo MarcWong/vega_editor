@@ -2643,8 +2643,8 @@ const json_values = {
   "json1014": json1014,
   "json1044": json1044,
   "json1045": json1045,
-  "json60204": json60204,
-  "json1011": json1011,
+  "jsonm6020": json60204,
+  "jsonm1011": json1011,
 };
 
 export const getAccordingValues = (value: string) => {

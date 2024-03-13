@@ -288,7 +288,7 @@ const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,edit
   let tabList = [<Tab key={"0"} value={"0"} label="Aspect Ratio" />,<Tab value={"1"} key={"1"} label="Data Color Panel" />,<Tab value={"2"} key={"2"} label="Data Label Panel" />,
           <Tab value={"3"} key={"3"} label="Axis Panel" />,<Tab value={"4"} key={"4"} label="Data Highlight Panel" />,
           <Tab value={"5"} key={"5"} label="Data Order Panel" />,<Tab value={"6"} key={"6"} label="Legend Position" />]
-
+  console.log("================================", spec)
   let panelList = [<TabPanel key={"0"} value={"0"} >
             <AspectRatioComponent keyValue={accordingValues?.aspectRatio} 
             updateEditorValue={updateEditorValue} getEditorValue={getEditorValue}/>
