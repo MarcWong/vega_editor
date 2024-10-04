@@ -1,10 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "config": {
-    "view": {
-      "continuousWidth": 400
-    }
-  },
+  "config": {"view": {"continuousWidth": 400}},
   "vconcat": [
     {
       "width": 400,
@@ -16,85 +12,54 @@
       },
       "data": {
         "values": [
-          {
-            "Entity": "UK",
-            "Importance": 21
-          },
-          {
-            "Entity": "France",
-            "Importance": 22
-          },
-          {
-            "Entity": "India",
-            "Importance": 27
-          },
-          {
-            "Entity": "U.S.",
-            "Importance": 31
-          },
-          {
-            "Entity": "Germany",
-            "Importance": 35
-          },
-          {
-            "Entity": "Russia",
-            "Importance": 42
-          },
-          {
-            "Entity": "China",
-            "Importance": 70
-          }
+          {"Entity": "UK", "value": 21},
+          {"Entity": "France", "value": 22},
+          {"Entity": "India", "value": 27},
+          {"Entity": "U.S.", "value": 31},
+          {"Entity": "Germany", "value": 35},
+          {"Entity": "Russia", "value": 42},
+          {"Entity": "China", "value": 70}
         ]
       },
       "encoding": {
         "y": {
           "field": "Entity",
           "type": "ordinal",
-          "axis": {
-            "grid": false
-          },
-          "sort": ["China", "Russia", "Germany", "U.S.", "India", "France", "UK"]
+          "axis": {"grid": false, "labelFontSize": 17},
+          "sort": [
+            "China",
+            "Russia",
+            "Germany",
+            "U.S.",
+            "India",
+            "France",
+            "UK"
+          ]
         },
         "x": {
-          "field": "Importance",
+          "field": "value",
           "type": "quantitative",
-          "axis": {
-            "grid": false,
-            "tickCount": 5
-          },
-          "scale": {
-            "domain": [0, 100]
-          }
+          "axis": {"grid": false, "tickCount": 5, "labelFontSize": 17},
+          "scale": {"domain": [0, 100]}
         },
-        "opacity": {
-          "value": 1
-        }
+        "opacity": {"value": 1}
       },
       "layer": [
         {
-          "mark": {
-            "type": "bar"
-          },
+          "mark": {"type": "bar"},
           "encoding": {
             "color": {
-              "condition": {
-                "test": "datum.Entity === 'none'",
-                "value": "#949d48"
-              },
+              "condition":
+                []
+              ,
               "value": "#949d48"
             },
             "opacity": {
-              "condition": {
-                "test": "datum.Entity === 'none'",
-                "value": 1
-              },
+              "condition": [{"test": "datum.Entity === 'none'", "value": 1}],
               "value": 1
             },
             "size": {
-              "condition": {
-                "test": "datum.Entity === 'none'",
-                "value": 30
-              },
+              "condition": [{"test": "datum.Entity === 'none'", "value": 30}],
               "value": 40
             }
           }
@@ -102,7 +67,7 @@
         {
           "mark": {
             "type": "text",
-            "dx": 0,
+            "dx": 16,
             "dy": 0,
             "xOffset": 10,
             "yOffset": 0,
@@ -110,23 +75,15 @@
             "align": "right",
             "baseline": "middle",
             "font": "serif",
-            "fontSize": 11,
-            "fontStyle": "normal",
+            "fontSize": 24,
+            "fontStyle": "italic",
             "fontWeight": "normal",
             "opacity": 1
           },
           "encoding": {
-            "text": {
-              "field": "Importance",
-              "type": "quantitative"
-            },
-            "color": {
-              "value": "#000000"
-            },
-            "x": {
-              "field": "Importance",
-              "type": "quantitative"
-            }
+            "text": {"field": "value", "type": "quantitative"},
+            "color": {"value": "#000000"},
+            "x": {"field": "value", "type": "quantitative"}
           }
         }
       ]
@@ -136,42 +93,22 @@
       "height": 10,
       "data": {
         "values": [
-          {
-            "text": "Note: Percentages are medians based on 25 countries."
-          }
+          {"text": "Note: Percentages are medians based on 25 countries."}
         ]
       },
-      "mark": {
-        "type": "text",
-        "align": "left",
-        "baseline": "middle"
-      },
-      "encoding": {
-        "text": {
-          "field": "text"
-        }
-      }
+      "mark": {"type": "text", "align": "left", "baseline": "middle"},
+      "encoding": {"text": {"field": "text"}}
     },
     {
       "width": 400,
       "height": 10,
       "data": {
         "values": [
-          {
-            "text": "Source: Spring 2018 Global Attitudes Survey. Q31 & Q32a-f."
-          }
+          {"text": "Source: Spring 2018 Global Attitudes Survey. Q31 & Q32a-f."}
         ]
       },
-      "mark": {
-        "type": "text",
-        "align": "left",
-        "baseline": "middle"
-      },
-      "encoding": {
-        "text": {
-          "field": "text"
-        }
-      }
+      "mark": {"type": "text", "align": "left", "baseline": "middle"},
+      "encoding": {"text": {"field": "text"}}
     }
   ],
   "name": "4488"

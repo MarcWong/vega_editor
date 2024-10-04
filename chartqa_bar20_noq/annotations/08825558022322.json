@@ -43,5 +43,19 @@
       "colors": ["#00823f", "#4c6a9c", "#883039", "#3c4e66"]
     }
   ],
-  "type": "h_bar"
+  "type": "h_bar",
+  "tasks": [
+    {
+      "question": "Which state shows the highest fertility rate?",
+      "label": "Malawi",
+      "entity": "Malawi",
+      "aria-label": "Children per woman, 1988: 7.16; Country: Malawi"
+    },
+    {
+      "question": "Is the value of Malawi greater than sum of Netherlands and Africa?",
+      "label": "Yes",
+      "entity": "Malawi",
+      "aria-label": "Children per woman, 1988: 7.16; Country: Malawi"
+    }
+    ]
 }

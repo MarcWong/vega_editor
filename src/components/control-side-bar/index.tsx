@@ -360,6 +360,23 @@ const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,edit
     });
   }
 
+  const updateParam = () => {
+    fetch('http://localhost:8000/', {
+        method: 'GET'
+    })
+    .then(response=>response.json())
+    .then(data=>{
+      // got the aspect ratio from backend
+      console.log(data);
+      // apply change to the slider
+      const aspectRatio = data.aspect_ratio;
+      updateEditorValue("vconcat.0.width", 400);
+      updateEditorValue("vconcat.0.height", 400 * aspectRatio);
+    })
+    .catch(error => { // Handle error 
+    });
+  }
+
   return (
     <div className="control-sidebar" style={{width: "40%", height: '100%'}}>
       <div style={{width: "100%"}}>
@@ -376,16 +393,12 @@ const ControlSidebar: React.FC<ControlSidebarProps> = ({ onParametersChange,edit
       </Paper>
       <div style={{position: 'static', width: "100%", overflow: 'auto', height: "54%", display: isShow ? '':'none', alignItems: "center", textAlign: "center"}}>
       <div style={{maxWidth: "95%", overflow: "hidden"}}>
-        <div><TextField fullWidth id="standard-basic" onChange={handleQuestion} label="Question" variant="standard" /><Button onClick={runPredict} style={{marginTop:10, marginLeft: 10}} variant="contained">Predict</Button></div>
+        <div><TextField fullWidth id="standard-basic" onChange={handleQuestion} label="Question" variant="standard" /><Button onClick={runPredict} style={{marginTop:10, marginLeft: 10}} variant="contained">Predict</Button>
+        <Button onClick={updateParam} style={{marginTop:10, marginLeft: 10}} variant="contained">UpdateParam</Button>
+        </div>
         {imageSrc? <div>
             <img style={{marginTop: 20}} src={imageSrc} alt="Image from FastAPI" />
           </div>: null}
-        {/* <p>Visual saliency for a 5-second observation<br/>
-        MD-EAM prediction, from Wang et al. TVCG '23</p>
-        <img src={`saliency/${spec.name}_mdeam.png`} style={{width: "100%", objectFit: "contain"}}/>
-        <p>Visual importance (UMSI)<br/>
-        UMSI prediction, from Fosco et al. UIST '20</p>
-        <img src={`saliency/${spec.name}_umsi.png`} style={{width: "100%", objectFit: "contain"}}/> */}
       </div>
       </div>
       <div>

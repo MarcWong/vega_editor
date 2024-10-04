@@ -457,11 +457,11 @@ const json0882 = {
   "aspectRatio": {
     "height": "height",
     "width": "width",
-    "initial": 1,
-    "min": 0.2,
-    "max": 5,
+    "initial": 2.5,
+    "min": 0.5,
+    "max": 4,
     "step": 0.1,
-    "initialWidth": 400,
+    "initialWidth": 600,
   },
   "Text": {
     "textColor": "layer.1.encoding.color.value",

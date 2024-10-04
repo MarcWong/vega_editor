@@ -3,7 +3,6 @@ import SizeInput from './components/size-input';
 import { Box, Paper, Slider, Typography } from  '@mui/material';
 
 
-    // path  "height": "vconcat.0.height",
 const PATH_HEIGHT = "vconcat.0.height";
 const PATH_WIDTH = "vconcat.0.width";
 const AspectRatioComponent = ({ keyValue, updateEditorValue,getEditorValue }) => {
@@ -11,8 +10,6 @@ const AspectRatioComponent = ({ keyValue, updateEditorValue,getEditorValue }) =>
     return null;
   }
   const {min,max,step}=keyValue;
-
-  // const [aspectRatio, setAspectRatio] = useState( getEditorValue(PATH_WIDTH) / getEditorValue(PATH_HEIGHT));
   const aspectRatio = getEditorValue(PATH_WIDTH) / getEditorValue(PATH_HEIGHT);
 
   const handleAspectRatioChange = (e:Event, newAspectRatio: number) => {
